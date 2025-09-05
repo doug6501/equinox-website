@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Case Study: Kimpton Taconic Wedding - Equinox AV</title>
+    <title>Case Study: Kimpton Taconic Wedding - Equinox Audio Visuals</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
@@ -12,81 +12,149 @@
 <body>
 
     <header class="main-header">
-        <!-- Header content will be loaded by script.js -->
+        <div class="container">
+            <a href="index.html" class="logo-link">
+                <img src="assets/logo.png" alt="Equinox Audio Visuals Logo" class="logo">
+            </a>
+            <nav class="main-nav">
+                 <button class="mobile-nav-toggle" aria-controls="nav-list" aria-expanded="false">
+                    <span class="hamburger"></span>
+                </button>
+                <ul id="nav-list" class="nav-list" data-visible="false">
+                    <li><a href="work.html">Our Work</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="insights.html">Insights</a></li>
+                    <li><a href="contact.html" class="btn btn-primary">Let's Talk</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
         <section class="case-study-hero">
-            <video autoplay loop muted playsinline class="case-study-hero-media">
-                <source src="assets/Venue_Fly_Through_Video_Generation.mp4" type="video/mp4">
-            </video>
             <div class="case-study-hero-content">
                 <h1 class="fade-in">Kimpton Taconic Wedding</h1>
-                <p class="fade-in delay-1">Crafting a perfect audio-visual experience in a boutique hotel setting.</p>
+                <p class="fade-in delay-1">Crafting a warm and elegant atmosphere for a winter wedding reception.</p>
             </div>
         </section>
 
-        <section class="case-study-details container">
-            <div class="case-study-grid">
+        <section class="case-study-video-section">
+            <div class="container fade-in">
+                <video autoplay loop muted playsinline controls poster="https://placehold.co/1200x675/1a1a1a/f5f5f5?text=Loading...">
+                    <source src="assets/Venue_Fly_Through_Video_Generation.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+
+        <section class="case-study-details-section">
+            <div class="container case-study-grid">
                 <div class="case-study-main-content fade-in">
                     <h2>The Vision</h2>
-                    <p>A winter wedding at the beautiful Kimpton Taconic hotel required an AV solution that was both elegant and effective. The client's priority was ensuring that every moment, from the vows during the ceremony to the heartfelt toasts at the reception, was perfectly seen and heard by every guest in an intimate and sophisticated setting.</p>
+                    <p>The client envisioned a sophisticated and cozy winter wedding reception. They wanted to transform the beautiful ballroom at the Kimpton Taconic into an intimate, celebratory space that felt both elegant and welcoming for their guests.</p>
                     
-                    <h2>Our Solution</h2>
-                    <p>We provided a complete AV package tailored to the unique spaces within the hotel. This included a discreet sound system with wireless microphones for the ceremony, ensuring pristine audio quality. For the reception, we installed elegant uplighting to enhance the room's warm ambiance and a high-quality sound system for dinner music and dancing. Our team handled all technical aspects with minimal intrusion, allowing the couple and their guests to fully immerse themselves in the celebration.</p>
+                    <h2>The Solution</h2>
+                    <p>Our team focused on creating a layered lighting design that brought warmth to the space. We used soft, amber uplighting to highlight the room's architectural features and pin-spotting to illuminate the floral centerpieces on each table. A full sound system was provided for the DJ, ensuring excellent audio quality that was clear for speeches and powerful for the dance floor.</p>
                 </div>
-                <div class="case-study-sidebar fade-in delay-1">
-                    <div class="sidebar-box">
-                        <h3>Project Details</h3>
-                        <ul>
-                            <li><strong>Client:</strong> Private Wedding</li>
-                            <li><strong>Venue:</strong> Kimpton Taconic Hotel</li>
-                            <li><strong>Location:</strong> Manchester, VT</li>
-                            <li><strong>Date:</strong> Winter 2025</li>
-                        </ul>
+                <aside class="case-study-sidebar fade-in delay-1">
+                    <div class="sidebar-block">
+                        <h4>Client</h4>
+                        <p>Private Client</p>
                     </div>
-                    <div class="sidebar-box">
-                        <h3>Services Provided</h3>
-                        <ul>
-                            <li>Ceremony Sound System</li>
-                            <li>Reception Audio</li>
-                            <li>Atmospheric Uplighting</li>
+                    <div class="sidebar-block">
+                        <h4>Venue</h4>
+                        <p>Kimpton Taconic Hotel</p>
+                    </div>
+                    <div class="sidebar-block">
+                        <h4>Date</h4>
+                        <p>Early 2025</p>
+                    </div>
+                    <div class="sidebar-block">
+                        <h4>Services Provided</h4>
+                        <ul class="services-list">
+                            <li>Atmospheric Lighting</li>
+                            <li>Sound System for DJ</li>
                             <li>Wireless Microphones</li>
-                            <li>Full Event Support</li>
+                            <li>Event Power Management</li>
                         </ul>
                     </div>
-                </div>
+                </aside>
             </div>
         </section>
-
+        
         <section class="case-study-gallery">
             <div class="container">
                 <h2 class="section-title fade-in">Gallery</h2>
-                <div class="gallery-grid">
-                    <div class="gallery-item fade-in"><img src="https://placehold.co/600x400/1a1a1a/f0e9e0?text=Photo+1" alt="Placeholder for gallery image 1"></div>
-                    <div class="gallery-item fade-in delay-1"><img src="https://placehold.co/600x400/1a1a1a/f0e9e0?text=Photo+2" alt="Placeholder for gallery image 2"></div>
-                    <div class="gallery-item fade-in delay-2"><img src="https://placehold.co/600x400/1a1a1a/f0e9e0?text=Photo+3" alt="Placeholder for gallery image 3"></div>
+                <div class="gallery-grid fade-in">
+                    <!-- Placeholder images for a gallery -->
+                    <img src="https://placehold.co/600x400/1a1a1a/f5f5f5?text=Gallery+Image+1" alt="Placeholder gallery image 1">
+                    <img src="https://placehold.co/600x400/1a1a1a/f5f5f5?text=Gallery+Image+2" alt="Placeholder gallery image 2">
                 </div>
             </div>
         </section>
 
-         <section class="case-study-testimonial">
+        <section class="case-study-testimonial">
             <div class="container fade-in">
                 <blockquote>
-                    "The sound and lighting were absolutely perfect. Equinox handled everything flawlessly so we could just enjoy our day."
+                    "Working with Equinox was a dream. They were so professional and thoughtful, and the lighting in our reception was pure magic. It was everything we wanted and more."
                 </blockquote>
-                <cite>&mdash; Placeholder Client Testimonial</cite>
+                <cite>— Placeholder Client Testimonial</cite>
             </div>
         </section>
-
+        
+        <section class="case-study-nav">
+            <div class="container fade-in">
+                <a href="work.html" class="btn-link">← Back to All Projects</a>
+            </div>
+        </section>
 
     </main>
 
     <footer class="main-footer">
-        <!-- Footer content will be loaded by script.js -->
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <img src="assets/logo.png" alt="Equinox Audio Visuals Logo" class="footer-logo">
+                <p>Event Production with Character. Crafted in Manchester, VT, and trusted at events around the world.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navigate</h4>
+                <ul>
+                    <li><a href="work.html">Our Work</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="insights.html">Insights</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="services.html">Event Production</a></li>
+                    <li><a href="services.html">AV Rentals</a></li>
+                    <li><a href="services.html">Consultancy</a></li>
+                </ul>
+            </div>
+            <div class="footer-connect">
+                <h4>Get in Touch</h4>
+                <p>
+                    318 McCooey Drive<br>
+                    Manchester, VT 05255<br>
+                    <a href="mailto:info@equinoxaudiovisuals.com">info@equinoxaudiovisuals.com</a>
+                </p>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                    <a href="#" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                    <a href="#" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2025 Equinox Audio Visuals. All Rights Reserved.</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
+
 </body>
 </html>
 

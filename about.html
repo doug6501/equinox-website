@@ -12,49 +12,96 @@
 <body>
 
     <header class="main-header">
-        <!-- Header content will be loaded by script.js -->
+        <div class="container">
+            <a href="index.html" class="logo-link">
+                <img src="assets/logo.png" alt="Equinox Audio Visuals Logo" class="logo">
+            </a>
+            <nav class="main-nav">
+                 <button class="mobile-nav-toggle" aria-controls="nav-list" aria-expanded="false">
+                    <span class="hamburger"></span>
+                </button>
+                <ul id="nav-list" class="nav-list" data-visible="false">
+                    <li><a href="work.html">Our Work</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="insights.html">Insights</a></li>
+                    <li><a href="contact.html" class="btn btn-primary">Let's Talk</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
         <section class="page-hero">
             <div class="page-hero-content">
-                <h1 class="fade-in">Craft & Character</h1>
-                <p class="fade-in delay-1">We're a team of obsessive craftspeople, engineers, and creatives who believe an event isn't just a project—it's an experience.</p>
+                <h1 class="fade-in">Event Production with Character.</h1>
+                <p class="fade-in delay-1">We’re a team of obsessive craftspeople, engineers, and creatives who believe a flawless event is born from a better process.</p>
             </div>
         </section>
 
-        <section class="about-story container">
-            <div class="about-story-grid">
-                <div class="about-story-image fade-in">
-                    <img src="https://storage.googleapis.com/gemini-prod-us-west1-assets/e13f5727e025553e4f71a7428f52285a.jpg" alt="The Equinox AV team collaborating behind the scenes">
+        <section class="story-section-detailed">
+             <div class="container story-container-detailed fade-in">
+                <div class="story-image-detailed">
+                    <img src="https://storage.googleapis.com/gemini-prod-us-west1-assets/e08b87a8f3346949f579fd54668b50f7.jpg" alt="A behind-the-scenes photo of the Equinox AV team collaborating with a client during an event setup.">
                 </div>
-                <div class="about-story-content fade-in delay-1">
-                    <h2>Born in the Mountains, Trusted Everywhere.</h2>
-                    <p>Equinox Audio Visuals was founded in Manchester, Vermont, with a simple idea: event production could be better. Better tech, yes, but also a better, more human experience. We saw an industry full of vendors and wanted to be a partner.</p>
-                    <p>We built our company on a foundation of radical accountability and a hospitality mindset. We're the "cool kids, nice guys" of AV—the team you can trust to obsess over every detail and the one you'll actually enjoy working with from the first call to the final load-out. Our roots are here in Vermont, but our work and our reputation take us all over the world.</p>
+                <div class="story-content-detailed">
+                    <h2>Our Story is in the Work.</h2>
+                    <p>Equinox was born in the mountains of Vermont with a simple idea: event production could be better. Better tech, yes, but also a better experience for our clients. In an industry of black boxes and backstage crews, we bring a hospitality mindset to a tech-heavy world. We believe how you get there matters just as much as the final result.</p>
+                    <p>We're based in Manchester, but our work and our reputation take us around the world. No matter the location, we bring the same level of dedication, craftsmanship, and our signature "cool kids, nice guys" approach to every project we're proud to put our name on.</p>
                 </div>
             </div>
+        </section>
+        
+        <section class="team-section">
+            <div class="container">
+                <h2 class="section-title fade-in">Meet the Founder</h2>
+                <div class="team-grid-single">
+                    <div class="team-member fade-in">
+                        <img src="assets/Doug Kunnath - Headshot 2025.jpg" alt="Headshot of Doug Kunnath, Founder of Equinox Audio Visuals" class="team-photo">
+                        <h3>Doug Kunnath</h3>
+                        <p class="team-title">Founder & Lead Producer</p>
+                        <p>With over two decades of experience serving as everything from Audio Engineer to Director of Global Accounts, Doug built Equinox AV with a valuable insight: real service and hospitality is at the core of every successful event. His wide range of experience ensures the best outcomes for our clients and their audiences.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="image-break-section" style="background-image: url('https://storage.googleapis.com/gemini-prod-us-west1-assets/c5a013f9c2d1b7d5a570072b08a83416.jpg');">
+            <div class="image-break-overlay"></div>
         </section>
 
         <section class="process-section">
             <div class="container">
                 <h2 class="section-title fade-in">The Equinox Process</h2>
-                <p class="lead fade-in">Flawless execution doesn't happen by accident. It's the result of a disciplined, collaborative process built on communication and craft.</p>
+                <p class="lead fade-in">A great event doesn't happen by accident. It's the result of a disciplined, collaborative process. Here’s how we ensure success from the first call to the final curtain.</p>
                 <div class="process-steps">
                     <div class="process-step fade-in">
-                        <div class="process-step-number">01</div>
-                        <h3>Discovery & Design</h3>
-                        <p>It all starts with listening. We dive deep into your vision, goals, and the unique challenges of your venue to design a technical solution that's not just functional, but inspired.</p>
+                        <div class="process-number">01</div>
+                        <div class="process-content">
+                            <h3>Discovery & Design</h3>
+                            <p>It all starts with listening. We dive deep into your goals, your audience, and your vision. Then, our team designs a comprehensive technical solution that's creative, reliable, and perfectly aligned with your budget.</p>
+                        </div>
                     </div>
                     <div class="process-step fade-in delay-1">
-                        <div class="process-step-number">02</div>
-                        <h3>Pre-Production & Prep</h3>
-                        <p>This is where we obsess over the details. Every piece of gear is tested, every cable is labeled, and every cue is planned. Our meticulous preparation ensures a smooth, stress-free on-site experience.</p>
+                        <div class="process-number">02</div>
+                        <div class="process-content">
+                            <h3>Pre-Production & Prep</h3>
+                            <p>This is where the magic happens. We meticulously prep and test every piece of equipment, coordinate with venues and vendors, and build a detailed run-of-show that leaves nothing to chance.</p>
+                        </div>
                     </div>
                     <div class="process-step fade-in delay-2">
-                        <div class="process-step-number">03</div>
-                        <h3>Flawless Execution</h3>
-                        <p>On show day, our team is the calm, steady hand you can rely on. We execute the plan with precision, adapt to any challenge, and remain focused on delivering a seamless experience for you and your audience.</p>
+                        <div class="process-number">03</div>
+                        <div class="process-content">
+                            <h3>Flawless Execution</h3>
+                            <p>On-site, our team is the calm, steady hand you can rely on. We manage every technical cue with precision and professionalism, proactively solving challenges and ensuring a seamless experience for you and your attendees.</p>
+                        </div>
+                    </div>
+                     <div class="process-step fade-in delay-2">
+                        <div class="process-number">04</div>
+                        <div class="process-content">
+                            <h3>Post-Event Debrief</h3>
+                            <p>Our partnership doesn't end when the lights come up. We provide a thorough post-event debrief, discussing what worked, what we can improve, and how we can make your next event even better.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -62,19 +109,58 @@
 
         <section class="cta-section">
             <div class="container fade-in">
-                <h2>Join Our Team</h2>
-                <p>We're always looking for talented, passionate people to join the Equinox family. If you have a love for the craft and a belief in doing things the right way, we'd love to hear from you.</p>
-                <a href="contact.html" class="btn btn-secondary">Get in Touch</a>
+                <h2>Ready to Start Your Project?</h2>
+                <p>Let's talk about how our process can make your next event your best one yet.</p>
+                <a href="contact.html" class="btn btn-secondary">Let's Talk</a>
             </div>
         </section>
 
     </main>
 
     <footer class="main-footer">
-        <!-- Footer content will be loaded by script.js -->
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <img src="assets/logo.png" alt="Equinox Audio Visuals Logo" class="footer-logo">
+                <p>Event Production with Character. Crafted in Manchester, VT, and trusted at events around the world.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navigate</h4>
+                <ul>
+                    <li><a href="work.html">Our Work</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="insights.html">Insights</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="services.html">Event Production</a></li>
+                    <li><a href="services.html">AV Rentals</a></li>
+                    <li><a href="services.html">Consultancy</a></li>
+                </ul>
+            </div>
+            <div class="footer-connect">
+                <h4>Get in Touch</h4>
+                <p>
+                    Manchester, VT<br>
+                    <a href="mailto:info@equinoxaudiovisuals.com">info@equinoxaudiovisuals.com</a>
+                </p>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                    <a href="#" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                    <a href="#" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2025 Equinox Audio Visuals. All Rights Reserved.</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
+
 </body>
 </html>
 
