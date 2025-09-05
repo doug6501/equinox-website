@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="contact-html">
+<body>
 
     <header class="main-header">
         <div class="container">
@@ -25,7 +25,7 @@
                     <li><a href="services.html">Services</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="insights.html">Insights</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="contact.html" class="active btn btn-primary">Let's Talk</a></li>
                 </ul>
             </nav>
         </div>
@@ -35,30 +35,15 @@
         <section class="page-hero">
             <div class="page-hero-content">
                 <h1 class="fade-in">Let's Build Something Great.</h1>
-                <p class="fade-in delay-1">We're ready to listen. Tell us about your vision, and we'll help you craft an unforgettable experience.</p>
+                <p class="fade-in delay-1">Have a project in mind, or just want to talk shop? We're here to listen.</p>
             </div>
         </section>
 
-        <section class="contact-form-section">
+        <section class="contact-page-section">
             <div class="container contact-container">
-                <div class="contact-info fade-in">
-                    <h3>Get in Touch</h3>
-                    <p>Whether you're ready to start a project or just have a few questions, we'd love to hear from you.</p>
-                    <div class="info-item">
-                        <h4>Location</h4>
-                        <p>Manchester, VT</p>
-                    </div>
-                    <div class="info-item">
-                        <h4>Email</h4>
-                        <p><a href="mailto:info@equinoxaudiovisuals.com">info@equinoxaudiovisuals.com</a></p>
-                    </div>
-                    <div class="info-item">
-                        <h4>Proposal Review</h4>
-                        <p>Have a proposal from another company? We're happy to review it and offer suggestions at no charge. It's just how we operate.</p>
-                    </div>
-                </div>
-                <div class="contact-form-wrapper fade-in delay-1">
-                    <form id="contact-form" action="#" method="POST">
+                <div class="contact-form-wrapper fade-in">
+                    <h2>Send Us a Message</h2>
+                    <form id="contact-form" action="https://formspree.io/f/mwpnwzod" method="POST">
                         <div class="form-group">
                             <label for="name">Your Name</label>
                             <input type="text" id="name" name="name" required>
@@ -73,13 +58,33 @@
                         </div>
                         <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
+                     <div id="form-status"></div>
+                </div>
+                <div class="contact-info-wrapper fade-in delay-1">
+                    <h2>Contact Details</h2>
+                    <p>We're based in the beautiful mountains of Southern Vermont, but our work takes us everywhere. Let's start the conversation.</p>
+                    <div class="contact-info-item">
+                        <h4>Email Us</h4>
+                        <a href="mailto:info@equinoxaudiovisuals.com">info@equinoxaudiovisuals.com</a>
+                    </div>
+                     <div class="contact-info-item">
+                        <h4>Our Location</h4>
+                        <p>Manchester, VT</p>
+                    </div>
+                    <div class="contact-info-item">
+                        <h4>Follow Us</h4>
+                        <div class="social-links-contact">
+                             <a href="https://www.instagram.com/equinoxaudiovisuals/" target="_blank" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                             <a href="#" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                             <a href="https://linkedin.com/company/equinoxav/" target="_blank" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-
     </main>
 
-    <footer class="main-footer">
+     <footer class="main-footer">
         <div class="container footer-container">
             <div class="footer-brand">
                 <img src="assets/logo.png" alt="Equinox Audio Visuals Logo" class="footer-logo">
@@ -110,9 +115,9 @@
                     <a href="mailto:info@equinoxaudiovisuals.com">info@equinoxaudiovisuals.com</a>
                 </p>
                 <div class="social-links">
-                    <a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                    <a href="https://www.instagram.com/equinoxaudiovisuals/" target="_blank" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
                     <a href="#" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
-                    <a href="#" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+                    <a href="https://linkedin.com/company/equinoxav/" target="_blank" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
                 </div>
             </div>
         </div>

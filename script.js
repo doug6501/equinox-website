@@ -1,40 +1,37 @@
 document.addEventListener('DOMContentLoaded', function() {
+
+    const mainHeader = document.querySelector('.main-header');
     const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
     const primaryNav = document.querySelector('.nav-list');
-    const mainHeader = document.querySelector('.main-header');
+    
+    // --- Mobile Navigation Toggle ---
+    mobileNavToggle.addEventListener('click', () => {
+        const isVisible = primaryNav.getAttribute('data-visible') === 'true';
+        primaryNav.setAttribute('data-visible', !isVisible);
+        mobileNavToggle.setAttribute('aria-expanded', !isVisible);
+    });
 
-    // Toggle mobile navigation
-    if (mobileNavToggle && primaryNav) {
-        mobileNavToggle.addEventListener('click', () => {
-            const isVisible = primaryNav.getAttribute('data-visible') === 'true';
-            primaryNav.setAttribute('data-visible', !isVisible);
-            mobileNavToggle.setAttribute('aria-expanded', !isVisible);
-        });
-    }
-
-    // Close mobile nav when a link is clicked
+    // --- Close mobile nav when a link is clicked ---
     const navLinks = document.querySelectorAll('.nav-list a');
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            if (window.innerWidth <= 768 && primaryNav.getAttribute('data-visible') === 'true') {
+            if (window.innerWidth <= 768) {
                primaryNav.setAttribute('data-visible', false);
                mobileNavToggle.setAttribute('aria-expanded', false);
             }
         });
     });
     
-    // Handle header styling on scroll
-    if (mainHeader) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                mainHeader.classList.add('scrolled');
-            } else {
-                mainHeader.classList.remove('scrolled');
-            }
-        });
-    }
+    // --- Header Styling on Scroll ---
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            mainHeader.classList.add('scrolled');
+        } else {
+            mainHeader.classList.remove('scrolled');
+        }
+    });
 
-    // Intersection Observer for fade-in animations
+    // --- Fade-in on Scroll Animation ---
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -48,77 +45,77 @@ document.addEventListener('DOMContentLoaded', function() {
     const fadeinElements = document.querySelectorAll('.fade-in');
     fadeinElements.forEach(el => observer.observe(el));
 
-    // Handle Active Nav Link
-    const currentPath = window.location.pathname.split("/").pop() || 'index.html';
-    const navLinksAll = document.querySelectorAll('.nav-list a:not(.btn)');
-    
-    navLinksAll.forEach(link => {
-        const linkPath = link.getAttribute('href');
-        if (linkPath === currentPath) {
+    // --- Active Nav Link Highlighting ---
+    const currentPage = window.location.pathname.split("/").pop();
+    const navAnchors = document.querySelectorAll('.main-nav a');
+
+    navAnchors.forEach(link => {
+        const linkPage = link.getAttribute('href');
+        if (linkPage === currentPage) {
             link.classList.add('active');
         }
     });
 
-     // --- Services Page Tabs ---
-    const tabs = document.querySelectorAll('.tab-button');
+    // --- Services Page Tabs ---
+    const tabs = document.querySelectorAll('[data-tab]');
     const tabContents = document.querySelectorAll('.tab-content');
 
-    if (tabs.length > 0 && tabContents.length > 0) {
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                const target = document.querySelector(`#${tab.dataset.tab}`);
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const target = document.querySelector('#' + tab.dataset.tab);
 
-                tabContents.forEach(content => content.classList.remove('active'));
-                tabs.forEach(t => t.classList.remove('active'));
-                
-                tab.classList.add('active');
-                if (target) {
-                    target.classList.add('active');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            tabs.forEach(t => {
+                t.classList.remove('active');
+            });
+
+            target.classList.add('active');
+            tab.classList.add('active');
+        });
+    });
+
+    // --- Contact Form Submission ---
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const status = document.getElementById('form-status');
+            const data = new FormData(form);
+
+            fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
                 }
+            }).then(response => {
+                if (response.ok) {
+                    status.innerHTML = "Thanks for your message! We'll be in touch soon.";
+                    status.className = 'success';
+                    status.style.display = 'block';
+                    form.reset();
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+                        } else {
+                            status.innerHTML = "Oops! There was a problem submitting your form.";
+                        }
+                        status.className = 'error';
+                        status.style.display = 'block';
+                    })
+                }
+            }).catch(error => {
+                status.innerHTML = "Oops! There was a problem submitting your form.";
+                status.className = 'error';
+                status.style.display = 'block';
             });
         });
     }
 
-    // --- Contact Form Submission ---
-    const contactForm = document.getElementById('contact-form');
-    const formStatus = document.getElementById('form-status');
-
-    if (contactForm) {
-        contactForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const form = e.target;
-            const data = new FormData(form);
-            
-            try {
-                const response = await fetch(form.action, {
-                    method: form.method,
-                    body: data,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-
-                if (response.ok) {
-                    formStatus.innerHTML = "Thank you! Your message has been sent.";
-                    formStatus.className = 'success';
-                    formStatus.style.display = 'block';
-                    form.reset();
-                } else {
-                    const responseData = await response.json();
-                    if (Object.hasOwn(responseData, 'errors')) {
-                        formStatus.innerHTML = responseData["errors"].map(error => error["message"]).join(", ");
-                    } else {
-                        formStatus.innerHTML = "Oops! There was a problem submitting your form.";
-                    }
-                    formStatus.className = 'error';
-                    formStatus.style.display = 'block';
-                }
-            } catch (error) {
-                formStatus.innerHTML = "Oops! There was a problem submitting your form.";
-                formStatus.className = 'error';
-                formStatus.style.display = 'block';
-            }
-        });
-    }
 });
 
