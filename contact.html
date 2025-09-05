@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="contact-html">
 
     <header class="main-header">
         <div class="container">
@@ -25,7 +25,7 @@
                     <li><a href="services.html">Services</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="insights.html">Insights</a></li>
-                    <li><a href="contact.html" class="btn btn-primary">Let's Talk</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -35,47 +35,48 @@
         <section class="page-hero">
             <div class="page-hero-content">
                 <h1 class="fade-in">Let's Build Something Great.</h1>
-                <p class="fade-in delay-1">We're ready to listen. Tell us about your vision, and let's start the conversation about how we can craft an unforgettable experience together.</p>
+                <p class="fade-in delay-1">We're ready to listen. Tell us about your vision, and we'll help you craft an unforgettable experience.</p>
             </div>
         </section>
 
-        <section class="contact-page-section">
-            <div class="container contact-page-container">
-                <div class="contact-form-wrapper fade-in">
-                    <h2 class="form-title">Send Us a Message</h2>
-                     <form class="contact-form" action="#" method="POST">
-                        <div class="form-group-full">
+        <section class="contact-form-section">
+            <div class="container contact-container">
+                <div class="contact-info fade-in">
+                    <h3>Get in Touch</h3>
+                    <p>Whether you're ready to start a project or just have a few questions, we'd love to hear from you.</p>
+                    <div class="info-item">
+                        <h4>Location</h4>
+                        <p>Manchester, VT</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>Email</h4>
+                        <p><a href="mailto:info@equinoxaudiovisuals.com">info@equinoxaudiovisuals.com</a></p>
+                    </div>
+                    <div class="info-item">
+                        <h4>Proposal Review</h4>
+                        <p>Have a proposal from another company? We're happy to review it and offer suggestions at no charge. It's just how we operate.</p>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper fade-in delay-1">
+                    <form id="contact-form" action="#" method="POST">
+                        <div class="form-group">
                             <label for="name">Your Name</label>
                             <input type="text" id="name" name="name" required>
                         </div>
-                        <div class="form-group-full">
+                        <div class="form-group">
                             <label for="email">Your Email</label>
                             <input type="email" id="email" name="email" required>
                         </div>
-                        <div class="form-group-full">
-                            <label for="message">How can we help?</label>
-                            <textarea id="message" name="message" required></textarea>
+                        <div class="form-group">
+                            <label for="message">What are we creating?</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-secondary">Send Message</button>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
-                </div>
-                <div class="contact-info-wrapper fade-in delay-1">
-                    <h3>Contact Details</h3>
-                    <div class="contact-info-item">
-                        <h4>Our Location</h4>
-                        <p>Manchester, Vermont</p>
-                    </div>
-                    <div class="contact-info-item">
-                        <h4>Email Us</h4>
-                        <p><a href="mailto:info@equinoxaudiovisuals.com">info@equinoxaudiovisuals.com</a></p>
-                    </div>
-                    <div class="contact-info-item">
-                        <h4>Free Proposal Review</h4>
-                        <p>Have a proposal from another company? We're happy to review it, offer suggestions, and answer any questions at no charge. It's part of our commitment to a better event experience for everyone.</p>
-                    </div>
                 </div>
             </div>
         </section>
+
     </main>
 
     <footer class="main-footer">
