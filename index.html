@@ -16,163 +16,88 @@
 <body>
 
     <header class="main-header">
-        <div class="container">
-            <a href="index.html" class="logo-link">
-                <img src="assets/logo.png" alt="Equinox Audio Visuals Logo" class="logo">
-            </a>
-            <nav class="main-nav">
-                 <button class="mobile-nav-toggle" aria-controls="nav-list" aria-expanded="false">
-                    <span class="hamburger"></span>
-                </button>
-                <ul id="nav-list" class="nav-list" data-visible="false">
-                    <li><a href="work.html">Our Work</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="insights.html">Insights</a></li>
-                    <li><a href="contact.html" class="btn btn-primary">Let's Talk</a></li>
-                </ul>
-            </nav>
-        </div>
+        <!-- Header content will be loaded by script.js -->
     </header>
 
     <main>
         <section class="hero">
-            <video autoplay loop muted playsinline class="hero-video" poster="https://placehold.co/1920x1080/1a1a1a/f0e9e0?text=Loading+Video...">
+            <video autoplay loop muted playsinline id="hero-video" poster="https://placehold.co/1920x1080/1a1a1a/f0f0f0?text=Loading...">
                 <source src="assets/Equinox AV Background and Logo 720p.mov" type="video/mp4">
             </video>
             <div class="hero-content">
-                <h1 class="reveal-text">Event Production with Character.</h1>
-                <p class="fade-in delay-1">We’re the seasoned pros for clients who value craft, character, and flawless execution. We’re not just a vendor; we’re your partner in production.</p>
-                <a href="work.html" class="btn btn-secondary fade-in delay-2">Explore Our Work</a>
+                <h1 class="fade-in">Event Production with Character.</h1>
+                <p class="fade-in delay-1">We are the seasoned pros for clients who value craft, character, and flawless execution. We’re not just a vendor; we’re your partner in production.</p>
+                <a href="#work" class="btn btn-secondary fade-in delay-2">See Our Work</a>
             </div>
         </section>
 
-        <section class="intro-section container">
+        <section id="about" class="intro-section container">
             <h2 class="section-title fade-in">We're Not The Generic AV Team.</h2>
-             <p class="lead fade-in">In an industry of black boxes and backstage crews, we bring a hospitality mindset to a tech-heavy world. We believe how you get there matters just as much as the final result. It’s about more than the gear—it's about the people.</p>
+             <p class="lead fade-in">In an industry of black boxes and backstage crews, we bring a hospitality mindset to a tech-heavy world. We believe how you get there matters just as much as the final result. It’s about more than just the gear—it's about the people.</p>
+        </section>
+
+        <section class="visual-break" style="background-image: url('https://storage.googleapis.com/gemini-prod-us-west1-assets/e08b87a8f3346949f579fd54668b50f7.jpg');">
+            <!-- This is a visual parallax-like section -->
         </section>
         
-        <section class="featured-work-section">
+        <section id="work" class="portfolio-section">
             <div class="container">
                 <h2 class="section-title fade-in">Featured Work</h2>
-                <div class="featured-grid">
-                    <a href="work-hildene.html" class="featured-card fade-in">
-                        <video autoplay loop muted playsinline class="featured-video">
+                
+                <div class="portfolio-item fade-in">
+                    <div class="portfolio-media">
+                         <video autoplay loop muted playsinline>
+                            <source src="assets/Venue_TV_Fly_Through_Video.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="portfolio-details">
+                        <h3>Bennington Museum Annual Gala</h3>
+                        <p>For their most important fundraising event of the year, we transformed the museum space into an immersive gala experience. Our work included elegant atmospheric lighting, crystal-clear audio for speakers, and large-format video displays to honor the museum's mission.</p>
+                        <a href="work-bennington-museum.html" class="btn btn-tertiary">View Case Study &rarr;</a>
+                    </div>
+                </div>
+    
+                <div class="portfolio-item fade-in">
+                    <div class="portfolio-media">
+                        <video autoplay loop muted playsinline>
                             <source src="assets/Venue_Fly_Through_Highlighting_Stage.mp4" type="video/mp4">
                         </video>
-                        <div class="featured-caption">
-                            <h3>Hildene Lincoln Hall</h3>
-                            <p>Elegant Wedding Production</p>
-                        </div>
-                    </a>
-                    <a href="work-bennington-museum.html" class="featured-card fade-in delay-1">
-                        <video autoplay loop muted playsinline class="featured-video">
-                           <source src="assets/Venue_TV_Fly_Through_Video.mp4" type="video/mp4">
-                       </video>
-                        <div class="featured-caption">
-                           <h3>Bennington Museum</h3>
-                           <p>Annual Gala Dinner</p>
-                       </div>
-                    </a>
-                    <a href="work-kimpton-taconic.html" class="featured-card fade-in delay-2">
-                        <video autoplay loop muted playsinline class="featured-video">
-                           <source src="assets/Venue_Fly_Through_Video_Generation.mp4" type="video/mp4">
-                       </video>
-                       <div class="featured-caption">
-                           <h3>Kimpton Taconic</h3>
-                           <p>Boutique Hotel Wedding</p>
-                       </div>
-                   </a>
+                    </div>
+                    <div class="portfolio-details">
+                        <h3>Hildene Summer Wedding</h3>
+                        <p>We transformed a remote lakeside setting at Hildene's Lincoln Hall into a magical venue. Our work included discreet, high-quality audio for the ceremony, elegant atmospheric lighting for the reception, and a full stage setup for the band.</p>
+                         <a href="work-hildene.html" class="btn btn-tertiary">View Case Study &rarr;</a>
+                    </div>
                 </div>
-                <div class="view-all-work fade-in">
-                    <a href="work.html" class="btn btn-primary">View All Projects</a>
+
+                <div class="portfolio-item fade-in">
+                    <div class="portfolio-media">
+                        <video autoplay loop muted playsinline>
+                            <source src="assets/Flythrough_Video_Generation_Request - Bennington Museum.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="portfolio-details">
+                        <h3>"Vanish" Film Screening</h3>
+                        <p>For the premiere of the historical documentary "Vanish," we provided a complete cinematic experience at the Bennington Museum, including a large-format screen, professional-grade projection, and immersive surround sound to do justice to the film's beautiful cinematography.</p>
+                         <a href="work-vanish-screening.html" class="btn btn-tertiary">View Case Study &rarr;</a>
+                    </div>
                 </div>
+
             </div>
         </section>
 
-        <section class="parallax-break" style="background-image: url('https://storage.googleapis.com/gemini-prod-us-west1-assets/9d6b2c7980590820f1784912c9b68e9e.jpg');">
-            <div class="parallax-content">
-                <h2 class="fade-in">Obsessed with the Details.</h2>
-            </div>
-        </section>
-
-        <section class="services-overview container">
-             <h2 class="section-title fade-in">Our Capabilities</h2>
-             <div class="services-overview-grid">
-                 <div class="service-overview-item fade-in">
-                     <h3>Live Production</h3>
-                     <p>Full-scale production management for conferences, galas, and concerts.</p>
-                 </div>
-                 <div class="service-overview-item fade-in delay-1">
-                    <h3>Audio Solutions</h3>
-                    <p>Crystal-clear sound systems for spoken word, live bands, and everything in between.</p>
-                </div>
-                <div class="service-overview-item fade-in delay-2">
-                    <h3>Video & Displays</h3>
-                    <p>From LED walls to projection mapping, we create stunning visual experiences.</p>
-                </div>
-                <div class="service-overview-item fade-in">
-                    <h3>Lighting Design</h3>
-                    <p>Artful, atmospheric lighting that transforms spaces and directs attention.</p>
-                </div>
-                <div class="service-overview-item fade-in delay-1">
-                    <h3>Equipment Rentals</h3>
-                    <p>A meticulously maintained inventory of pro-grade gear for any need.</p>
-                </div>
-                <div class="service-overview-item fade-in delay-2">
-                    <h3>Consultancy</h3>
-                    <p>Expert guidance and technical design to ensure your vision is flawless.</p>
-                </div>
-             </div>
-             <div class="view-all-work fade-in">
-                <a href="services.html" class="btn btn-secondary">Explore All Services</a>
+        <section class="cta-section">
+            <div class="container fade-in">
+                <h2>Have a Project in Mind?</h2>
+                <p>Let's start the conversation. We're ready to listen and build a solution that fits your vision and your budget.</p>
+                <a href="contact.html" class="btn btn-secondary">Get a Quote</a>
             </div>
         </section>
         
-        <section id="story" class="story-section">
-            <div class="container story-container fade-in">
-                <div class="story-image">
-                    <img src="https://storage.googleapis.com/gemini-prod-us-west1-assets/e38676d081f2518e3c457493630f5139.jpg" alt="Authentic photo of the Equinox Audio Visuals team collaborating behind the scenes">
-                </div>
-                <div class="story-content">
-                    <h2>Our Story is in the Work.</h2>
-                    <p>Equinox was born in the mountains of Vermont with a simple idea: event production could be better. Better tech, yes, but also a better experience. We're a team of obsessive craftspeople, engineers, and creatives who believe in the power of a perfectly executed event. We're based in Manchester, but our work takes us around the world. No matter the location, we bring the same level of dedication and our signature hospitality mindset to every project.</p>
-                    <a href="about.html" class="btn btn-primary">More About Us</a>
-                </div>
-            </div>
-        </section>
     </main>
 
     <footer class="main-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-about">
-                    <img src="assets/logo.png" alt="Equinox Audio Visuals Logo" class="footer-logo">
-                    <p>Event Production with Character.<br>Crafted in Manchester, VT. Trusted Everywhere.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Navigate</h4>
-                    <ul>
-                        <li><a href="work.html">Our Work</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="insights.html">Insights</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h4>Get in Touch</h4>
-                    <p>
-                        <a href="mailto:info@equinoxaudiovisuals.com">info@equinoxaudiovisuals.com</a><br>
-                        <a href="tel:+16197649919">(619) 764-9919</a><br>
-                        318 McCooey Dr, Manchester, VT 05255
-                    </p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Equinox Audio Visuals. All Rights Reserved.</p>
-            </div>
-        </div>
+        <!-- Footer content will be loaded by script.js -->
     </footer>
 
     <script src="script.js"></script>
