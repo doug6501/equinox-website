@@ -154,7 +154,9 @@ img {
 }
 
 .btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: 1rem 2.5rem;
     text-decoration: none;
     font-weight: 700;
@@ -276,7 +278,7 @@ img {
     border-bottom: 2px solid transparent;
     transition: color 0.3s, border-color 0.3s;
     text-transform: uppercase;
-    font-size: 1rem;
+    font-size: 1.1rem;
     letter-spacing: 1px;
 }
 .nav-list a:not(.btn):hover,
@@ -291,6 +293,11 @@ img {
     color: var(--color-secondary);
     border: 2px solid var(--color-secondary);
     font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    padding: 0 1.5rem;
 }
 
 .nav-list a.active.btn:hover {
