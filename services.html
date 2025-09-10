@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Equinox Audio Visuals</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo-link">
+                <img src="assets/logo.png" alt="Equinox Audio Visuals Logo" class="logo">
+            </a>
+            <nav class="main-nav">
+                 <button class="mobile-nav-toggle" aria-controls="nav-list" aria-expanded="false">
+                    <span class="hamburger"></span>
+                </button>
+                <ul id="nav-list" class="nav-list" data-visible="false">
+                    <li><a href="work.html">Our Work</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="insights.html">Insights</a></li>
+                    <li><a href="contact.html" class="btn btn-primary">Let's Talk</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="page-hero-content">
+                <h1 class="fade-in">Our Capabilities</h1>
+                <p class="fade-in delay-1">From a single microphone to a full-scale global broadcast, we provide the tech, the team, and the expertise to make it happen.</p>
+            </div>
+        </section>
+
+        <section class="services-tabs-section container">
+            <div class="tabs-wrapper">
+                <div class="tab-nav fade-in">
+                    <button class="tab-button active" data-tab="production">Event Production</button>
+                    <button class="tab-button" data-tab="solutions">AV Solutions & Rentals</button>
+                </div>
+
+                <!-- Event Production Content -->
+                <div id="production" class="tab-content active">
+                    <div class="service-intro fade-in">
+                        <h2>Full-Service Event Production</h2>
+                        <p>We are your end-to-end partner. Our team becomes an extension of yours, managing every technical detail from the initial design concept to the final load-out. We specialize in creating seamless, high-impact experiences where there is no room for error.</p>
+                    </div>
+                    <div class="production-grid">
+                        <div class="production-card fade-in">
+                            <img src="assets/service-corporate.jpg" alt="A professionally lit stage at a corporate conference.">
+                            <div class="production-card-content">
+                                <h3>Corporate Meetings & Conferences</h3>
+                                <p>From intimate boardrooms to multi-day conferences, we provide the technology and support to ensure your message is delivered with clarity and professionalism, whether your audience is in the room or joining remotely.</p>
+                            </div>
+                        </div>
+                        <div class="production-card fade-in delay-1">
+                            <img src="assets/service-wedding.jpg" alt="An elegant wedding reception with beautiful atmospheric lighting.">
+                            <div class="production-card-content">
+                                <h3>Weddings & Special Events</h3>
+                                <p>Your special day deserves perfection. We provide discreet, high-quality audio for ceremonies and speeches, and elegant, atmospheric lighting and entertainment support to make your reception unforgettable.</p>
+                            </div>
+                        </div>
+                        <div class="production-card fade-in delay-2">
+                            <img src="assets/service-gala.jpg" alt="A large gala dinner with sophisticated stage design and lighting.">
+                            <div class="production-card-content">
+                                <h3>Galas & Non-Profit Events</h3>
+                                <p>We understand the importance of creating an immersive atmosphere that inspires giving. Our team designs and executes elegant solutions that elevate your fundraising event and honor your mission.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AV Solutions & Rentals Content -->
+                <div id="solutions" class="tab-content">
+                     <div class="service-intro fade-in">
+                        <h2>AV Solutions & Rentals</h2>
+                        <p>The right gear can make all the difference. Our inventory is meticulously maintained and constantly updated to include the most reliable technology in the industry. But we offer more than just boxes; we provide the support of the most accountable technicians in the business.</p>
+                    </div>
+                    <div class="solutions-grid">
+                        <div class="solution-item fade-in">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" /></svg>
+                            <h3>Audio</h3>
+                            <p>Crystal-clear sound systems, microphones, and mixing consoles for any size audience.</p>
+                        </div>
+                        <div class="solution-item fade-in">
+                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-1.621-1.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25A2.25 2.25 0 015.25 3h13.5A2.25 2.25 0 0121 5.25z" /></svg>
+                            <h3>Video</h3>
+                            <p>High-definition video displays, projectors, screens, and LED walls for impactful visuals.</p>
+                        </div>
+                        <div class="solution-item fade-in">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.311a15.045 15.045 0 01-7.5 0C4.508 19.64 2.25 15.184 2.25 10.5 2.25 5.816 4.508 1.36 8.25 1.36c3.742 0 6 4.456 6 9.14 0 4.684-2.258 9.14-6 9.14z" /></svg>
+                            <h3>Lighting</h3>
+                            <p>Dynamic and theatrical lighting solutions to create the perfect atmosphere and highlight key moments.</p>
+                        </div>
+                        <div class="solution-item fade-in">
+                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 7.125C2.25 6.504 2.754 6 3.375 6h6c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-6A1.125 1.125 0 012.25 12v-4.875zM14.25 7.125c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v8.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 01-1.125-1.125v-8.25zM3.75 16.125c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 01-1.125-1.125v-2.25z" /></svg>
+                            <h3>Staging & Rigging</h3>
+                            <p>Customizable staging, risers, and safe, professional rigging solutions for any venue.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="approach-section">
+            <div class="container approach-container fade-in">
+                <div class="approach-image">
+                    <img src="assets/approach-teamwork.jpg" alt="A behind-the-scenes photo of the Equinox AV team collaborating with a client during an event setup.">
+                </div>
+                <div class="approach-content">
+                    <h2>The Equinox Approach</h2>
+                    <p>Our process is built on a foundation of listening. While working with audio visual equipment may seem complicated, it doesn't have to be. Our consultative approach means that we truly investigate to learn about you and your event. This ensures that we guide you through the process and select the right technology and team to match the specific needs of your event, creating a partnership built on trust and a shared goal for success.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container fade-in">
+                <h2>Have a Project in Mind?</h2>
+                <p>Let's start the conversation. We're ready to listen and build a solution that fits your vision and your budget.</p>
+                <a href="contact.html" class="btn btn-secondary">Get a Quote</a>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <img src="assets/logo.png" alt="Equinox Audio Visuals Logo" class="footer-logo">
+                <p>Event Production with Character. Crafted in Manchester, VT, and trusted at events around the world.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navigate</h4>
+                <ul>
+                    <li><a href="work.html">Our Work</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="insights.html">Insights</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="services.html">Event Production</a></li>
+                    <li><a href="services.html">AV Rentals</a></li>
+                    <li><a href="services.html">Consultancy</a></li>
+                </ul>
+            </div>
+            <div class="footer-connect">
+                <h4>Get in Touch</h4>
+                <p>
+                    Manchester, VT<br>
+                    <a href="mailto:info@equinoxaudiovisuals.com">info@equinoxaudiovisuals.com</a>
+                </p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/equinoxaudiovisuals/" target="_blank" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                    <a href="#" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                    <a href="https://linkedin.com/company/equinoxav/" target="_blank" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2025 Equinox Audio Visuals. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <div class="floating-logo" id="floating-logo">
+        <img src="assets/logo.png" alt="Equinox Audio Visuals">
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
