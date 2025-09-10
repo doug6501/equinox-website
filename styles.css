@@ -292,6 +292,8 @@ img {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    vertical-align: middle;
+    line-height: 1;
 }
 
 /* Active contact button styling - different from orange button */
@@ -301,6 +303,11 @@ img {
     border: 2px solid var(--color-secondary);
     font-weight: 600;
     padding: 1rem 2.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    line-height: 1;
 }
 
 .nav-list a.active.btn:hover {
