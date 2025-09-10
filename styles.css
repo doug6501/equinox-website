@@ -334,34 +334,9 @@ img {
     mix-blend-mode: overlay;
     z-index: 2;
 }
-.hero-logo-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    opacity: 0.08;
-    pointer-events: none;
-    animation: logoFloat 8s ease-in-out infinite;
-}
+/* Hero logo overlay removed */
 
-.hero-logo {
-    height: 400px;
-    width: auto;
-    filter: drop-shadow(0 0 30px rgba(217, 121, 65, 0.3));
-    transition: all 0.6s ease;
-}
-
-@keyframes logoFloat {
-    0%, 100% { 
-        transform: translate(-50%, -50%) scale(1) rotate(0deg);
-        opacity: 0.15;
-    }
-    50% { 
-        transform: translate(-50%, -50%) scale(1.05) rotate(1deg);
-        opacity: 0.2;
-    }
-}
+/* Logo float animation removed */
 
 .hero-content, .page-hero-content {
     position: relative;
@@ -1771,23 +1746,7 @@ img[loading="lazy"].loaded {
     z-index: 2;
 }
 
-.case-study-hero-logo-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    opacity: 0.08;
-    pointer-events: none;
-    animation: logoFloat 8s ease-in-out infinite;
-}
-
-.case-study-hero-logo {
-    height: 400px;
-    width: auto;
-    filter: drop-shadow(0 0 30px rgba(217, 121, 65, 0.3));
-    transition: all 0.6s ease;
-}
+/* Case study hero logo overlay removed */
 
 .case-study-hero-content {
     position: relative;
@@ -2374,9 +2333,7 @@ img[loading="lazy"].loaded {
     .footer-logo {
         height: 80px; /* Smaller footer logo on mobile */
     }
-    .hero-logo {
-        height: 250px; /* Smaller hero logo on mobile */
-    }
+    /* Hero logo removed */
     /* Page hero logo removed */
     .intro-section::before {
         width: 120px;
@@ -2484,9 +2441,7 @@ img[loading="lazy"].loaded {
         min-height: 80vh; /* Slightly smaller on mobile */
     }
     
-    .case-study-hero-logo {
-        height: 250px; /* Smaller case study hero logo on mobile */
-    }
+    /* Case study hero logo removed */
     
     .case-study-hero h1 {
         font-size: clamp(2rem, 8vw, 3rem); /* Smaller on mobile */
