@@ -287,6 +287,13 @@ img {
     color: var(--color-primary);
 }
 
+/* Contact button styling - ensure vertical centering on all pages */
+.nav-list a.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* Active contact button styling - different from orange button */
 .nav-list a.active.btn {
     background-color: transparent;
