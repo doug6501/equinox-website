@@ -369,35 +369,9 @@ img {
     max-width: 900px;
     padding: 2rem;
 }
-/* Page Hero Logo Background */
-.page-hero-logo-bg {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 0;
-    opacity: 0.05;
-    pointer-events: none;
-    animation: logoPulse 6s ease-in-out infinite;
-}
+/* Page Hero Logo Background - Removed */
 
-.page-hero-logo {
-    height: 300px;
-    width: auto;
-    filter: drop-shadow(0 0 20px rgba(217, 121, 65, 0.2));
-    transition: all 0.4s ease;
-}
-
-@keyframes logoPulse {
-    0%, 100% { 
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 0.08;
-    }
-    50% { 
-        transform: translate(-50%, -50%) scale(1.02);
-        opacity: 0.12;
-    }
-}
+/* Logo pulse animation removed */
 
 .hero h1, .page-hero h1 { 
     color: var(--color-light); 
@@ -2403,9 +2377,7 @@ img[loading="lazy"].loaded {
     .hero-logo {
         height: 250px; /* Smaller hero logo on mobile */
     }
-    .page-hero-logo {
-        height: 200px; /* Smaller page hero logo on mobile */
-    }
+    /* Page hero logo removed */
     .intro-section::before {
         width: 120px;
         height: 120px;
