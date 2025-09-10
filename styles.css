@@ -293,11 +293,7 @@ img {
     color: var(--color-secondary);
     border: 2px solid var(--color-secondary);
     font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 40px;
-    padding: 0 1.5rem;
+    padding: 1rem 2.5rem;
 }
 
 .nav-list a.active.btn:hover {
