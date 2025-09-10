@@ -435,20 +435,20 @@ function initArticleNavigation() {
     const currentPage = window.location.pathname.split('/').pop();
     
     // Define article order
-    const articleOrder = [
-        'article-wedding-av-equipment.html',
-        'article-zoom-meeting-tips.html',
-        'article-av-trends-2024.html',
-        'article-choose-av-partner.html',
-        'article-top-5-av-items.html',
-        'article-breakout-management.html',
-        'article-hire-av-lead.html',
-        'article-engaging-presentation.html',
-        'article-small-meetings.html',
-        'article-make-time-rehearsal.html',
-        'article-switch-av-partners.html',
-        'article-conference-speaking.html'
-    ];
+        const articleOrder = [
+            'article-wedding-av-equipment.html',
+            'article-zoom-meeting-tips.html',
+            'article-av-trends-2025.html',
+            'article-choose-av-partner.html',
+            'article-top-5-av-items.html',
+            'article-breakout-management.html',
+            'article-hire-av-lead.html',
+            'article-engaging-presentation.html',
+            'article-small-meetings.html',
+            'article-make-time-rehearsal.html',
+            'article-switch-av-partners.html',
+            'article-conference-speaking.html'
+        ];
     
     const currentIndex = articleOrder.indexOf(currentPage);
     
