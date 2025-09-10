@@ -280,9 +280,23 @@ img {
     letter-spacing: 1px;
 }
 .nav-list a:not(.btn):hover,
-.nav-list a.active {
+.nav-list a.active:not(.btn) {
     border-color: var(--color-primary);
     color: var(--color-primary);
+}
+
+/* Active contact button styling - different from orange button */
+.nav-list a.active.btn {
+    background-color: transparent;
+    color: var(--color-secondary);
+    border: 2px solid var(--color-secondary);
+    font-weight: 600;
+}
+
+.nav-list a.active.btn:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-dark);
+    transform: translateY(-2px);
 }
 .mobile-nav-toggle { display: none; }
 
