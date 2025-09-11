@@ -337,13 +337,13 @@
     </footer>
 
 
-    <!-- <script src="script.js"></script> TEMPORARILY DISABLED TO TEST HEADER OVERLAP -->
+    <script src="script.js"></script>
 
     <!-- TARGETED FIX: Fix mobile menu interference and spacing issues -->
     <style>
         /* Fix header overlap with proper spacing */
         body { 
-            padding-top: 200px !important; 
+            padding-top: 140px !important; 
         }
         
         /* FORCE DESKTOP NAVIGATION - DISABLE MOBILE MENU */
@@ -378,18 +378,24 @@
             visibility: visible !important;
         }
         
-        /* Force all content to be fully visible - no fading */
-        main *,
-        .hero *,
-        .intro-section *,
-        section *,
-        article *,
-        div *,
-        h1, h2, h3, h4, h5, h6, p, a, span, img, video {
+        /* Force content to be visible but allow safe animations */
+        .fade-in,
+        .fade-in-left,
+        .fade-in-right,
+        .scale-in,
+        .scroll-reveal {
             opacity: 1 !important;
             visibility: visible !important;
             animation: none !important;
-            transition: none !important;
+        }
+        
+        /* Ensure main content areas are visible */
+        main,
+        .hero,
+        .hero-content,
+        .intro-section {
+            opacity: 1 !important;
+            visibility: visible !important;
         }
     </style>
 
