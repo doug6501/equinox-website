@@ -609,7 +609,7 @@ img {
 }
 .hero { 
     min-height: 120vh; 
-    padding-top: 2rem;
+    padding-top: 0.5rem;
 }
 .page-hero { 
     min-height: 80vh; 
@@ -656,7 +656,8 @@ img {
     position: relative;
     z-index: 3;
     max-width: 900px;
-    padding: 2rem;
+    padding: 1rem 2rem;
+    margin-top: -2rem;
 }
 /* Page Hero Logo Background - Removed */
 
