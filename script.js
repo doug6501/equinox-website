@@ -61,7 +61,9 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('loadeddata', setVideoSpeeds);
     document.addEventListener('canplay', setVideoSpeeds);
 
-    // --- Enhanced Fade-in on Scroll Animation ---
+    // --- Enhanced Fade-in on Scroll Animation - TEMPORARILY DISABLED ---
+    // Completely disabled to fix fading issue
+    /*
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -95,6 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     `;
     document.head.appendChild(style);
+    */
 
     // --- Random Featured Work Selection ---
     function selectFeaturedWork() {
@@ -767,11 +770,11 @@ initSocialSharing();
         }
     }
 
-    // Initialize premium features
-    initScrollAnimations();
+    // Initialize premium features - temporarily disabled to debug fading
+    // initScrollAnimations(); // DISABLED
     initFloatingNavigation();
-    initMagneticEffects();
-    initLogoClickBehavior();
+    // initMagneticEffects(); // DISABLED  
+    // initLogoClickBehavior(); // DISABLED
 
 });
 

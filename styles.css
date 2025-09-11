@@ -129,6 +129,7 @@ body {
     color: var(--color-light);
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
+    opacity: 1 !important;
 }
 
 .container {
@@ -431,7 +432,7 @@ img {
     transform: translateX(5px);
 }
 
-/* Header */
+/* Header - Force visibility and prevent fading */
 .main-header {
     background-color: transparent;
     padding: 1.5rem 0;
@@ -441,6 +442,9 @@ img {
     top: 0;
     transition: all var(--transition-luxury);
     border-bottom: 1px solid transparent;
+    opacity: 1 !important;
+    display: block !important;
+    visibility: visible !important;
 }
 .main-header.scrolled {
     background-color: rgba(10, 10, 26, 0.95);
