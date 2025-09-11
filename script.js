@@ -360,8 +360,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Initialize all modern features
-    // Temporarily disabled to fix fading issue
-    // initParallax();
+    // Re-enabled parallax for services page
+    initParallax();
     // initMorphingAnimations();
     // initScrollTypography();
     initVideoTimeline();
