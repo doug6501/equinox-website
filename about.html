@@ -41,8 +41,13 @@
     </header>
 
     <main>
-        <section class="page-hero">
-            <div class="page-hero-content">
+        <section class="page-hero" style="
+                min-height: 100vh;
+                background-size: cover;
+                background-position: center top;
+                background-attachment: fixed;
+            ">
+            <div class="page-hero-content" style="padding: 6rem 2rem 2rem;">
                 <h1 class="fade-in">Event Production with Character.</h1>
                 <p class="fade-in delay-1">We're a team of obsessive craftspeople, engineers, and creatives who believe a flawless event is born from a better process.</p>
             </div>
@@ -174,9 +179,7 @@
     <!-- COMPREHENSIVE FIX: Header overlap and mobile navigation -->
     <style>
         /* Fix header overlap with proper spacing */
-        body { 
-            padding-top: 200px !important; 
-        }
+        body { padding-top: 0 !important; }
         
         
         
