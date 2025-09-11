@@ -183,21 +183,55 @@
 
     <script src="script.js"></script>
 
-    <!-- FIX: Header overlap spacing -->
+    <!-- COMPREHENSIVE FIX: Header overlap and mobile navigation -->
     <style>
-        body { padding-top: 140px !important; }
-        .mobile-nav-toggle { display: none !important; }
+        /* Fix header overlap with proper spacing */
+        body { 
+            padding-top: 140px !important; 
+        }
+        
+        /* FORCE DESKTOP NAVIGATION - DISABLE MOBILE MENU */
+        .mobile-nav-toggle { 
+            display: none !important; 
+        }
+        
         .nav-list {
+            position: static !important;
+            transform: none !important;
+            flex-direction: row !important;
+            background: transparent !important;
+            gap: 2.5rem !important;
+            inset: unset !important;
+            z-index: unset !important;
+            justify-content: flex-end !important;
+            display: flex !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            width: auto !important;
+            height: auto !important;
+        }
+        
+        .nav-list[data-visible="false"],
+        .nav-list[data-visible="true"] {
             position: static !important;
             transform: none !important;
             flex-direction: row !important;
             background: transparent !important;
             display: flex !important;
             opacity: 1 !important;
+            visibility: visible !important;
         }
+        
+        /* Force content to be visible */
         .fade-in, .fade-in-left, .fade-in-right, .scale-in, .scroll-reveal {
             opacity: 1 !important;
+            visibility: visible !important;
             animation: none !important;
+        }
+        
+        main, .page-hero, .page-hero-content {
+            opacity: 1 !important;
+            visibility: visible !important;
         }
     </style>
 
