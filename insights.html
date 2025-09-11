@@ -37,7 +37,6 @@
                     <span class="hamburger"></span>
                 </button>
                 <ul id="nav-list" class="nav-list" data-visible="false">
-                    <li><a href="index.html">Home</a></li>
                     <li><a href="work.html">Our Work</a></li>
                     <li><a href="services.html">Services</a></li>
                     <li><a href="about.html">About Us</a></li>
@@ -309,6 +308,24 @@
 
 
     <script src="script.js"></script>
+
+    <!-- FIX: Header overlap spacing -->
+    <style>
+        body { padding-top: 140px !important; }
+        .mobile-nav-toggle { display: none !important; }
+        .nav-list {
+            position: static !important;
+            transform: none !important;
+            flex-direction: row !important;
+            background: transparent !important;
+            display: flex !important;
+            opacity: 1 !important;
+        }
+        .fade-in, .fade-in-left, .fade-in-right, .scale-in, .scroll-reveal {
+            opacity: 1 !important;
+            animation: none !important;
+        }
+    </style>
 
 </body>
 </html>
