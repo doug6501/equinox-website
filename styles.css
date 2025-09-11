@@ -1640,7 +1640,7 @@ img[loading="lazy"].loaded {
 ======================================== */
 
 .article-hero {
-    padding: 4rem 0 2rem;
+    padding: 6rem 0 3rem;
     background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(0, 0, 0, 0.8));
     text-align: center;
 }
@@ -1814,6 +1814,10 @@ img[loading="lazy"].loaded {
 
 /* Responsive design for articles */
 @media (max-width: 768px) {
+    .article-hero {
+        padding: 5rem 0 2.5rem;
+    }
+    
     .article-title {
         font-size: 2rem;
     }
