@@ -1188,14 +1188,6 @@ img[loading="lazy"].loaded {
     background: #0d8bd9;
 }
 
-.social-share-btn.facebook {
-    background: #4267B2;
-    color: white;
-}
-
-.social-share-btn.facebook:hover {
-    background: #365899;
-}
 
 .social-share-btn.linkedin {
     background: #0077B5;
