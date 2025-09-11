@@ -22,9 +22,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // --- Header Styling on Scroll - Enhanced shrinking ---
+    // --- Header Styling on Scroll - Dramatic shrinking ---
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 80) {
+        if (window.scrollY > 50) {
             mainHeader.classList.add('scrolled');
         } else {
             mainHeader.classList.remove('scrolled');
