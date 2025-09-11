@@ -479,9 +479,10 @@ img {
 }
 .main-header .container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     padding: 0 3rem;
+    gap: 4rem;
 }
 .logo {
     height: 70px; /* Compact size by default */
@@ -489,12 +490,11 @@ img {
     max-width: none;
     object-fit: contain;
     transition: all 0.3s ease;
-    filter: drop-shadow(0 6px 12px rgba(217, 121, 65, 0.4));
 }
 
 .logo:hover {
-    transform: scale(1.05) rotate(2deg);
-    filter: drop-shadow(0 10px 20px rgba(217, 121, 65, 0.5));
+    transform: none;
+    filter: none;
 }
 .main-header.scrolled .logo {
     height: 50px; /* Even smaller when scrolled */
@@ -506,6 +506,7 @@ img {
     display: flex;
     align-items: center;
     gap: 3.5rem;
+    margin-left: auto;
 }
 
 /* Contact Us button in header - make it fit on one line */
