@@ -133,14 +133,16 @@ body {
     animation: none !important;
 }
 
-/* Force all elements to be visible by default */
-* {
+/* Force specific elements to be visible by default - more targeted approach */
+h1, h2, h3, h4, h5, h6 {
+    opacity: 1 !important;
     animation: none !important;
 }
 
-h1, h2, h3, h4, h5, h6, p, div, section, article, main, header, nav, ul, li, a {
+.fade-in, .fade-in-left, .fade-in-right, .scale-in {
     opacity: 1 !important;
     animation: none !important;
+    transform: none !important;
 }
 
 .container {
@@ -453,12 +455,12 @@ img {
     width: 100%;
     z-index: 1000;
     top: 0;
+    left: 0;
     transition: all var(--transition-luxury);
     border-bottom: 1px solid transparent;
     opacity: 1 !important;
     display: block !important;
     visibility: visible !important;
-    transform: none !important;
     animation: none !important;
 }
 .main-header.scrolled {
@@ -862,7 +864,7 @@ img {
 
 /* Lazy loading for images */
 img[loading="lazy"] {
-    opacity: 0;
+    opacity: 1 !important;
     transition: opacity 0.3s;
 }
 
@@ -985,8 +987,8 @@ img[loading="lazy"].loaded {
 }
 
 .scroll-reveal {
-    opacity: 0;
-    transform: translateY(50px);
+    opacity: 1 !important;
+    transform: translateY(0);
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -2752,8 +2754,8 @@ img[loading="lazy"].loaded {
     /* Mobile navigation links styling */
     .nav-list li {
         text-align: center;
-        opacity: 0;
-        transform: translateY(20px);
+        opacity: 1 !important;
+        transform: translateY(0);
         transition: all 0.3s ease;
     }
     
@@ -2770,11 +2772,11 @@ img[loading="lazy"].loaded {
     .nav-list[data-visible="true"] li:nth-child(6) { transition-delay: 0.35s; }
     
     .nav-list a {
-        font-size: 1.5rem;
+        font-size: 1.1rem;
         font-weight: 600;
         text-transform: uppercase;
-        letter-spacing: 2px;
-        padding: 1rem 2rem;
+        letter-spacing: 1px;
+        padding: 0.75rem 1.5rem;
         border-radius: 8px;
         transition: all 0.3s ease;
         display: block;
