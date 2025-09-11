@@ -100,17 +100,15 @@
     }
 }
 
-/* Glass Morphism Effects */
+/* Glass Morphism Effects - Simplified to avoid blur issues */
 .glass-effect {
     background: var(--color-glass);
-    backdrop-filter: blur(10px);
     border: 1px solid var(--color-glass-border);
     border-radius: var(--radius-lg);
 }
 
 .glass-effect-strong {
     background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: var(--radius-xl);
 }
@@ -427,18 +425,13 @@ img {
     z-index: 1000;
     top: 0;
     transition: all var(--transition-luxury);
-    backdrop-filter: blur(20px);
     border-bottom: 1px solid transparent;
 }
 .main-header.scrolled {
     background-color: rgba(10, 10, 26, 0.95);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
     padding: 1rem 0;
     border-bottom: 1px solid var(--color-glass-border);
     box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 .main-header .container {
     display: flex;
