@@ -36,54 +36,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        /* DEBUGGING STYLES TO FORCE SPACING AND VISIBILITY */
-        html { height: auto !important; overflow: visible !important; }
-        body { 
-            margin: 0 !important; 
-            padding: 300px 0 0 0 !important; 
-            height: auto !important; 
-            overflow: visible !important;
-            background: purple !important;
-        }
-        main { 
-            margin-top: 100px !important; 
-            background: red !important; 
-            display: block !important;
-            visibility: visible !important;
-            opacity: 1 !important;
-            position: relative !important;
-            z-index: 1 !important;
-            min-height: 500px !important;
-        }
-        .hero { 
-            margin-top: 100px !important; 
-            background: blue !important; 
-            display: flex !important;
-            visibility: visible !important;
-            opacity: 1 !important;
-            position: relative !important;
-            z-index: 2 !important;
-            min-height: 500px !important;
-        }
-        .main-header { background: yellow !important; position: fixed !important; top: 0 !important; z-index: 9999 !important; }
-        #hero-video { display: none !important; }
-        .hero-content { 
-            background: green !important; 
-            display: block !important; 
-            visibility: visible !important;
-            opacity: 1 !important;
-            z-index: 10 !important;
-            position: relative !important;
-        }
-    </style>
 </head>
 <body>
-
-    <!-- DEBUGGING TEST CONTENT -->
-    <div style="background: orange; height: 200px; margin: 0; padding: 20px; position: relative; z-index: 1;">
-        <h1 style="color: black;">TEST CONTENT - If you see this, content can render</h1>
-    </div>
 
     <header class="main-header">
         <div class="container">
@@ -106,8 +60,8 @@
         </div>
     </header>
 
-    <main style="margin-top: 200px !important; padding-top: 50px !important;">
-        <section class="hero" style="margin-top: 100px !important; padding-top: 50px !important;">
+    <main>
+        <section class="hero">
             <video autoplay loop muted playsinline id="hero-video" style="background-color: #000000;">
                 <source src="assets/Equinox AV Background and Logo 720p.mov" type="video/mp4">
             </video>
@@ -384,6 +338,65 @@
 
 
     <!-- <script src="script.js"></script> TEMPORARILY DISABLED TO TEST HEADER OVERLAP -->
+
+    <!-- FINAL FIX: Override all problematic CSS with working solution -->
+    <style>
+        /* NUCLEAR CSS OVERRIDE - BASED ON WORKING TEST PAGE */
+        body { 
+            margin: 0 !important; 
+            padding: 0 !important; 
+            background: var(--color-dark) !important;
+            height: auto !important; 
+            overflow: visible !important;
+        }
+        .main-header { 
+            background: rgba(10, 10, 26, 0.95) !important; 
+            position: fixed !important; 
+            top: 0 !important; 
+            left: 0 !important;
+            width: 100% !important; 
+            z-index: 1000 !important; 
+            padding: 1.5rem 0 !important;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3) !important;
+        }
+        main { 
+            margin-top: 140px !important; 
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            position: relative !important;
+            z-index: 1 !important;
+        }
+        .hero { 
+            display: flex !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            position: relative !important;
+            z-index: 2 !important;
+            min-height: 80vh !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+        .hero-content { 
+            display: block !important; 
+            visibility: visible !important;
+            opacity: 1 !important;
+            z-index: 10 !important;
+            position: relative !important;
+            text-align: center !important;
+            max-width: 900px !important;
+            padding: 2rem !important;
+        }
+        #hero-video { 
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            z-index: -1 !important;
+        }
+    </style>
 
 </body>
 </html>
