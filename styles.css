@@ -131,7 +131,12 @@ body {
     -webkit-font-smoothing: antialiased;
     opacity: 1 !important;
     animation: none !important;
-    padding-top: 120px; /* Add padding to account for fixed header height */
+}
+
+/* Add space for fixed header */
+main {
+    margin-top: 160px !important;
+    padding-top: 0 !important;
 }
 
 /* Force specific elements to be visible by default - more targeted approach */
@@ -566,7 +571,11 @@ img {
     color: var(--color-light);
     overflow: hidden;
 }
-.hero { min-height: 100vh; }
+.hero { 
+    min-height: 100vh; 
+    margin-top: 160px !important;
+    padding-top: 2rem;
+}
 .page-hero { 
     min-height: 80vh; 
     background-image: url('assets/page-hero-background.jpg');
