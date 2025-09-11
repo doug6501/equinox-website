@@ -2693,18 +2693,62 @@ img[loading="lazy"].loaded {
     
     .nav-list {
         position: fixed;
-        inset: 0 0 0 30%;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
         flex-direction: column;
         justify-content: center;
-        gap: 3rem;
-        background: var(--color-dark);
+        align-items: center;
+        gap: 2rem;
+        background: linear-gradient(135deg, var(--color-dark) 0%, rgba(10, 10, 26, 0.98) 100%);
+        backdrop-filter: blur(20px);
         transform: translateX(100%);
         transition: transform 350ms ease-out;
         z-index: 1000;
+        padding: 2rem;
     }
     .nav-list[data-visible="true"] {
         transform: translateX(0%);
     }
+    /* Mobile navigation links styling */
+    .nav-list li {
+        text-align: center;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+    }
+    
+    .nav-list[data-visible="true"] li {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .nav-list[data-visible="true"] li:nth-child(1) { transition-delay: 0.1s; }
+    .nav-list[data-visible="true"] li:nth-child(2) { transition-delay: 0.15s; }
+    .nav-list[data-visible="true"] li:nth-child(3) { transition-delay: 0.2s; }
+    .nav-list[data-visible="true"] li:nth-child(4) { transition-delay: 0.25s; }
+    .nav-list[data-visible="true"] li:nth-child(5) { transition-delay: 0.3s; }
+    .nav-list[data-visible="true"] li:nth-child(6) { transition-delay: 0.35s; }
+    
+    .nav-list a {
+        font-size: 1.5rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        display: block;
+        min-width: 200px;
+    }
+    
+    .nav-list a:not(.btn):hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--color-secondary);
+        transform: scale(1.05);
+    }
+    
     .mobile-nav-toggle {
         display: block;
         position: relative;
