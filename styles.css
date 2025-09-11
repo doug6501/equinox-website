@@ -479,9 +479,14 @@ img {
 }
 .main-header .container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     padding: 0 3rem;
+    width: 100%;
+}
+
+.logo-link {
+    margin-right: auto;
 }
 .logo {
     height: 70px; /* Compact size by default */
@@ -505,6 +510,7 @@ img {
     display: flex;
     align-items: center;
     gap: 3.5rem;
+    margin-left: auto;
 }
 
 /* Contact Us button in header - make it fit on one line */
