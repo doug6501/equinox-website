@@ -195,8 +195,8 @@ section {
 
 /* Reveal Animation Classes */
 .fade-in {
-    opacity: 0;
-    transform: translateY(30px);
+    opacity: 1; /* Default to visible to prevent fading issues */
+    transform: translateY(0);
     transition: all 0.8s ease-out;
 }
 
@@ -221,8 +221,8 @@ section {
 }
 
 .fade-in-left {
-    opacity: 0;
-    transform: translateX(-30px);
+    opacity: 1; /* Default to visible */
+    transform: translateX(0);
     transition: all 0.8s ease-out;
 }
 
@@ -232,8 +232,8 @@ section {
 }
 
 .fade-in-right {
-    opacity: 0;
-    transform: translateX(30px);
+    opacity: 1; /* Default to visible */
+    transform: translateX(0);
     transition: all 0.8s ease-out;
 }
 
@@ -243,8 +243,8 @@ section {
 }
 
 .scale-in {
-    opacity: 0;
-    transform: scale(0.9);
+    opacity: 1; /* Default to visible */
+    transform: scale(1);
     transition: all 0.8s ease-out;
 }
 

@@ -222,8 +222,11 @@ document.addEventListener('DOMContentLoaded', function() {
         morphingSections.forEach(section => observer.observe(section));
     }
     
-    // 3. Scroll-Triggered Typography
+    // 3. Scroll-Triggered Typography - disabled to fix fading
     function initScrollTypography() {
+        // Temporarily disabled
+        return;
+        
         const revealElements = document.querySelectorAll('.scroll-reveal');
         
         const observer = new IntersectionObserver((entries) => {
@@ -353,9 +356,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Initialize all modern features
-    initParallax();
-    initMorphingAnimations();
-    initScrollTypography();
+    // Temporarily disabled to fix fading issue
+    // initParallax();
+    // initMorphingAnimations();
+    // initScrollTypography();
     initVideoTimeline();
     initTestimonialCarousel();
     initMicroInteractions();
