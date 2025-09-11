@@ -79,8 +79,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const fadeinElements = document.querySelectorAll('.fade-in');
     fadeinElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
+        // Disabled to prevent fading issues - keep content visible
+        // el.style.opacity = '0';
+        // el.style.transform = 'translateY(30px)';
         el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
         observer.observe(el);
     });
