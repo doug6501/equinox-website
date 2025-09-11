@@ -131,6 +131,7 @@ body {
     -webkit-font-smoothing: antialiased;
     opacity: 1 !important;
     animation: none !important;
+    padding-top: 120px; /* Add padding to account for fixed header height */
 }
 
 /* Force specific elements to be visible by default - more targeted approach */
