@@ -470,10 +470,12 @@ img {
     animation: none !important;
 }
 .main-header.scrolled {
-    background-color: rgba(10, 10, 26, 0.85);
+    background-color: rgba(10, 10, 26, 0.95);
     padding: 0.4rem 0;
     border-bottom: 1px solid var(--color-glass-border);
     box-shadow: 0 2px 20px rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 .main-header .container {
     display: flex;
@@ -624,8 +626,8 @@ img {
     overflow: hidden;
 }
 .hero { 
-    min-height: 80vh; 
-    padding-top: 2rem;
+    min-height: 100vh; 
+    padding-top: 0;
 }
 .page-hero { 
     min-height: 80vh; 
@@ -637,14 +639,14 @@ img {
 
 #hero-video {
     position: absolute;
-    top: 20%;
+    top: 0;
     left: 50%;
     min-width: 100%;
-    min-height: 120%;
+    min-height: 100vh;
     width: auto;
     height: auto;
     z-index: -1;
-    transform: translateX(-50%) translateY(-20%);
+    transform: translateX(-50%);
     object-fit: cover;
 }
 .hero::before, .page-hero::before {
@@ -672,7 +674,7 @@ img {
     position: relative;
     z-index: 3;
     max-width: 900px;
-    padding: 2rem;
+    padding: 6rem 2rem 2rem;
 }
 /* Page Hero Logo Background - Removed */
 
