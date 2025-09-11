@@ -207,17 +207,17 @@ section {
     /* animation: fadeInUp 1s ease-out; DISABLED TO FIX FADING */
 }
 
-/* Reveal Animation Classes */
+/* Reveal Animation Classes - SIMPLIFIED TO PREVENT CONFLICTS */
 .fade-in {
-    opacity: 1; /* Default to visible to prevent fading issues */
-    transform: translateY(0);
-    transition: all 0.8s ease-out;
+    opacity: 1 !important; /* Force visibility */
+    transform: none !important;
+    animation: none !important;
 }
 
 .fade-in.visible,
 .fade-in.is-visible {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1 !important;
+    transform: none !important;
 }
 
 /* Fallback for fade-in elements after 2 seconds - DISABLED TO FIX FADING */
@@ -237,36 +237,36 @@ section {
 }
 
 .fade-in-left {
-    opacity: 1; /* Default to visible */
-    transform: translateX(0);
-    transition: all 0.8s ease-out;
+    opacity: 1 !important; /* Force visibility */
+    transform: none !important;
+    animation: none !important;
 }
 
 .fade-in-left.visible {
-    opacity: 1;
-    transform: translateX(0);
+    opacity: 1 !important;
+    transform: none !important;
 }
 
 .fade-in-right {
-    opacity: 1; /* Default to visible */
-    transform: translateX(0);
-    transition: all 0.8s ease-out;
+    opacity: 1 !important; /* Force visibility */
+    transform: none !important;
+    animation: none !important;
 }
 
 .fade-in-right.visible {
-    opacity: 1;
-    transform: translateX(0);
+    opacity: 1 !important;
+    transform: none !important;
 }
 
 .scale-in {
-    opacity: 1; /* Default to visible */
-    transform: scale(1);
-    transition: all 0.8s ease-out;
+    opacity: 1 !important; /* Force visibility */
+    transform: none !important;
+    animation: none !important;
 }
 
 .scale-in.visible {
-    opacity: 1;
-    transform: scale(1);
+    opacity: 1 !important;
+    transform: none !important;
 }
 
 img, video {
@@ -449,7 +449,7 @@ img {
 
 /* Header - Force visibility and prevent fading */
 .main-header {
-    background-color: transparent;
+    background-color: rgba(10, 10, 26, 0.95);
     padding: 1.5rem 0;
     position: fixed;
     width: 100%;
@@ -457,7 +457,8 @@ img {
     top: 0;
     left: 0;
     transition: all var(--transition-luxury);
-    border-bottom: 1px solid transparent;
+    border-bottom: 1px solid var(--color-glass-border);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     opacity: 1 !important;
     display: block !important;
     visibility: visible !important;

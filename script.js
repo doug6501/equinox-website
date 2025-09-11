@@ -677,8 +677,11 @@ initSocialSharing();
         });
     }
 
-    // --- Premium Animation Functions ---
+    // --- Premium Animation Functions - COMPLETELY DISABLED ---
     function initScrollAnimations() {
+        // COMPLETELY DISABLED TO FIX FADING ISSUES
+        return;
+        /*
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -696,6 +699,7 @@ initSocialSharing();
         // Observe all animation elements
         const animateElements = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .scale-in');
         animateElements.forEach(el => observer.observe(el));
+        */
     }
 
     function initFloatingNavigation() {
