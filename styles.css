@@ -135,7 +135,6 @@ body {
 
 /* Add space for fixed header */
 main {
-    margin-top: 160px !important;
     padding-top: 0 !important;
 }
 
@@ -573,7 +572,6 @@ img {
 }
 .hero { 
     min-height: 100vh; 
-    margin-top: 160px !important;
     padding-top: 2rem;
 }
 .page-hero { 
