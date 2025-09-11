@@ -680,6 +680,7 @@ initSocialSharing();
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+                    entry.target.classList.add('is-visible'); // Add both for compatibility
                 }
             });
         }, observerOptions);

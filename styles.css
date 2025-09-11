@@ -200,9 +200,24 @@ section {
     transition: all 0.8s ease-out;
 }
 
-.fade-in.visible {
+.fade-in.visible,
+.fade-in.is-visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Fallback for fade-in elements after 2 seconds */
+@media (prefers-reduced-motion: no-preference) {
+    .fade-in {
+        animation: fadeInFallback 0.8s ease-out 2s forwards;
+    }
+}
+
+@keyframes fadeInFallback {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .fade-in-left {
@@ -2580,6 +2595,15 @@ img[loading="lazy"].loaded {
         height: 60px; /* Smaller scrolled size on mobile */
     }
     
+    /* Ensure hamburger is properly positioned on mobile */
+    .main-header .container {
+        padding: 0 1rem; /* Add padding to prevent cutoff */
+    }
+    
+    .mobile-nav-toggle {
+        margin-right: 0.5rem; /* Ensure it's not too close to edge */
+    }
+    
     /* Typography - Better mobile readability */
     h1 { 
         font-size: clamp(2.5rem, 8vw, 4rem) !important;
@@ -2758,8 +2782,11 @@ img[loading="lazy"].loaded {
         z-index: 9999;
         background: transparent;
         border: 0;
-        width: 2rem;
-        height: 2rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        cursor: pointer;
+        margin-left: auto;
+        align-self: center;
     }
     .hamburger, .hamburger::before, .hamburger::after {
         content: '';
