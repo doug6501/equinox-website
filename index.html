@@ -38,7 +38,14 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         /* DEBUGGING STYLES TO FORCE SPACING AND VISIBILITY */
-        body { margin: 0 !important; padding: 300px 0 0 0 !important; }
+        html { height: auto !important; overflow: visible !important; }
+        body { 
+            margin: 0 !important; 
+            padding: 300px 0 0 0 !important; 
+            height: auto !important; 
+            overflow: visible !important;
+            background: purple !important;
+        }
         main { 
             margin-top: 100px !important; 
             background: red !important; 
@@ -72,6 +79,11 @@
     </style>
 </head>
 <body>
+
+    <!-- DEBUGGING TEST CONTENT -->
+    <div style="background: orange; height: 200px; margin: 0; padding: 20px; position: relative; z-index: 1;">
+        <h1 style="color: black;">TEST CONTENT - If you see this, content can render</h1>
+    </div>
 
     <header class="main-header">
         <div class="container">
