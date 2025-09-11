@@ -344,7 +344,7 @@
         /* NUCLEAR CSS OVERRIDE - BASED ON WORKING TEST PAGE */
         body { 
             margin: 0 !important; 
-            padding: 0 !important; 
+            padding-top: 200px !important; 
             background: var(--color-dark) !important;
             height: auto !important; 
             overflow: visible !important;
@@ -360,7 +360,7 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.3) !important;
         }
         main { 
-            margin-top: 140px !important; 
+            margin-top: 0 !important; 
             display: block !important;
             visibility: visible !important;
             opacity: 1 !important;
@@ -386,6 +386,26 @@
             text-align: center !important;
             max-width: 900px !important;
             padding: 2rem !important;
+        }
+        .hero-content h1,
+        .hero-content p,
+        .hero-content a,
+        .hero-content * {
+            opacity: 1 !important;
+            visibility: visible !important;
+            color: var(--color-light) !important;
+        }
+        /* Force all content to be fully visible */
+        main *,
+        .hero *,
+        .intro-section *,
+        section *,
+        div *,
+        h1, h2, h3, h4, h5, h6, p, a, span {
+            opacity: 1 !important;
+            visibility: visible !important;
+            animation: none !important;
+            transition: none !important;
         }
         #hero-video { 
             position: absolute !important;
