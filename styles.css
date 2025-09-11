@@ -454,26 +454,26 @@ img {
 
 /* Header - Force visibility and prevent fading */
 .main-header {
-    background-color: rgba(10, 10, 26, 0.95);
-    padding: 1.5rem 0;
+    background-color: rgba(10, 10, 26, 0.7);
+    padding: 1.8rem 0;
     position: fixed;
     width: 100%;
     z-index: 1000;
     top: 0;
     left: 0;
-    transition: all var(--transition-luxury);
-    border-bottom: 1px solid var(--color-glass-border);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    transition: all 0.4s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
     opacity: 1 !important;
     display: block !important;
     visibility: visible !important;
     animation: none !important;
 }
 .main-header.scrolled {
-    background-color: rgba(10, 10, 26, 0.95);
+    background-color: rgba(10, 10, 26, 0.9);
     padding: 1rem 0;
     border-bottom: 1px solid var(--color-glass-border);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
 .main-header .container {
     display: flex;
@@ -481,10 +481,10 @@ img {
     align-items: center;
 }
 .logo {
-    height: 120px; /* Increased from 80px for better visibility */
+    height: 140px; /* Larger initially for prominence */
     width: auto;
     transition: all 0.4s ease;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+    filter: drop-shadow(0 4px 8px rgba(217, 121, 65, 0.3));
 }
 
 .logo:hover {
@@ -492,13 +492,22 @@ img {
     filter: drop-shadow(0 8px 16px rgba(217, 121, 65, 0.4));
 }
 .main-header.scrolled .logo {
-    height: 100px; /* Increased from 60px for better visibility */
+    height: 90px; /* Smaller when scrolled for content focus */
 }
 .nav-list {
     list-style: none;
     display: flex;
     align-items: center;
     gap: 2.5rem;
+}
+
+/* Contact Us button in header - make it fit on one line */
+.nav-list .btn-primary {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+    white-space: nowrap;
+    min-width: auto;
+    letter-spacing: 0.5px;
 }
 .nav-list a {
     text-decoration: none;

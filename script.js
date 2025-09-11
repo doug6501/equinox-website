@@ -22,9 +22,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // --- Header Styling on Scroll ---
+    // --- Header Styling on Scroll - Enhanced shrinking ---
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
+        if (window.scrollY > 80) {
             mainHeader.classList.add('scrolled');
         } else {
             mainHeader.classList.remove('scrolled');
@@ -703,21 +703,8 @@ initSocialSharing();
     }
 
     function initFloatingNavigation() {
-        let lastScrollTop = 0;
-        const header = document.querySelector('.main-header');
-        
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            // Add scrolled class for glass effect
-            if (scrollTop > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-            
-            lastScrollTop = scrollTop;
-        }, { passive: true });
+        // Scroll handling is now done in the main header section
+        // This function can be used for other floating navigation features if needed
     }
 
     function initMagneticEffects() {
