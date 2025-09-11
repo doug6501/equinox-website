@@ -125,11 +125,13 @@ A professional speaker at a conference podium with large LED screens and profess
 
 ## 📊 **SUMMARY - IMAGES NEEDED**
 
-### ✅ **COMPLETED (6 images):**
+### ✅ **COMPLETED (8 images):**
 - `page-hero-background.jpg` - Hero background for all pages
 - `insights-wedding-av.jpg` - Wedding AV article
 - `insights-zoom-meeting.jpg` - Zoom meeting article  
 - `insights-choose-partner.jpg` - Choose AV partner article
+- `story-team-home-new.jpg` - Homepage team collaboration image
+- `parallax-wedding-elegant.jpg` - Homepage wedding parallax section
 - Hero video now uses black background (no poster needed)
 - Large background logo removed from all pages
 
