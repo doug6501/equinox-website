@@ -454,7 +454,7 @@ img {
 
 /* Header - Force visibility and prevent fading */
 .main-header {
-    background-color: rgba(10, 10, 26, 0.6);
+    background-color: rgba(10, 10, 26, 0.4);
     padding: 2.5rem 0;
     position: fixed;
     width: 100%;
@@ -470,7 +470,7 @@ img {
     animation: none !important;
 }
 .main-header.scrolled {
-    background-color: rgba(10, 10, 26, 0.95);
+    background-color: rgba(10, 10, 26, 0.85);
     padding: 0.8rem 0;
     border-bottom: 1px solid var(--color-glass-border);
     box-shadow: 0 2px 20px rgba(0,0,0,0.5);
@@ -483,6 +483,8 @@ img {
 .logo {
     height: 160px; /* Much larger initially for dramatic effect */
     width: auto;
+    max-width: none;
+    object-fit: contain;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     filter: drop-shadow(0 6px 12px rgba(217, 121, 65, 0.4));
 }
@@ -493,6 +495,8 @@ img {
 }
 .main-header.scrolled .logo {
     height: 70px; /* Much smaller when scrolled - dramatic difference */
+    width: auto;
+    object-fit: contain;
 }
 .nav-list {
     list-style: none;
@@ -2641,9 +2645,13 @@ img[loading="lazy"].loaded {
     /* Logo and Header - Dramatic scaling on mobile too */
     .logo {
         height: 120px; /* Larger initial size on mobile */
+        width: auto;
+        object-fit: contain;
     }
     .main-header.scrolled .logo {
         height: 50px; /* Much smaller when scrolled on mobile */
+        width: auto;
+        object-fit: contain;
     }
     
     /* Ensure hamburger is properly positioned on mobile */
