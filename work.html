@@ -42,21 +42,62 @@
 
     <main>
         <section class="page-hero" style="
-                padding: 3rem 0;
-                background: linear-gradient(135deg, rgba(10, 10, 26, 0.2), rgba(26, 26, 46, 0.1)), 
-                           url('assets/page-hero-background.jpg') center/cover no-repeat;
+                padding: 12rem 0 1rem 0;
+                background: linear-gradient(135deg, #0A0A1A 0%, #1A1A2E 50%, #16213E 100%);
+                background-attachment: fixed;
                 position: relative;
-                min-height: 40vh;
+                min-height: 25vh;
+                display: flex;
+                align-items: center;
             ">
+            <style>
+                .page-hero::before {
+                    display: none !important;
+                }
+                body {
+                    background: linear-gradient(135deg, #0A0A1A 0%, #1A1A2E 50%, #16213E 100%) !important;
+                    background-attachment: fixed !important;
+                }
+                main {
+                    background: transparent !important;
+                    background-color: transparent !important;
+                }
+                .portfolio-full-section {
+                    background: transparent !important;
+                    background-color: transparent !important;
+                }
+                .portfolio-full-section .container {
+                    background: transparent !important;
+                    background-color: transparent !important;
+                }
+                .work-grid {
+                    background: transparent !important;
+                    background-color: transparent !important;
+                }
+                .work-card {
+                    background: var(--color-dark) !important;
+                    background-color: var(--color-dark) !important;
+                    background-image: none !important;
+                    border: 1px solid rgba(255,255,255,0.1) !important;
+                }
+                .work-card::before {
+                    display: none !important;
+                }
+                .work-card-content {
+                    background: var(--color-dark) !important;
+                    border-radius: 8px !important;
+                    padding: 1rem !important;
+                }
+            </style>
             <div class="container">
-                <div class="page-hero-content" style="text-align: center; padding: 2rem 0;">
+                <div class="page-hero-content" style="text-align: center; padding: 0;">
                     <h1 class="fade-in" style="color: white; margin-bottom: 1rem;">Our Work</h1>
                     <p class="fade-in delay-1" style="color: rgba(245, 245, 245, 0.9); font-size: 1.2rem;">We believe the work speaks for itself. Here's a look at some of the experiences we've helped create.</p>
                 </div>
             </div>
         </section>
 
-        <section class="portfolio-full-section">
+        <section class="portfolio-full-section" style="background: transparent !important; position: relative; z-index: 2;">
             <div class="container">
                 <div class="work-grid">
                     <a href="work-bennington-museum.html" class="work-card fade-in">
