@@ -37,11 +37,38 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* DEBUGGING STYLES TO FORCE SPACING */
+        /* DEBUGGING STYLES TO FORCE SPACING AND VISIBILITY */
         body { margin: 0 !important; padding: 300px 0 0 0 !important; }
-        main { margin-top: 100px !important; background: red !important; }
-        .hero { margin-top: 100px !important; background: blue !important; }
+        main { 
+            margin-top: 100px !important; 
+            background: red !important; 
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            position: relative !important;
+            z-index: 1 !important;
+            min-height: 500px !important;
+        }
+        .hero { 
+            margin-top: 100px !important; 
+            background: blue !important; 
+            display: flex !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            position: relative !important;
+            z-index: 2 !important;
+            min-height: 500px !important;
+        }
         .main-header { background: yellow !important; position: fixed !important; top: 0 !important; z-index: 9999 !important; }
+        #hero-video { display: none !important; }
+        .hero-content { 
+            background: green !important; 
+            display: block !important; 
+            visibility: visible !important;
+            opacity: 1 !important;
+            z-index: 10 !important;
+            position: relative !important;
+        }
     </style>
 </head>
 <body>
