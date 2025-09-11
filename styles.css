@@ -1,7 +1,7 @@
 :root {
     --color-dark: #0A0A1A; /* Deep navy for premium feel */
     --color-light: #f5f5f5;
-    --color-primary: #FF6B35; /* Vibrant Orange - more impactful */
+    --color-primary: #FF6B35; /* Vibrant Orange - more impactful and modern */
     --color-secondary: #FFD23F; /* Warm Yellow - more energetic */
     --color-accent: #4169E1; /* Electric Blue - modern tech feel */
     --color-charcoal: #2D3748; /* Sophisticated dark accent */
@@ -506,6 +506,24 @@ img {
     transform: translateY(-2px);
 }
 .mobile-nav-toggle { display: none; }
+
+/* Desktop Navigation - Always visible on larger screens */
+@media (min-width: 769px) {
+    .nav-list {
+        position: static !important;
+        transform: none !important;
+        flex-direction: row !important;
+        background: transparent !important;
+        gap: 2.5rem !important;
+        inset: unset !important;
+        z-index: unset !important;
+        justify-content: flex-end !important;
+    }
+    
+    .mobile-nav-toggle {
+        display: none !important;
+    }
+}
 
 /* Hero Sections */
 .hero, .page-hero {
