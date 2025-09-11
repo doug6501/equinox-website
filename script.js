@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (video.closest('.hero')) {
                     video.playbackRate = 1.0; // Full speed for main hero video
                 } else {
-                    video.playbackRate = 0.25; // 25% speed for featured work videos
+                    video.playbackRate = 0.45; // 45% speed for featured work videos
                 }
             } else if (currentPage === 'work.html') {
                 video.playbackRate = 0.60; // 60% speed on work page
@@ -515,12 +515,6 @@ function initSocialSharing() {
             </svg>
             Twitter
         </a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=${currentUrl}" target="_blank" class="social-share-btn facebook">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-            </svg>
-            Facebook
-        </a>
         <a href="https://www.linkedin.com/sharing/share-offsite/?url=${currentUrl}" target="_blank" class="social-share-btn linkedin">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
@@ -674,6 +668,104 @@ initSocialSharing();
             });
         });
     }
+
+    // --- Premium Animation Functions ---
+    function initScrollAnimations() {
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animation elements
+        const animateElements = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .scale-in');
+        animateElements.forEach(el => observer.observe(el));
+    }
+
+    function initFloatingNavigation() {
+        let lastScrollTop = 0;
+        const header = document.querySelector('.main-header');
+        
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Add scrolled class for glass effect
+            if (scrollTop > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            lastScrollTop = scrollTop;
+        }, { passive: true });
+    }
+
+    function initMagneticEffects() {
+        const magneticElements = document.querySelectorAll('.btn, .work-card');
+        
+        magneticElements.forEach(element => {
+            element.addEventListener('mouseenter', function(e) {
+                this.style.transition = 'transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            });
+            
+            element.addEventListener('mousemove', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                const moveX = x * 0.1;
+                const moveY = y * 0.1;
+                
+                this.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.02)`;
+            });
+            
+            element.addEventListener('mouseleave', function() {
+                this.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                this.style.transform = 'translate(0px, 0px) scale(1)';
+            });
+        });
+    }
+
+    function initLogoClickBehavior() {
+        const logoLink = document.querySelector('.logo-link');
+        const currentPage = window.location.pathname.split('/').pop();
+        
+        if (logoLink && (currentPage === 'index.html' || currentPage === '' || currentPage === 'index')) {
+            logoLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Add visual feedback - pulse animation
+                const logo = this.querySelector('.logo');
+                logo.style.transform = 'scale(0.95)';
+                logo.style.transition = 'transform 0.1s ease-out';
+                
+                setTimeout(() => {
+                    logo.style.transform = 'scale(1)';
+                    logo.style.transition = 'transform 0.2s ease-out';
+                }, 100);
+                
+                // Add a subtle glow effect
+                logo.style.filter = 'brightness(1.2) drop-shadow(0 0 10px var(--color-secondary))';
+                setTimeout(() => {
+                    logo.style.filter = 'none';
+                    logo.style.transition = 'filter 0.3s ease-out';
+                }, 300);
+            });
+        }
+    }
+
+    // Initialize premium features
+    initScrollAnimations();
+    initFloatingNavigation();
+    initMagneticEffects();
+    initLogoClickBehavior();
 
 });
 
