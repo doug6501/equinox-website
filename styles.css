@@ -481,6 +481,7 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 3rem;
 }
 .logo {
     height: 70px; /* Compact size by default */
@@ -504,7 +505,7 @@ img {
     list-style: none;
     display: flex;
     align-items: center;
-    gap: 2.5rem;
+    gap: 3.5rem;
 }
 
 /* Contact Us button in header - make it fit on one line */
@@ -592,7 +593,7 @@ img {
         transform: none !important;
         flex-direction: row !important;
         background: transparent !important;
-        gap: 2.5rem !important;
+        gap: 3.5rem !important;
         inset: unset !important;
         z-index: unset !important;
         justify-content: flex-end !important;
