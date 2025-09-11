@@ -59,7 +59,7 @@
 
     <main>
         <section class="page-hero" style="
-                min-height: 100vh;
+                min-height: 40vh;
                 background-size: cover;
                 background-position: center top;
                 background-attachment: fixed;
@@ -70,58 +70,9 @@
             </div>
         </section>
 
-        <section class="contact-hero-section">
+        <section class="contact-form-section" style="padding: 4rem 0;">
             <div class="container">
-                <div class="contact-hero-grid">
-                    <div class="contact-hero-content fade-in">
-                        <h2>Ready to Start Your Project?</h2>
-                        <p>Every great event starts with a conversation. Whether you're planning a corporate conference, an elegant wedding, or a high-profile gala, we're here to bring your vision to life with the technical expertise and creative flair that sets us apart.</p>
-                        <div class="contact-highlights">
-                            <div class="contact-highlight">
-                                <div class="highlight-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4>Free Consultation</h4>
-                                    <p>Let's discuss your vision and explore possibilities together.</p>
-                                </div>
-                            </div>
-                            <div class="contact-highlight">
-                                <div class="highlight-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4>Custom Solutions</h4>
-                                    <p>Every event is unique. We design solutions tailored to your needs.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="contact-hero-visual fade-in delay-1">
-                        <div class="contact-visual-card">
-                            <div class="contact-visual-header">
-                                <div class="contact-visual-dots">
-                                    <span></span><span></span><span></span>
-                                </div>
-                            </div>
-                            <div class="contact-visual-content">
-                                <h3>Contact Us</h3>
-                                <p>Ready to create something extraordinary?</p>
-                                <a href="#contact-form" class="btn btn-primary">Start the Conversation</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="contact-form-section">
-            <div class="container">
-                <div class="contact-form-container">
+                <div class="contact-form-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
                     <div class="contact-form-card fade-in">
                         <div class="form-header">
                             <h2>Send Us a Message</h2>
@@ -300,6 +251,14 @@
         main, .page-hero, .page-hero-content {
             opacity: 1 !important;
             visibility: visible !important;
+        }
+        
+        /* Mobile responsive for contact page */
+        @media (max-width: 768px) {
+            .contact-form-container {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+            }
         }
     </style>
 
