@@ -394,6 +394,8 @@ img {
 .btn-primary {
     background-color: var(--color-primary);
     color: var(--color-dark);
+    font-weight: 700;
+    border: none;
 }
 .btn::before {
     content: '';
@@ -411,7 +413,7 @@ img {
 }
 
 .btn-primary:hover {
-    background: var(--gradient-primary);
+    background-color: var(--color-secondary);
     transform: translateY(-5px) scale(1.02);
     box-shadow: 0 15px 35px rgba(0,0,0,0.4), 0 8px 15px rgba(217, 121, 65, 0.3);
 }
@@ -420,19 +422,18 @@ img {
     transform: translateY(-2px) scale(0.98);
 }
 .btn-secondary {
-    background: var(--gradient-accent);
+    background-color: var(--color-accent);
     color: var(--color-light);
-    border-color: var(--color-accent);
+    border: 2px solid var(--color-accent);
+    font-weight: 700;
 }
 
 .btn-secondary:hover {
-    background: var(--color-accent);
+    background-color: transparent;
+    color: var(--color-accent);
+    border-color: var(--color-accent);
     transform: translateY(-5px) scale(1.02);
     box-shadow: 0 15px 35px rgba(0,0,0,0.4), 0 8px 15px rgba(65, 105, 225, 0.3);
-}
-.btn-secondary:hover {
-    background-color: transparent;
-    color: var(--color-light);
 }
 
 .btn-link {
@@ -661,8 +662,8 @@ img {
     top: 0; left: 0;
     width: 100%; height: 100%;
     background: rgba(10, 10, 26, 0.85);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
     z-index: 1;
 }
 .hero::after, .page-hero::after {
@@ -696,7 +697,7 @@ img {
     text-shadow: none;
     position: relative;
     z-index: 4;
-    font-size: clamp(4rem, 10vw, 8rem) !important;
+    font-size: clamp(2.5rem, 7vw, 5rem) !important;
     /* animation: fadeInUp 1.2s ease-out; DISABLED TO FIX FADING */
 }
 .hero p, .page-hero p { 
