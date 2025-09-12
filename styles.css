@@ -697,7 +697,7 @@ img {
     text-shadow: none;
     position: relative;
     z-index: 4;
-    font-size: clamp(2.5rem, 7vw, 5rem) !important;
+    font-size: clamp(4rem, 8vw, 6rem) !important;
     /* animation: fadeInUp 1.2s ease-out; DISABLED TO FIX FADING */
 }
 .hero p, .page-hero p { 
