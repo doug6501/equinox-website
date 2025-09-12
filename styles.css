@@ -490,7 +490,7 @@ img {
     margin-right: auto;
 }
 .logo {
-    height: 70px; /* Compact size by default */
+    height: 60px; /* Match other pages */
     width: auto;
     max-width: none;
     object-fit: contain;
@@ -502,7 +502,7 @@ img {
     filter: none;
 }
 .main-header.scrolled .logo {
-    height: 50px; /* Even smaller when scrolled */
+    height: 50px; /* Consistent when scrolled */
     width: auto;
     object-fit: contain;
 }
@@ -2749,12 +2749,12 @@ img[loading="lazy"].loaded {
 @media (max-width: 768px) {
     /* Logo and Header - Dramatic scaling on mobile too */
     .logo {
-        height: 120px; /* Larger initial size on mobile */
+        height: 60px; /* Consistent size on mobile */
         width: auto;
         object-fit: contain;
     }
     .main-header.scrolled .logo {
-        height: 50px; /* Much smaller when scrolled on mobile */
+        height: 50px; /* Consistent when scrolled on mobile */
         width: auto;
         object-fit: contain;
     }
