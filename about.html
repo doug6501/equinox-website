@@ -32,7 +32,7 @@
                     </a></li>
                     <li><a href="work.html" class="nav-link magnetic-element">our work</a></li>
                     <li><a href="services.html" class="nav-link magnetic-element">services</a></li>
-                    <li><a href="about.html" class="nav-link magnetic-element">about us</a></li>
+                        <li><a href="about.html" class="nav-link magnetic-element active">about us</a></li>
                     <li><a href="insights.html" class="nav-link magnetic-element">insights</a></li>
                     <li><a href="contact.html" class="nav-link magnetic-cta">contact us</a></li>
                 </ul>
@@ -421,6 +421,11 @@
 
         .page-hero h1 {
             font-family: 'DM Serif Display', serif !important;
+            font-size: clamp(4rem, 8vw, 6rem) !important;
+        }
+        
+        /* Force the exact same font-size as index.html */
+        .page-hero .page-hero-content h1.fade-in {
             font-size: clamp(4rem, 8vw, 6rem) !important;
         }
 
