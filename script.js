@@ -48,7 +48,7 @@ async function loadFooter() {
 // TEST: Clean header loader (based on working footer function)
 async function loadHeader_TEST() {
     try {
-        const response = await fetch('_header_SIMPLE.html');
+        const response = await fetch('_header.html');
         const html = await response.text();
         const placeholder = document.getElementById('header-placeholder');
         if (placeholder) {
