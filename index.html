@@ -23,13 +23,12 @@
     <link rel="preload" href="assets/logo.png" as="image">
     
     <!-- Google Analytics -->
-    <!-- REPLACE G-XXXXXXXXXX WITH YOUR ACTUAL GA4 MEASUREMENT ID -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M34S5XLX03"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
+        gtag('config', 'G-M34S5XLX03');
     </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,298 +39,7 @@
 </head>
 <body>
 
-    <header class="main-header floating-glass-header" id="floating-header">
-        <div class="split-nav-container">
-            <!-- Centered Navigation with Logo -->
-            <nav class="centered-nav">
-                <ul class="nav-list" data-visible="false">
-                    <li><a href="index.html" class="logo-link magnetic-element">
-                        <img src="assets/logo.png" alt="Equinox Audio Visuals Logo" class="logo floating-logo">
-                        <div class="logo-glow"></div>
-                    </a></li>
-                    <li><a href="work.html" class="nav-link magnetic-element">our work</a></li>
-                    <li><a href="services.html" class="nav-link magnetic-element">services</a></li>
-                    <li><a href="about.html" class="nav-link magnetic-element">about us</a></li>
-                    <li><a href="insights.html" class="nav-link magnetic-element">insights</a></li>
-                    <li><a href="contact.html" class="nav-link magnetic-cta">contact us</a></li>
-                </ul>
-            </nav>
-            
-            <!-- Mobile Menu Toggle -->
-            <button class="mobile-nav-toggle" aria-controls="nav-list" aria-expanded="false">
-                <span class="hamburger"></span>
-            </button>
-        </div>
-    </header>
-
-    <style>
-        /* Clean Floating Header - No Box */
-        .floating-glass-header {
-            position: fixed !important;
-            top: 30px !important;
-            left: 50% !important;
-            transform: translateX(-50%) !important;
-            width: calc(100% - 60px) !important;
-            max-width: 1400px !important;
-            background: transparent !important;
-            backdrop-filter: none !important;
-            -webkit-backdrop-filter: none !important;
-            border: none !important;
-            border-radius: 0 !important;
-            padding: 0 !important;
-            z-index: 1000 !important;
-            transition: none !important;
-            box-shadow: none !important;
-        }
-
-        .floating-glass-header.scrolled {
-            top: 0 !important;
-            left: 0 !important;
-            transform: none !important;
-            width: 100% !important;
-            max-width: 100% !important;
-            background: rgba(10, 10, 26, 0.5) !important;
-            backdrop-filter: blur(10px) !important;
-            -webkit-backdrop-filter: blur(10px) !important;
-            border: none !important;
-            border-radius: 0 0 16px 16px !important;
-            padding: 0.25rem 2rem !important;
-            box-shadow: none !important;
-        }
-
-        /* Split Navigation Container */
-        .split-nav-container {
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            width: 100% !important;
-            max-width: 100% !important;
-            margin: 0 !important;
-            padding: 0 1rem !important;
-        }
-
-        /* Centered Navigation */
-        .centered-nav {
-            flex: 1 !important;
-            display: flex !important;
-            justify-content: center !important;
-        }
-
-        .floating-logo {
-            height: 45px !important;
-            width: auto !important;
-            transition: none !important;
-            filter: brightness(1.1) !important;
-        }
-
-        .logo-glow {
-            display: none !important;
-        }
-
-        .logo-link:hover {
-            background: none !important;
-            background-color: transparent !important;
-            transform: none !important;
-            box-shadow: none !important;
-        }
-
-        .logo-link:hover .floating-logo {
-            filter: none !important;
-            transform: none !important;
-        }
-
-        .logo-link::after {
-            display: none !important;
-        }
-
-
-        .nav-list {
-            display: flex !important;
-            gap: 2rem !important;
-            list-style: none !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            align-items: center !important;
-            justify-content: center !important;
-        }
-
-        .nav-link {
-            font-family: 'JetBrains Mono', monospace !important;
-            font-weight: 700 !important;
-            font-size: 0.85rem !important;
-            color: rgba(255, 255, 255, 0.9) !important;
-            text-decoration: none !important;
-            padding: 0.3rem 0.5rem !important;
-            border-radius: 4px !important;
-            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
-            position: relative !important;
-            letter-spacing: 0.3px !important;
-            text-transform: lowercase !important;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            right: 0;
-            margin: 0 auto;
-            width: 0;
-            height: 2px;
-            background: #FF6B35;
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover {
-            color: #FF6B35 !important;
-            background: none !important;
-            background-color: transparent !important;
-            transform: none !important;
-            box-shadow: none !important;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-
-        .magnetic-cta {
-            font-family: 'JetBrains Mono', monospace !important;
-            background: transparent !important;
-            border: none !important;
-            border-radius: 4px !important;
-            padding: 0.3rem 0.5rem !important;
-            font-weight: 700 !important;
-            font-size: 0.85rem !important;
-            color: rgba(255, 255, 255, 0.9) !important;
-            text-decoration: none !important;
-            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
-            box-shadow: none !important;
-            letter-spacing: 0.3px !important;
-            text-transform: lowercase !important;
-            position: relative !important;
-            overflow: hidden !important;
-        }
-
-        .magnetic-cta::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            right: 0;
-            margin: 0 auto;
-            width: 0;
-            height: 2px;
-            background: #FF6B35;
-            transition: width 0.3s ease;
-        }
-
-        .magnetic-cta:hover {
-            color: #FF6B35 !important;
-        }
-
-        .magnetic-cta:hover::after {
-            width: 100%;
-        }
-
-        /* Magnetic Effects - Disabled */
-        .magnetic-element {
-            transition: none !important;
-        }
-
-        /* Hybrid Font Strategy for Index Page */
-        .btn, .btn-primary, .btn-secondary {
-            font-family: 'JetBrains Mono', monospace !important;
-            font-weight: 600 !important;
-            letter-spacing: 0.5px !important;
-            text-transform: lowercase !important;
-        }
-
-        .hero-content p {
-            font-family: 'Inter', sans-serif !important;
-            font-weight: 400 !important;
-        }
-
-        .hero-content h1 {
-            font-family: 'DM Serif Display', serif !important;
-        }
-
-        /* Technical/Feature sections use JetBrains Mono */
-        .feature-grid h3, .approach-section h3, .services-tabs-section h3 {
-            font-family: 'JetBrains Mono', monospace !important;
-            font-weight: 600 !important;
-            letter-spacing: 0.5px !important;
-        }
-
-        /* Section headings keep serif elegance */
-        .main-content h2, .section-title {
-            font-family: 'DM Serif Display', serif !important;
-        }
-
-        /* Body text stays Inter for readability */
-        .main-content p, .feature-grid p, .approach-section p {
-            font-family: 'Inter', sans-serif !important;
-        }
-
-        /* Header Backdrop - Removed since no glass container */
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .floating-glass-header {
-                width: calc(100% - 20px) !important;
-                top: 15px !important;
-                padding: 0.8rem 1rem !important;
-                border-radius: 12px !important;
-            }
-            
-            .split-nav-container {
-                justify-content: space-between !important;
-            }
-            
-            .nav-center {
-                display: none !important;
-            }
-            
-            /* Mobile: Hide large logo, show small one in header */
-            .nav-left {
-                position: static !important;
-                left: auto !important;
-                top: auto !important;
-                transform: none !important;
-                flex: 0 0 auto !important;
-                opacity: 1 !important;
-            }
-            
-            .floating-logo {
-                height: 32px !important;
-                opacity: 1 !important;
-                filter: brightness(1.1) drop-shadow(0 4px 12px rgba(255, 107, 53, 0.4)) !important;
-            }
-            
-            .floating-glass-header.scrolled .floating-logo {
-                height: 28px !important;
-            }
-
-
-            .logo-glow {
-                width: 50px !important;
-                height: 50px !important;
-                opacity: 0 !important;
-            }
-            
-            .magnetic-cta {
-                font-size: 0.8rem !important;
-                padding: 0.5rem 1rem !important;
-            }
-        }
-
-        /* Scroll Behavior - Header always visible */
-
-        /* Hide mobile nav toggle on desktop */
-        .mobile-nav-toggle {
-            display: none !important;
-        }
-    </style>
+    <div id="header-placeholder"></div>
 
     <main>
         <section class="hero">
@@ -342,6 +50,67 @@
                 <h1>Event Production with Character.</h1>
                 <p>We are the seasoned pros for clients who value craft, character, and flawless execution. We're not just a vendor; we're your partner in production.</p>
                 <a href="work.html" class="btn btn-secondary">See Our Work</a>
+            </div>
+        </section>
+
+        <!-- Client Logo Bar - Instant Trust Section -->
+        <section class="client-logo-bar">
+            <div class="container">
+                <h3 class="section-eyebrow fade-in-up">TRUSTED BY LEADING VENUES & BRANDS IN VERMONT</h3>
+            </div>
+            <div class="logo-scroll-container">
+                <div class="logo-scroll-track">
+                    <!-- First set of logos -->
+                    <div class="logo-item">
+                        <img src="assets/logo-bennington.svg" alt="Bennington Museum">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/logo-hildene.svg" alt="Hildene, The Lincoln Family Home">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/logo-arlington.svg" alt="Arlington Common">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/logo-kimpton.svg" alt="Kimpton Taconic">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/logo-equinox-resort.svg" alt="The Equinox Resort">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/logo-bennington.svg" alt="Bennington Museum">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/logo-hildene.svg" alt="Hildene, The Lincoln Family Home">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/logo-arlington.svg" alt="Arlington Common">
+                    </div>
+                    <!-- Duplicate set for seamless loop -->
+                    <div class="logo-item">
+                        <img src="assets/logo-kimpton.svg" alt="Kimpton Taconic">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/logo-equinox-resort.svg" alt="The Equinox Resort">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/logo-bennington.svg" alt="Bennington Museum">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/logo-hildene.svg" alt="Hildene, The Lincoln Family Home">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/logo-arlington.svg" alt="Arlington Common">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/logo-kimpton.svg" alt="Kimpton Taconic">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/logo-equinox-resort.svg" alt="The Equinox Resort">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/logo-bennington.svg" alt="Bennington Museum">
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -375,95 +144,49 @@
             </div>
         </section>
 
-        <section class="portfolio-preview-section">
+        <!-- Bento Grid Section - Service Categories -->
+        <section class="bento-grid-section">
             <div class="container">
-                <h2 class="section-title ">Featured Work</h2>
-                <div class="featured-work-separator ">
-                    <div class="separator-line"></div>
-                    <div class="separator-diamond"></div>
-                    <div class="separator-line"></div>
-                </div>
-                <div class="work-grid" id="featured-work-grid">
-                    <a href="work-bennington-museum.html" class="work-card work-card-enhanced featured-work-item" data-delay="0">
-                        <div class="work-card-media">
-                            <video autoplay loop muted playsinline poster="">
-                                <source src="assets/Venue_TV_Fly_Through_Video.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="work-card-content">
-                            <h3>Bennington Museum Gala</h3>
-                            <p class="work-card-location">September 2024 • Bennington, VT</p>
+                <h2 class="section-title fade-in-up">Explore Our Work</h2>
+                <p class="section-subtitle">From intimate gatherings to large-scale productions, we bring your vision to life</p>
+                
+                <div class="bento-grid">
+                    <!-- Item 1: Corporate Events - Large (2x1) -->
+                    <a href="services.html#corporate" class="bento-item bento-item-large">
+                        <div class="bento-item-bg" style="background-image: url('assets/service-corporate.jpg');"></div>
+                        <div class="bento-item-overlay"></div>
+                        <div class="bento-item-content">
+                            <h3 class="bento-item-title">Corporate Events</h3>
+                            <p class="bento-item-description">Conferences, product launches, and corporate gatherings that inspire and engage</p>
+                            <span class="bento-item-arrow">→</span>
                         </div>
                     </a>
-                    <a href="work-hildene.html" class="work-card work-card-enhanced featured-work-item" data-delay="1">
-                        <div class="work-card-media">
-                            <video autoplay loop muted playsinline poster="">
-                                <source src="assets/Venue_Fly_Through_Highlighting_Stage.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="work-card-content">
-                            <h3>Hildene Lincoln Hall</h3>
-                            <p class="work-card-location">August 2024 • Manchester, VT</p>
-                        </div>
-                    </a>
-                    <a href="work-vanish-screening.html" class="work-card work-card-enhanced featured-work-item" data-delay="2">
-                        <div class="work-card-media">
-                             <video autoplay loop muted playsinline poster="">
-                                <source src="assets/Flythrough_Video_Generation_Request - Bennington Museum.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="work-card-content">
-                            <h3>"Vanish" Film Screening</h3>
-                            <p class="work-card-location">October 2024 • Bennington, VT</p>
+                    
+                    <!-- Item 2: Weddings - Small (1x1) -->
+                    <a href="services.html#weddings" class="bento-item">
+                        <div class="bento-item-bg" style="background-image: url('assets/service-wedding.jpg');"></div>
+                        <div class="bento-item-overlay"></div>
+                        <div class="bento-item-content">
+                            <h3 class="bento-item-title">Weddings</h3>
+                            <p class="bento-item-description">Creating unforgettable moments for your special day</p>
+                            <span class="bento-item-arrow">→</span>
                         </div>
                     </a>
-                    <a href="work-hildene-volunteer.html" class="work-card work-card-enhanced featured-work-item" data-delay="3">
-                        <div class="work-card-media">
-                            <video autoplay loop muted playsinline poster="">
-                                <source src="assets/Hildene - Volunteer Appreciation Dinner - 2025 - Flythrough.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="work-card-content">
-                            <h3>Hildene Volunteer Appreciation</h3>
-                            <p class="work-card-location">Manchester, VT</p>
-                        </div>
-                    </a>
-                    <a href="work-kimpton-taconic.html" class="work-card work-card-enhanced featured-work-item" data-delay="4">
-                        <div class="work-card-media">
-                            <video autoplay loop muted playsinline poster="">
-                                <source src="assets/Venue_Fly_Through_Video_Generation.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="work-card-content">
-                            <h3>Kimpton Taconic Wedding</h3>
-                            <p class="work-card-location">December 2024 • Manchester, VT</p>
-                        </div>
-                    </a>
-                    <a href="work-equinox-wedding.html" class="work-card work-card-enhanced featured-work-item" data-delay="5">
-                        <div class="work-card-media">
-                            <video autoplay loop muted playsinline poster="">
-                                <source src="assets/Equinox Resort - Wedding Ceremony Flythrough.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="work-card-content">
-                            <h3>Equinox Resort Tent Wedding</h3>
-                            <p class="work-card-location">September 2024 • Manchester, VT</p>
-                        </div>
-                    </a>
-                    <a href="work-two-day-wedding.html" class="work-card work-card-enhanced featured-work-item" data-delay="6">
-                        <div class="work-card-media">
-                            <video autoplay loop muted playsinline poster="">
-                                <source src="assets/MandE - Hill Farm - String Lights - Sunset.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="work-card-content">
-                            <h3>Two-Day Wedding Weekend</h3>
-                            <p class="work-card-location">August 2025 • Manchester, VT</p>
+                    
+                    <!-- Item 3: Galas & Non-Profit - Small (1x1) -->
+                    <a href="services.html#galas" class="bento-item">
+                        <div class="bento-item-bg" style="background-image: url('assets/service-gala.jpg');"></div>
+                        <div class="bento-item-overlay"></div>
+                        <div class="bento-item-content">
+                            <h3 class="bento-item-title">Galas & Non-Profit</h3>
+                            <p class="bento-item-description">Fundraisers and celebrations that make an impact</p>
+                            <span class="bento-item-arrow">→</span>
                         </div>
                     </a>
                 </div>
-                <div class="featured-work-cta ">
-                    <a href="work.html" class="btn btn-secondary btn-large">See More Events</a>
+                
+                <div class="bento-cta">
+                    <a href="work.html" class="btn btn-secondary btn-large">View All Projects</a>
                 </div>
             </div>
         </section>
@@ -534,27 +257,32 @@
             </div>
         </section>
 
-        <section class="testimonial-section">
-            <div class="container">
-                <h2 class="section-title ">What Our Clients Say</h2>
-                <div class="testimonial-carousel">
-                    <div class="testimonial-slide active">
-                        <blockquote>"Equinox made our entire wedding weekend absolutely magical. From the intimate rehearsal dinner under the stars at Hill Farm to the incredible lighting show at Hildene that kept everyone dancing, they brought our vision to life in ways we never imagined."</blockquote>
-                        <cite>— Wedding Couple</cite>
+        <section class="testimonial-slider-section">
+            <h2 class="fade-in-up">What Our Clients Say</h2>
+            <div class="testimonial-slider">
+                <div class="slider-track">
+                    <!-- Slide 1 -->
+                    <div class="slide">
+                        <p class="quote">"For three years running, Equinox has been the backbone of our Winter Gala. From high-stakes events to delicate installations like the Grandma Moses display, their respect for our history and attention to detail is unmatched."</p>
+                        <p class="author">Executive Director</p>
+                        <p class="title">Bennington Museum</p>
                     </div>
-                    <div class="testimonial-slide">
-                        <blockquote>"The real-time lighting programming was incredible - it felt like the lights were dancing with us! They transformed our venue into something truly spectacular."</blockquote>
-                        <cite>— Event Client</cite>
+                    <!-- Slide 2 -->
+                    <div class="slide">
+                        <p class="quote">"Whether it's the Lincoln Symposium or a complex wedding production, Equinox brings a hospitality mindset that puts everyone at ease. They understand the nuances of our historic venue perfectly."</p>
+                        <p class="author">Events Team</p>
+                        <p class="title">Hildene, The Lincoln Family Home</p>
                     </div>
-                    <div class="testimonial-slide">
-                        <blockquote>"Professional, creative, and absolutely reliable. They handled every technical detail so we could focus on our guests and enjoy our special day."</blockquote>
-                        <cite>— Corporate Client</cite>
+                    <!-- Slide 3 -->
+                    <div class="slide">
+                        <p class="quote">"The Fly Fishing Festival has many moving parts, and Equinox handled the production logistics flawlessly. They are responsive, skilled, and the 'nice guys' you actually want on your team."</p>
+                        <p class="author">Festival Organizer</p>
+                        <p class="title">Arlington Common</p>
                     </div>
                 </div>
-                <div class="testimonial-nav">
-                    <div class="testimonial-dot active"></div>
-                    <div class="testimonial-dot"></div>
-                    <div class="testimonial-dot"></div>
+                <div class="slider-controls">
+                    <button id="prev-slide" class="slider-arrow" aria-label="Previous testimonial">&lt;</button>
+                    <button id="next-slide" class="slider-arrow" aria-label="Next testimonial">&gt;</button>
                 </div>
             </div>
         </section>
@@ -568,47 +296,7 @@
         </section>
     </main>
 
-    <footer class="main-footer">
-        <div class="container footer-container">
-            <div class="footer-brand">
-                <img src="assets/logo.png" alt="Equinox Audio Visuals Logo" class="footer-logo">
-                <p>Event Production with Character. Crafted in Manchester, VT, and trusted at events around the world.</p>
-            </div>
-            <div class="footer-links">
-                <h4>Navigate</h4>
-                <ul>
-                    <li><a href="work.html">Our Work</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="insights.html">Insights</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Services</h4>
-                <ul>
-                    <li><a href="services.html">Event Production</a></li>
-                    <li><a href="services.html">AV Rentals</a></li>
-                    <li><a href="services.html">Consultancy</a></li>
-                </ul>
-            </div>
-            <div class="footer-connect">
-                <h4>Get in Touch</h4>
-                <p>
-                    Manchester, VT<br>
-                    <a href="mailto:info@equinoxaudiovisuals.com">info@equinoxaudiovisuals.com</a>
-                </p>
-                <div class="social-links">
-                    <a href="https://www.instagram.com/equinoxaudiovisuals/" target="_blank" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
-                    <a href="https://linkedin.com/company/equinoxav/" target="_blank" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
-                </div>
-            </div>
-        </div>
-        <div class="container footer-bottom">
-            <p>&copy; 2025 Equinox Audio Visuals. All Rights Reserved.</p>
-        </div>
-    </footer>
-
+    <div id="footer-placeholder"></div>
 
     <script src="script.js"></script>
 
@@ -663,92 +351,6 @@
             }
         }
     </style>
-
-    <script>
-        // Floating Glassmorphism Header JavaScript
-        document.addEventListener('DOMContentLoaded', function() {
-            const header = document.getElementById('floating-header');
-            let lastScrollY = window.scrollY;
-            let ticking = false;
-
-            // Simple scroll behavior - header always visible
-            function updateHeader() {
-                const scrollY = window.scrollY;
-                
-                // Add scrolled class for any styling adjustments
-                if (scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-
-                lastScrollY = scrollY;
-                ticking = false;
-            }
-
-            function requestTick() {
-                if (!ticking) {
-                    requestAnimationFrame(updateHeader);
-                    ticking = true;
-                }
-            }
-
-            window.addEventListener('scroll', requestTick);
-
-            // Magnetic hover effects
-            const magneticElements = document.querySelectorAll('.magnetic-element');
-            
-            magneticElements.forEach(element => {
-                element.addEventListener('mousemove', function(e) {
-                    const rect = this.getBoundingClientRect();
-                    const x = e.clientX - rect.left - rect.width / 2;
-                    const y = e.clientY - rect.top - rect.height / 2;
-                    
-                    this.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
-                });
-                
-                element.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translate(0, 0)';
-                });
-            });
-
-            // Enhanced CTA magnetic effect
-            const ctaButton = document.querySelector('.magnetic-cta');
-            if (ctaButton) {
-                ctaButton.addEventListener('mousemove', function(e) {
-                    const rect = this.getBoundingClientRect();
-                    const x = e.clientX - rect.left - rect.width / 2;
-                    const y = e.clientY - rect.top - rect.height / 2;
-                    
-                    this.style.transform = `translateY(-3px) scale(1.02) translate(${x * 0.05}px, ${y * 0.05}px)`;
-                });
-                
-                ctaButton.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0) scale(1) translate(0, 0)';
-                });
-            }
-
-            // Logo glow effect on scroll
-            const logoGlow = document.querySelector('.logo-glow');
-            window.addEventListener('scroll', function() {
-                const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
-                if (logoGlow && scrollPercent > 0.3) {
-                    logoGlow.style.opacity = Math.min(scrollPercent * 2, 1);
-                } else if (logoGlow) {
-                    logoGlow.style.opacity = 0;
-                }
-            });
-
-            // Parallax effect for header backdrop
-            window.addEventListener('scroll', function() {
-                const scrolled = window.pageYOffset;
-                const headerBackdrop = document.querySelector('.header-backdrop');
-                if (headerBackdrop) {
-                    headerBackdrop.style.transform = `translateY(${scrolled * 0.1}px)`;
-                }
-            });
-        });
-    </script>
 
 </body>
 </html>

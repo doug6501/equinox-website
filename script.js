@@ -1,28 +1,91 @@
-document.addEventListener('DOMContentLoaded', function() {
+// ========================================
+// HEADER AND FOOTER LOADER
+// ========================================
 
+async function loadHeader() {
+    try {
+        const response = await fetch('_header.html?' + new Date().getTime());
+        const html = await response.text();
+        const placeholder = document.getElementById('header-placeholder');
+        if (placeholder) {
+            placeholder.innerHTML = html;
+            
+            // Set active navigation state based on current page
+            const currentPage = window.location.pathname.split("/").pop() || 'index.html';
+            const navLinks = document.querySelectorAll('.nav-link, .magnetic-cta');
+            
+            navLinks.forEach(link => {
+                const linkPage = link.getAttribute('href');
+                // Match exact page or handle index.html as default
+                if (linkPage === currentPage || 
+                    (currentPage === '' && linkPage === 'index.html') ||
+                    (currentPage === 'index' && linkPage === 'index.html')) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Re-initialize header-related functionality after loading
+            initHeaderFunctionality();
+        }
+    } catch (error) {
+        console.error('Error loading header:', error);
+    }
+}
+
+async function loadFooter() {
+    try {
+        const response = await fetch('_footer.html');
+        const html = await response.text();
+        const placeholder = document.getElementById('footer-placeholder');
+        if (placeholder) {
+            placeholder.innerHTML = html;
+        }
+    } catch (error) {
+        console.error('Error loading footer:', error);
+    }
+}
+
+// TEST: Clean header loader (based on working footer function)
+async function loadHeader_TEST() {
+    try {
+        const response = await fetch('_header_SIMPLE.html');
+        const html = await response.text();
+        const placeholder = document.getElementById('header-placeholder');
+        if (placeholder) {
+            placeholder.innerHTML = html;
+        }
+    } catch (error) {
+        console.error('Error loading header:', error);
+    }
+}
+
+// Initialize header functionality after it's loaded
+function initHeaderFunctionality() {
     const mainHeader = document.querySelector('.main-header');
     const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
     const primaryNav = document.querySelector('.nav-list');
     
-    // --- Mobile Navigation Toggle ---
+    if (!mainHeader || !mobileNavToggle || !primaryNav) return;
+    
+    // Mobile Navigation Toggle
     mobileNavToggle.addEventListener('click', () => {
         const isVisible = primaryNav.getAttribute('data-visible') === 'true';
         primaryNav.setAttribute('data-visible', !isVisible);
         mobileNavToggle.setAttribute('aria-expanded', !isVisible);
     });
 
-    // --- Close mobile nav when a link is clicked ---
+    // Close mobile nav when a link is clicked
     const navLinks = document.querySelectorAll('.nav-list a');
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             if (window.innerWidth <= 768) {
-               primaryNav.setAttribute('data-visible', false);
-               mobileNavToggle.setAttribute('aria-expanded', false);
+               primaryNav.setAttribute('data-visible', 'false');
+               mobileNavToggle.setAttribute('aria-expanded', 'false');
             }
         });
     });
     
-    // --- Header Styling on Scroll - Dramatic shrinking ---
+    // Header Styling on Scroll
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             mainHeader.classList.add('scrolled');
@@ -30,6 +93,164 @@ document.addEventListener('DOMContentLoaded', function() {
             mainHeader.classList.remove('scrolled');
         }
     });
+
+    // Floating Glassmorphism Header JavaScript
+    const header = document.getElementById('floating-header');
+    if (header) {
+        let lastScrollY = window.scrollY;
+        let ticking = false;
+
+        function updateHeader() {
+            const scrollY = window.scrollY;
+            
+            if (scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            lastScrollY = scrollY;
+            ticking = false;
+        }
+
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(updateHeader);
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', requestTick);
+
+        // Magnetic hover effects
+        const magneticElements = document.querySelectorAll('.magnetic-element');
+        
+        magneticElements.forEach(element => {
+            element.addEventListener('mousemove', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                this.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+            });
+            
+            element.addEventListener('mouseleave', function() {
+                this.style.transform = 'translate(0, 0)';
+            });
+        });
+
+        // Enhanced CTA magnetic effect
+        const ctaButton = document.querySelector('.magnetic-cta');
+        if (ctaButton) {
+            ctaButton.addEventListener('mousemove', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                this.style.transform = `translateY(-3px) scale(1.02) translate(${x * 0.05}px, ${y * 0.05}px)`;
+            });
+            
+            ctaButton.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1) translate(0, 0)';
+            });
+        }
+
+        // Logo glow effect on scroll
+        const logoGlow = document.querySelector('.logo-glow');
+        window.addEventListener('scroll', function() {
+            const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+            if (logoGlow && scrollPercent > 0.3) {
+                logoGlow.style.opacity = Math.min(scrollPercent * 2, 1);
+            } else if (logoGlow) {
+                logoGlow.style.opacity = 0;
+            }
+        });
+    }
+}
+
+// ========================================
+// NEW TESTIMONIAL SLIDER
+// ========================================
+
+function initNewTestimonialSlider() {
+    const track = document.querySelector('.slider-track');
+    if (!track) return; // Stop if slider not on this page
+
+    const slides = Array.from(track.children);
+    const nextButton = document.getElementById('next-slide');
+    const prevButton = document.getElementById('prev-slide');
+    
+    if (!nextButton || !prevButton) return; // Stop if buttons not found
+    
+    let slideWidth = slides[0].getBoundingClientRect().width;
+    let currentIndex = 0;
+
+    // Function to set slide position
+    const goToSlide = (index) => {
+        track.style.transform = 'translateX(-' + (slideWidth * index) + 'px)';
+        currentIndex = index;
+    };
+
+    // Next button
+    nextButton.addEventListener('click', e => {
+        let nextIndex = currentIndex + 1;
+        if (nextIndex >= slides.length) {
+            nextIndex = 0; // Loop to start
+        }
+        goToSlide(nextIndex);
+    });
+
+    // Prev button
+    prevButton.addEventListener('click', e => {
+        let prevIndex = currentIndex - 1;
+        if (prevIndex < 0) {
+            prevIndex = slides.length - 1; // Loop to end
+        }
+        goToSlide(prevIndex);
+    });
+
+    // Recalculate width on resize
+    window.addEventListener('resize', () => {
+        slideWidth = slides[0].getBoundingClientRect().width;
+        goToSlide(currentIndex); // Snap to current slide
+    });
+
+    // Initial setup
+    goToSlide(0);
+}
+
+// Wait for DOM to be ready before loading header and footer
+document.addEventListener('DOMContentLoaded', function() {
+    // ========================================
+    // STEP 1: Load header and footer FIRST
+    // ========================================
+    // We need to wait for BOTH header and footer to be done
+    // before we show the page.
+    const loadOperations = [
+        loadHeader_TEST(), // This is our working header function
+        loadFooter()       // This is our working footer function
+    ];
+
+    // Wait for all fetch operations to complete
+    Promise.all(loadOperations)
+        .then(() => {
+            console.log("Header and Footer are loaded.");
+            // NOW, fade in the page by adding the class
+            document.body.classList.add('is-loaded');
+            // Re-initialize any JS that depends on header/footer
+            // Initialize the new testimonial slider
+            initNewTestimonialSlider();
+        })
+        .catch(error => {
+            console.error("Error loading site components:", error);
+            // Even if it fails, show the page so it's not blank
+            document.body.classList.add('is-loaded');
+        });
+
+    // ========================================
+    // STEP 2: Initialize everything else
+    // (These don't depend on header/footer)
+    // ========================================
 
 
     // --- Video Playback Speed Control ---
@@ -297,42 +518,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // 5. Testimonial Carousel
-    function initTestimonialCarousel() {
-        const carousels = document.querySelectorAll('.testimonial-carousel');
-        
-        carousels.forEach(carousel => {
-            const slides = carousel.querySelectorAll('.testimonial-slide');
-            const dots = carousel.querySelectorAll('.testimonial-dot');
-            let currentSlide = 0;
-            
-            function showSlide(index) {
-                slides.forEach(slide => slide.classList.remove('active'));
-                dots.forEach(dot => dot.classList.remove('active'));
-                
-                slides[index].classList.add('active');
-                dots[index].classList.add('active');
-            }
-            
-            // Dot navigation
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    currentSlide = index;
-                    showSlide(currentSlide);
-                });
-            });
-            
-            // Auto-rotate
-            setInterval(() => {
-                currentSlide = (currentSlide + 1) % slides.length;
-                showSlide(currentSlide);
-            }, 5000);
-            
-            // Initialize
-            showSlide(0);
-        });
-    }
-    
     // 6. Enhanced Micro-Interactions
     function initMicroInteractions() {
         // Add micro-interaction class to buttons
@@ -365,9 +550,30 @@ document.addEventListener('DOMContentLoaded', function() {
     // initMorphingAnimations();
     // initScrollTypography();
     initVideoTimeline();
-    initTestimonialCarousel();
     initMicroInteractions();
     initGradientText();
+    
+    // ========================================
+    // SCROLLYTELLING - Fade In Up Animations
+    // ========================================
+    const fadeInObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                // Unobserve after animation triggers (runs only once)
+                fadeInObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1, // Trigger when 10% of element is visible
+        rootMargin: '0px 0px -50px 0px' // Trigger slightly before element enters viewport
+    });
+    
+    // Observe all elements with .fade-in-up class
+    const fadeInElements = document.querySelectorAll('.fade-in-up');
+    fadeInElements.forEach(element => {
+        fadeInObserver.observe(element);
+    });
     
     // ========================================
     // PERFORMANCE OPTIMIZATION
@@ -605,16 +811,7 @@ function copyToClipboard(text) {
 
 initSocialSharing();
 
-    // --- Active Nav Link Highlighting ---
-    const currentPage = window.location.pathname.split("/").pop();
-    const navAnchors = document.querySelectorAll('.main-nav a');
-
-    navAnchors.forEach(link => {
-        const linkPage = link.getAttribute('href');
-        if (linkPage === currentPage) {
-            link.classList.add('active');
-        }
-    });
+    // Note: Active nav link highlighting is now handled in loadHeader()
 
     // --- Services Page Tabs ---
     const tabs = document.querySelectorAll('[data-tab]');

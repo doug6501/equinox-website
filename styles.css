@@ -453,182 +453,13 @@ img {
     transform: translateX(5px);
 }
 
-/* Header - Force visibility and prevent fading */
-.main-header {
-    background-color: rgba(10, 10, 26, 0.3);
-    padding: 0.6rem 0;
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-    top: 0;
-    left: 0;
-    transition: all 0.3s ease;
-    border-bottom: none;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
-    opacity: 1 !important;
-    display: block !important;
-    visibility: visible !important;
-    animation: none !important;
-}
-.main-header.scrolled {
-    background-color: rgba(10, 10, 26, 0.7);
-    padding: 0.4rem 0;
-    border-bottom: none;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.5);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-.main-header .container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 0 3rem;
-    width: 100%;
-}
-
-.logo-link {
-    margin-right: auto;
-}
-.logo {
-    height: 60px; /* Match other pages */
-    width: auto;
-    max-width: none;
-    object-fit: contain;
-    transition: all 0.3s ease;
-}
-
-.logo:hover {
-    transform: none;
-    filter: none;
-}
-.main-header.scrolled .logo {
-    height: 50px; /* Consistent when scrolled */
-    width: auto;
-    object-fit: contain;
-}
-.nav-list {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 3.5rem;
-    margin-left: auto;
-}
-
-/* Contact Us button in header - make it fit on one line */
-.nav-list .btn-primary {
-    font-size: 0.9rem;
-    padding: 0.6rem 1.2rem;
-    white-space: nowrap;
-    min-width: auto;
-    letter-spacing: 0.5px;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Simple navigation link styling */
-.nav-list a {
-    text-decoration: none;
-    color: var(--color-light);
-    font-weight: 700;
-    padding-bottom: 8px;
-    transition: color 0.3s ease;
-    text-transform: uppercase;
-    font-size: 1.1rem;
-    letter-spacing: 1px;
-    position: relative;
-}
-
-/* Clean bottom border for active/hover states - no wrapping */
-.nav-list a:not(.btn):hover,
-.nav-list a.active:not(.btn) {
-    color: var(--color-primary);
-}
-
-.nav-list a:not(.btn):hover::after,
-.nav-list a.active:not(.btn)::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--color-primary);
-}
-
-/* Navigation button styling - consistent across all pages */
-.nav-list a.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem 2.5rem;
-    height: auto;
-    min-height: 48px;
-}
-
-/* Active contact button styling - different from orange button */
-.nav-list a.active.btn {
-    background-color: transparent;
-    color: var(--color-secondary);
-    border: 2px solid var(--color-secondary);
-    font-weight: 600;
-}
-
-.nav-list a.active.btn:hover {
-    background-color: var(--color-secondary);
-    color: var(--color-dark);
-    transform: translateY(-2px);
-}
-.mobile-nav-toggle { 
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
-    z-index: 1001;
-    position: relative;
-}
-
-/* Desktop Navigation - Always visible on larger screens */
-@media (min-width: 769px) {
-    .mobile-nav-toggle { 
-        display: none !important; 
-    }
-    
-    .nav-list {
-        position: static !important;
-        transform: none !important;
-        flex-direction: row !important;
-        background: transparent !important;
-        gap: 3.5rem !important;
-        inset: unset !important;
-        z-index: unset !important;
-        justify-content: flex-end !important;
-        display: flex !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-        width: auto !important;
-        height: auto !important;
-    }
-    
-    .nav-list[data-visible="false"],
-    .nav-list[data-visible="true"] {
-        position: static !important;
-        transform: none !important;
-        flex-direction: row !important;
-        background: transparent !important;
-        display: flex !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-    }
-}
-
 /* Hero Sections */
 .hero, .page-hero {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
     color: var(--color-light);
     overflow: hidden;
 }
@@ -724,6 +555,434 @@ img {
     0% { filter: drop-shadow(0 0 5px rgba(232, 180, 74, 0.3)); }
     100% { filter: drop-shadow(0 0 15px rgba(232, 180, 74, 0.6)); }
 }
+
+/* ========================================
+   CLIENT LOGO BAR - INSTANT TRUST
+   ======================================== */
+
+/* Section Eyebrow - Title */
+.section-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+/* Client Logo Bar Section */
+.client-logo-bar {
+    background: linear-gradient(180deg, rgba(10, 10, 26, 0.95) 0%, rgba(26, 26, 46, 0.98) 100%);
+    padding: 4rem 0 3rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.client-logo-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--color-primary) 50%, 
+        transparent 100%);
+    opacity: 0.3;
+}
+
+/* Logo Scroll Container */
+.logo-scroll-container {
+    margin-top: 2rem;
+    overflow: hidden;
+    position: relative;
+    padding: 1rem 0;
+}
+
+/* Gradient fade edges for smooth infinity effect */
+.logo-scroll-container::before,
+.logo-scroll-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 150px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.logo-scroll-container::before {
+    left: 0;
+    background: linear-gradient(90deg, 
+        rgba(10, 10, 26, 0.98) 0%, 
+        transparent 100%);
+}
+
+.logo-scroll-container::after {
+    right: 0;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(10, 10, 26, 0.98) 100%);
+}
+
+/* Logo Track - Horizontal scrolling container */
+.logo-scroll-track {
+    display: flex;
+    gap: 4rem;
+    animation: infiniteScroll 40s linear infinite;
+    will-change: transform;
+}
+
+/* Pause animation on hover */
+.logo-scroll-track:hover {
+    animation-play-state: paused;
+}
+
+/* Infinite scroll animation */
+@keyframes infiniteScroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* Individual Logo Items */
+.logo-item {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    padding: 0 2rem;
+    transition: var(--transition-normal);
+}
+
+.logo-item img {
+    max-width: 140px;
+    max-height: 60px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(100%) brightness(0.7) contrast(1.2);
+    opacity: 0.6;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Hover state - restore color and increase brightness */
+.logo-item:hover img {
+    filter: grayscale(0%) brightness(1) contrast(1);
+    opacity: 1;
+    transform: scale(1.08);
+}
+
+/* Responsive Design - Mobile */
+@media (max-width: 768px) {
+    .client-logo-bar {
+        padding: 3rem 0 2rem 0;
+    }
+    
+    .section-eyebrow {
+        font-size: 0.65rem;
+        letter-spacing: 1.5px;
+        padding: 0 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .logo-scroll-track {
+        gap: 3rem;
+        animation: infiniteScroll 60s linear infinite; /* Slower on mobile */
+    }
+    
+    .logo-item {
+        height: 60px;
+        padding: 0 1.5rem;
+    }
+    
+    .logo-item img {
+        max-width: 100px;
+        max-height: 45px;
+    }
+    
+    .logo-scroll-container::before,
+    .logo-scroll-container::after {
+        width: 80px;
+    }
+}
+
+/* Tablet breakpoint */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .logo-scroll-track {
+        gap: 3.5rem;
+        animation: infiniteScroll 50s linear infinite;
+    }
+    
+    .logo-item img {
+        max-width: 120px;
+        max-height: 55px;
+    }
+}
+
+/* ========================================
+   BENTO GRID SECTION - SERVICE CATEGORIES
+   ======================================== */
+
+.bento-grid-section {
+    padding: 6rem 0;
+    background: linear-gradient(180deg, rgba(34, 34, 34, 1) 0%, rgba(26, 26, 46, 1) 100%);
+    position: relative;
+}
+
+.bento-grid-section .section-title {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.bento-grid-section .section-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: rgba(245, 245, 245, 0.7);
+    margin-bottom: 3rem;
+    font-family: var(--font-body);
+}
+
+/* Bento Grid Container */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+/* Bento Items */
+.bento-item {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    min-height: 400px;
+    display: flex;
+    align-items: flex-end;
+    text-decoration: none;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: pointer;
+}
+
+/* Large item spans 2 columns */
+.bento-item-large {
+    grid-column: span 2;
+    min-height: 500px;
+}
+
+/* Background Image Container */
+.bento-item-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 1;
+}
+
+/* Semi-transparent Dark Overlay */
+.bento-item-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(10, 10, 26, 0.2) 0%,
+        rgba(10, 10, 26, 0.6) 50%,
+        rgba(10, 10, 26, 0.9) 100%
+    );
+    z-index: 2;
+    transition: background 0.5s ease;
+}
+
+/* Content Container */
+.bento-item-content {
+    position: relative;
+    z-index: 3;
+    padding: 2.5rem;
+    width: 100%;
+}
+
+/* Title Styling */
+.bento-item-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 0.75rem;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.bento-item-large .bento-item-title {
+    font-size: 3rem;
+}
+
+/* Description Text */
+.bento-item-description {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: rgba(245, 245, 245, 0.85);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    max-width: 600px;
+    opacity: 0.9;
+    transition: opacity 0.4s ease;
+}
+
+/* Arrow Indicator */
+.bento-item-arrow {
+    display: inline-block;
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Hover Effects */
+.bento-item:hover .bento-item-bg {
+    transform: scale(1.08);
+}
+
+.bento-item:hover .bento-item-overlay {
+    background: linear-gradient(
+        180deg,
+        rgba(10, 10, 26, 0.3) 0%,
+        rgba(10, 10, 26, 0.7) 50%,
+        rgba(10, 10, 26, 0.95) 100%
+    );
+}
+
+.bento-item:hover .bento-item-title {
+    transform: translateY(-5px);
+}
+
+.bento-item:hover .bento-item-description {
+    opacity: 1;
+}
+
+.bento-item:hover .bento-item-arrow {
+    transform: translateX(10px);
+    color: var(--color-secondary);
+}
+
+/* CTA Button */
+.bento-cta {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* Responsive Design - Tablet */
+@media (max-width: 1024px) {
+    .bento-item {
+        min-height: 350px;
+    }
+    
+    .bento-item-large {
+        min-height: 450px;
+    }
+    
+    .bento-item-title {
+        font-size: 2rem;
+    }
+    
+    .bento-item-large .bento-item-title {
+        font-size: 2.5rem;
+    }
+    
+    .bento-item-content {
+        padding: 2rem;
+    }
+}
+
+/* Responsive Design - Mobile */
+@media (max-width: 768px) {
+    .bento-grid-section {
+        padding: 4rem 0;
+    }
+    
+    .bento-grid-section .section-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        padding: 0 1rem;
+    }
+    
+    /* Stack items vertically on mobile */
+    .bento-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .bento-item-large {
+        grid-column: span 1;
+        min-height: 400px;
+    }
+    
+    .bento-item {
+        min-height: 350px;
+    }
+    
+    .bento-item-content {
+        padding: 1.75rem;
+    }
+    
+    .bento-item-title {
+        font-size: 1.75rem;
+    }
+    
+    .bento-item-large .bento-item-title {
+        font-size: 2rem;
+    }
+    
+    .bento-item-description {
+        font-size: 0.95rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .bento-item-arrow {
+        font-size: 1.25rem;
+    }
+    
+    /* Slightly reduce zoom effect on mobile */
+    .bento-item:hover .bento-item-bg {
+        transform: scale(1.05);
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .bento-item-large {
+        min-height: 350px;
+    }
+    
+    .bento-item {
+        min-height: 300px;
+    }
+    
+    .bento-item-content {
+        padding: 1.5rem;
+    }
+    
+    .bento-item-title {
+        font-size: 1.5rem;
+    }
+    
+    .bento-item-large .bento-item-title {
+        font-size: 1.75rem;
+    }
+}
+
 .intro-section {
     background-color: #222;
     position: relative;
@@ -3093,3 +3352,138 @@ img[loading="lazy"].loaded {
     }
 }
 
+
+/* ========================================
+   CRITICAL HERO FIX (OVERRIDE)
+   ======================================== */
+section.hero .hero-content,
+section.page-hero .hero-content,
+section.page-hero .page-hero-content {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important; /* Ensure it's full-width */
+}
+
+
+/* ========================================
+   SCROLLYTELLING ANIMATIONS
+   ======================================== */
+
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ========================================
+   PRE-LOADER TO PREVENT HEADER/FOOTER FLICKER
+   ======================================== */
+
+body {
+    opacity: 0; /* Hide the page by default */
+    transition: opacity 0.3s ease-in;
+}
+
+body.is-loaded {
+    opacity: 1; /* Fade the page in when ready */
+}
+
+/* ========================================
+   TESTIMONIAL SLIDER STYLES
+   ======================================== */
+
+.testimonial-slider-section {
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: #0A0A1A; /* Dark background */
+    color: white;
+}
+
+.testimonial-slider {
+    max-width: 800px;
+    margin: 2rem auto 0;
+    position: relative;
+    overflow: hidden; /* This is the key */
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    flex-shrink: 0;
+    width: 100%;
+    padding: 1rem 10%; /* 10% padding on sides */
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.slide .quote {
+    font-size: 1.5rem;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+.slide .author {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    color: #FF6B35; /* Brand Orange */
+}
+
+.slide .title {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.slider-controls {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    pointer-events: none; /* Let clicks go through */
+    /* --- NEW STYLES BELOW --- */
+    padding: 0 1rem; /* Add padding so arrows aren't on the edge */
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.slider-arrow {
+    pointer-events: all; /* Make buttons clickable */
+    background: rgba(255, 255, 255, 0.1); /* Glass background */
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    /* NEW - Make them round */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    /* NEW - Better font/icon styling */
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 50px; /* Center the arrow vertically */
+    text-align: center;
+}
+
+.slider-arrow:hover {
+    background: #FF6B35; /* Brand Orange */
+    border-color: #FF6B35;
+    transform: scale(1.1);
+}
+
+/* Remove the old margin rules */
+#prev-slide { /* No new rules needed */ }
+#next-slide { /* No new rules needed */ }
