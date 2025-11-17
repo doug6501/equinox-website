@@ -4,7 +4,7 @@
 
 async function loadHeader() {
     try {
-        const response = await fetch('_header_INLINE.html?v=' + new Date().getTime());
+        const response = await fetch('_header.html?v=' + new Date().getTime());
         const html = await response.text();
         const placeholder = document.getElementById('header-placeholder');
         if (placeholder) {
