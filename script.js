@@ -188,6 +188,29 @@ function initNewTestimonialSlider() {
     goToSlide(0);
 }
 
+// ========================================
+// MOBILE MENU TOGGLE
+// ========================================
+function initMobileMenu() {
+    const mobileToggle = document.querySelector('.mobile-nav-toggle');
+    if (!mobileToggle) return;
+
+    mobileToggle.addEventListener('click', () => {
+        document.body.classList.toggle('nav-open');
+        const isOpen = document.body.classList.contains('nav-open');
+        mobileToggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Close mobile nav when a link is clicked
+    const navLinks = document.querySelectorAll('.nav-list a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            document.body.classList.remove('nav-open');
+            mobileToggle.setAttribute('aria-expanded', 'false');
+        });
+    });
+}
+
 // Wait for DOM to be ready before loading header and footer
 document.addEventListener('DOMContentLoaded', function() {
     // ========================================
@@ -209,6 +232,8 @@ document.addEventListener('DOMContentLoaded', function() {
             // Re-initialize any JS that depends on header/footer
             // Initialize the new testimonial slider
             initNewTestimonialSlider();
+            // Initialize mobile menu
+            initMobileMenu();
         })
         .catch(error => {
             console.error("Error loading site components:", error);
