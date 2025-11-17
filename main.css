@@ -3688,7 +3688,7 @@ a[href="index.html"]:hover img[src="assets/logo.png"],
         transform: rotate(-45deg);
         top: -3px;
     }
-}
+
 /* ========================================
    FINAL UNIFIED HEADER (v7)
    ======================================== */
@@ -3743,7 +3743,7 @@ a[href="index.html"]:hover img[src="assets/logo.png"],
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     margin-top: -35px; /* Pulls nav up under the logo */
     /* FIX: More padding to look less crowded */
-    padding-top: 75px; /* Pushes links down to clear logo */
+    padding-top: 85px; /* Pushes links down to clear logo */
 }
 
 .nav-list-centered {
@@ -3884,4 +3884,3 @@ a[href="index.html"]:hover img[src="assets/logo.png"],
         top: -3px;
     }
 }
-
