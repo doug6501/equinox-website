@@ -1,0 +1,196 @@
+/* ========================================
+   FINAL UNIFIED HEADER (v7)
+   ======================================== */
+
+.header-v3 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9000;
+    overflow: visible !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+}
+
+/* --- TIER 1: LOGO --- */
+.logo-tier {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.logo-link {
+    display: block;
+    position: relative;
+    top: 15px; /* Logo floats 15px down from top */
+    z-index: 10;
+}
+
+.logo-link img.logo {
+    height: 100px;
+    width: auto;
+    padding: 0;
+    background-color: #FAFAFA;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    transition: none !important; /* REMOVES HOVER EFFECT */
+    transform: none !important; /* REMOVES HOVER EFFECT */
+}
+
+/* --- TIER 2: DESKTOP NAV BAR --- */
+.nav-tier-glass {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 50px;
+    background-color: rgba(10, 10, 26, 0.5);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    margin-top: -35px; /* Pulls nav up under the logo */
+    /* FIX: More padding to look less crowded */
+    padding-top: 75px; /* Pushes links down to clear logo */
+}
+
+.nav-list-centered {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0;
+}
+
+.nav-list-centered li a.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- TIER 3: MOBILE HAMBURGER (Default Hidden) --- */
+.mobile-nav-toggle { 
+    display: none; 
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 9999;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: relative;
+}
+
+.hamburger::before {
+    top: -8px;
+}
+
+.hamburger::after {
+    top: 5px;
+}
+
+/* ========================================
+   MOBILE OVERRIDE (768px and down)
+   ======================================== */
+
+@media (max-width: 768px) {
+    .header-v3 {
+        /* Make the glass bar the main element on mobile */
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        padding: 0 20px !important;
+        min-height: 80px !important;
+        background-color: rgba(10, 10, 26, 0.5) !important;
+        backdrop-filter: blur(10px) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        overflow: hidden !important; /* No overhang on mobile */
+    }
+
+    /* Hide desktop nav bar and center logo tier */
+    .nav-tier-glass { display: none !important; }
+    .logo-tier { 
+        display: flex !important;
+        align-items: center !important;
+    }
+    
+    .logo-link {
+        top: 0 !important; /* Remove floating on mobile */
+    }
+    
+    .logo-link img.logo {
+        height: 60px !important; /* Smaller logo on mobile */
+    }
+
+    /* Show the mobile hamburger */
+    .mobile-nav-toggle {
+        display: block !important;
+    }
+
+    /* Hide desktop nav list by default */
+    .nav-list-centered {
+        display: none !important; 
+        position: fixed !important;
+        top: 80px !important; /* Below the header */
+        left: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        background-color: #0A0A1A !important;
+        flex-direction: column !important;
+        gap: 0 !important;
+        padding: 2rem 0 !important;
+        z-index: 8999 !important;
+    }
+    
+    .nav-list-centered li {
+        width: 100% !important;
+        text-align: center !important;
+        padding: 1rem 0 !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+    
+    .nav-list-centered li a {
+        display: block !important;
+        padding: 1rem !important;
+        font-size: 1.2rem !important;
+    }
+
+    /* Show the nav list when toggled */
+    body.nav-open .nav-list-centered {
+        display: flex !important;
+    }
+    
+    /* Animate hamburger to X when open */
+    body.nav-open .hamburger {
+        background-color: transparent;
+    }
+    
+    body.nav-open .hamburger::before {
+        transform: rotate(45deg);
+        top: 0;
+    }
+    
+    body.nav-open .hamburger::after {
+        transform: rotate(-45deg);
+        top: -3px;
+    }
+}
+
