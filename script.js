@@ -4,28 +4,11 @@
 
 async function loadHeader() {
     try {
-        const response = await fetch('_header.html?' + new Date().getTime());
+        const response = await fetch('_header_INLINE.html?v=' + new Date().getTime());
         const html = await response.text();
         const placeholder = document.getElementById('header-placeholder');
         if (placeholder) {
             placeholder.innerHTML = html;
-            
-            // Set active navigation state based on current page
-            const currentPage = window.location.pathname.split("/").pop() || 'index.html';
-            const navLinks = document.querySelectorAll('.nav-link, .magnetic-cta');
-            
-            navLinks.forEach(link => {
-                const linkPage = link.getAttribute('href');
-                // Match exact page or handle index.html as default
-                if (linkPage === currentPage || 
-                    (currentPage === '' && linkPage === 'index.html') ||
-                    (currentPage === 'index' && linkPage === 'index.html')) {
-                    link.classList.add('active');
-                }
-            });
-            
-            // Re-initialize header-related functionality after loading
-            initHeaderFunctionality();
         }
     } catch (error) {
         console.error('Error loading header:', error);
@@ -42,20 +25,6 @@ async function loadFooter() {
         }
     } catch (error) {
         console.error('Error loading footer:', error);
-    }
-}
-
-// TEST: Clean header loader (based on working footer function)
-async function loadHeader_TEST() {
-    try {
-        const response = await fetch('_header.html');
-        const html = await response.text();
-        const placeholder = document.getElementById('header-placeholder');
-        if (placeholder) {
-            placeholder.innerHTML = html;
-        }
-    } catch (error) {
-        console.error('Error loading header:', error);
     }
 }
 
@@ -227,8 +196,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // We need to wait for BOTH header and footer to be done
     // before we show the page.
     const loadOperations = [
-        loadHeader_TEST(), // This is our working header function
-        loadFooter()       // This is our working footer function
+        loadHeader(), // Production header function
+        loadFooter()  // Production footer function
     ];
 
     // Wait for all fetch operations to complete

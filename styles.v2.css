@@ -3487,3 +3487,91 @@ body.is-loaded {
 /* Remove the old margin rules */
 #prev-slide { /* No new rules needed */ }
 #next-slide { /* No new rules needed */ }
+
+/* ========================================
+   THE OVERHANGING BADGE LOGO - SPLIT LAYOUT
+   ======================================== */
+
+/* Allow the header to let the logo overflow/hang down */
+header {
+    overflow: visible !important;
+    justify-content: space-between !important; /* Split layout */
+}
+
+/* Split Navigation Container */
+.split-nav-container {
+    display: flex !important;
+    flex-direction: row !important; /* Force horizontal layout */
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+/* Logo Link - Left Side with Breathing Room */
+.logo-link {
+    display: block !important;
+    padding-left: 40px !important; /* Breathing room from screen edge */
+}
+
+/* The Badge Logo Itself - FIXED SIZE */
+.logo-link img.logo,
+a[href="index.html"] img[src="assets/logo.png"] {
+    height: 100px !important; /* Reduced from 130px */
+    width: auto !important;
+    
+    /* Positioning to make it hang down */
+    position: relative !important;
+    top: 25px !important; /* Push it down so it breaks the header line */
+    
+    /* The "Physical Sticker" Look - UPDATED TO SOFT WHITE */
+    background-color: #FAFAFA !important; /* Soft White (brighter than cream) */
+    border-radius: 50% !important;
+    padding: 0px !important; /* Tightened from 5px - circle hugs the image */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5) !important; /* Heavy shadow for depth */
+    
+    /* Smooth transition */
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    z-index: 9999 !important;
+}
+
+/* Hover Effect: Pop it slightly with a playful rotation */
+a[href="index.html"]:hover img[src="assets/logo.png"],
+.logo-link:hover img.logo {
+    transform: scale(1.1) rotate(-3deg) !important;
+}
+
+/* Navigation - Right Side */
+.centered-nav {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.nav-list {
+    display: flex !important;
+    flex-direction: row !important; /* Force horizontal layout */
+    align-items: center !important;
+    gap: 2rem !important;
+    list-style: none !important;
+    margin: 0 !important;
+    margin-right: 40px !important; /* Space from right edge */
+    padding: 0 !important;
+    width: auto !important; /* Changed from 100% to auto for split layout */
+}
+
+.nav-list li {
+    display: block !important;
+}
+
+.nav-link {
+    color: white !important;
+    text-decoration: none !important;
+    font-size: 1rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    padding: 10px !important;
+    transition: color 0.3s ease !important;
+}
+
+.nav-link:hover {
+    color: #FF6B35 !important; /* Orange hover effect */
+}
