@@ -3540,7 +3540,12 @@ body.is-loaded {
     list-style: none;
     margin: 0;
     padding: 0.5rem 0;
-    z-index: 11; /* Ensure links are on top */
+
+    /* NEW RULES TO PLACE IT ON THE BAR */
+    position: relative;
+    z-index: 2; /* Sit on top of the glass */
+    margin-top: -60px; /* Pull it up onto the glass bar */
+    padding-top: 10px; /* Adjust spacing */
 }
 
 .nav-list-centered li a.nav-link {
@@ -3627,17 +3632,18 @@ body.is-loaded {
 
     /* Style the mobile dropdown menu */
     .nav-list-centered {
-        display: none; 
-        position: fixed;
-        top: 80px; /* Below the header */
-        left: 0;
-        width: 100%;
-        height: auto;
-        background-color: #0A0A1A;
-        flex-direction: column;
-        gap: 0;
-        padding: 1rem 0;
-        z-index: 8999;
+        display: none !important; 
+        position: fixed !important;
+        top: 80px !important; /* Below the header */
+        left: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        background-color: #0A0A1A !important;
+        flex-direction: column !important;
+        gap: 0 !important;
+        margin-top: 0 !important; /* Reset desktop margin */
+        padding: 1rem 0 !important;
+        z-index: 1 !important; /* Sit behind the header */
     }
 
     .nav-list-centered li {
