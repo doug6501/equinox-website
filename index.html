@@ -41,6 +41,7 @@
     <div id="header-placeholder"></div>
 
     <main>
+
         <section class="hero">
             <video autoplay loop muted playsinline id="hero-video" style="background-color: #000000;">
                 <source src="assets/Equinox AV Background and Logo 720p.mov" type="video/mp4">
@@ -293,64 +294,12 @@
                 <a href="contact.html" class="btn btn-secondary">Contact Us</a>
             </div>
         </section>
+    
     </main>
 
     <div id="footer-placeholder"></div>
 
     <script src="script.js?v=2"></script>
 
-    <!-- TARGETED FIX: Fix mobile menu interference and spacing issues -->
-    <style>
-        /* Fix header overlap with proper spacing */
-        body { 
-            padding-top: 0 !important; 
-        }
-        
-        /* Ensure logo is visible and properly styled */
-        .logo {
-            display: block !important;
-            opacity: 1 !important;
-            visibility: visible !important;
-            height: 120px !important;
-        }
-        
-        .logo-link {
-            display: block !important;
-            opacity: 1 !important;
-            visibility: visible !important;
-        }
-        
-        /* Force content to be visible but allow safe animations */
-        .fade-in,
-        .fade-in-left,
-        .fade-in-right,
-        .scale-in,
-        .scroll-reveal {
-            opacity: 1 !important;
-            visibility: visible !important;
-            animation: none !important;
-        }
-        
-        /* Ensure main content areas are visible */
-        main,
-        .hero,
-        .hero-content,
-        .intro-section {
-            opacity: 1 !important;
-            visibility: visible !important;
-        }
-        
-        /* Mobile: Show only 2 featured work and 2 insights */
-        @media (max-width: 768px) {
-            .featured-work-item:nth-child(n+3) {
-                display: none !important;
-            }
-            .insight-highlight-card:nth-child(n+3) {
-                display: none !important;
-            }
-        }
-    </style>
-
 </body>
 </html>
-
