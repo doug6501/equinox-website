@@ -3548,7 +3548,7 @@ body.home-page main {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 2.5rem;
+    gap: 4rem; /* WIDENED: Push links further apart to clear logo */
     list-style: none;
     margin: 0;
     padding: 0;
@@ -3654,16 +3654,16 @@ body.home-page main {
     .nav-list-centered {
         display: none !important; 
         position: fixed !important;
-        top: 80px !important; /* Below the header */
+        top: 80px !important; /* Below the header (matches header height) */
         left: 0 !important;
         width: 100% !important;
         height: auto !important;
-        background-color: #0A0A1A !important;
+        background-color: #0A0A1A !important; /* Dark Navy */
         flex-direction: column !important;
         gap: 0 !important;
         margin-top: 0 !important; /* Reset desktop margin */
         padding: 1rem 0 !important;
-        z-index: 8999 !important;
+        z-index: 99999 !important; /* REINFORCED: Ensure it's on top */
         pointer-events: all !important; /* Enable clicks on mobile */
     }
 
@@ -3684,9 +3684,9 @@ body.home-page main {
     body.nav-open .nav-list-centered {
         display: flex !important;
         position: fixed !important;
-        top: 80px !important;
-        z-index: 9999 !important;
-        background-color: #0A0A1A !important;
+        top: 80px !important; /* Matches header height */
+        z-index: 99999 !important; /* REINFORCED: Maximum z-index */
+        background-color: #0A0A1A !important; /* Dark Navy */
         height: calc(100vh - 80px) !important; /* Fill rest of screen */
     }
 
