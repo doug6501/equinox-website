@@ -3554,13 +3554,13 @@ body.home-page main {
     justify-content: center;
     align-items: center;
     width: 100%;
-    min-height: 80px; /* INCREASED: More vertical space */
+    min-height: 90px; /* INCREASED: More vertical space */
     background-color: rgba(10, 10, 26, 0.5);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     margin-top: -35px; /* Pulls nav up under logo */
-    padding-top: 120px; /* INCREASED: Extra padding to fully clear 100px logo + 15px offset */
+    padding-top: 140px; /* INCREASED: Maximum padding to ensure no overlap */
 }
 
 .nav-list-centered {
