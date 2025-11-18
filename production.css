@@ -3554,6 +3554,12 @@ body.is-loaded {
     list-style: none;
     margin: 0;
     padding: 0.5rem 0;
+
+    /* NEW RULES TO PLACE IT ON THE BAR */
+    position: relative;
+    z-index: 2; /* Sit on top of the glass */
+    margin-top: -60px; /* Pull it up onto the glass bar */
+    padding-top: 10px; /* Adjust spacing */
 }
 
 .nav-list-centered li a.nav-link {
@@ -3646,6 +3652,7 @@ body.is-loaded {
         background-color: #0A0A1A !important;
         flex-direction: column !important;
         gap: 0 !important;
+        margin-top: 0 !important; /* Reset desktop margin */
         padding: 2rem 0 !important;
         z-index: 8999 !important;
     }
