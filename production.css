@@ -674,9 +674,29 @@ img {
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
+/* Exception: Arlington Common (already white, don't filter) */
+.logo-item img[src*="logo-arlington"] {
+    filter: none; /* Remove filter - logo is already white */
+    opacity: 0.8; /* Slightly higher opacity since no filter */
+}
+
+/* Exception: Bennington Museum (keep original colors) */
+.logo-item img[src*="logo-bennington"] {
+    filter: none; /* Remove filter - keep original colors */
+    opacity: 0.8; /* Slightly higher opacity */
+}
+
 /* Hover state - keep white but increase opacity */
 .logo-item:hover img {
     filter: brightness(0) invert(1); /* Keep white on hover */
+    opacity: 1;
+    transform: scale(1.08);
+}
+
+/* Hover state for exceptions */
+.logo-item:hover img[src*="logo-arlington"],
+.logo-item:hover img[src*="logo-bennington"] {
+    filter: none; /* Keep no filter on hover */
     opacity: 1;
     transform: scale(1.08);
 }
