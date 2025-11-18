@@ -3537,9 +3537,9 @@ body.home-page main {
 
 /* --- TIER 1: LOGO --- */
 .logo-tier { display: flex; justify-content: center; width: 100%; }
-.logo-link { display: block; position: relative; top: 15px; z-index: 10; }
+.logo-link { display: block; position: relative; top: 10px; z-index: 10; } /* REDUCED: Less overhang */
 .logo-link img.logo {
-    height: 100px;
+    height: 80px; /* REDUCED: Smaller logo to prevent overlap */
     width: auto;
     padding: 0;
     background-color: #FAFAFA;
@@ -3554,13 +3554,13 @@ body.home-page main {
     justify-content: center;
     align-items: center;
     width: 100%;
-    min-height: 90px; /* INCREASED: More vertical space */
+    min-height: 70px;
     background-color: rgba(10, 10, 26, 0.5);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     margin-top: -35px; /* Pulls nav up under logo */
-    padding-top: 140px; /* INCREASED: Maximum padding to ensure no overlap */
+    padding-top: 100px; /* OPTIMIZED: Matches smaller 80px logo + 10px offset + 10px clearance */
 }
 
 .nav-list-centered {
