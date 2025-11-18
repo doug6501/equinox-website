@@ -3490,6 +3490,18 @@ body.is-loaded {
 
 
 /* ========================================
+   GLOBAL MAIN PADDING (Fix Header Overlap)
+   ======================================== */
+main {
+    padding-top: 120px !important; /* Push ALL content down below the fixed header */
+}
+
+/* Exception for Home Page (which has a full-screen hero) */
+body.home-page main {
+    padding-top: 0 !important;
+}
+
+/* ========================================
    FINAL HEADER v8 (Simplified Structure)
    ======================================== */
 .header-v3 {
@@ -3539,13 +3551,21 @@ body.is-loaded {
     gap: 2.5rem;
     list-style: none;
     margin: 0;
-    padding: 0.5rem 0;
+    padding: 0;
 
-    /* NEW RULES TO PLACE IT ON THE BAR */
-    position: relative;
-    z-index: 2; /* Sit on top of the glass */
-    margin-top: -60px; /* Pull it up onto the glass bar */
-    padding-top: 10px; /* Adjust spacing */
+    /* FIXED: Place directly over the glass bar */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none; /* Allow clicks to pass through container */
+}
+
+.nav-list-centered li,
+.nav-list-centered li a {
+    pointer-events: all; /* But enable clicks on links */
 }
 
 .nav-list-centered li a.nav-link {
@@ -3643,7 +3663,8 @@ body.is-loaded {
         gap: 0 !important;
         margin-top: 0 !important; /* Reset desktop margin */
         padding: 1rem 0 !important;
-        z-index: 1 !important; /* Sit behind the header */
+        z-index: 8999 !important;
+        pointer-events: all !important; /* Enable clicks on mobile */
     }
 
     .nav-list-centered li {
@@ -3661,7 +3682,12 @@ body.is-loaded {
 
     /* Show the nav list when toggled */
     body.nav-open .nav-list-centered {
-        display: flex;
+        display: flex !important;
+        position: fixed !important;
+        top: 80px !important;
+        z-index: 9999 !important;
+        background-color: #0A0A1A !important;
+        height: calc(100vh - 80px) !important; /* Fill rest of screen */
     }
 
     /* Animate hamburger to X when open */
