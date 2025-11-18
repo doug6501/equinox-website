@@ -665,18 +665,18 @@ img {
 
 .logo-item img {
     max-width: 140px;
-    max-height: 60px;
+    max-height: 50px; /* REDUCED: Keep logos sized correctly */
     width: auto;
     height: auto;
     object-fit: contain;
-    filter: grayscale(100%) brightness(0.7) contrast(1.2);
+    filter: brightness(0) invert(1); /* UPDATED: Turn colored logos into clean white icons */
     opacity: 0.6;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Hover state - restore color and increase brightness */
+/* Hover state - keep white but increase opacity */
 .logo-item:hover img {
-    filter: grayscale(0%) brightness(1) contrast(1);
+    filter: brightness(0) invert(1); /* Keep white on hover */
     opacity: 1;
     transform: scale(1.08);
 }
@@ -3534,13 +3534,13 @@ body.home-page main {
     justify-content: center;
     align-items: center;
     width: 100%;
-    min-height: 50px;
+    min-height: 70px; /* INCREASED: More vertical space */
     background-color: rgba(10, 10, 26, 0.5);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     margin-top: -35px; /* Pulls nav up under logo */
-    padding-top: 85px; /* FIX: Pushes links down */
+    padding-top: 100px; /* INCREASED: Massive safety margin to clear logo */
 }
 
 .nav-list-centered {
