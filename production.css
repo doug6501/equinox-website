@@ -3537,30 +3537,38 @@ body.home-page main {
 
 /* --- TIER 1: LOGO --- */
 .logo-tier { display: flex; justify-content: center; width: 100%; }
-.logo-link { display: block; position: relative; top: 10px; z-index: 10; } /* REDUCED: Less overhang */
+.logo-link { display: block; position: relative; top: 10px; z-index: 10; }
 .logo-link img.logo {
-    height: 80px; /* REDUCED: Smaller logo to prevent overlap */
-    width: auto;
-    padding: 0;
-    background-color: #FAFAFA;
-    border-radius: 50%;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    transition: none; transform: none;
+    height: 90px !important; /* Good size */
+    width: auto !important;
+    padding: 0 !important;
+    background-color: #FAFAFA !important;
+    border-radius: 50% !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5) !important;
+    /* THE FIX: Float it absolutely in the center */
+    position: fixed !important; 
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    top: 10px !important;
+    z-index: 9002 !important; /* Above everything */
+    transition: none;
 }
 
 /* --- TIER 2: DESKTOP NAV BAR --- */
 .nav-tier-glass {
     display: flex;
     justify-content: center;
-    align-items: center;
     width: 100%;
-    min-height: 70px;
     background-color: rgba(10, 10, 26, 0.5);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    margin-top: -35px; /* Pulls nav up under logo */
-    padding-top: 100px; /* OPTIMIZED: Matches smaller 80px logo + 10px offset + 10px clearance */
+    
+    /* UPDATED: Absolute positioning fix */
+    margin-top: 0 !important; 
+    padding-top: 50px !important; /* Push internal content down */
+    align-items: flex-end !important; /* Align links to bottom */
+    min-height: 80px !important;
 }
 
 .nav-list-centered {
@@ -3581,6 +3589,8 @@ body.home-page main {
     height: 100%;
     z-index: 2;
     pointer-events: none; /* Allow clicks to pass through container */
+    
+    margin-top: 20px !important; /* Extra safety gap */
 }
 
 .nav-list-centered li,
@@ -3650,6 +3660,7 @@ body.home-page main {
     /* Hide desktop logo and glass bar */
     .logo-tier { display: none; }
     .nav-tier-glass { display: none; }
+    .logo-link img.logo { display: none !important; } /* Safety: Hide absolute logo on mobile */
 
     /* Show the mobile hamburger */
     .mobile-nav-toggle {
