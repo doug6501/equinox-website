@@ -686,6 +686,12 @@ img {
     opacity: 0.8; /* Slightly higher opacity */
 }
 
+/* Exception: NDS logo (keep original colors - already has good contrast) */
+.logo-item img[src*="NDS"] {
+    filter: none; /* Remove filter - keep original colors */
+    opacity: 0.8;
+}
+
 /* Hover state - keep white but increase opacity */
 .logo-item:hover img {
     filter: brightness(0) invert(1); /* Keep white on hover */
@@ -695,7 +701,8 @@ img {
 
 /* Hover state for exceptions */
 .logo-item:hover img[src*="logo-arlington"],
-.logo-item:hover img[src*="logo-bennington"] {
+.logo-item:hover img[src*="logo-bennington"],
+.logo-item:hover img[src*="NDS"] {
     filter: none; /* Keep no filter on hover */
     opacity: 1;
     transform: scale(1.08);
