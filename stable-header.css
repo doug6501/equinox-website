@@ -3561,17 +3561,23 @@ body.home-page main {
     border-radius: 0 !important; /* No formatting */
     padding: 0 !important;
     
-    /* ADJUST POSITION - More gap from top */
+    /* SPACING FIX: Push it down further to give it "air" at the top */
     position: relative !important;
-    top: 35px !important; /* Was 15px - More gap from top of screen */
+    top: 50px !important; /* Increased from 35px - More breathing room */
     
-    /* OPTIONAL: Add a subtle drop shadow to the IMAGE itself so it pops off the glass */
+    /* Add a subtle drop shadow to the IMAGE itself so it pops off the glass */
     filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5)) !important;
     
-    transition: transform 0.3s ease;
+    /* ANIMATION FIX: Kill the wobble/scale animation */
+    transition: none !important;
+    transform: none !important;
 }
 
-.logo-badge:hover { transform: scale(1.05); }
+/* FORCE KILL HOVER - No movement on hover */
+.logo-badge:hover {
+    transform: none !important; /* Ensure it doesn't move on hover */
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5)) !important; /* Keep shadow consistent */
+}
 
 /* --- CENTER: NAV LINKS --- */
 .header-center {
