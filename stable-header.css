@@ -705,9 +705,9 @@ img {
     opacity: 0.9;
 }
 
-/* Exception: Kimpton Taconic logo (keep original colors) */
+/* Exception: Kimpton Taconic logo (invert to white) */
 .logo-item img[src*="kimpton taconic"] {
-    filter: none; /* Remove filter - keep original colors */
+    filter: brightness(0) invert(1); /* Invert to white for visibility */
     opacity: 0.9;
 }
 
@@ -722,9 +722,14 @@ img {
 .logo-item:hover img[src*="bennington museum logo"],
 .logo-item:hover img[src*="NDS-Logo"],
 .logo-item:hover img[src*="theInnatManchester"],
-.logo-item:hover img[src*="SVCC-logo-Round"],
-.logo-item:hover img[src*="kimpton taconic"] {
+.logo-item:hover img[src*="SVCC-logo-Round"] {
     filter: none; /* Keep no filter on hover */
+    opacity: 1;
+}
+
+/* Hover state for Kimpton (keep inverted) */
+.logo-item:hover img[src*="kimpton taconic"] {
+    filter: brightness(0) invert(1); /* Keep inverted on hover */
     opacity: 1;
 }
 
