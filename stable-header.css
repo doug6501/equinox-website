@@ -575,7 +575,7 @@ img {
 
 /* Client Logo Bar Section */
 .client-logo-bar {
-    background: linear-gradient(180deg, rgba(10, 10, 26, 0.95) 0%, rgba(26, 26, 46, 0.98) 100%);
+    background: linear-gradient(180deg, rgba(40, 40, 60, 0.95) 0%, rgba(50, 50, 70, 0.98) 100%); /* LIGHTENED: Better contrast for logos */
     padding: 6rem 0 5rem 0; /* INCREASED: Taller section for larger logos */
     position: relative;
     overflow: hidden;
@@ -618,7 +618,7 @@ img {
 .logo-scroll-container::before {
     left: 0;
     background: linear-gradient(90deg, 
-        rgba(10, 10, 26, 0.98) 0%, 
+        rgba(40, 40, 60, 0.98) 0%, 
         transparent 100%);
 }
 
@@ -626,7 +626,7 @@ img {
     right: 0;
     background: linear-gradient(90deg, 
         transparent 0%, 
-        rgba(10, 10, 26, 0.98) 100%);
+        rgba(40, 40, 60, 0.98) 100%);
 }
 
 /* Logo Track - Horizontal scrolling container */
@@ -681,9 +681,9 @@ img {
 }
 
 /* Exception: Bennington Museum (keep original colors) */
-.logo-item img[src*="logo-bennington"] {
+.logo-item img[src*="bennington museum logo"] {
     filter: none; /* Remove filter - keep original colors */
-    opacity: 0.8; /* Slightly higher opacity */
+    opacity: 0.9; /* Slightly higher opacity */
 }
 
 /* Exception: NDS logo (keep original colors) */
@@ -719,7 +719,7 @@ img {
 
 /* Hover state for exceptions */
 .logo-item:hover img[src*="ArlingtonCommon"],
-.logo-item:hover img[src*="logo-bennington"],
+.logo-item:hover img[src*="bennington museum logo"],
 .logo-item:hover img[src*="NDS-Logo"],
 .logo-item:hover img[src*="theInnatManchester"],
 .logo-item:hover img[src*="SVCC-logo-Round"],
