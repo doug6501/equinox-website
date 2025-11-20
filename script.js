@@ -6,9 +6,11 @@ const PROJECT_ORDER = [
     'work-crooked-ram.html', // August 2025
     'work-two-day-wedding.html', // August 2025
     'work-hildene-volunteer.html', // August 2025
+    'work-svcc-women-leadership.html', // May 2025
     'work-arlington.html', // 2025
     'work-northshire-gala.html', // 2023-2025
     'work-bennington-museum.html', // 2023-2025
+    'work-svcc-annual-meeting.html', // January 2025
     'work-hildene-wedding-2.html', // Fall 2024
     'work-kimpton-taconic.html', // December 2024
     'work-vanish-screening.html', // October 2024
