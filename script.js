@@ -697,7 +697,7 @@ function initArticleNavigation() {
         const articleOrder = [
             'article-wedding-av-equipment.html',
             'article-zoom-meeting-tips.html',
-            'article-av-trends-2025.html',
+            'article-av-trends-2026.html',
             'article-choose-av-partner.html',
             'article-top-5-av-items.html',
             'article-breakout-management.html',
