@@ -675,9 +675,9 @@ img {
 }
 
 /* Exception: Arlington Common (already white, don't filter) */
-.logo-item img[src*="logo-arlington"] {
-    filter: none; /* Remove filter - logo is already white */
-    opacity: 0.8; /* Slightly higher opacity since no filter */
+.logo-item img[src*="ArlingtonCommon"] {
+    filter: none; /* Remove filter - keep original colors */
+    opacity: 0.9; /* Slightly higher opacity since no filter */
 }
 
 /* Exception: Bennington Museum (keep original colors) */
@@ -712,7 +712,7 @@ img {
 }
 
 /* Hover state for exceptions */
-.logo-item:hover img[src*="logo-arlington"],
+.logo-item:hover img[src*="ArlingtonCommon"],
 .logo-item:hover img[src*="logo-bennington"],
 .logo-item:hover img[src*="NDS-Logo"],
 .logo-item:hover img[src*="theInnatManchester"],
