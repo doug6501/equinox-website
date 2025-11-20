@@ -665,7 +665,7 @@ img {
 
 .logo-item img {
     max-width: 140px;
-    max-height: 50px; /* REDUCED: Keep logos sized correctly */
+    max-height: 80px; /* INCREASED: Larger logos for better visibility */
     width: auto;
     height: auto;
     object-fit: contain;
