@@ -1,4 +1,21 @@
 // ========================================
+// PROJECT NAVIGATION ORDER
+// ========================================
+const PROJECT_ORDER = [
+    'work-bennington-summer.html',
+    'work-arlington.html',
+    'work-northshire-gala.html',
+    'work-crooked-ram.html',
+    'work-bennington-museum.html',
+    'work-equinox-wedding.html',
+    'work-hildene-volunteer.html',
+    'work-hildene.html',
+    'work-kimpton-taconic.html',
+    'work-two-day-wedding.html',
+    'work-vanish-screening.html'
+];
+
+// ========================================
 // HEADER AND FOOTER LOADER
 // ========================================
 
@@ -211,6 +228,38 @@ function initMobileMenu() {
     });
 }
 
+// ========================================
+// PROJECT NAVIGATION
+// ========================================
+function renderProjectNav() {
+    const placeholder = document.getElementById('project-nav-placeholder');
+    if (!placeholder) return; // Not on a work page
+
+    // Get current filename
+    const currentPage = window.location.pathname.split('/').pop();
+    
+    // Find current index in PROJECT_ORDER
+    const currentIndex = PROJECT_ORDER.indexOf(currentPage);
+    if (currentIndex === -1) return; // Not a recognized project page
+
+    // Calculate previous and next indices (with wrapping)
+    const prevIndex = currentIndex === 0 ? PROJECT_ORDER.length - 1 : currentIndex - 1;
+    const nextIndex = (currentIndex + 1) % PROJECT_ORDER.length;
+
+    // Get previous and next URLs
+    const prevUrl = PROJECT_ORDER[prevIndex];
+    const nextUrl = PROJECT_ORDER[nextIndex];
+
+    // Inject navigation HTML
+    placeholder.innerHTML = `
+        <div class="project-nav-container">
+            <a href="${prevUrl}" class="nav-btn glass-btn">← Previous Project</a>
+            <a href="work.html" class="nav-btn glass-btn">All Work</a>
+            <a href="${nextUrl}" class="nav-btn glass-btn">Next Project →</a>
+        </div>
+    `;
+}
+
 // Wait for DOM to be ready before loading header and footer
 document.addEventListener('DOMContentLoaded', function() {
     // ========================================
@@ -234,6 +283,8 @@ document.addEventListener('DOMContentLoaded', function() {
             initNewTestimonialSlider();
             // Initialize mobile menu
             initMobileMenu();
+            // Initialize project navigation
+            renderProjectNav();
         })
         .catch(error => {
             console.error("Error loading site components:", error);

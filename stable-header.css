@@ -3646,3 +3646,53 @@ body.home-page main {
     }
     body.nav-open .nav-links { flex-direction: column; gap: 2rem; width: 100%; align-items: center; }
 }
+
+/* ========================================
+   PROJECT NAVIGATION
+   ======================================== */
+.project-nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-btn.glass-btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: rgba(10, 10, 26, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.nav-btn.glass-btn:hover {
+    border-color: #FF6B35;
+    color: #FF6B35;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+}
+
+@media (max-width: 768px) {
+    .project-nav-container {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 2rem 1rem;
+    }
+    
+    .nav-btn.glass-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
