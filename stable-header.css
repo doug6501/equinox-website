@@ -659,7 +659,7 @@ img {
     align-items: center;
     justify-content: center;
     height: 80px;
-    padding: 0 2rem;
+    padding: 0 3rem; /* INCREASED: More space for magnification effect */
     transition: var(--transition-normal);
 }
 
@@ -671,7 +671,8 @@ img {
     object-fit: contain;
     filter: brightness(0) invert(1); /* UPDATED: Turn colored logos into clean white icons */
     opacity: 0.6;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform-origin: center center; /* ADDED: Scale from center for magnification */
 }
 
 /* Exception: Arlington Common (already white, don't filter) */
@@ -710,11 +711,10 @@ img {
     opacity: 0.9;
 }
 
-/* Hover state - keep white but increase opacity */
+/* Hover state - increase opacity only (scale handled by magnification effect) */
 .logo-item:hover img {
     filter: brightness(0) invert(1); /* Keep white on hover */
     opacity: 1;
-    transform: scale(1.08);
 }
 
 /* Hover state for exceptions */
@@ -726,7 +726,6 @@ img {
 .logo-item:hover img[src*="kimpton taconic"] {
     filter: none; /* Keep no filter on hover */
     opacity: 1;
-    transform: scale(1.08);
 }
 
 /* Responsive Design - Mobile */

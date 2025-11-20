@@ -1061,5 +1061,51 @@ initSocialSharing();
         initAdvancedVideoPlayback();
     }
 
+    // Initialize logo magnification effect
+    initLogoMagnification();
+
 });
+
+// ========================================
+// LOGO MAGNIFICATION EFFECT (Apple Dock Style)
+// ========================================
+function initLogoMagnification() {
+    const logoContainer = document.querySelector('.logo-scroll-container');
+    if (!logoContainer) return;
+
+    const logos = logoContainer.querySelectorAll('.logo-item img');
+    if (!logos.length) return;
+
+    // Update magnification on scroll/animation
+    function updateMagnification() {
+        const containerRect = logoContainer.getBoundingClientRect();
+        const centerX = containerRect.left + containerRect.width / 2;
+
+        logos.forEach(logo => {
+            const logoRect = logo.getBoundingClientRect();
+            const logoCenterX = logoRect.left + logoRect.width / 2;
+            
+            // Calculate distance from screen center
+            const distance = Math.abs(centerX - logoCenterX);
+            const maxDistance = containerRect.width / 2;
+            
+            // Calculate scale (1.0 at edges, up to 1.4 at center)
+            const normalizedDistance = Math.min(distance / maxDistance, 1);
+            const scale = 1 + (0.4 * (1 - normalizedDistance)); // 1.0 to 1.4
+            
+            // Apply transform
+            logo.style.transform = `scale(${scale})`;
+            logo.style.transition = 'transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        });
+    }
+
+    // Run on animation frame for smooth updates
+    function animate() {
+        updateMagnification();
+        requestAnimationFrame(animate);
+    }
+
+    // Start animation
+    animate();
+}
 
