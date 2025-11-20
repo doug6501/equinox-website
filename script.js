@@ -1089,12 +1089,12 @@ function initLogoMagnification() {
             const distance = Math.abs(viewportCenterX - logoCenterX);
             
             // Define the "influence zone" (how far from center the effect reaches)
-            const influenceZone = window.innerWidth * 0.3; // 30% of screen width on each side
+            const influenceZone = window.innerWidth * 0.35; // 35% of screen width on each side (wider zone)
             
-            // Calculate scale (1.0 at edges, up to 1.5 at center)
+            // Calculate scale (1.0 at edges, up to 1.8 at center) - MORE DRAMATIC
             if (distance < influenceZone) {
                 const normalizedDistance = distance / influenceZone;
-                const scale = 1 + (0.5 * (1 - normalizedDistance)); // 1.0 to 1.5
+                const scale = 1 + (0.8 * (1 - normalizedDistance)); // 1.0 to 1.8 (enhanced magnification)
                 logo.style.transform = `scale(${scale})`;
             } else {
                 // Outside influence zone - normal size

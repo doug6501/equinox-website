@@ -632,8 +632,8 @@ img {
 /* Logo Track - Horizontal scrolling container */
 .logo-scroll-track {
     display: flex;
-    gap: 4rem;
-    animation: infiniteScroll 40s linear infinite;
+    gap: 6rem; /* INCREASED: More space between logos */
+    animation: infiniteScroll 30s linear infinite; /* FASTER: 40s → 30s */
     will-change: transform;
 }
 
@@ -659,7 +659,7 @@ img {
     align-items: center;
     justify-content: center;
     height: 80px;
-    padding: 0 3rem; /* INCREASED: More space for magnification effect */
+    padding: 0 4rem; /* INCREASED: Even more space for enhanced magnification */
     transition: var(--transition-normal);
 }
 
