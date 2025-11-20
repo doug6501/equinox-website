@@ -1012,5 +1012,94 @@ initSocialSharing();
     // initMagneticEffects(); // DISABLED  
     // initLogoClickBehavior(); // DISABLED
 
+    // ========================================
+    // ADVANCED VIDEO PLAYBACK CONTROLLER
+    // Ping-pong looping with variable speed
+    // ========================================
+    function initAdvancedVideoPlayback() {
+        const videos = document.querySelectorAll('.work-card-media video');
+        
+        videos.forEach((video, index) => {
+            // Skip if video hasn't loaded
+            if (!video.duration || isNaN(video.duration)) {
+                video.addEventListener('loadedmetadata', () => setupVideo(video, index));
+            } else {
+                setupVideo(video, index);
+            }
+        });
+    }
+
+    function setupVideo(video, index) {
+        // Remove default loop attribute
+        video.loop = false;
+        
+        // Stagger start times (0-80% through the video)
+        const startOffset = (index * 0.13) % 0.8; // Creates varied starting points
+        video.currentTime = video.duration * startOffset;
+        
+        // Set initial playback direction and speed
+        video.dataset.direction = 'forward';
+        video.dataset.baseSpeed = 0.6 + (index % 3) * 0.15; // Vary base speed: 0.6, 0.75, 0.9
+        video.playbackRate = parseFloat(video.dataset.baseSpeed);
+        
+        // Start playing
+        video.play().catch(err => console.log('Video autoplay prevented:', err));
+        
+        // Monitor playback and create ping-pong effect
+        video.addEventListener('timeupdate', function() {
+            const duration = video.duration;
+            const currentTime = video.currentTime;
+            const direction = video.dataset.direction;
+            const baseSpeed = parseFloat(video.dataset.baseSpeed);
+            
+            // Calculate distance from endpoints (0-1, where 0 = at endpoint, 1 = at middle)
+            const distanceFromStart = currentTime / duration;
+            const distanceFromEnd = (duration - currentTime) / duration;
+            
+            if (direction === 'forward') {
+                // Slow down as we approach the end (last 15% of video)
+                if (distanceFromEnd < 0.15) {
+                    const slowdownFactor = distanceFromEnd / 0.15; // 0 to 1
+                    video.playbackRate = baseSpeed * (0.5 + slowdownFactor * 0.5); // 50% to 100% speed
+                } else {
+                    video.playbackRate = baseSpeed;
+                }
+                
+                // Reverse when we get very close to the end
+                if (currentTime >= duration - 0.1) {
+                    video.dataset.direction = 'reverse';
+                    video.playbackRate = -baseSpeed * 0.5; // Start reverse slowly
+                }
+            } else {
+                // Playing in reverse
+                // Slow down as we approach the start (first 15% of video)
+                if (distanceFromStart < 0.15) {
+                    const slowdownFactor = distanceFromStart / 0.15; // 0 to 1
+                    video.playbackRate = -baseSpeed * (0.5 + slowdownFactor * 0.5); // -50% to -100% speed
+                } else {
+                    video.playbackRate = -baseSpeed;
+                }
+                
+                // Switch back to forward when we get very close to the start
+                if (currentTime <= 0.1) {
+                    video.dataset.direction = 'forward';
+                    video.playbackRate = baseSpeed * 0.5; // Start forward slowly
+                }
+            }
+        });
+        
+        // Fallback: if video ends (shouldn't happen with our logic, but just in case)
+        video.addEventListener('ended', function() {
+            video.dataset.direction = 'reverse';
+            video.playbackRate = -parseFloat(video.dataset.baseSpeed);
+            video.play();
+        });
+    }
+
+    // Initialize on work page only
+    if (document.querySelector('.work-grid')) {
+        initAdvancedVideoPlayback();
+    }
+
 });
 
