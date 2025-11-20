@@ -3551,13 +3551,23 @@ body.home-page main {
 }
 
 .logo-badge {
-    height: 110px; /* Large Badge */
-    width: auto;
-    border-radius: 50%;
-    background-color: #FAFAFA;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    position: relative;
-    top: 25px; /* Overhangs the bar */
+    /* INCREASE SIZE */
+    height: 140px !important; /* Was 110px - Making it big/prominent */
+    width: auto !important;
+    
+    /* REMOVE BADGE STYLING */
+    background-color: transparent !important; /* No more white circle */
+    box-shadow: none !important; /* Remove the shadow */
+    border-radius: 0 !important; /* No formatting */
+    padding: 0 !important;
+    
+    /* ADJUST POSITION */
+    position: relative !important;
+    top: 15px !important; /* Adjust overhang slightly */
+    
+    /* OPTIONAL: Add a subtle drop shadow to the IMAGE itself so it pops off the glass */
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5)) !important;
+    
     transition: transform 0.3s ease;
 }
 
