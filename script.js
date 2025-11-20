@@ -1039,8 +1039,8 @@ initSocialSharing();
             const startOffset = (index * 0.17) % 0.9; // Creates varied starting points
             video.currentTime = video.duration * startOffset;
             
-            // Vary playback speed: Much slower for calm, elegant feel
-            const speeds = [0.3, 0.35, 0.4]; // Reduced from 0.5, 0.65, 0.8
+            // Vary playback speed: Smooth, cinematic speeds
+            const speeds = [0.5, 0.65, 0.8]; // Back to original smooth speeds
             video.playbackRate = speeds[index % speeds.length];
             
             // Start playing
