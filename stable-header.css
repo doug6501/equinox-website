@@ -2388,7 +2388,8 @@ img[loading="lazy"].loaded {
     min-height: 100vh;
 }
 
-#case-study-hero-video {
+#case-study-hero-video,
+.case-study-hero .hero-video {
     position: absolute;
     top: 50%;
     left: 50%;
