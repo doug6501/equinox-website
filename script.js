@@ -1079,22 +1079,28 @@ function initLogoMagnification() {
     // Update magnification on scroll/animation
     function updateMagnification() {
         const containerRect = logoContainer.getBoundingClientRect();
-        const centerX = containerRect.left + containerRect.width / 2;
+        const viewportCenterX = window.innerWidth / 2; // Center of the viewport/screen
 
         logos.forEach(logo => {
             const logoRect = logo.getBoundingClientRect();
             const logoCenterX = logoRect.left + logoRect.width / 2;
             
-            // Calculate distance from screen center
-            const distance = Math.abs(centerX - logoCenterX);
-            const maxDistance = containerRect.width / 2;
+            // Calculate distance from viewport center
+            const distance = Math.abs(viewportCenterX - logoCenterX);
             
-            // Calculate scale (1.0 at edges, up to 1.4 at center)
-            const normalizedDistance = Math.min(distance / maxDistance, 1);
-            const scale = 1 + (0.4 * (1 - normalizedDistance)); // 1.0 to 1.4
+            // Define the "influence zone" (how far from center the effect reaches)
+            const influenceZone = window.innerWidth * 0.3; // 30% of screen width on each side
             
-            // Apply transform
-            logo.style.transform = `scale(${scale})`;
+            // Calculate scale (1.0 at edges, up to 1.5 at center)
+            if (distance < influenceZone) {
+                const normalizedDistance = distance / influenceZone;
+                const scale = 1 + (0.5 * (1 - normalizedDistance)); // 1.0 to 1.5
+                logo.style.transform = `scale(${scale})`;
+            } else {
+                // Outside influence zone - normal size
+                logo.style.transform = `scale(1)`;
+            }
+            
             logo.style.transition = 'transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
         });
     }
