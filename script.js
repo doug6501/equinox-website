@@ -2,17 +2,18 @@
 // PROJECT NAVIGATION ORDER
 // ========================================
 const PROJECT_ORDER = [
-    'work-bennington-summer.html',
-    'work-arlington.html',
-    'work-northshire-gala.html',
-    'work-crooked-ram.html',
-    'work-bennington-museum.html',
-    'work-equinox-wedding.html',
-    'work-hildene-volunteer.html',
-    'work-hildene.html',
-    'work-kimpton-taconic.html',
-    'work-two-day-wedding.html',
-    'work-vanish-screening.html'
+    'work-hildene.html', // September 2025
+    'work-crooked-ram.html', // August 2025
+    'work-two-day-wedding.html', // August 2025
+    'work-hildene-volunteer.html', // August 2025
+    'work-arlington.html', // 2025
+    'work-northshire-gala.html', // 2023-2025
+    'work-bennington-museum.html', // 2023-2025
+    'work-hildene-wedding-2.html', // Fall 2024
+    'work-kimpton-taconic.html', // December 2024
+    'work-vanish-screening.html', // October 2024
+    'work-equinox-wedding.html', // September 2024
+    'work-bennington-summer.html' // Summer 2024
 ];
 
 // ========================================
