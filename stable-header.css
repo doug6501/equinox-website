@@ -686,20 +686,20 @@ img {
     opacity: 0.8; /* Slightly higher opacity */
 }
 
-/* Exception: NDS logo (has white background - keep original) */
-.logo-item img[src*="NDS"] {
+/* Exception: NDS logo (keep original colors) */
+.logo-item img[src*="NDS-Logo"] {
     filter: none; /* Remove filter - keep original colors */
     opacity: 0.9;
 }
 
-/* Exception: Inn at Manchester (has white background - keep original) */
-.logo-item img[src*="inn_at_manchester"] {
+/* Exception: Inn at Manchester (keep original colors) */
+.logo-item img[src*="theInnatManchester"] {
     filter: none; /* Remove filter - keep original colors */
     opacity: 0.9;
 }
 
 /* Exception: SVCC logo (keep original colors for visibility) */
-.logo-item img[src*="SVCC"] {
+.logo-item img[src*="SVCC-logo-Round"] {
     filter: none; /* Remove filter - keep original blue/colors */
     opacity: 0.9;
 }
@@ -714,9 +714,9 @@ img {
 /* Hover state for exceptions */
 .logo-item:hover img[src*="logo-arlington"],
 .logo-item:hover img[src*="logo-bennington"],
-.logo-item:hover img[src*="NDS"],
-.logo-item:hover img[src*="inn_at_manchester"],
-.logo-item:hover img[src*="SVCC"] {
+.logo-item:hover img[src*="NDS-Logo"],
+.logo-item:hover img[src*="theInnatManchester"],
+.logo-item:hover img[src*="SVCC-logo-Round"] {
     filter: none; /* Keep no filter on hover */
     opacity: 1;
     transform: scale(1.08);
