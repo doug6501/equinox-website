@@ -563,7 +563,7 @@ img {
 /* Section Eyebrow - Title */
 .section-eyebrow {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.75rem;
+    font-size: 1rem; /* INCREASED: From 0.75rem for better visibility */
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
