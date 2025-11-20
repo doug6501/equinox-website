@@ -576,7 +576,7 @@ img {
 /* Client Logo Bar Section */
 .client-logo-bar {
     background: linear-gradient(180deg, rgba(10, 10, 26, 0.95) 0%, rgba(26, 26, 46, 0.98) 100%);
-    padding: 4rem 0 3rem 0;
+    padding: 6rem 0 5rem 0; /* INCREASED: Taller section for larger logos */
     position: relative;
     overflow: hidden;
 }
@@ -597,10 +597,10 @@ img {
 
 /* Logo Scroll Container */
 .logo-scroll-container {
-    margin-top: 2rem;
+    margin-top: 3rem;
     overflow: hidden;
     position: relative;
-    padding: 1rem 0;
+    padding: 2rem 0; /* INCREASED: More vertical space for larger logos */
 }
 
 /* Gradient fade edges for smooth infinity effect */
@@ -664,8 +664,8 @@ img {
 }
 
 .logo-item img {
-    max-width: 140px;
-    max-height: 50px; /* REDUCED: Keep logos sized correctly */
+    max-width: 200px; /* INCREASED: Larger logos */
+    max-height: 80px; /* INCREASED: Taller logos */
     width: auto;
     height: auto;
     object-fit: contain;
@@ -686,10 +686,22 @@ img {
     opacity: 0.8; /* Slightly higher opacity */
 }
 
-/* Exception: NDS logo (keep original colors - already has good contrast) */
+/* Exception: NDS logo (has white background - keep original) */
 .logo-item img[src*="NDS"] {
     filter: none; /* Remove filter - keep original colors */
-    opacity: 0.8;
+    opacity: 0.9;
+}
+
+/* Exception: Inn at Manchester (has white background - keep original) */
+.logo-item img[src*="inn_at_manchester"] {
+    filter: none; /* Remove filter - keep original colors */
+    opacity: 0.9;
+}
+
+/* Exception: SVCC logo (keep original colors for visibility) */
+.logo-item img[src*="SVCC"] {
+    filter: none; /* Remove filter - keep original blue/colors */
+    opacity: 0.9;
 }
 
 /* Hover state - keep white but increase opacity */
@@ -702,7 +714,9 @@ img {
 /* Hover state for exceptions */
 .logo-item:hover img[src*="logo-arlington"],
 .logo-item:hover img[src*="logo-bennington"],
-.logo-item:hover img[src*="NDS"] {
+.logo-item:hover img[src*="NDS"],
+.logo-item:hover img[src*="inn_at_manchester"],
+.logo-item:hover img[src*="SVCC"] {
     filter: none; /* Keep no filter on hover */
     opacity: 1;
     transform: scale(1.08);
