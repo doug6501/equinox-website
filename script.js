@@ -851,6 +851,104 @@ function copyToClipboard(text) {
 
 initSocialSharing();
 
+// ========================================
+// IMAGE LIGHTBOX FOR GALLERIES
+// ========================================
+function initLightbox() {
+    // Only run on pages with galleries
+    const galleryImages = document.querySelectorAll('.gallery-grid img');
+    if (galleryImages.length === 0) return;
+    
+    // Create lightbox HTML
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox';
+    lightbox.innerHTML = `
+        <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+        <button class="lightbox-nav lightbox-prev" aria-label="Previous image">‹</button>
+        <div class="lightbox-content">
+            <img class="lightbox-image" src="" alt="">
+        </div>
+        <button class="lightbox-nav lightbox-next" aria-label="Next image">›</button>
+        <div class="lightbox-counter"></div>
+    `;
+    document.body.appendChild(lightbox);
+    
+    // Get elements
+    const lightboxImg = lightbox.querySelector('.lightbox-image');
+    const closeBtn = lightbox.querySelector('.lightbox-close');
+    const prevBtn = lightbox.querySelector('.lightbox-prev');
+    const nextBtn = lightbox.querySelector('.lightbox-next');
+    const counter = lightbox.querySelector('.lightbox-counter');
+    
+    let currentIndex = 0;
+    const images = Array.from(galleryImages);
+    
+    // Open lightbox
+    function openLightbox(index) {
+        currentIndex = index;
+        lightboxImg.src = images[currentIndex].src;
+        lightboxImg.alt = images[currentIndex].alt;
+        counter.textContent = `${currentIndex + 1} / ${images.length}`;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+    }
+    
+    // Close lightbox
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+    }
+    
+    // Show next image
+    function showNext() {
+        currentIndex = (currentIndex + 1) % images.length;
+        openLightbox(currentIndex);
+    }
+    
+    // Show previous image
+    function showPrev() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        openLightbox(currentIndex);
+    }
+    
+    // Add click handlers to gallery images
+    images.forEach((img, index) => {
+        img.addEventListener('click', () => openLightbox(index));
+    });
+    
+    // Close button
+    closeBtn.addEventListener('click', closeLightbox);
+    
+    // Navigation buttons
+    nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showNext();
+    });
+    
+    prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showPrev();
+    });
+    
+    // Close on background click
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') showNext();
+        if (e.key === 'ArrowLeft') showPrev();
+    });
+}
+
+initLightbox();
+
     // Note: Active nav link highlighting is now handled in loadHeader()
 
     // --- Services Page Tabs ---
