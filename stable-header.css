@@ -2526,7 +2526,125 @@ img[loading="lazy"].loaded {
 .services-list li { margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative; }
 .services-list li::before { content: '✓'; color: var(--color-secondary); position: absolute; left: 0; }
 .case-study-gallery { background-color: #222; }
-.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
+/* Smart Gallery Layouts - Dynamic based on image count */
+.gallery-grid { 
+    display: grid; 
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* 2 images - Side by side */
+.gallery-grid.gallery-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* 3 images - Row of 3 */
+.gallery-grid.gallery-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* 4 images - 2x2 grid */
+.gallery-grid.gallery-4 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* 5 images - 2 large on top, 3 smaller below */
+.gallery-grid.gallery-5 {
+    grid-template-columns: repeat(6, 1fr);
+}
+.gallery-grid.gallery-5 img:nth-child(1),
+.gallery-grid.gallery-5 img:nth-child(2) {
+    grid-column: span 3;
+}
+.gallery-grid.gallery-5 img:nth-child(3),
+.gallery-grid.gallery-5 img:nth-child(4),
+.gallery-grid.gallery-5 img:nth-child(5) {
+    grid-column: span 2;
+}
+
+/* 6 images - 2 rows of 3 */
+.gallery-grid.gallery-6 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* 7-9 images - 3 columns */
+.gallery-grid.gallery-7,
+.gallery-grid.gallery-8,
+.gallery-grid.gallery-9 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* 10-12 images - 3 columns, with last row centered if needed */
+.gallery-grid.gallery-10,
+.gallery-grid.gallery-11,
+.gallery-grid.gallery-12 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* 13+ images - 4 columns for larger galleries */
+.gallery-grid.gallery-large {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/* Mobile responsive - stack nicely */
+@media (max-width: 1024px) {
+    .gallery-grid.gallery-5 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .gallery-grid.gallery-5 img:nth-child(1),
+    .gallery-grid.gallery-5 img:nth-child(2),
+    .gallery-grid.gallery-5 img:nth-child(3),
+    .gallery-grid.gallery-5 img:nth-child(4),
+    .gallery-grid.gallery-5 img:nth-child(5) {
+        grid-column: span 1;
+    }
+    
+    .gallery-grid.gallery-large {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-grid.gallery-2,
+    .gallery-grid.gallery-3,
+    .gallery-grid.gallery-4,
+    .gallery-grid.gallery-5,
+    .gallery-grid.gallery-6,
+    .gallery-grid.gallery-7,
+    .gallery-grid.gallery-8,
+    .gallery-grid.gallery-9,
+    .gallery-grid.gallery-10,
+    .gallery-grid.gallery-11,
+    .gallery-grid.gallery-12,
+    .gallery-grid.gallery-large {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .gallery-grid.gallery-5 img:nth-child(1),
+    .gallery-grid.gallery-5 img:nth-child(2),
+    .gallery-grid.gallery-5 img:nth-child(3),
+    .gallery-grid.gallery-5 img:nth-child(4),
+    .gallery-grid.gallery-5 img:nth-child(5) {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid.gallery-2,
+    .gallery-grid.gallery-3,
+    .gallery-grid.gallery-4,
+    .gallery-grid.gallery-5,
+    .gallery-grid.gallery-6,
+    .gallery-grid.gallery-7,
+    .gallery-grid.gallery-8,
+    .gallery-grid.gallery-9,
+    .gallery-grid.gallery-10,
+    .gallery-grid.gallery-11,
+    .gallery-grid.gallery-12,
+    .gallery-grid.gallery-large {
+        grid-template-columns: 1fr;
+    }
+}
 .gallery-grid img { 
     border-radius: 8px; 
     transition: transform 0.3s ease, box-shadow 0.3s ease;

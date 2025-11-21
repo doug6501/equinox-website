@@ -949,6 +949,41 @@ function initLightbox() {
 
 initLightbox();
 
+// ========================================
+// SMART GALLERY LAYOUTS
+// ========================================
+function initSmartGallery() {
+    const galleries = document.querySelectorAll('.gallery-grid');
+    
+    galleries.forEach(gallery => {
+        const imageCount = gallery.querySelectorAll('img').length;
+        
+        // Remove any existing gallery classes
+        gallery.className = 'gallery-grid';
+        
+        // Add appropriate class based on image count
+        if (imageCount === 2) {
+            gallery.classList.add('gallery-2');
+        } else if (imageCount === 3) {
+            gallery.classList.add('gallery-3');
+        } else if (imageCount === 4) {
+            gallery.classList.add('gallery-4');
+        } else if (imageCount === 5) {
+            gallery.classList.add('gallery-5');
+        } else if (imageCount === 6) {
+            gallery.classList.add('gallery-6');
+        } else if (imageCount >= 7 && imageCount <= 9) {
+            gallery.classList.add(`gallery-${imageCount}`);
+        } else if (imageCount >= 10 && imageCount <= 12) {
+            gallery.classList.add(`gallery-${imageCount}`);
+        } else if (imageCount >= 13) {
+            gallery.classList.add('gallery-large');
+        }
+    });
+}
+
+initSmartGallery();
+
     // Note: Active nav link highlighting is now handled in loadHeader()
 
     // --- Services Page Tabs ---
