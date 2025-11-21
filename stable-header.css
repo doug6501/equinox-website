@@ -2063,14 +2063,17 @@ img[loading="lazy"].loaded {
 ======================================== */
 
 .article-hero {
-    padding: 8rem 0 4rem; /* INCREASED: More dramatic spacing */
+    padding: 8rem 0 4rem;
     background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(0, 0, 0, 0.8));
     text-align: center;
     position: relative;
     overflow: hidden;
-    min-height: 60vh; /* ADDED: Ensures impactful presence */
+    min-height: 60vh;
     display: flex;
     align-items: center;
+    background-attachment: fixed; /* PARALLAX: Fixed background */
+    background-size: cover;
+    background-position: center;
 }
 
 .article-hero .container {
@@ -2167,39 +2170,132 @@ img[loading="lazy"].loaded {
 .article-body {
     max-width: 1200px;
     margin: 0 auto;
-    font-size: 1.1rem;
+    font-size: 1.25rem; /* INCREASED: 1.1rem → 1.25rem (14% larger) */
+    line-height: 1.9; /* INCREASED: Better readability */
+    color: rgba(245, 245, 245, 0.95); /* BRIGHTER */
+}
+
+/* First paragraph - Make it stand out as a lead */
+.article-body > p:first-of-type {
+    font-size: 1.5rem; /* LEAD PARAGRAPH: Much larger */
     line-height: 1.8;
     color: var(--color-light);
+    font-weight: 400;
+    margin-bottom: 2.5rem;
+    padding-left: 2rem;
+    border-left: 4px solid var(--color-primary);
+    background: linear-gradient(90deg, rgba(255, 107, 53, 0.05), transparent);
+    padding: 1.5rem 2rem;
+    border-radius: 0 8px 8px 0;
 }
 
 .article-body h2 {
-    font-size: 2rem;
-    margin: 3rem 0 1.5rem 0;
+    font-size: 3rem; /* INCREASED: 2rem → 3rem (50% larger!) */
+    margin: 4rem 0 2rem 0; /* INCREASED: More breathing room */
     color: var(--color-light);
     font-family: var(--font-heading);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+/* Add decorative underline to H2s */
+.article-body h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    border-radius: 2px;
 }
 
 .article-body h3 {
-    font-size: 1.5rem;
-    margin: 2rem 0 1rem 0;
+    font-size: 1.8rem; /* INCREASED: 1.5rem → 1.8rem (20% larger) */
+    margin: 2.5rem 0 1.25rem 0;
     color: var(--color-secondary);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Add icon/emoji support before H3s (if they start with emoji) */
+.article-body h3::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
+
+.article-body h4 {
+    font-size: 1.4rem; /* INCREASED: More hierarchy */
+    margin: 2rem 0 1rem 0;
+    color: rgba(245, 245, 245, 0.9);
+    font-weight: 600;
 }
 
 .article-body p {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.75rem; /* INCREASED: More spacing */
 }
 
 .article-body ul, .article-body ol {
-    margin-bottom: 1.5rem;
-    padding-left: 2rem;
+    margin-bottom: 2rem; /* INCREASED */
+    padding-left: 2.5rem;
+    font-size: 1.2rem; /* INCREASED: Lists are larger */
 }
 
 .article-body li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem; /* INCREASED: More breathing room */
+    line-height: 1.8;
+    position: relative;
+}
+
+/* Custom bullet points */
+.article-body ul li::marker {
+    color: var(--color-primary);
+    font-size: 1.2em;
+}
+
+.article-body ol li::marker {
+    color: var(--color-secondary);
+    font-weight: 700;
 }
 
 .article-body strong {
     color: var(--color-secondary);
+    font-weight: 700; /* INCREASED: Bolder */
+}
+
+/* Enhanced blockquotes */
+.article-body blockquote {
+    margin: 3rem 0;
+    padding: 2rem 2.5rem;
+    border-left: 6px solid var(--color-primary); /* THICKER */
+    background: linear-gradient(90deg, rgba(255, 107, 53, 0.08), rgba(255, 107, 53, 0.02));
+    border-radius: 0 12px 12px 0;
+    font-family: var(--font-heading);
+    font-size: 1.6rem; /* INCREASED */
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--color-light);
+    position: relative;
+}
+
+.article-body blockquote::before {
+    content: '"';
+    position: absolute;
+    top: -0.5rem;
+    left: 1rem;
+    font-size: 4rem;
+    color: var(--color-primary);
+    opacity: 0.3;
+    font-family: Georgia, serif;
 }
 
 .article-body a {
@@ -2296,16 +2392,40 @@ img[loading="lazy"].loaded {
         line-height: 1.6;
     }
     
+    .article-hero {
+        background-attachment: scroll; /* Disable parallax on mobile for performance */
+    }
+    
     .article-body {
-        font-size: 1rem;
+        font-size: 1.1rem; /* INCREASED: Better mobile readability */
+    }
+    
+    .article-body > p:first-of-type {
+        font-size: 1.3rem; /* INCREASED: Lead paragraph on mobile */
+        padding: 1rem 1.5rem;
     }
     
     .article-body h2 {
-        font-size: 1.5rem;
+        font-size: 2rem; /* INCREASED: 1.5rem → 2rem */
+        margin: 3rem 0 1.5rem 0;
     }
     
     .article-body h3 {
-        font-size: 1.25rem;
+        font-size: 1.5rem; /* INCREASED: 1.25rem → 1.5rem */
+    }
+    
+    .article-body h4 {
+        font-size: 1.2rem;
+    }
+    
+    .article-body ul, .article-body ol {
+        font-size: 1.1rem;
+        padding-left: 1.5rem;
+    }
+    
+    .article-body blockquote {
+        font-size: 1.3rem;
+        padding: 1.5rem 1.5rem;
     }
     
     .article-meta {
