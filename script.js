@@ -736,21 +736,13 @@ function initArticleNavigation() {
         nextBtn.textContent = 'All Articles →';
     }
     
+    // Append buttons in order: Previous (left), Next (right)
     articleNav.appendChild(prevBtn);
     articleNav.appendChild(nextBtn);
     document.body.appendChild(articleNav);
     
-    // Show navigation after scrolling
-    let isVisible = false;
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300 && !isVisible) {
-            articleNav.classList.add('visible');
-            isVisible = true;
-        } else if (window.scrollY <= 300 && isVisible) {
-            articleNav.classList.remove('visible');
-            isVisible = false;
-        }
-    });
+    // Always visible - no scroll trigger needed
+    articleNav.classList.add('visible');
 }
 
 initArticleNavigation();

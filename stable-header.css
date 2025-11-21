@@ -1653,15 +1653,16 @@ img[loading="lazy"].loaded {
 ======================================== */
 .article-nav {
     position: fixed;
-    right: 2rem;
     top: 50%;
     transform: translateY(-50%);
     z-index: 100;
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    opacity: 0;
-    visibility: hidden;
+    justify-content: space-between;
+    width: 100%;
+    pointer-events: none; /* Allow clicking through the container */
+    padding: 0 2rem;
+    opacity: 1; /* ALWAYS VISIBLE */
+    visibility: visible; /* ALWAYS VISIBLE */
     transition: all 0.3s ease;
 }
 
@@ -1686,12 +1687,23 @@ img[loading="lazy"].loaded {
     min-width: 140px;
     text-align: center;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    pointer-events: auto; /* Make buttons clickable */
 }
 
 .article-nav-btn:hover {
     background: var(--color-secondary);
     color: var(--color-dark);
-    transform: translateX(-5px);
+    transform: scale(1.05);
+}
+
+/* Previous button on the left - slide left on hover */
+.article-nav-btn:first-child:hover {
+    transform: translateX(-5px) scale(1.05);
+}
+
+/* Next button on the right - slide right on hover */
+.article-nav-btn:last-child:hover {
+    transform: translateX(5px) scale(1.05);
 }
 
 .article-nav-btn:disabled {
@@ -1708,14 +1720,26 @@ img[loading="lazy"].loaded {
 
 @media (max-width: 768px) {
     .article-nav {
-        right: 1rem;
+        padding: 0 1rem;
+        flex-direction: column;
+        align-items: stretch;
         gap: 0.5rem;
+        top: auto;
+        bottom: 2rem;
+        transform: none;
     }
     
     .article-nav-btn {
         padding: 0.75rem 1rem;
         font-size: 0.8rem;
-        min-width: 120px;
+        min-width: auto;
+        width: 100%;
+    }
+    
+    /* Reset hover transforms for mobile */
+    .article-nav-btn:first-child:hover,
+    .article-nav-btn:last-child:hover {
+        transform: scale(1.05);
     }
 }
 
