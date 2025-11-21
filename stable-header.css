@@ -3615,9 +3615,9 @@ body.home-page main {
     color: white;
     text-decoration: none;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 0.9rem;
-    font-weight: 500;
+    letter-spacing: 1.5px; /* INCREASED: More dramatic spacing */
+    font-size: 1.1rem; /* INCREASED: 0.9rem → 1.1rem (22% larger) */
+    font-weight: 600; /* INCREASED: 500 → 600 (bolder) */
     white-space: nowrap; /* Prevent wrapping */
 }
 
