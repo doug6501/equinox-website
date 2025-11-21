@@ -437,20 +437,57 @@ img {
 }
 
 .btn-link {
-    color: var(--color-secondary);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.15), rgba(255, 210, 63, 0.1));
+    border: 2px solid var(--color-primary);
+    border-radius: 50px;
+    color: var(--color-light);
     text-decoration: none;
     font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     position: relative;
-    padding-bottom: 5px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.2);
+    transition: all 0.3s ease;
 }
+
+.btn-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-link:hover::before {
+    left: 100%;
+}
+
+.btn-link:hover {
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.3), rgba(255, 210, 63, 0.2));
+    border-color: var(--color-secondary);
+    transform: translateX(-5px);
+    box-shadow: 0 6px 25px rgba(255, 107, 53, 0.4);
+}
+
 .btn-link::after {
-    content: '→';
+    content: '←';
     display: inline-block;
-    margin-left: 8px;
+    font-size: 1.2rem;
     transition: transform 0.3s ease;
 }
+
 .btn-link:hover::after {
-    transform: translateX(5px);
+    transform: translateX(-5px);
 }
 
 /* Hero Sections */
@@ -2492,22 +2529,51 @@ img[loading="lazy"].loaded {
 }
 
 .case-study-hero h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(3rem, 6vw, 5.5rem); /* INCREASED: More dramatic */
     color: var(--color-light);
-    text-shadow: 0 4px 20px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.5);
-    margin-bottom: 1.5rem;
+    text-shadow: 
+        0 4px 20px rgba(0,0,0,0.9), 
+        0 0 60px rgba(0,0,0,0.6),
+        0 8px 40px rgba(255, 107, 53, 0.3); /* ADDED: Orange glow */
+    margin-bottom: 2rem; /* INCREASED: More breathing room */
     position: relative;
     z-index: 4;
+    font-weight: 400;
+    letter-spacing: -0.02em; /* ADDED: Tighter tracking for impact */
+    line-height: 1.1; /* TIGHTENED: More dramatic */
+    text-transform: none; /* Keep natural casing */
+}
+
+/* Add subtle animated glow effect to hero titles */
+@keyframes heroGlow {
+    0%, 100% {
+        text-shadow: 
+            0 4px 20px rgba(0,0,0,0.9), 
+            0 0 60px rgba(0,0,0,0.6),
+            0 8px 40px rgba(255, 107, 53, 0.3);
+    }
+    50% {
+        text-shadow: 
+            0 4px 20px rgba(0,0,0,0.9), 
+            0 0 60px rgba(0,0,0,0.6),
+            0 8px 40px rgba(255, 107, 53, 0.5);
+    }
+}
+
+.case-study-hero h1 {
+    animation: heroGlow 4s ease-in-out infinite;
 }
 
 .case-study-hero p {
-    font-size: 1.3rem;
+    font-size: 1.5rem; /* INCREASED: 1.3rem → 1.5rem */
     color: rgba(245, 245, 245, 0.95);
-    text-shadow: 0 2px 15px rgba(0,0,0,0.8), 0 0 30px rgba(0,0,0,0.4);
-    max-width: 600px;
+    text-shadow: 0 2px 15px rgba(0,0,0,0.9), 0 0 30px rgba(0,0,0,0.5);
+    max-width: 700px; /* INCREASED: More room */
     margin: 0 auto;
     position: relative;
     z-index: 4;
+    font-weight: 400;
+    line-height: 1.6;
 }
 .case-study-details-section { padding-top: 4rem; }
 .case-study-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; }
@@ -2657,7 +2723,11 @@ img[loading="lazy"].loaded {
 .case-study-testimonial { text-align: center; }
 .case-study-testimonial blockquote { font-family: var(--font-heading); font-size: 2rem; line-height: 1.4; max-width: 800px; margin: 0 auto 1.5rem auto; }
 .case-study-testimonial cite { font-style: normal; font-weight: 700; color: var(--color-secondary); }
-.case-study-nav { padding-bottom: 0; }
+.case-study-nav { 
+    padding: 4rem 0; 
+    text-align: center;
+    background: linear-gradient(135deg, rgba(10, 10, 26, 0.5), rgba(26, 26, 46, 0.3));
+}
 
 /* Services Page */
 .services-tabs-section { padding: 4rem 0; }
@@ -3541,11 +3611,17 @@ img[loading="lazy"].loaded {
     /* Case study hero logo removed */
     
     .case-study-hero h1 {
-        font-size: clamp(2rem, 8vw, 3rem); /* Smaller on mobile */
+        font-size: clamp(2.5rem, 8vw, 3.5rem); /* INCREASED: More impactful on mobile */
+        animation: none; /* Disable animation on mobile for performance */
     }
     
     .case-study-hero p {
-        font-size: 1.1rem; /* Slightly smaller on mobile */
+        font-size: 1.2rem; /* INCREASED: Better readability on mobile */
+    }
+    
+    .btn-link {
+        padding: 0.875rem 1.5rem;
+        font-size: 0.9rem;
     }
 }
 
