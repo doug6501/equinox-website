@@ -3432,8 +3432,10 @@ img[loading="lazy"].loaded {
 
 .highlights-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr); /* Fixed 2 columns per row */
+    gap: 2.5rem;
+    max-width: 900px; /* Constrain width for better layout */
+    margin: 0 auto; /* Center the grid */
 }
 
 .highlight-item {
