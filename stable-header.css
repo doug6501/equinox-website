@@ -637,10 +637,10 @@ img {
     margin-top: 3rem;
     overflow: hidden;
     position: relative;
-    padding: 2rem 0;
+    padding: 3rem 0; /* INCREASED: More vertical padding */
     display: flex;
     flex-direction: column;
-    gap: 3rem; /* Space between two rows */
+    gap: 5rem; /* INCREASED: 3rem → 5rem (more vertical space between rows) */
 }
 
 /* Gradient fade edges for smooth infinity effect */
@@ -672,35 +672,25 @@ img {
 /* Logo Track - Horizontal scrolling container */
 .logo-scroll-track {
     display: flex;
-    gap: 6rem;
-    animation: infiniteScroll 20s linear infinite; /* FASTER: 30s → 20s (50% faster!) */
+    gap: 8rem; /* INCREASED: 6rem → 8rem (more space between logos) */
+    animation: infiniteScroll 25s linear infinite; /* ADJUSTED: Smoother speed */
     will-change: transform;
 }
 
-/* Second row scrolls in opposite direction */
-.logo-scroll-track.reverse {
-    animation: infiniteScrollReverse 20s linear infinite;
+/* Second row - offset start position for visual interest */
+.logo-scroll-track:nth-child(2) {
+    animation-delay: -12.5s; /* OFFSET: Starts halfway through cycle */
 }
 
 /* NO HOVER PAUSE - Keep scrolling continuously */
 
-/* Infinite scroll animation - Left to Right */
+/* Infinite scroll animation - Smooth seamless loop */
 @keyframes infiniteScroll {
-    from {
+    0% {
         transform: translateX(0);
     }
-    to {
+    100% {
         transform: translateX(-50%);
-    }
-}
-
-/* Reverse scroll animation - Right to Left */
-@keyframes infiniteScrollReverse {
-    from {
-        transform: translateX(-50%);
-    }
-    to {
-        transform: translateX(0);
     }
 }
 
