@@ -19,6 +19,11 @@
     <meta name="twitter:description" content="Professional audio visual production services for weddings, corporate events, and conferences.">
     <meta name="twitter:image" content="https://www.equinoxaudiovisuals.com/assets/logo.png">
     <link rel="canonical" href="https://www.equinoxaudiovisuals.com">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#FF6B35">
+    <link rel="apple-touch-icon" href="/assets/logo.png">
     <link rel="preload" href="assets/Equinox AV Background and Logo 720p.mov" as="video" type="video/mp4">
     <link rel="preload" href="assets/logo.png" as="image">
     
@@ -196,6 +201,53 @@
                 <div class="slider-controls">
                     <button id="prev-slide" class="slider-arrow" aria-label="Previous testimonial">&lt;</button>
                     <button id="next-slide" class="slider-arrow" aria-label="Next testimonial">&gt;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Testimonials Section -->
+        <section class="video-testimonials-section container">
+            <h2 class="fade-in-up">See What Our Clients Are Saying</h2>
+            <p class="section-subtitle fade-in-up">Real stories from real events</p>
+            <div class="video-testimonials-grid">
+                <div class="video-testimonial-card fade-in">
+                    <div class="video-wrapper">
+                        <video controls poster="assets/video-poster-placeholder.svg">
+                            <source src="assets/testimonial-placeholder.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-testimonial-content">
+                        <h3>Bennington Museum</h3>
+                        <p class="client-role">Executive Director</p>
+                        <p>"Equinox has been instrumental in making our Winter Gala a success year after year."</p>
+                    </div>
+                </div>
+                <div class="video-testimonial-card fade-in delay-1">
+                    <div class="video-wrapper">
+                        <video controls poster="assets/video-poster-placeholder.svg">
+                            <source src="assets/testimonial-placeholder.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-testimonial-content">
+                        <h3>Hildene Estate</h3>
+                        <p class="client-role">Events Manager</p>
+                        <p>"Their professionalism and attention to detail make every event seamless."</p>
+                    </div>
+                </div>
+                <div class="video-testimonial-card fade-in delay-2">
+                    <div class="video-wrapper">
+                        <video controls poster="assets/video-poster-placeholder.svg">
+                            <source src="assets/testimonial-placeholder.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-testimonial-content">
+                        <h3>Corporate Client</h3>
+                        <p class="client-role">Event Coordinator</p>
+                        <p>"Working with Equinox transformed our annual conference into an unforgettable experience."</p>
+                    </div>
                 </div>
             </div>
         </section>
