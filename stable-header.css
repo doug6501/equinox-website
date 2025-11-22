@@ -679,13 +679,13 @@ img {
 .logo-scroll-track {
     display: flex;
     gap: 8rem; /* INCREASED: 6rem → 8rem (more space between logos) */
-    animation: infiniteScroll 25s linear infinite; /* ADJUSTED: Smoother speed */
+    animation: infiniteScroll 40s linear infinite; /* SLOWED DOWN: 25s → 40s for smoother, no-jump loop */
     will-change: transform;
 }
 
 /* Second row - offset start position for visual interest */
 .logo-scroll-track:nth-child(2) {
-    animation-delay: -12.5s; /* OFFSET: Starts halfway through cycle */
+    animation-delay: -20s; /* OFFSET: Starts halfway through 40s cycle */
 }
 
 /* NO HOVER PAUSE - Keep scrolling continuously */
@@ -727,6 +727,9 @@ img {
 .logo-item img[src*="ArlingtonCommon"] {
     filter: none; /* Remove filter - keep original colors */
     opacity: 0.9; /* Slightly higher opacity since no filter */
+    background: rgba(255, 255, 255, 0.15); /* Subtle light background for visibility */
+    padding: 8px;
+    border-radius: 8px;
 }
 
 /* Exception: Bennington Museum (keep original colors) */
@@ -751,6 +754,8 @@ img {
 .logo-item img[src*="SVCC-logo-Round"] {
     filter: none; /* Remove filter - keep original blue/colors */
     opacity: 0.9;
+    min-width: 120px; /* Ensure it doesn't get too small */
+    max-width: 240px; /* Allow it to be larger */
 }
 
 /* Exception: Kimpton Taconic logo (invert to white) */

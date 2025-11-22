@@ -402,6 +402,138 @@ document.addEventListener('DOMContentLoaded', function() {
     // Run immediately
     selectFeaturedWork();
     
+    // --- Random Insights Selection (Homepage) ---
+    function selectRandomInsights() {
+        const insightsGrid = document.querySelector('.insights-highlight-grid');
+        if (!insightsGrid) return; // Not on homepage
+        
+        // All available articles with their metadata
+        const allArticles = [
+            {
+                url: 'article-zoom-meeting-tips.html',
+                image: 'assets/insights-zoom-meeting.jpg',
+                category: 'Technology',
+                title: 'Professional Zoom Meeting Tips',
+                description: 'Transform your virtual meetings with professional audio visual techniques and equipment recommendations.',
+                cta: 'Read Tips'
+            },
+            {
+                url: 'article-wedding-av-equipment.html',
+                image: 'assets/insights-wedding-av.jpg',
+                category: 'Weddings',
+                title: 'Wedding AV Equipment Guide',
+                description: 'Discover the essential audio visual equipment that will transform your wedding into an unforgettable experience.',
+                cta: 'Read Guide'
+            },
+            {
+                url: 'article-top-5-av-items.html',
+                image: 'assets/insights-top-5-av.jpg',
+                category: 'Professional Tips',
+                title: 'Top 5 Essential AV Items',
+                description: 'Discover the five most essential audio visual items that every event should have for professional results.',
+                cta: 'Read Guide'
+            },
+            {
+                url: 'article-choose-av-partner.html',
+                image: 'assets/insights-choose-partner.jpg',
+                category: 'Professional Tips',
+                title: 'How to Choose the Best AV Partner',
+                description: 'Learn the essential criteria for selecting the right audio visual partner for your next event.',
+                cta: 'Read Guide'
+            },
+            {
+                url: 'article-av-trends-2026.html',
+                image: 'assets/insights-av-trends.jpg',
+                category: 'Technology',
+                title: '5 AV Trends for 2026',
+                description: 'Stay ahead of the curve with the latest AV industry trends and innovative ideas shaping event production.',
+                cta: 'Read More'
+            },
+            {
+                url: 'article-switch-av-partners.html',
+                image: 'assets/insights-switch-partners.jpg',
+                category: 'Professional Tips',
+                title: 'Why Switch AV Partners?',
+                description: 'Recognize the red flags that indicate it\'s time to find a new audio visual partner for your events.',
+                cta: 'Read More'
+            },
+            {
+                url: 'article-breakout-management.html',
+                image: 'assets/insights-breakout-management.jpg',
+                category: 'Technology',
+                title: 'Breakout Session Management',
+                description: 'Master the art of managing multiple breakout sessions with professional AV coordination techniques.',
+                cta: 'Read Guide'
+            },
+            {
+                url: 'article-conference-speaking.html',
+                image: 'assets/insights-conference-speaking.jpg',
+                category: 'Professional Tips',
+                title: 'Conference Speaking Success',
+                description: 'Learn how to deliver impactful conference presentations with the right audio visual setup and techniques.',
+                cta: 'Read Tips'
+            },
+            {
+                url: 'article-engaging-presentation.html',
+                image: 'assets/insights-engaging-presentation.jpg',
+                category: 'Professional Tips',
+                title: 'Create Engaging Presentations',
+                description: 'Transform boring presentations into engaging experiences with professional AV techniques and tools.',
+                cta: 'Read Guide'
+            },
+            {
+                url: 'article-make-time-rehearsal.html',
+                image: 'assets/insights-rehearsal.jpg',
+                category: 'Professional Tips',
+                title: 'Make Time for Rehearsal',
+                description: 'Discover why rehearsal time is crucial for event success and how to make the most of it.',
+                cta: 'Read More'
+            },
+            {
+                url: 'article-hire-av-lead.html',
+                image: 'assets/insights-hire-av-lead.jpg',
+                category: 'Professional Tips',
+                title: 'Why Hire an AV Lead?',
+                description: 'Learn the benefits of hiring a dedicated audio visual lead for your next major event.',
+                cta: 'Read Guide'
+            },
+            {
+                url: 'article-small-meetings.html',
+                image: 'assets/insights-small-meetings.jpg',
+                category: 'Professional Tips',
+                title: 'Small Meetings, Big Impact',
+                description: 'Discover how professional AV can transform even small meetings into impactful experiences.',
+                cta: 'Read Tips'
+            }
+        ];
+        
+        // Shuffle array
+        const shuffled = [...allArticles].sort(() => Math.random() - 0.5);
+        
+        // Select first 3
+        const selected = shuffled.slice(0, 3);
+        
+        // Generate HTML
+        insightsGrid.innerHTML = selected.map(article => `
+            <article class="insight-highlight-card">
+                <div class="insight-highlight-image">
+                    <img src="${article.image}" alt="${article.title}" loading="lazy">
+                </div>
+                <div class="insight-highlight-content">
+                    <span class="insight-category">${article.category}</span>
+                    <h3>${article.title}</h3>
+                    <p>${article.description}</p>
+                    <a href="${article.url}" class="btn btn-secondary">${article.cta}</a>
+                </div>
+            </article>
+        `).join('');
+        
+        console.log('Randomly selected insights:', selected.map(a => a.title));
+    }
+    
+    // Run immediately
+    selectRandomInsights();
+    
     // Also run after page loads completely
     window.addEventListener('load', selectFeaturedWork);
 
