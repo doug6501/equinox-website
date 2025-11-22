@@ -591,6 +591,25 @@ document.addEventListener('DOMContentLoaded', function() {
         `).join('');
         
         console.log('Randomly selected insights:', selected.map(a => a.title));
+        
+        // Make entire cards clickable
+        initClickableHomepageInsights();
+    }
+    
+    // Make homepage insight cards clickable
+    function initClickableHomepageInsights() {
+        const insightCards = document.querySelectorAll('.insight-highlight-card');
+        
+        insightCards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                // Find the link within the card
+                const link = card.querySelector('a[href^="article-"]');
+                if (link && !e.target.closest('a')) {
+                    // If clicked element is not already a link, navigate to the article
+                    window.location.href = link.getAttribute('href');
+                }
+            });
+        });
     }
     
     // Run immediately

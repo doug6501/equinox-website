@@ -2006,6 +2006,8 @@ img[loading="lazy"].loaded {
     transition: all 0.3s ease;
     text-decoration: none;
     color: inherit;
+    cursor: pointer;
+    position: relative;
 }
 
 .insight-highlight-card:hover {
