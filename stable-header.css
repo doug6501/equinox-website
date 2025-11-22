@@ -2721,6 +2721,19 @@ img[loading="lazy"].loaded {
 .case-study-main-content h2:first-child {
     margin-top: 0;
 }
+
+/* Make internal links in case study paragraphs blend with text */
+.case-study-main-content p a {
+    color: inherit; /* Same color as paragraph text */
+    text-decoration: none; /* No underline */
+    border-bottom: none; /* No border */
+    transition: opacity 0.3s ease;
+}
+
+.case-study-main-content p a:hover {
+    opacity: 0.7; /* Subtle hover effect */
+    border-bottom: none; /* Ensure no underline on hover */
+}
 .sidebar-block { margin-bottom: 2rem; }
 .sidebar-block p { color: rgba(245, 245, 245, 0.8); }
 .services-list { list-style: none; padding-left: 0; }
