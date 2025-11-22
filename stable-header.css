@@ -4111,7 +4111,7 @@ img[loading="lazy"].loaded {
     
     /* Logo and Header - Dramatic scaling on mobile too */
     .logo {
-        height: 45px; /* Compact size on mobile */
+        height: 35px; /* Extra compact size on mobile */
         width: auto !important;
         max-width: none !important;
         min-width: auto !important;
@@ -4119,7 +4119,7 @@ img[loading="lazy"].loaded {
         aspect-ratio: auto !important; /* Maintain natural aspect ratio */
     }
     .main-header.scrolled .logo {
-        height: 45px; /* Same size when scrolled on mobile */
+        height: 35px; /* Same size when scrolled on mobile */
         width: auto !important;
         max-width: none !important;
         min-width: auto !important;
@@ -4884,14 +4884,18 @@ body.home-page main {
 
 /* --- MOBILE OVERRIDES (768px) --- */
 @media (max-width: 768px) {
-    .header-stable { padding: 0 20px; overflow: visible; }
+    .header-stable { 
+        padding: 0 15px; 
+        height: 60px; 
+        overflow: visible; 
+    }
     
     /* Hide desktop nav */
     .header-center { display: none; }
     
     /* Shrink Logo for Mobile */
     .logo-badge { 
-        height: 45px; 
+        height: 35px; 
         width: auto !important;
         max-width: none !important;
         min-width: auto !important;
