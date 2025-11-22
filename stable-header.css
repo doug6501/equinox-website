@@ -569,12 +569,18 @@ img {
     /* animation: fadeInUp 1.2s ease-out; DISABLED TO FIX FADING */
 }
 .hero p, .page-hero p { 
-    font-size: 1.3rem; 
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.6;
+    letter-spacing: 0.3px;
     margin-bottom: 2.5rem; 
-    text-shadow: 0 2px 15px rgba(0,0,0,0.8), 0 0 30px rgba(0,0,0,0.4);
-    color: rgba(245, 245, 245, 0.95);
+    text-shadow: 0 2px 20px rgba(0,0,0,0.9), 0 0 40px rgba(0,0,0,0.5);
+    color: rgba(245, 245, 245, 1);
     position: relative;
     z-index: 4;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* General Section Styles */
@@ -3433,6 +3439,13 @@ img[loading="lazy"].loaded {
 
 /* Enhanced Mobile Optimization */
 @media (max-width: 768px) {
+    /* Page Hero Subheaders - Responsive sizing */
+    .hero p, .page-hero p {
+        font-size: 1.2rem !important;
+        line-height: 1.5;
+        padding: 0 1rem;
+    }
+    
     /* Logo and Header - Dramatic scaling on mobile too */
     .logo {
         height: 60px; /* Consistent size on mobile */
