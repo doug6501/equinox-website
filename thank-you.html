@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Thank You - Equinox Audio Visuals</title>
+    <meta name="description" content="Thank you for contacting Equinox Audio Visuals. We'll be in touch soon!">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stable-header.css?v=1">
+    
+    <style>
+        /* Thank You Page Specific Styles */
+        .thank-you-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0A0A1A 0%, #1A1A2E 50%, #16213E 100%);
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+        }
+        
+        /* Animated background elements */
+        .thank-you-hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.15) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.1);
+                opacity: 0.8;
+            }
+        }
+        
+        .thank-you-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 700px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .success-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem;
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.2), rgba(255, 210, 63, 0.15));
+            border: 3px solid var(--color-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: scaleIn 0.6s ease-out 0.3s both;
+            box-shadow: 0 0 40px rgba(255, 107, 53, 0.4);
+        }
+        
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        .success-icon svg {
+            width: 60px;
+            height: 60px;
+            stroke: var(--color-primary);
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+        }
+        
+        .checkmark-path {
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+            animation: drawCheck 0.8s ease-out 0.8s forwards;
+        }
+        
+        @keyframes drawCheck {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+        
+        .thank-you-content h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: var(--color-light);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+        
+        .thank-you-content .subtitle {
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            color: rgba(245, 245, 245, 0.9);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            animation: fadeInUp 0.8s ease-out 0.5s both;
+        }
+        
+        .confirmation-details {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(255, 210, 63, 0.05));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 3rem 0;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+        
+        .confirmation-details h2 {
+            font-size: 1.3rem;
+            color: var(--color-secondary);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .confirmation-details p {
+            color: rgba(245, 245, 245, 0.85);
+            line-height: 1.8;
+            margin-bottom: 0.5rem;
+        }
+        
+        .confirmation-details ul {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0 0 0;
+        }
+        
+        .confirmation-details li {
+            color: rgba(245, 245, 245, 0.85);
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .confirmation-details li:last-child {
+            border-bottom: none;
+        }
+        
+        .confirmation-details li::before {
+            content: '✓';
+            color: var(--color-primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.7s both;
+        }
+        
+        .btn-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            border: none;
+            border-radius: 50px;
+            color: var(--color-dark);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            box-shadow: 0 4px 20px rgba(255, 107, 53, 0.4);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn-home:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(255, 107, 53, 0.6);
+        }
+        
+        .btn-secondary-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: transparent;
+            border: 2px solid var(--color-primary);
+            border-radius: 50px;
+            color: var(--color-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary-outline:hover {
+            background: rgba(255, 107, 53, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .thank-you-hero {
+                padding: 2rem 1rem;
+            }
+            
+            .success-icon {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .success-icon svg {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .confirmation-details {
+                padding: 1.5rem;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .btn-home,
+            .btn-secondary-outline {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section class="thank-you-hero">
+            <div class="thank-you-content">
+                <!-- Success Icon with Animated Checkmark -->
+                <div class="success-icon">
+                    <svg viewBox="0 0 52 52">
+                        <polyline class="checkmark-path" points="14,27 22,35 38,17"/>
+                    </svg>
+                </div>
+                
+                <h1>Message Received!</h1>
+                <p class="subtitle">Thank you for reaching out. We're excited to learn more about your event and how we can help bring your vision to life.</p>
+                
+                <div class="confirmation-details">
+                    <h2>What Happens Next?</h2>
+                    <ul>
+                        <li>We'll review your message and event details</li>
+                        <li>A team member will reach out within 24 hours</li>
+                        <li>We'll schedule a call to discuss your vision</li>
+                        <li>You'll receive a custom proposal tailored to your needs</li>
+                    </ul>
+                </div>
+                
+                <div class="action-buttons">
+                    <a href="index.html" class="btn-home">
+                        <span>← Back to Home</span>
+                    </a>
+                    <a href="work.html" class="btn-secondary-outline">
+                        <span>View Our Work</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="script.js?v=2"></script>
+
+</body>
+</html>
+
