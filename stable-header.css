@@ -3264,6 +3264,11 @@ img[loading="lazy"].loaded {
     border: 1px solid rgba(255, 210, 63, 0.3);
 }
 
+.camera-icon {
+    background: linear-gradient(135deg, rgba(138, 43, 226, 0.2), rgba(138, 43, 226, 0.05));
+    border: 1px solid rgba(138, 43, 226, 0.3);
+}
+
 .equipment-category:hover .audio-icon {
     background: linear-gradient(135deg, rgba(255, 107, 53, 0.3), rgba(255, 107, 53, 0.1));
     transform: scale(1.05);
@@ -3276,6 +3281,11 @@ img[loading="lazy"].loaded {
 
 .equipment-category:hover .lighting-icon {
     background: linear-gradient(135deg, rgba(255, 210, 63, 0.3), rgba(255, 210, 63, 0.1));
+    transform: scale(1.05);
+}
+
+.equipment-category:hover .camera-icon {
+    background: linear-gradient(135deg, rgba(138, 43, 226, 0.3), rgba(138, 43, 226, 0.1));
     transform: scale(1.05);
 }
 
@@ -3294,6 +3304,10 @@ img[loading="lazy"].loaded {
 
 .lighting-icon svg {
     stroke: var(--color-secondary);
+}
+
+.camera-icon svg {
+    stroke: #8A2BE2; /* Blue Violet */
 }
 
 .category-header h3 {
@@ -3366,6 +3380,34 @@ img[loading="lazy"].loaded {
 .equipment-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(255, 107, 53, 0.35);
+}
+
+/* Single CTA Button Section */
+.equipment-cta-section {
+    text-align: center;
+    margin: 4rem 0 2rem 0;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.equipment-btn-large {
+    display: inline-block;
+    padding: 1.25rem 3rem;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.equipment-btn-large:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 30px rgba(255, 107, 53, 0.4);
 }
 
 /* Equipment Highlights Banner */
