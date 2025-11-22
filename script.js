@@ -1547,17 +1547,8 @@ initBalancedWorkGrid();
     // Initialize back to top button
     initBackToTop();
     
-    // Initialize theme toggle
-    initThemeToggle();
-    
-    // Initialize accessibility menu
-    initAccessibilityMenu();
-    
     // Initialize PWA
     initPWA();
-    
-    // Initialize live chat
-    initLiveChat();
     
     // Prevent widows (single words on last line)
     preventWidows();
