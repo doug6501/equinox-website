@@ -241,6 +241,31 @@ function initNewTestimonialSlider() {
         goToSlide(currentIndex); // Snap to current slide
     });
 
+    // Auto-advance every 10 seconds
+    let autoAdvanceInterval = setInterval(() => {
+        let nextIndex = currentIndex + 1;
+        if (nextIndex >= slides.length) {
+            nextIndex = 0; // Loop to start
+        }
+        goToSlide(nextIndex);
+    }, 10000); // 10 seconds
+
+    // Pause auto-advance when user interacts
+    const resetAutoAdvance = () => {
+        clearInterval(autoAdvanceInterval);
+        autoAdvanceInterval = setInterval(() => {
+            let nextIndex = currentIndex + 1;
+            if (nextIndex >= slides.length) {
+                nextIndex = 0;
+            }
+            goToSlide(nextIndex);
+        }, 10000);
+    };
+
+    // Reset timer when user clicks buttons
+    nextButton.addEventListener('click', resetAutoAdvance);
+    prevButton.addEventListener('click', resetAutoAdvance);
+
     // Initial setup
     goToSlide(0);
 }
