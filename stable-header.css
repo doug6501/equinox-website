@@ -1139,6 +1139,25 @@ img {
     margin-bottom: 4rem; /* Increased bottom margin */
 }
 
+/* Balanced Grid Layout - Intelligently mixes 2-card and 3-card rows */
+/* Uses 6-column grid for flexibility: 3-card rows use 2 cols each, 2-card rows use 3 cols each */
+.work-grid.balanced-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 6 columns for flexibility */
+    gap: 3rem;
+    grid-auto-flow: dense;
+}
+
+/* 3-card rows: each card spans 2 columns (2+2+2 = 6) */
+.work-grid.balanced-grid .work-card[data-row-size="3"] {
+    grid-column: span 2;
+}
+
+/* 2-card rows: each card spans 3 columns (3+3 = 6) */
+.work-grid.balanced-grid .work-card[data-row-size="2"] {
+    grid-column: span 3;
+}
+
 /* Featured Work Separator */
 .featured-work-separator {
     display: flex;
@@ -3563,9 +3582,16 @@ img[loading="lazy"].loaded {
     }
     
     /* Work cards - Stack nicely on mobile */
-    .work-grid {
-        grid-template-columns: 1fr;
+    .work-grid,
+    .work-grid.balanced-grid {
+        grid-template-columns: 1fr !important;
         gap: 2rem;
+    }
+    
+    /* Reset all cards to full width on mobile */
+    .work-grid.balanced-grid .work-card[data-row-size="2"],
+    .work-grid.balanced-grid .work-card[data-row-size="3"] {
+        grid-column: span 1 !important;
     }
     
     /* Fix difference grid mobile layout */

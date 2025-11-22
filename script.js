@@ -1097,8 +1097,84 @@ function initVideoLazyLoading() {
     });
 }
 
+// ========================================
+// BALANCED WORK GRID LAYOUT
+// ========================================
+function initBalancedWorkGrid() {
+    // Only run on work page
+    const workGrid = document.querySelector('.work-grid');
+    if (!workGrid) return;
+    
+    const allCards = workGrid.querySelectorAll('.work-card');
+    const totalCards = allCards.length;
+    
+    console.log(`Total cards: ${totalCards}`);
+    
+    // Calculate optimal layout to avoid lonely last row
+    // Goal: Mix 2-card and 3-card rows to balance the grid
+    // Strategy: Prefer 3-card rows, but balance with 2-card rows to avoid orphans
+    
+    let layout = [];
+    
+    if (totalCards % 3 === 0) {
+        // Perfect for 3-column layout (e.g., 12, 15, 18 cards)
+        layout = Array(Math.floor(totalCards / 3)).fill(3);
+    } else if (totalCards % 3 === 1) {
+        // e.g., 13 cards: 3+3+3+2+2 = 13 (better than 3+3+3+3+1)
+        // e.g., 10 cards: 3+3+2+2 = 10
+        // e.g., 7 cards: 3+2+2 = 7
+        if (totalCards >= 7) {
+            const threeCardRows = Math.floor((totalCards - 4) / 3);
+            layout = Array(threeCardRows).fill(3).concat([2, 2]);
+        } else if (totalCards === 4) {
+            layout = [2, 2];
+        } else {
+            // For very small counts, just use 3s and accept the remainder
+            const threeCardRows = Math.floor(totalCards / 3);
+            layout = Array(threeCardRows).fill(3);
+            if (totalCards % 3 > 0) layout.push(totalCards % 3);
+        }
+    } else if (totalCards % 3 === 2) {
+        // e.g., 14 cards: Better as 3+3+2+3+3 = 14 (mix it up!)
+        // Actually, for visual balance: 3+3+3+3+2 = 14 is okay
+        // But even better: 3+3+2+2+2+2 = 14 (more balanced)
+        // Let's use: first few 3s, then 2s to fill
+        if (totalCards >= 8) {
+            // Use mostly 3s with one 2 at the end
+            const threeCardRows = Math.floor(totalCards / 3);
+            layout = Array(threeCardRows).fill(3).concat([2]);
+        } else if (totalCards === 5) {
+            layout = [3, 2];
+        } else if (totalCards === 2) {
+            layout = [2];
+        } else {
+            const threeCardRows = Math.floor(totalCards / 3);
+            layout = Array(threeCardRows).fill(3);
+            if (totalCards % 3 > 0) layout.push(totalCards % 3);
+        }
+    }
+    
+    console.log(`Layout pattern: ${layout.join(' + ')} = ${totalCards}`);
+    
+    // Apply layout classes to cards
+    let cardIndex = 0;
+    layout.forEach((rowSize, rowIndex) => {
+        for (let i = 0; i < rowSize; i++) {
+            if (cardIndex < totalCards) {
+                allCards[cardIndex].setAttribute('data-row', rowIndex);
+                allCards[cardIndex].setAttribute('data-row-size', rowSize);
+                cardIndex++;
+            }
+        }
+    });
+    
+    // Add CSS class to work-grid to enable custom layout
+    workGrid.classList.add('balanced-grid');
+}
+
 initWorkPageLazyLoading();
 initVideoLazyLoading();
+initBalancedWorkGrid();
 
     // Note: Active nav link highlighting is now handled in loadHeader()
 
