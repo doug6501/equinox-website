@@ -1512,8 +1512,52 @@ initBalancedWorkGrid();
 
     // Initialize logo magnification effect
     initLogoMagnification();
+    
+    // Prevent widows (single words on last line)
+    preventWidows();
 
 });
+
+// ========================================
+// PREVENT WIDOWS (SINGLE WORDS ON LAST LINE)
+// ========================================
+function preventWidows() {
+    // Select all text elements that might have widows
+    const selectors = [
+        'p:not(:has(a)):not(:has(span)):not(:has(strong))', 
+        'h1:not(:has(*))', 
+        'h2:not(:has(*))', 
+        'h3:not(:has(*))',
+        '.article-excerpt:not(:has(*))',
+        '.subtitle:not(:has(*))',
+        '.section-subtitle:not(:has(*))'
+    ];
+    
+    const elements = document.querySelectorAll(selectors.join(', '));
+    
+    elements.forEach(element => {
+        const text = element.textContent;
+        if (!text || text.trim().length === 0) return;
+        
+        // Split by spaces and check if we have multiple words
+        const words = text.trim().split(/\s+/);
+        
+        // Only process if there are at least 3 words (prevents breaking short phrases)
+        if (words.length >= 3) {
+            // Replace the last space with a non-breaking space
+            const lastWord = words.pop();
+            const secondLastWord = words.pop();
+            const restOfText = words.join(' ');
+            
+            // Keep last two words together
+            if (restOfText.length > 0) {
+                element.innerHTML = restOfText + ' ' + secondLastWord + '&nbsp;' + lastWord;
+            } else {
+                element.innerHTML = secondLastWord + '&nbsp;' + lastWord;
+            }
+        }
+    });
+}
 
 // ========================================
 // LOGO MAGNIFICATION EFFECT (Apple Dock Style)
