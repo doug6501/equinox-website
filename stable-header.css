@@ -3588,13 +3588,19 @@ img[loading="lazy"].loaded {
     /* Logo and Header - Dramatic scaling on mobile too */
     .logo {
         height: 60px; /* Consistent size on mobile */
-        width: auto;
+        width: auto !important;
+        max-width: none !important;
+        min-width: auto !important;
         object-fit: contain;
+        aspect-ratio: auto !important; /* Maintain natural aspect ratio */
     }
     .main-header.scrolled .logo {
         height: 50px; /* Consistent when scrolled on mobile */
-        width: auto;
+        width: auto !important;
+        max-width: none !important;
+        min-width: auto !important;
         object-fit: contain;
+        aspect-ratio: auto !important; /* Maintain natural aspect ratio */
     }
     
     /* Mobile Navigation Toggle */
@@ -4124,6 +4130,12 @@ body.home-page main {
     /* MASSIVE SIZE INCREASE */
     height: 250px !important; /* Was 140px - Approximately 2x larger */
     width: auto !important;
+    max-width: none !important; /* Prevent any max-width constraints */
+    min-width: auto !important; /* Prevent any min-width constraints */
+    
+    /* MAINTAIN ASPECT RATIO */
+    object-fit: contain !important;
+    aspect-ratio: auto !important; /* Preserve natural aspect ratio */
     
     /* REMOVE BADGE STYLING */
     background-color: transparent !important; /* No more white circle */
@@ -4192,7 +4204,16 @@ body.home-page main {
     .header-center { display: none; }
     
     /* Shrink Logo for Mobile */
-    .logo-badge { height: 60px; top: 0; box-shadow: none; }
+    .logo-badge { 
+        height: 60px; 
+        width: auto !important;
+        max-width: none !important;
+        min-width: auto !important;
+        top: 0; 
+        box-shadow: none;
+        object-fit: contain !important;
+        aspect-ratio: auto !important;
+    }
     
     /* Show Hamburger */
     .mobile-nav-toggle { display: block; background: none; border: none; cursor: pointer; }
