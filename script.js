@@ -1507,6 +1507,9 @@ initBalancedWorkGrid();
     // Initialize logo magnification effect
     initLogoMagnification();
     
+    // Initialize back to top button
+    initBackToTop();
+    
     // Prevent widows (single words on last line)
     preventWidows();
 
@@ -1600,5 +1603,43 @@ function initLogoMagnification() {
 
     // Start animation
     animate();
+}
+
+// ========================================
+// BACK TO TOP BUTTON
+// ========================================
+function initBackToTop() {
+    // Create button
+    const backToTopBtn = document.createElement('button');
+    backToTopBtn.id = 'back-to-top';
+    backToTopBtn.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    `;
+    backToTopBtn.setAttribute('aria-label', 'Back to top');
+    document.body.appendChild(backToTopBtn);
+
+    // Show/hide on scroll
+    let lastScrollY = window.scrollY;
+    window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        
+        if (scrollY > 500) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
+        }
+        
+        lastScrollY = scrollY;
+    });
+
+    // Scroll to top on click
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
 }
 

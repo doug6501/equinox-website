@@ -433,10 +433,34 @@ img {
     box-shadow: 0 0 0 4px rgba(232, 180, 74, 0.3);
 }
 .btn-primary {
-    background-color: var(--color-primary);
-    color: var(--color-dark);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
     font-weight: 700;
     border: none;
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4), 0 4px 12px rgba(255, 210, 63, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.btn-primary:hover::before {
+    opacity: 1;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 35px rgba(255, 107, 53, 0.5), 0 6px 18px rgba(255, 210, 63, 0.4);
 }
 .btn::before {
     content: '';
@@ -463,18 +487,34 @@ img {
     transform: translateY(-2px) scale(0.98);
 }
 .btn-secondary {
-    background-color: var(--color-accent);
-    color: var(--color-light);
-    border: 2px solid var(--color-accent);
+    background: linear-gradient(135deg, var(--color-accent) 0%, #5577ff 100%);
+    color: white;
+    border: 2px solid transparent;
     font-weight: 700;
+    box-shadow: 0 8px 25px rgba(65, 105, 225, 0.4), 0 4px 12px rgba(85, 119, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #5577ff 0%, var(--color-accent) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.btn-secondary:hover::before {
+    opacity: 1;
 }
 
 .btn-secondary:hover {
-    background-color: transparent;
-    color: var(--color-accent);
-    border-color: var(--color-accent);
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.4), 0 8px 15px rgba(65, 105, 225, 0.3);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 35px rgba(65, 105, 225, 0.5), 0 6px 18px rgba(85, 119, 255, 0.4);
 }
 
 .btn-link {
@@ -544,6 +584,41 @@ img {
 .hero { 
     min-height: 100vh; 
     padding-top: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated gradient overlay for visual interest */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 107, 53, 0.15) 0%,
+        rgba(10, 10, 26, 0.7) 30%,
+        rgba(26, 26, 46, 0.85) 60%,
+        rgba(255, 210, 63, 0.1) 100%
+    );
+    background-size: 200% 200%;
+    animation: gradientShift 15s ease infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 .page-hero { 
     min-height: 60vh; 
@@ -590,7 +665,7 @@ img {
 
 .hero-content, .page-hero-content {
     position: relative;
-    z-index: 3;
+    z-index: 10; /* Above gradient overlay */
     max-width: 900px;
     padding: 3rem 2rem 2rem;
 }
@@ -659,8 +734,8 @@ img {
 
 /* Client Logo Bar Section */
 .client-logo-bar {
-    background: linear-gradient(180deg, rgba(40, 40, 60, 0.95) 0%, rgba(50, 50, 70, 0.98) 100%); /* LIGHTENED: Better contrast for logos */
-    padding: 6rem 0 5rem 0; /* INCREASED: Taller section for larger logos */
+    background: linear-gradient(180deg, rgba(45, 45, 65, 0.98) 0%, rgba(55, 55, 75, 1) 100%); /* LIGHTER: Even better contrast */
+    padding: 8rem 0 7rem 0; /* INCREASED: Much more breathing room */
     position: relative;
     overflow: hidden;
 }
@@ -681,13 +756,13 @@ img {
 
 /* Logo Scroll Container - TWO ROWS */
 .logo-scroll-container {
-    margin-top: 3rem;
+    margin-top: 4rem;
     overflow: hidden;
     position: relative;
-    padding: 3rem 0; /* INCREASED: More vertical padding */
+    padding: 4rem 0; /* INCREASED: Even more vertical padding */
     display: flex;
     flex-direction: column;
-    gap: 5rem; /* INCREASED: 3rem → 5rem (more vertical space between rows) */
+    gap: 6rem; /* INCREASED: 5rem → 6rem (maximum vertical space between rows) */
 }
 
 /* Gradient fade edges for smooth infinity effect */
@@ -2021,16 +2096,36 @@ img[loading="lazy"].loaded {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 16px;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     display: block;
     text-decoration: none;
     color: inherit;
+    position: relative;
+}
+
+.insight-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(65, 105, 225, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.insight-card:hover::before {
+    opacity: 1;
 }
 
 .insight-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(255, 107, 53, 0.2), 0 8px 20px rgba(0, 0, 0, 0.4);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 107, 53, 0.3);
     text-decoration: none;
     color: inherit;
 }
@@ -2045,7 +2140,7 @@ img[loading="lazy"].loaded {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .insight-image a {
@@ -2059,7 +2154,7 @@ img[loading="lazy"].loaded {
 }
 
 .insight-card:hover .insight-image img {
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 .insight-content {
@@ -2632,6 +2727,65 @@ img[loading="lazy"].loaded {
 .cta-section .btn-secondary:hover {
     background-color: transparent;
     color: var(--color-dark);
+}
+
+/* ========================================
+   BACK TO TOP BUTTON
+   ======================================== */
+#back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4), 0 4px 12px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.8);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 1000;
+}
+
+#back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+#back-to-top:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 12px 35px rgba(255, 107, 53, 0.5), 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+#back-to-top:active {
+    transform: translateY(-1px) scale(1.05);
+}
+
+#back-to-top svg {
+    width: 24px;
+    height: 24px;
+}
+
+@media (max-width: 768px) {
+    #back-to-top {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 45px;
+        height: 45px;
+    }
+    
+    #back-to-top svg {
+        width: 20px;
+        height: 20px;
+    }
 }
 
 
@@ -4183,9 +4337,40 @@ body.home-page main {
     font-size: 1.1rem; /* INCREASED: 0.9rem → 1.1rem (22% larger) */
     font-weight: 600; /* INCREASED: 500 → 600 (bolder) */
     white-space: nowrap; /* Prevent wrapping */
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.3s ease;
 }
 
-.nav-links a:hover { color: #FF6B35; }
+.nav-links a:hover { 
+    color: #FF6B35; 
+}
+
+/* Active state indicator */
+.nav-links a.active {
+    color: var(--color-primary);
+}
+
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    border-radius: 2px;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
 
 /* --- RIGHT: MOBILE TOGGLE --- */
 .header-right {
