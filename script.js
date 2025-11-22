@@ -876,6 +876,24 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize insights filtering
     initInsightsFiltering();
+    
+    // Make entire insight cards clickable
+    function initClickableInsightCards() {
+        const insightCards = document.querySelectorAll('.insight-card');
+        
+        insightCards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                // Find the link within the card
+                const link = card.querySelector('a[href^="article-"]');
+                if (link && !e.target.closest('a')) {
+                    // If clicked element is not already a link, navigate to the article
+                    window.location.href = link.getAttribute('href');
+                }
+            });
+        });
+    }
+    
+    initClickableInsightCards();
 
 // ========================================
 // ARTICLE NAVIGATION
