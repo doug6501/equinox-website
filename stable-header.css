@@ -632,12 +632,15 @@ img {
     opacity: 0.3;
 }
 
-/* Logo Scroll Container */
+/* Logo Scroll Container - TWO ROWS */
 .logo-scroll-container {
     margin-top: 3rem;
     overflow: hidden;
     position: relative;
-    padding: 2rem 0; /* INCREASED: More vertical space for larger logos */
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem; /* Space between two rows */
 }
 
 /* Gradient fade edges for smooth infinity effect */
@@ -669,23 +672,35 @@ img {
 /* Logo Track - Horizontal scrolling container */
 .logo-scroll-track {
     display: flex;
-    gap: 6rem; /* INCREASED: More space between logos */
-    animation: infiniteScroll 30s linear infinite; /* FASTER: 40s → 30s */
+    gap: 6rem;
+    animation: infiniteScroll 20s linear infinite; /* FASTER: 30s → 20s (50% faster!) */
     will-change: transform;
 }
 
-/* Pause animation on hover */
-.logo-scroll-track:hover {
-    animation-play-state: paused;
+/* Second row scrolls in opposite direction */
+.logo-scroll-track.reverse {
+    animation: infiniteScrollReverse 20s linear infinite;
 }
 
-/* Infinite scroll animation */
+/* NO HOVER PAUSE - Keep scrolling continuously */
+
+/* Infinite scroll animation - Left to Right */
 @keyframes infiniteScroll {
     from {
         transform: translateX(0);
     }
     to {
         transform: translateX(-50%);
+    }
+}
+
+/* Reverse scroll animation - Right to Left */
+@keyframes infiniteScrollReverse {
+    from {
+        transform: translateX(-50%);
+    }
+    to {
+        transform: translateX(0);
     }
 }
 
