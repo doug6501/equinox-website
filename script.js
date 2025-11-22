@@ -984,6 +984,122 @@ function initSmartGallery() {
 
 initSmartGallery();
 
+// ========================================
+// LAZY LOADING FOR WORK PAGE
+// ========================================
+function initWorkPageLazyLoading() {
+    // Only run on work page
+    if (!document.querySelector('.work-grid')) return;
+    
+    const workGrid = document.querySelector('.work-grid');
+    const allCards = Array.from(workGrid.querySelectorAll('.work-card'));
+    
+    // Initially hide all cards beyond the first 6
+    allCards.forEach((card, index) => {
+        if (index >= 6) {
+            card.style.display = 'none';
+            card.classList.add('lazy-load-pending');
+        }
+    });
+    
+    let currentlyLoaded = 6;
+    const loadIncrement = 6; // Load 6 more at a time
+    
+    // Create intersection observer for infinite scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && currentlyLoaded < allCards.length) {
+                // Load next batch
+                const nextBatch = allCards.slice(currentlyLoaded, currentlyLoaded + loadIncrement);
+                
+                nextBatch.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.style.display = 'block';
+                        card.classList.remove('lazy-load-pending');
+                        
+                        // Lazy load videos in this card
+                        const video = card.querySelector('video[data-src]');
+                        if (video) {
+                            video.src = video.dataset.src;
+                            video.load();
+                        }
+                        
+                        // Lazy load images
+                        const img = card.querySelector('img[data-src]');
+                        if (img) {
+                            img.src = img.dataset.src;
+                        }
+                        
+                        // Trigger fade-in animation
+                        requestAnimationFrame(() => {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(30px)';
+                            requestAnimationFrame(() => {
+                                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            });
+                        });
+                    }, index * 100); // Stagger the appearance
+                });
+                
+                currentlyLoaded += loadIncrement;
+            }
+        });
+    }, {
+        rootMargin: '200px' // Start loading 200px before reaching the bottom
+    });
+    
+    // Observe the last visible card
+    if (allCards[5]) {
+        observer.observe(allCards[5]);
+    }
+    
+    // Update observer target as we load more
+    const updateObserver = () => {
+        if (currentlyLoaded < allCards.length && allCards[currentlyLoaded - 1]) {
+            observer.observe(allCards[currentlyLoaded - 1]);
+        }
+    };
+    
+    // Update observer after each load
+    setInterval(updateObserver, 1000);
+}
+
+// Initialize lazy loading for videos with poster images
+function initVideoLazyLoading() {
+    const videos = document.querySelectorAll('video[autoplay]');
+    
+    videos.forEach(video => {
+        // Get the first frame as poster if not set
+        if (!video.poster && video.querySelector('source')) {
+            const source = video.querySelector('source').src;
+            // Create a poster attribute pointing to a placeholder
+            video.poster = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450"%3E%3Crect fill="%23222" width="800" height="450"/%3E%3C/svg%3E';
+        }
+        
+        // Use Intersection Observer to only play videos when visible
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (video.paused) {
+                        video.play().catch(e => console.log('Video play failed:', e));
+                    }
+                } else {
+                    video.pause();
+                }
+            });
+        }, {
+            threshold: 0.5 // Play when 50% visible
+        });
+        
+        observer.observe(video);
+    });
+}
+
+initWorkPageLazyLoading();
+initVideoLazyLoading();
+
     // Note: Active nav link highlighting is now handled in loadHeader()
 
     // --- Services Page Tabs ---
