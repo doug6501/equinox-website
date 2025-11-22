@@ -1230,7 +1230,7 @@ function initVideoLazyLoading() {
 }
 
 // ========================================
-// BALANCED WORK GRID LAYOUT
+// BALANCED WORK GRID LAYOUT - ALTERNATING 2 & 3
 // ========================================
 function initBalancedWorkGrid() {
     // Only run on work page
@@ -1242,51 +1242,45 @@ function initBalancedWorkGrid() {
     
     console.log(`Total cards: ${totalCards}`);
     
-    // Calculate optimal layout to avoid lonely last row
-    // Goal: Mix 2-card and 3-card rows to balance the grid
-    // Strategy: Prefer 3-card rows, but balance with 2-card rows to avoid orphans
+    // NEW STRATEGY: Alternate between 3-card and 2-card rows
+    // Pattern: 3, 2, 3, 2, 3, 2... (5 cards per cycle)
     
     let layout = [];
+    let remainingCards = totalCards;
+    let use3First = true; // Start with 3-card row
     
-    if (totalCards % 3 === 0) {
-        // Perfect for 3-column layout (e.g., 12, 15, 18 cards)
-        layout = Array(Math.floor(totalCards / 3)).fill(3);
-    } else if (totalCards % 3 === 1) {
-        // e.g., 13 cards: 3+3+3+2+2 = 13 (better than 3+3+3+3+1)
-        // e.g., 10 cards: 3+3+2+2 = 10
-        // e.g., 7 cards: 3+2+2 = 7
-        if (totalCards >= 7) {
-            const threeCardRows = Math.floor((totalCards - 4) / 3);
-            layout = Array(threeCardRows).fill(3).concat([2, 2]);
-        } else if (totalCards === 4) {
-            layout = [2, 2];
+    while (remainingCards > 0) {
+        if (remainingCards === 1) {
+            // Single card left - add to previous row if possible
+            // Or just make it a 1-card row (will look centered)
+            layout.push(1);
+            remainingCards = 0;
+        } else if (remainingCards === 2) {
+            // Two cards left - perfect for a 2-card row
+            layout.push(2);
+            remainingCards = 0;
+        } else if (remainingCards === 3) {
+            // Three cards left - perfect for a 3-card row
+            layout.push(3);
+            remainingCards = 0;
+        } else if (remainingCards === 4) {
+            // Four cards left - make it 2+2
+            layout.push(2, 2);
+            remainingCards = 0;
         } else {
-            // For very small counts, just use 3s and accept the remainder
-            const threeCardRows = Math.floor(totalCards / 3);
-            layout = Array(threeCardRows).fill(3);
-            if (totalCards % 3 > 0) layout.push(totalCards % 3);
-        }
-    } else if (totalCards % 3 === 2) {
-        // e.g., 14 cards: Better as 3+3+2+3+3 = 14 (mix it up!)
-        // Actually, for visual balance: 3+3+3+3+2 = 14 is okay
-        // But even better: 3+3+2+2+2+2 = 14 (more balanced)
-        // Let's use: first few 3s, then 2s to fill
-        if (totalCards >= 8) {
-            // Use mostly 3s with one 2 at the end
-            const threeCardRows = Math.floor(totalCards / 3);
-            layout = Array(threeCardRows).fill(3).concat([2]);
-        } else if (totalCards === 5) {
-            layout = [3, 2];
-        } else if (totalCards === 2) {
-            layout = [2];
-        } else {
-            const threeCardRows = Math.floor(totalCards / 3);
-            layout = Array(threeCardRows).fill(3);
-            if (totalCards % 3 > 0) layout.push(totalCards % 3);
+            // 5 or more cards - alternate between 3 and 2
+            if (use3First) {
+                layout.push(3);
+                remainingCards -= 3;
+            } else {
+                layout.push(2);
+                remainingCards -= 2;
+            }
+            use3First = !use3First; // Toggle for next row
         }
     }
     
-    console.log(`Layout pattern: ${layout.join(' + ')} = ${totalCards}`);
+    console.log(`Alternating layout: ${layout.join(' + ')} = ${totalCards}`);
     
     // Apply layout classes to cards
     let cardIndex = 0;
