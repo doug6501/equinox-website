@@ -4105,7 +4105,7 @@ img[loading="lazy"].loaded {
     
     /* Logo and Header - Dramatic scaling on mobile too */
     .logo {
-        height: 60px; /* Consistent size on mobile */
+        height: 45px; /* Compact size on mobile */
         width: auto !important;
         max-width: none !important;
         min-width: auto !important;
@@ -4113,7 +4113,7 @@ img[loading="lazy"].loaded {
         aspect-ratio: auto !important; /* Maintain natural aspect ratio */
     }
     .main-header.scrolled .logo {
-        height: 50px; /* Consistent when scrolled on mobile */
+        height: 45px; /* Same size when scrolled on mobile */
         width: auto !important;
         max-width: none !important;
         min-width: auto !important;
@@ -4383,20 +4383,24 @@ img[loading="lazy"].loaded {
         left: auto;
         width: 60%;
         max-width: 400px;
-        height: 100vh;
+        height: auto;
+        min-height: min-content;
+        max-height: 100vh;
+        overflow-y: auto;
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
-        gap: 1rem;
+        gap: 0.5rem;
         background: rgba(20, 20, 40, 0.85);
         backdrop-filter: blur(30px);
         -webkit-backdrop-filter: blur(30px);
         border-left: 1px solid rgba(255, 255, 255, 0.1);
         box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+        border-bottom-left-radius: 16px;
         transform: translateX(100%);
         transition: transform 350ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
         z-index: 1000;
-        padding: 3rem 2rem 2rem 2rem;
+        padding: 2rem 1.5rem 1.5rem 1.5rem;
     }
     .nav-list[data-visible="true"] {
         transform: translateX(0%);
@@ -4495,12 +4499,11 @@ img[loading="lazy"].loaded {
     
     /* Mobile Menu Footer */
     .mobile-menu-footer {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        padding: 2rem;
-        background: linear-gradient(180deg, transparent 0%, rgba(10, 10, 26, 0.6) 100%);
+        position: relative;
+        width: 100%;
+        margin-top: 1.5rem;
+        padding: 1.5rem 0 0.5rem 0;
+        background: linear-gradient(180deg, transparent 0%, rgba(10, 10, 26, 0.4) 100%);
         border-top: 1px solid rgba(255, 255, 255, 0.08);
         backdrop-filter: blur(10px);
     }
@@ -4882,7 +4885,7 @@ body.home-page main {
     
     /* Shrink Logo for Mobile */
     .logo-badge { 
-        height: 60px; 
+        height: 45px; 
         width: auto !important;
         max-width: none !important;
         min-width: auto !important;
