@@ -4111,9 +4111,9 @@ img[loading="lazy"].loaded {
         padding: 0 1rem;
     }
     
-    /* Logo and Header - Dramatic scaling on mobile too */
-    .logo {
-        height: 35px; /* Extra compact size on mobile */
+    /* Logo and Header - CRITICAL: Much smaller on mobile */
+    .logo, img.logo {
+        height: 40px !important; /* Much smaller */
         width: auto !important;
         max-width: none !important;
         min-width: auto !important;
