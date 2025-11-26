@@ -550,6 +550,24 @@ img {
     font-weight: 400 !important;
 }
 
+/* Hero Lead Paragraph */
+.hero-lead {
+    font-size: 1.4rem !important; /* Larger */
+    font-weight: 400;
+    margin-bottom: 1.5rem !important; /* The gap you wanted */
+    color: rgba(255, 255, 255, 0.95);
+}
+
+/* Hero Location Paragraph */
+.hero-location {
+    font-size: 1.2rem !important; /* Slightly smaller but distinct */
+    font-weight: 600; /* Bold */
+    color: #FF6B35; /* Brand Orange */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 0 !important;
+}
+
 /* General Section Styles */
 .section-title {
     text-align: center;
@@ -728,6 +746,16 @@ img {
     .hero-content p {
         font-size: 1.1rem !important;
         margin-top: 1.5rem !important;
+    }
+    
+    .hero-lead {
+        font-size: 1.1rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .hero-location {
+        font-size: 1rem !important;
+        letter-spacing: 1.5px;
     }
     
     .logo-scroll-track {
@@ -3759,11 +3787,12 @@ body.home-page main {
 .hubspot-form-container {
     width: 100%;
     margin-top: 2rem;
+    background-color: rgba(255, 255, 255, 0.95) !important; /* Softer white */
 }
 
 /* The "Paper" Card for HubSpot */
 .glass-panel-light {
-    background-color: #FFFFFF !important; /* Solid White */
+    background-color: rgba(255, 255, 255, 0.95) !important; /* Softer white */
     border: 1px solid rgba(255, 255, 255, 0.5) !important;
     border-radius: 8px !important;
     padding: 2rem !important;
@@ -3838,4 +3867,22 @@ body.home-page main {
 .info-icon {
     color: #FF6B35; /* Brand Orange Icon */
     font-size: 1.5rem;
+}
+
+/* Contact Info Wrapper - Force Dark Text */
+.contact-info-wrapper a, .contact-info-wrapper i {
+    color: #0A0A1A !important; /* Dark Navy */
+}
+
+/* Social Links in Contact Page - Dark Text */
+.social-links-contact a {
+    color: #0A0A1A !important;
+}
+
+.social-links-contact a span {
+    color: #0A0A1A !important;
+}
+
+.social-links-contact svg {
+    stroke: #0A0A1A !important;
 }
