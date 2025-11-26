@@ -552,19 +552,21 @@ img {
 
 /* Hero Lead Paragraph */
 .hero-lead {
-    font-size: 1.4rem !important; /* Larger */
-    font-weight: 400;
-    margin-bottom: 1.5rem !important; /* The gap you wanted */
-    color: rgba(255, 255, 255, 0.95);
+    font-size: 1.4rem !important; 
+    line-height: 1.6 !important;
+    max-width: 800px !important; 
+    margin: 2.5rem auto 0 auto !important; 
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-weight: 400 !important;
 }
 
 /* Hero Location Paragraph */
 .hero-location {
-    font-size: 1.2rem !important; /* Slightly smaller but distinct */
-    font-weight: 600; /* Bold */
-    color: #FF6B35; /* Brand Orange */
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    font-size: 1.2rem !important; 
+    font-weight: 600 !important; 
+    color: #FF6B35 !important; /* Brand Orange */
+    text-transform: uppercase !important;
+    letter-spacing: 2px !important;
     margin-top: 0 !important;
 }
 
@@ -3869,9 +3871,12 @@ body.home-page main {
     font-size: 1.5rem;
 }
 
-/* Contact Info Wrapper - Force Dark Text */
-.contact-info-wrapper a, .contact-info-wrapper i {
-    color: #0A0A1A !important; /* Dark Navy */
+/* Contact Info Wrapper - Force White Text for Contrast */
+.contact-info-wrapper .info-box p, 
+.contact-info-wrapper .info-box h3, 
+.contact-info-wrapper .info-box h4,
+.contact-info-wrapper .info-box a {
+    color: white !important; /* Force all text to white for contrast */
 }
 
 /* Social Links in Contact Page - Dark Text */
