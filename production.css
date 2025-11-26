@@ -3759,3 +3759,67 @@ body.home-page main {
     width: 100% !important;
     min-height: 550px; /* Prevent cut-off */
 }
+
+/* ========================================
+   CONTACT PAGE REDESIGN (Light Theme)
+   ======================================== */
+
+/* The Container for both sides */
+.contact-card {
+    background-color: rgba(255, 255, 255, 0.95) !important; /* 95% White */
+    backdrop-filter: blur(10px) !important;
+    border-radius: 8px !important;
+    padding: 3rem 2rem !important; /* Consistent padding */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
+    height: 100%; /* Make them equal height if possible */
+    color: #0A0A1A !important; /* Dark Text by default */
+}
+
+/* Headings inside the card */
+.contact-card h2 {
+    color: #0A0A1A !important; /* Dark Navy */
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    margin-top: 0;
+}
+
+/* Paragraphs inside the card */
+.contact-card p {
+    color: #333333 !important; /* Dark Grey */
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* Right Side: The Info Boxes (Email, Location, etc.) */
+.info-box {
+    background-color: #F0F0F0 !important; /* Light Grey to contrast with White card */
+    border: 1px solid #E0E0E0 !important;
+    border-radius: 6px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.info-box h3 {
+    color: #0A0A1A !important;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 0.25rem 0;
+}
+
+.info-box p {
+    color: #333333 !important;
+    margin: 0;
+    font-size: 1rem;
+}
+
+.info-icon {
+    color: #FF6B35; /* Brand Orange Icon */
+    font-size: 1.5rem;
+}
