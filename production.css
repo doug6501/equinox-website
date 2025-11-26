@@ -540,6 +540,16 @@ img {
     z-index: 4;
 }
 
+/* Hero Content Subtitle - More Impactful */
+.hero-content p {
+    font-size: 1.5rem !important; /* Increased from standard 1rem */
+    line-height: 1.6 !important;
+    max-width: 800px !important; /* Keep it readable */
+    margin: 2.5rem auto 0 auto !important; /* Bigger gap (40px) from Headline */
+    color: rgba(255, 255, 255, 0.9) !important; /* Brighten it up */
+    font-weight: 400 !important;
+}
+
 /* General Section Styles */
 .section-title {
     text-align: center;
@@ -712,6 +722,12 @@ img {
         letter-spacing: 1.5px;
         padding: 0 1rem;
         margin-bottom: 1.5rem;
+    }
+    
+    /* Hero Subtitle Mobile */
+    .hero-content p {
+        font-size: 1.1rem !important;
+        margin-top: 1.5rem !important;
     }
     
     .logo-scroll-track {
