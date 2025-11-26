@@ -4113,7 +4113,7 @@ img[loading="lazy"].loaded {
     
     /* Logo and Header - CRITICAL: Much smaller on mobile */
     .logo, img.logo {
-        height: 40px !important; /* Much smaller */
+        height: 30px !important; /* Dramatically smaller */
         width: auto !important;
         max-width: none !important;
         min-width: auto !important;
@@ -4897,7 +4897,7 @@ body.home-page main {
     
     /* Shrink Logo for Mobile */
     .logo-badge { 
-        height: 35px; 
+        height: 30px !important; 
         width: auto !important;
         max-width: none !important;
         min-width: auto !important;

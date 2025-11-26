@@ -754,10 +754,28 @@ img {
     }
     
     /* Hero Title - Smaller for Mobile */
-    .hero h1, h1 {
+    .hero h1 {
         font-size: 2.5rem !important; /* Much smaller */
         line-height: 1.2 !important;
         margin-bottom: 1.5rem !important;
+    }
+    
+    /* Page Hero Titles - Even Smaller */
+    .page-hero h1,
+    .case-study-hero h1,
+    .article-hero h1 {
+        font-size: 1.75rem !important; /* Dramatically reduced */
+        line-height: 1.3 !important;
+        margin-bottom: 1rem !important;
+        word-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+    
+    /* Generic H1 - Smaller */
+    h1 {
+        font-size: 2rem !important;
+        line-height: 1.3 !important;
+        word-wrap: break-word !important;
     }
     
     /* Hero Subtitle Mobile */
