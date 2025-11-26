@@ -1,31 +1,24 @@
-# EQUINOX AV - SEO MIGRATION MAP (301 Permanent Redirects)
+# EQUINOX AV - SAFE REDIRECTS (No Root Rules)
 
-# Main Pages
-/home                           /index.html                 301
-/who-we-are                     /about.html                 301
-/what-we-do                     /services.html              301
-/audiovisuals                   /services.html              301
-/production                     /services.html              301
-/contact                        /contact.html               301
-/summary                        /index.html                 301
-/articles                       /insights.html              301
-/articles/category/*            /insights.html              301
+# --- Old Squarespace Pages -> New Locations ---
+/home           /
+/who-we-are     /about.html
+/what-we-do     /services.html
+/audiovisuals   /services.html
+/production     /services.html
+/contact        /contact.html
+/summary        /
 
-# Article Mappings
-/articles/2024-4-4-how-to-make-your-wedding-day-unforgettable-with-the-best-av-equipment    /article-wedding-av-equipment.html    301
-/articles/2024-4-4-how-to-rock-your-next-zoom-meeting-with-these-av-tips                     /article-zoom-meeting-tips.html        301
-/articles/2024-2-29-5-audio-visual-ideas-and-industry-trends-for-2024                        /article-av-trends-2025.html           301
-/articles/2024-2-29-how-to-choose-the-best-av-partner-for-your-next-event                    /article-choose-av-partner.html        301
-/articles/2023-5-29top-5-av-items-and-why-you-should-use-them                                /article-top-5-av-items.html           301
-/articles/2023-5-22regroup-after-your-breakouts                                               /article-breakout-management.html      301
-/articles/2023-5-8why-hire-an-audio-visual-lead-for-your-next-event                          /article-hire-av-lead.html             301
-/articles/2023501-how-to-create-an-engaging-presentation                                      /article-engaging-presentation.html    301
-/articles/make-time-for-rehearsal                                                             /article-make-time-rehearsal.html      301
-/articles/small-meetings-dont-have-to-be-small                                                /article-small-meetings.html           301
-/articles/why-switch-av-partners                                                              /article-switch-av-partners.html       301
-/articles/presentation-tips-for-speaking-at-your-next-conference                              /article-conference-speaking.html      301
+# --- Blog Redirection ---
+/articles/* /insights.html
 
-# Tools
-/timer-control                  /index.html                 301
-/timer-display                  /index.html                 301
+# --- Specific Article Safety Net ---
+# (Redirecting old specific URLs to new ones)
+/articles/2024-4-4-how-to-make-your-wedding-day-unforgettable-with-the-best-av-equipment  /article-wedding-av-equipment.html
+/articles/2024-4-4-how-to-rock-your-next-zoom-meeting-with-these-av-tips                  /article-zoom-meeting-tips.html
+/articles/2024-2-29-5-audio-visual-ideas-and-industry-trends-for-2024                     /article-av-trends-2026.html
+/articles/2024-2-29-how-to-choose-the-best-av-partner-for-your-next-event                 /article-choose-av-partner.html
 
+# --- Tools ---
+/timer-control  /
+/timer-display  /
