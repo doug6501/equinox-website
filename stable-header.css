@@ -4363,9 +4363,17 @@ img[loading="lazy"].loaded {
         gap: 3rem;
     }
     .contact-form-container {
-        grid-template-columns: 1fr;
-        gap: 3rem;
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
     }
+    
+    /* Stack contact form cards vertically on mobile */
+    .hubspot-container,
+    .info-container {
+        height: auto !important;
+        margin-bottom: 1.5rem;
+    }
+    
     .form-row {
         grid-template-columns: 1fr;
     }
@@ -4923,7 +4931,7 @@ body.home-page main {
     
     /* Shrink Logo for Mobile */
     .logo-badge { 
-        height: 42px !important; /* Increased by 40% from 30px */
+        height: 34px !important; /* 80% of 42px = 33.6px, rounded to 34px */
         width: auto !important;
         max-width: none !important;
         min-width: auto !important;
