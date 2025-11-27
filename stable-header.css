@@ -4923,7 +4923,7 @@ body.home-page main {
     
     /* Shrink Logo for Mobile */
     .logo-badge { 
-        height: 30px !important; 
+        height: 42px !important; /* Increased by 40% from 30px */
         width: auto !important;
         max-width: none !important;
         min-width: auto !important;
@@ -4931,6 +4931,18 @@ body.home-page main {
         box-shadow: none;
         object-fit: contain !important;
         aspect-ratio: auto !important;
+    }
+    
+    /* Show "Equinox Audio Visuals" text on mobile */
+    .logo-text-mobile {
+        display: inline-block !important;
+        font-family: 'Inter', sans-serif !important;
+        font-size: 0.85rem !important;
+        font-weight: 700 !important;
+        color: #FF6B35 !important; /* Brand Orange */
+        text-transform: uppercase !important;
+        letter-spacing: 0.5px !important;
+        margin-left: 0.5rem !important;
     }
     
     /* Show Hamburger */
