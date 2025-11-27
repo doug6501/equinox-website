@@ -955,13 +955,15 @@ img {
     }
     
     .logo-item {
-        height: 60px;
-        padding: 0 1.5rem;
+        height: 30px !important; /* Reduced container - 30% of original */
+        padding: 0 0.5rem !important;
     }
     
     .logo-item img {
-        max-width: 100px;
-        max-height: 45px;
+        max-width: 30px !important; /* 30% of 100px */
+        max-height: 14px !important; /* 30% of 45px */
+        width: auto !important;
+        height: auto !important;
     }
     
     .logo-scroll-container::before,
