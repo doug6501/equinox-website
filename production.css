@@ -562,12 +562,13 @@ img {
 
 /* Hero Location Paragraph */
 .hero-location {
+    display: block; /* Make span act like a new line */
     font-size: 1.2rem !important; 
     font-weight: 600 !important; 
     color: #FF6B35 !important; /* Brand Orange */
     text-transform: uppercase !important;
     letter-spacing: 2px !important;
-    margin-top: 0 !important; /* No space between paragraphs */
+    margin-top: 0.5rem !important; /* Small space above the line break */
 }
 
 /* General Section Styles */
@@ -922,14 +923,19 @@ img {
         animation: infiniteScroll 60s linear infinite; /* Slower on mobile */
     }
     
+    /* Hide second row of logos on mobile */
+    .logo-scroll-track:nth-child(2) {
+        display: none !important;
+    }
+    
     .logo-item {
-        height: 30px !important; /* Reduced container */
+        height: 60px !important; /* Doubled from 30px */
         padding: 0 0.5rem !important;
     }
     
     .logo-item img {
-        max-width: 20px !important; /* Even smaller - 30% of original */
-        max-height: 10px !important; /* Even smaller */
+        max-width: 60px !important; /* Doubled from 30px */
+        max-height: 28px !important; /* Doubled from 14px */
         width: auto !important;
         height: auto !important;
     }

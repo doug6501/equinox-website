@@ -954,14 +954,19 @@ img {
         animation: infiniteScroll 60s linear infinite; /* Slower on mobile */
     }
     
+    /* Hide second row of logos on mobile */
+    .logo-scroll-track:nth-child(2) {
+        display: none !important;
+    }
+    
     .logo-item {
-        height: 30px !important; /* Reduced container - 30% of original */
+        height: 60px !important; /* Doubled from 30px */
         padding: 0 0.5rem !important;
     }
     
     .logo-item img {
-        max-width: 30px !important; /* 30% of 100px */
-        max-height: 14px !important; /* 30% of 45px */
+        max-width: 60px !important; /* Doubled from 30px */
+        max-height: 28px !important; /* Doubled from 14px */
         width: auto !important;
         height: auto !important;
     }
