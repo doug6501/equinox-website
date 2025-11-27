@@ -567,7 +567,7 @@ img {
     color: #FF6B35 !important; /* Brand Orange */
     text-transform: uppercase !important;
     letter-spacing: 2px !important;
-    margin-top: 0 !important;
+    margin-top: 0 !important; /* No space between paragraphs */
 }
 
 /* General Section Styles */
@@ -946,6 +946,25 @@ img {
     .logo-item img {
         max-width: 120px;
         max-height: 55px;
+    }
+}
+
+/* Small Desktop / Large Tablet - Fix header overlap */
+@media (max-width: 1400px) and (min-width: 769px) {
+    .hero {
+        padding-top: 100px !important; /* Add padding to prevent header overlap */
+    }
+    
+    .hero h1 {
+        font-size: 3.5rem !important; /* Slightly smaller on smaller screens */
+    }
+    
+    .hero-lead {
+        font-size: 1.2rem !important;
+    }
+    
+    .hero-location {
+        font-size: 1rem !important;
     }
 }
 
