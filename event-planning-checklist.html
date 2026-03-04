@@ -155,7 +155,7 @@
                     <!-- Right Column: Download Form -->
                     <div class="lead-magnet-form-card" style="position: sticky; top: 120px; align-self: start;">
                         <h3>Download the Free Checklist</h3>
-                        <p>Get the complete 15-point technical checklist delivered straight to your inbox. No spam, no sales pitch—just a genuinely useful planning tool.</p>
+                        <p>Get instant access to the complete 15-point technical checklist. No spam, no sales pitch—just a genuinely useful planning tool.</p>
 
                         <form id="checklist-form">
                             <div class="form-group">
@@ -184,8 +184,8 @@
                         <div id="form-success" style="display: none; text-align: center; padding: 2rem 0;">
                             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#FF6B35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 1rem;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                             <h3 style="color: white; margin-bottom: 0.5rem;">You're All Set!</h3>
-                            <p style="color: rgba(245, 245, 245, 0.8); font-size: 1rem; line-height: 1.6;">Your checklist is on its way to your inbox! Check your email in the next few minutes.</p>
-                            <p style="color: rgba(245, 245, 245, 0.5); font-size: 0.85rem; margin-top: 1rem;">Didn't get it? Check your spam folder or <a href="contact.html" style="color: #FF6B35;">contact us</a>.</p>
+                            <p style="color: rgba(245, 245, 245, 0.8); font-size: 1rem; line-height: 1.6;">Your checklist should have opened in a new tab. If it didn't, <a href="assets/2026-Event-Planners-Technical-Checklist.pdf" target="_blank" style="color: #FF6B35; text-decoration: underline;">click here to download it</a>.</p>
+                            <p style="color: rgba(245, 245, 245, 0.5); font-size: 0.85rem; margin-top: 1rem;">Having trouble? <a href="contact.html" style="color: #FF6B35;">Contact us</a> and we'll email it to you directly.</p>
                         </div>
                     </div>
 
@@ -314,7 +314,14 @@
                         });
                     }
 
-                    window.open('assets/2026-Event-Planners-Technical-Checklist.pdf', '_blank');
+                    // Trigger PDF download using a temporary link element
+                    const link = document.createElement('a');
+                    link.href = 'assets/2026-Event-Planners-Technical-Checklist.pdf';
+                    link.download = '2026-Event-Planners-Technical-Checklist.pdf';
+                    link.target = '_blank';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
                 } else {
                     throw new Error('HubSpot API returned status ' + response.status);
                 }
