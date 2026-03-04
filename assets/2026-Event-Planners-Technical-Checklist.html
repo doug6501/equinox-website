@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The 2026 Event Planner's Technical Checklist | Equinox Audio Visuals</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-dark: #0A0A1A;
+            --color-light: #f5f5f5;
+            --color-primary: #FF6B35;
+            --color-secondary: #FFD23F;
+            --color-accent: #4169E1;
+            --color-charcoal: #2D3748;
+            --font-heading: 'DM Serif Display', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: letter;
+            margin: 0.75in;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 10pt;
+            line-height: 1.6;
+            color: var(--color-dark);
+            background: white;
+        }
+
+        .container {
+            max-width: 7.5in;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .pdf-header {
+            text-align: center;
+            padding: 2rem 0 1.5rem;
+            border-bottom: 3px solid var(--color-primary);
+            margin-bottom: 2rem;
+            page-break-after: avoid;
+        }
+
+        .pdf-header h1 {
+            font-family: var(--font-heading);
+            font-size: 28pt;
+            color: var(--color-dark);
+            margin-bottom: 0.25rem;
+            line-height: 1.2;
+        }
+
+        .pdf-header h2 {
+            font-family: var(--font-heading);
+            font-size: 16pt;
+            color: var(--color-primary);
+            font-weight: normal;
+            margin-bottom: 1rem;
+        }
+
+        .pdf-header .company-name {
+            font-size: 11pt;
+            font-weight: 600;
+            color: var(--color-charcoal);
+            margin-bottom: 0.25rem;
+        }
+
+        .pdf-header .tagline {
+            font-size: 9pt;
+            font-style: italic;
+            color: var(--color-charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .pdf-header .contact-info {
+            font-size: 9pt;
+            color: var(--color-charcoal);
+        }
+
+        /* Introduction */
+        .intro-section {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.05) 0%, rgba(255, 210, 63, 0.05) 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--color-primary);
+            margin-bottom: 2rem;
+            page-break-inside: avoid;
+        }
+
+        .intro-section h3 {
+            font-family: var(--font-heading);
+            font-size: 14pt;
+            color: var(--color-dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .intro-section p {
+            font-size: 10pt;
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+        }
+
+        .intro-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Checklist Items */
+        .checklist-item {
+            margin-bottom: 2rem;
+            page-break-inside: avoid;
+        }
+
+        .checklist-item h3 {
+            font-family: var(--font-heading);
+            font-size: 14pt;
+            color: var(--color-dark);
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--color-primary);
+        }
+
+        .checklist-item h3 .number {
+            color: var(--color-primary);
+            font-weight: bold;
+        }
+
+        .checklist-item h4 {
+            font-size: 11pt;
+            font-weight: 600;
+            color: var(--color-accent);
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .checklist-item ul {
+            margin-left: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .checklist-item li {
+            margin-bottom: 0.4rem;
+            line-height: 1.5;
+        }
+
+        .checklist-item p {
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+
+        /* Bonus Section */
+        .bonus-section {
+            background: linear-gradient(135deg, rgba(65, 105, 225, 0.05) 0%, rgba(255, 107, 53, 0.05) 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--color-accent);
+            margin-bottom: 2rem;
+            page-break-inside: avoid;
+        }
+
+        .bonus-section h3 {
+            font-family: var(--font-heading);
+            font-size: 14pt;
+            color: var(--color-accent);
+            margin-bottom: 1rem;
+        }
+
+        .bonus-section h4 {
+            font-size: 11pt;
+            font-weight: 600;
+            color: var(--color-dark);
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .bonus-section ul {
+            margin-left: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .bonus-section li {
+            margin-bottom: 0.4rem;
+        }
+
+        /* How to Use Section */
+        .usage-section {
+            background: var(--color-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            page-break-inside: avoid;
+        }
+
+        .usage-section h3 {
+            font-family: var(--font-heading);
+            font-size: 14pt;
+            color: var(--color-dark);
+            margin-bottom: 1rem;
+        }
+
+        .usage-section h4 {
+            font-size: 11pt;
+            font-weight: 600;
+            color: var(--color-charcoal);
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .usage-section ol {
+            margin-left: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .usage-section li {
+            margin-bottom: 0.4rem;
+        }
+
+        /* Final Thoughts */
+        .final-thoughts {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(10, 10, 26, 0.03) 0%, rgba(45, 55, 72, 0.03) 100%);
+            border-radius: 8px;
+            page-break-inside: avoid;
+        }
+
+        .final-thoughts h3 {
+            font-family: var(--font-heading);
+            font-size: 14pt;
+            color: var(--color-dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .final-thoughts p {
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .pdf-footer {
+            text-align: center;
+            padding: 2rem 0 1rem;
+            border-top: 3px solid var(--color-primary);
+            margin-top: 2rem;
+        }
+
+        .pdf-footer .company-name {
+            font-family: var(--font-heading);
+            font-size: 16pt;
+            color: var(--color-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .pdf-footer .tagline {
+            font-size: 10pt;
+            font-style: italic;
+            color: var(--color-charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .pdf-footer .location {
+            font-size: 9pt;
+            color: var(--color-charcoal);
+            margin-bottom: 0.75rem;
+        }
+
+        .pdf-footer .contact-grid {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 9pt;
+        }
+
+        .pdf-footer .trusted-by {
+            font-size: 8pt;
+            font-style: italic;
+            color: var(--color-charcoal);
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pdf-footer .copyright {
+            font-size: 8pt;
+            color: var(--color-charcoal);
+            margin-top: 1rem;
+        }
+
+        .pdf-footer .permission {
+            font-size: 8pt;
+            color: var(--color-charcoal);
+            margin-top: 0.5rem;
+        }
+
+        /* Print-specific styles */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .checklist-item,
+            .bonus-section,
+            .usage-section,
+            .intro-section,
+            .final-thoughts {
+                page-break-inside: avoid;
+            }
+
+            h3 {
+                page-break-after: avoid;
+            }
+        }
+
+        /* Divider */
+        hr {
+            border: none;
+            border-top: 1px solid rgba(10, 10, 26, 0.1);
+            margin: 1.5rem 0;
+        }
+
+        strong {
+            font-weight: 600;
+            color: var(--color-dark);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="pdf-header">
+            <h1>The 2026 Event Planner's<br>Technical Checklist</h1>
+            <h2>15 Things Your Venue Won't Tell You About AV</h2>
+            <div class="company-name">Presented by Equinox Audio Visuals</div>
+            <div class="tagline">Event Production with Character</div>
+            <div class="contact-info">Manchester, VT | info@equinoxaudiovisuals.com | equinoxaudiovisuals.com</div>
+        </header>
+
+        <!-- Introduction -->
+        <section class="intro-section">
+            <h3>Introduction</h3>
+            <p>Every event planner has been there: you've booked a gorgeous venue, confirmed the caterer, finalized the guest list—and then two weeks before the event, you discover the ballroom only has four 20-amp circuits, the "high-speed internet" tops out at 15 Mbps, and the ceiling is too low for your lighting designer to hang anything meaningful.</p>
+            <p>These aren't edge cases. They're the most common technical surprises we see after 20+ years of producing events across New England. Venues are in the business of selling their space, not disclosing its limitations. That's not malicious—it's just not their expertise. But it becomes your problem on event day.</p>
+            <p>We built this checklist so you never get blindsided again. These are the 15 questions we ask on every single site visit, distilled into a practical guide you can bring to your next venue walkthrough.</p>
+        </section>
+
+        <!-- Checklist Items -->
+        <article class="checklist-item">
+            <h3><span class="number">1.</span> Power Requirements & Circuit Capacity</h3>
+            
+            <h4>What to Ask:</h4>
+            <ul>
+                <li>"How many dedicated 20-amp circuits are available in the event space?"</li>
+                <li>"Where is the breaker panel located, and will we have access during setup?"</li>
+                <li>"Are any circuits shared with kitchen equipment, HVAC, or other high-draw systems?"</li>
+                <li>"What's the total amperage available for the event space specifically (not the entire building)?"</li>
+            </ul>
+
+            <h4>Why It Matters:</h4>
+            <p>Most venues quote total building amperage, but what matters is how power is distributed. A 200-amp service means nothing if the ballroom shares a single 20-amp circuit with the kitchen's walk-in cooler. Professional AV systems (sound, lighting, video, streaming) can easily draw 40-60 amps for a mid-sized event.</p>
+
+            <h4>Red Flags:</h4>
+            <ul>
+                <li>Venue can't tell you the circuit layout</li>
+                <li>"You can use the outlets along the wall" (likely all on one circuit)</li>
+                <li>No access to breaker panel</li>
+                <li>Shared circuits with kitchen or HVAC</li>
+            </ul>
+
+            <h4>Solutions:</h4>
+            <ul>
+                <li>Budget for a power distribution system (spider boxes)</li>
+                <li>Hire a licensed electrician for temporary power drops</li>
+                <li>Scale down equipment to match available power</li>
+                <li>Request a site visit with your AV company before signing the venue contract</li>
+            </ul>
+        </article>
+
+        <article class="checklist-item">
+            <h3><span class="number">2.</span> Internet Bandwidth for Live Streaming</h3>
+            
+            <h4>What to Ask:</h4>
+            <ul>
+                <li>"What is the guaranteed upload speed, not just download?"</li>
+                <li>"Can we have a dedicated, hardwired ethernet connection for production?"</li>
+                <li>"Is the internet connection shared with guest WiFi, or can we have a separate network?"</li>
+                <li>"Who is the ISP, and what is the service level agreement (SLA) if it goes down during our event?"</li>
+            </ul>
+
+            <h4>Why It Matters:</h4>
+            <p>Your venue says they have WiFi. Great. But "WiFi" and "production-grade internet capable of sustaining a 1080p live stream for three hours" are very different things. A stable 1080p stream requires a minimum of 5-8 Mbps upload (10+ Mbps recommended). If 200 guests are simultaneously on the venue's WiFi posting Instagram stories, your stream will buffer or drop.</p>
+
+            <h4>Red Flags:</h4>
+            <ul>
+                <li>Venue only quotes download speed</li>
+                <li>"We have WiFi" (no mention of hardwired option)</li>
+                <li>Shared guest network with no QoS (Quality of Service) controls</li>
+                <li>DSL or satellite internet (high latency, unstable upload)</li>
+            </ul>
+
+            <h4>Solutions:</h4>
+            <ul>
+                <li>Request a dedicated ethernet drop for production</li>
+                <li>Run a speed test during your site visit (test upload, not just download)</li>
+                <li>Budget for a cellular bonding backup (LiveU, Teradek Bond)</li>
+                <li>Schedule streaming during off-peak hours if bandwidth is limited</li>
+            </ul>
+        </article>
+
+        <article class="checklist-item">
+            <h3><span class="number">3.</span> Ceiling Height & Rigging Points</h3>
+            
+            <h4>What to Ask:</h4>
+            <ul>
+                <li>"What is the ceiling height at the lowest point in the event space?"</li>
+                <li>"Are there structural rigging points, or only decorative beams?"</li>
+                <li>"Do you allow rigging from the ceiling, and is there an engineering load rating?"</li>
+                <li>"What is the insurance and permitting process for overhead rigging?"</li>
+            </ul>
+
+            <h4>Why It Matters:</h4>
+            <p>Lighting design lives or dies by what's above your head. Low ceilings (under 10 feet) limit fixture options and create hot spots. High ceilings without rigging points mean expensive truss builds. Decorative beams that look structural often can't support weight.</p>
+
+            <h4>Red Flags:</h4>
+            <ul>
+                <li>Ceiling height under 10 feet (limits lighting angles)</li>
+                <li>"We have beams" but no load rating or engineering cert</li>
+                <li>Venue prohibits rigging entirely</li>
+                <li>Drop ceilings or suspended panels (not structural)</li>
+            </ul>
+
+            <h4>Solutions:</h4>
+            <ul>
+                <li>Use floor-mounted uplighting instead of overhead fixtures</li>
+                <li>Budget for ground-supported truss if rigging is prohibited</li>
+                <li>Hire a structural engineer for load calculations if needed</li>
+                <li>Adjust lighting design to work within height constraints</li>
+            </ul>
+        </article>
+
+        <article class="checklist-item">
+            <h3><span class="number">4.</span> Venue's Existing AV Equipment (And Why You Shouldn't Rely on It)</h3>
+            
+            <h4>What to Ask:</h4>
+            <ul>
+                <li>"Can we see the existing AV equipment in person, powered on?"</li>
+                <li>"When was it last serviced, and do you have maintenance records?"</li>
+                <li>"What is the make and model of the projector, speakers, and mixer?"</li>
+                <li>"If the in-house equipment fails, what is the backup plan?"</li>
+            </ul>
+
+            <h4>Why It Matters:</h4>
+            <p>Many venues advertise "built-in AV" as a selling point. In our experience, this usually means a projector from 2014 with a burned lamp, a pair of ceiling speakers designed for background music, and a rats' nest of unlabeled cables behind a podium. Relying on untested in-house gear is a gamble.</p>
+
+            <h4>Red Flags:</h4>
+            <ul>
+                <li>Venue can't demonstrate the equipment working</li>
+                <li>No maintenance records or "the last event used it fine"</li>
+                <li>Ceiling speakers only (no subs, no coverage for large rooms)</li>
+                <li>Projector with unknown lamp hours or low lumens</li>
+            </ul>
+
+            <h4>Solutions:</h4>
+            <ul>
+                <li>Bring your own equipment (or hire a professional AV company)</li>
+                <li>If using venue gear, schedule a full tech rehearsal days before the event</li>
+                <li>Budget for backup equipment (spare projector lamp, backup wireless mics)</li>
+                <li>Get the venue's equipment specs in writing</li>
+            </ul>
+        </article>
+
+        <article class="checklist-item">
+            <h3><span class="number">5.</span> Load-In Access & Elevator Dimensions</h3>
+            
+            <h4>What to Ask:</h4>
+            <ul>
+                <li>"What are the loading dock hours, and do we need to reserve a time slot?"</li>
+                <li>"What are the freight elevator dimensions (width, depth, height, weight capacity)?"</li>
+                <li>"Are there stairs, ramps, or tight hallways between the loading area and event space?"</li>
+                <li>"Can we load in the night before, or only day-of?"</li>
+            </ul>
+
+            <h4>Why It Matters:</h4>
+            <p>Your AV company needs to move hundreds of pounds of equipment into your event space. If the freight elevator is 4 feet wide and the loading dock is shared with three other vendors on the same morning, that's a problem that adds hours and labor costs. A 6-foot truss section won't fit in a 5-foot elevator.</p>
+
+            <h4>Red Flags:</h4>
+            <ul>
+                <li>No freight elevator (stairs only)</li>
+                <li>Loading dock shared with catering during same window</li>
+                <li>Venue restricts load-in to a narrow time window (e.g., "8-10 AM only")</li>
+                <li>Distance from loading area to event space is significant</li>
+            </ul>
+
+            <h4>Solutions:</h4>
+            <ul>
+                <li>Schedule load-in the night before if possible</li>
+                <li>Budget extra labor hours for difficult load-ins</li>
+                <li>Use smaller, modular equipment if access is tight</li>
+                <li>Coordinate with venue to reserve exclusive dock time</li>
+            </ul>
+        </article>
+
+        <article class="checklist-item">
+            <h3><span class="number">6.</span> Acoustic Treatment & Room Reflections</h3>
+            
+            <h4>What to Ask:</h4>
+            <ul>
+                <li>"What are the primary wall and floor materials?" (carpet vs. hardwood, drywall vs. stone)</li>
+                <li>"Has the room been acoustically treated, or is it a 'live' space?"</li>
+                <li>"Are there parallel hard surfaces that could cause echo?"</li>
+                <li>"Can we do a sound test during our site visit?"</li>
+            </ul>
+
+            <h4>Why It Matters:</h4>
+            <p>A beautiful marble floor and soaring stone walls look incredible in photos—and create an acoustic nightmare for speeches and music. Hard, parallel surfaces cause flutter echo and excessive reverb that no amount of EQ can fix after the fact. Carpeted rooms with fabric draping absorb sound and are much easier to work with.</p>
+
+            <h4>Red Flags:</h4>
+            <ul>
+                <li>All hard surfaces (stone, tile, glass, exposed concrete)</li>
+                <li>High ceilings with no acoustic panels or draping</li>
+                <li>Parallel walls with no absorption</li>
+                <li>Venue has never hosted amplified music or speeches</li>
+            </ul>
+
+            <h4>Solutions:</h4>
+            <ul>
+                <li>Budget for acoustic draping or panels</li>
+                <li>Use directional speakers to minimize reflections</li>
+                <li>Add carpet or rugs if venue allows</li>
+                <li>Work with your AV company to tune the system for the room</li>
+            </ul>
+        </article>
+
+        <article class="checklist-item">
+            <h3><span class="number">7.</span> Ambient Noise Levels</h3>
+            
+            <h4>What to Ask:</h4>
+            <ul>
+                <li>"What is the ambient noise level during events?" (HVAC, street noise, adjacent rooms)</li>
+                <li>"Can the HVAC system be turned off or reduced during speeches?"</li>
+                <li>"Are there other events happening in adjacent spaces at the same time?"</li>
+                <li>"Is the venue near a busy road, train tracks, or airport?"</li>
+            </ul>
+
+            <h4>Why It Matters:</h4>
+            <p>A loud HVAC system, traffic noise from an open window, or a wedding reception in the next ballroom can ruin audio quality for speeches and recordings. Ambient noise isn't always obvious during a daytime site visit when the building is quiet.</p>
+
+            <h4>Red Flags:</h4>
+            <ul>
+                <li>Loud HVAC that can't be controlled</li>
+                <li>Venue is on a busy street with single-pane windows</li>
+                <li>Thin walls between event spaces</li>
+                <li>No sound isolation between rooms</li>
+            </ul>
+
+            <h4>Solutions:</h4>
+            <ul>
+                <li>Schedule your event during quieter times (avoid rush hour)</li>
+                <li>Request HVAC shutdown during critical moments (vows, keynote speeches)</li>
+                <li>Use directional microphones to reject ambient noise</li>
+                <li>Add sound blankets or barriers if needed</li>
+            </ul>
+        </article>
+
+        <article class="checklist-item">
+            <h3><span class="number">8.</span> Backup Power & Generator Access</h3>
+            
+            <h4>What to Ask:</h4>
+            <ul>
+                <li>"Does the venue have a backup generator, and what does it cover?"</li>
+                <li>"If we need to bring a generator, where can it be placed?"</li>
+                <li>"What is the fuel capacity and runtime of the backup generator?"</li>
+                <li>"Has the backup power system been tested recently?"</li>
+            </ul>
+
+            <h4>Why It Matters:</h4>
+            <p>For mission-critical events (corporate keynotes, live broadcasts, galas with auctions), a power outage is catastrophic. Many venues have backup generators, but they often only cover emergency lighting and life safety systems—not your AV equipment.</p>
+
+            <h4>Red Flags:</h4>
+            <ul>
+                <li>No backup power at all</li>
+                <li>Generator only covers emergency exits, not event space</li>
+                <li>Generator hasn't been tested in years</li>
+                <li>No fuel for extended runtime</li>
+            </ul>
+
+            <h4>Solutions:</h4>
+            <ul>
+                <li>Bring a portable generator for critical systems</li>
+                <li>Use UPS (uninterruptible power supply) for streaming equipment</li>
+                <li>Have battery-powered backup mics and lights on standby</li>
+                <li>Test the backup power during load-in</li>
+            </ul>
+        </article>
+
+        <article class="checklist-item">
+            <h3><span class="number">9.</span> Lighting Control & Dimming Capability</h3>
+            
+            <h4>What to Ask:</h4>
+            <ul>
+                <li>"Can the house lights be dimmed, or are they on/off only?"</li>
+                <li>"Is there a lighting control panel we can access, or does venue staff control it?"</li>
+                <li>"Are the house lights on the same circuit as our production lighting?"</li>
+                <li>"Can we override automatic daylight sensors or motion sensors?"</li>
+            </ul>
+
+            <h4>Why It Matters:</h4>
+            <p>Your lighting designer needs control over the room's ambient light to create mood and focus. If the house lights are on/off only, or controlled by a locked panel in the basement, you can't properly light the event. Motion sensors that turn lights back on mid-ceremony are a nightmare.</p>
+
+            <h4>Red Flags:</h4>
+            <ul>
+                <li>House lights are on/off only (no dimming)</li>
+                <li>Lighting panel is locked or staff-controlled only</li>
+                <li>Automatic sensors that can't be overridden</li>
+                <li>House lights are fluorescent or LED with poor dimming</li>
+            </ul>
+
+            <h4>Solutions:</h4>
+            <ul>
+                <li>Bring your own dimmable uplighting to control ambiance</li>
+                <li>Request access to lighting panel or venue staff on-site</li>
+                <li>Disable motion sensors before the event</li>
+                <li>Use blackout draping if house lights can't be controlled</li>
+            </ul>
+        </article>
+
+        <article class="checklist-item">
+            <h3><span class="number">10.</span> Cable Run Distances & Signal Integrity</h3>
+            
+            <h4>What to Ask:</h4>
+            <ul>
+                <li>"What is the distance from the stage/podium to the back of the room?"</li>
+                <li>"Are there cable raceways or conduit, or will cables need to run across walkways?"</li>
+                <li>"Can we run cables overhead, or must they be taped to the floor?"</li>
+                <li>"What is the distance from the control position to the stage?"</li>
+            </ul>
+
+            <h4>Why It Matters:</h4>
+            <p>Long cable runs (over 100 feet) can degrade audio and video signals without proper boosting or conversion. HDMI maxes out at 50 feet without active extension. Analog audio runs over 100 feet pick up hum and noise. Cables across walkways are a trip hazard and require proper taping or ramping.</p>
+
+            <h4>Red Flags:</h4>
+            <ul>
+                <li>Distance from stage to control position is over 150 feet</li>
+                <li>No cable pathways (must run across high-traffic areas)</li>
+                <li>Venue prohibits floor taping or cable ramps</li>
+                <li>Multiple elevation changes between stage and control</li>
+            </ul>
+
+            <h4>Solutions:</h4>
+            <ul>
+                <li>Use active HDMI extenders or fiber converters for long video runs</li>
+                <li>Use balanced XLR audio instead of unbalanced 1/4" for long runs</li>
+                <li>Budget for cable ramps and gaff tape</li>
+                <li>Position control booth closer to stage if possible</li>
+            </ul>
+        </article>
+
+        <article class="checklist-item">
+            <h3><span class="number">11.</span> Weather Contingency Planning (Outdoor Events)</h3>
+            
+            <h4>What to Ask:</h4>
+            <ul>
+                <li>"What is the indoor backup space, and is it the same size?"</li>
+                <li>"How much notice do we need to move the event indoors?"</li>
+                <li>"If we move indoors, is there power and infrastructure in the backup space?"</li>
+                <li>"What is the weather call deadline (24 hours, 48 hours, week-of)?"</li>
+            </ul>
+
+            <h4>Why It Matters:</h4>
+            <p>Outdoor events are beautiful—until it rains. Moving an entire production indoors on short notice isn't just about chairs and tables. It's about power distribution, speaker placement, lighting design, and whether the backup room can even fit your setup. A tent is not a weather solution; it's a new venue with its own technical challenges.</p>
+
+            <h4>Red Flags:</h4>
+            <ul>
+                <li>No indoor backup space</li>
+                <li>Backup space is significantly smaller</li>
+                <li>Weather call must be made 48+ hours in advance (too early to be accurate)</li>
+                <li>Tent rental is the only backup plan</li>
+            </ul>
+
+            <h4>Solutions:</h4>
+            <ul>
+                <li>Design your AV system to work in both outdoor and indoor configurations</li>
+                <li>Have a scaled-down backup plan for the indoor space</li>
+                <li>Budget for weatherproof equipment if staying outdoors</li>
+                <li>Work with a tent company that understands AV rigging and power needs</li>
+            </ul>
+        </article>
+
+        <article class="checklist-item">
+            <h3><span class="number">12.</span> Vendor Coordination & Timeline Conflicts</h3>
+            
+            <h4>What to Ask:</h4>
+            <ul>
+                <li>"What is the load-in timeline for all vendors (catering, florals, AV, rentals)?"</li>
+                <li>"Who coordinates vendor access, and how do we communicate on event day?"</li>
+                <li>"Are there any restrictions on when we can access the space for setup?"</li>
+                <li>"What time must all vendors be out of the space for guest arrival?"</li>
+            </ul>
+
+            <h4>Why It Matters:</h4>
+            <p>The all-too-common scenario: your florist, caterer, and AV team are all trying to set up in the same room at the same time. Catering needs to set tables before AV can run cables. AV needs to hang lights before florals can set centerpieces. Without a clear timeline, vendors trip over each other and nothing gets done efficiently.</p>
+
+            <h4>Red Flags:</h4>
+            <ul>
+                <li>Venue gives all vendors the same 2-hour setup window</li>
+                <li>No point person coordinating vendor schedules</li>
+                <li>Catering setup overlaps with AV rigging time</li>
+                <li>Venue locks doors between setup and event (no access for last-minute adjustments)</li>
+            </ul>
+
+            <h4>Solutions:</h4>
+            <ul>
+                <li>Request a detailed vendor timeline from the venue</li>
+                <li>Have your AV company load in first (they need the most time)</li>
+                <li>Coordinate directly with other vendors before event day</li>
+                <li>Build buffer time for delays and conflicts</li>
+            </ul>
+        </article>
+
+        <article class="checklist-item">
+            <h3><span class="number">13.</span> Rehearsal & Sound Check Scheduling</h3>
+            
+            <h4>What to Ask:</h4>
+            <ul>
+                <li>"How much time is allocated for rehearsal and sound check before the event?"</li>
+                <li>"Can we access the space the day before for a full tech rehearsal?"</li>
+                <li>"Will the room be set (tables, chairs, decor) during sound check, or empty?"</li>
+                <li>"What time do doors open, and when must sound check be complete?"</li>
+            </ul>
+
+            <h4>Why It Matters:</h4>
+            <p>If your venue only gives you 30 minutes before doors open, that's not enough. A proper sound check for a wedding ceremony takes 45-60 minutes. A corporate keynote with video playback, wireless mics, and confidence monitors takes 90+ minutes. Sound checking in an empty room sounds completely different than a room full of people and decor.</p>
+
+            <h4>Red Flags:</h4>
+            <ul>
+                <li>Less than 1 hour for sound check</li>
+                <li>Sound check must happen in an empty room (before setup)</li>
+                <li>No access the day before for rehearsal</li>
+                <li>Doors open immediately after sound check (no buffer)</li>
+            </ul>
+
+            <h4>Solutions:</h4>
+            <ul>
+                <li>Negotiate for extended sound check time in your venue contract</li>
+                <li>Schedule a full tech rehearsal the day before if possible</li>
+                <li>Have your AV company arrive early to pre-rig as much as possible</li>
+                <li>Build a 30-minute buffer between sound check and doors</li>
+            </ul>
+        </article>
+
+        <article class="checklist-item">
+            <h3><span class="number">14.</span> Guest WiFi vs. Production Network Separation</h3>
+            
+            <h4>What to Ask:</h4>
+            <ul>
+                <li>"Can we have a separate network for production equipment, isolated from guest WiFi?"</li>
+                <li>"What is the bandwidth allocation for guest WiFi versus production?"</li>
+                <li>"Can you implement QoS (Quality of Service) to prioritize streaming traffic?"</li>
+                <li>"How many simultaneous devices can the network handle?"</li>
+            </ul>
+
+            <h4>Why It Matters:</h4>
+            <p>200 guests on the same WiFi network as your live stream is a recipe for disaster. Every phone uploading photos to Instagram competes with your stream for bandwidth. A separate production network (hardwired or dedicated VLAN) ensures your critical systems don't get throttled by guest traffic.</p>
+
+            <h4>Red Flags:</h4>
+            <ul>
+                <li>Only one WiFi network for everyone</li>
+                <li>No QoS or traffic prioritization</li>
+                <li>Venue doesn't understand the difference between guest WiFi and production network</li>
+                <li>Router is consumer-grade (not enterprise)</li>
+            </ul>
+
+            <h4>Solutions:</h4>
+            <ul>
+                <li>Always use hardwired ethernet for streaming (never WiFi)</li>
+                <li>Request a separate VLAN or SSID for production</li>
+                <li>Bring your own cellular hotspot as backup</li>
+                <li>Limit guest WiFi password distribution until after critical moments</li>
+            </ul>
+        </article>
+
+        <article class="checklist-item">
+            <h3><span class="number">15.</span> Post-Event Load-Out Time Restrictions</h3>
+            
+            <h4>What to Ask:</h4>
+            <ul>
+                <li>"What time must all equipment be out of the venue?"</li>
+                <li>"Is there a fee for going past the contracted end time?"</li>
+                <li>"Can we leave equipment overnight and pick up the next morning?"</li>
+                <li>"What is the penalty for running late on load-out?"</li>
+            </ul>
+
+            <h4>Why It Matters:</h4>
+            <p>A smooth event can turn into a frantic midnight scramble if the venue requires full load-out by 11 PM. Breaking down a full production (sound, lighting, video, staging) takes 2-4 hours depending on complexity. If your event ends at 10 PM and you must be out by midnight, that's not realistic.</p>
+
+            <h4>Red Flags:</h4>
+            <ul>
+                <li>Venue requires load-out immediately after event ends</li>
+                <li>Steep hourly fees for going past contracted time ($500+/hour)</li>
+                <li>No overnight storage option</li>
+                <li>Another event is scheduled in the same space the next morning</li>
+            </ul>
+
+            <h4>Solutions:</h4>
+            <ul>
+                <li>Negotiate load-out time in your venue contract (minimum 2 hours after event end)</li>
+                <li>Budget for overtime fees if needed</li>
+                <li>Use modular equipment that breaks down quickly</li>
+                <li>Have a full crew for load-out (not just 1-2 people)</li>
+            </ul>
+        </article>
+
+        <!-- Bonus Section -->
+        <section class="bonus-section">
+            <h3>Bonus Checklist Items</h3>
+
+            <h4>16. Stage & Riser Availability</h4>
+            <ul>
+                <li>Does the venue provide staging, or must we rent it?</li>
+                <li>What are the dimensions and weight capacity?</li>
+                <li>Are there skirting and steps included?</li>
+            </ul>
+
+            <h4>17. Green Room & Storage Space</h4>
+            <ul>
+                <li>Is there a secure space for equipment cases during the event?</li>
+                <li>Where can talent/speakers prepare before going on stage?</li>
+                <li>Can we lock this space, or is it shared?</li>
+            </ul>
+
+            <h4>18. Parking & Unloading for Crew</h4>
+            <ul>
+                <li>Where can the AV truck park during load-in?</li>
+                <li>Is there a loading zone, or must we park on the street?</li>
+                <li>Are there parking fees for vendor vehicles?</li>
+            </ul>
+
+            <h4>19. Noise Ordinances & Curfews</h4>
+            <ul>
+                <li>What are the local noise ordinances (dB limits, time restrictions)?</li>
+                <li>Does the venue have a sound limiter installed?</li>
+                <li>What time must amplified music stop?</li>
+            </ul>
+
+            <h4>20. Insurance & Venue Requirements</h4>
+            <ul>
+                <li>Does the venue require a certificate of insurance from vendors?</li>
+                <li>What are the liability limits required?</li>
+                <li>Are there union labor requirements (IATSE, etc.)?</li>
+            </ul>
+        </section>
+
+        <!-- How to Use -->
+        <section class="usage-section">
+            <h3>How to Use This Checklist</h3>
+
+            <h4>Before Signing the Venue Contract:</h4>
+            <ol>
+                <li>Bring this checklist to your venue site visit</li>
+                <li>Ask these questions directly to the venue coordinator</li>
+                <li>Take photos of breaker panels, ceiling heights, and cable pathways</li>
+                <li>Share the answers with your AV company before committing</li>
+            </ol>
+
+            <h4>After Booking the Venue:</h4>
+            <ol>
+                <li>Schedule a technical site visit with your AV company</li>
+                <li>Walk through the checklist together on-site</li>
+                <li>Identify gaps and budget for solutions</li>
+                <li>Build these technical requirements into your event timeline</li>
+            </ol>
+
+            <h4>Two Weeks Before the Event:</h4>
+            <ol>
+                <li>Confirm all technical details with the venue in writing</li>
+                <li>Verify nothing has changed (construction, equipment failures, etc.)</li>
+                <li>Finalize load-in/load-out schedule with all vendors</li>
+                <li>Confirm backup plans for power, internet, and weather</li>
+            </ol>
+        </section>
+
+        <!-- Final Thoughts -->
+        <section class="final-thoughts">
+            <h3>Final Thoughts</h3>
+            <p>The best event planners don't just book beautiful spaces—they understand the technical infrastructure that makes events run smoothly. Venues are experts at hospitality, not AV production. That's why these questions matter.</p>
+            <p>A 15-minute conversation during your site visit can save you thousands of dollars and countless headaches on event day. Use this checklist as a starting point, and don't be afraid to ask follow-up questions. A good venue will appreciate your thoroughness. A difficult venue will reveal itself early, giving you time to find a better fit.</p>
+            <p>If you'd like help evaluating a venue or planning the technical side of your next event, we're always happy to consult. That's what we do.</p>
+        </section>
+
+        <!-- Footer -->
+        <footer class="pdf-footer">
+            <div class="company-name">Equinox Audio Visuals</div>
+            <div class="tagline">Event Production with Character</div>
+            <div class="location">Manchester, Vermont</div>
+            <div class="contact-grid">
+                <span>📧 info@equinoxaudiovisuals.com</span>
+                <span>🌐 equinoxaudiovisuals.com</span>
+            </div>
+            <div class="contact-grid">
+                <span>📱 Instagram: @equinoxaudiovisuals</span>
+                <span>💼 LinkedIn: linkedin.com/company/equinoxav</span>
+            </div>
+            <div class="trusted-by">Trusted by The Equinox Resort, Hildene Estate, Kimpton Taconic Hotel, and venues across New England since 2004.</div>
+            <hr>
+            <div class="copyright">© 2026 Equinox Audio Visuals. All Rights Reserved.</div>
+            <div class="permission"><strong>Permission to Share:</strong> You may share this checklist with colleagues, clients, and venues. Please credit Equinox Audio Visuals and include a link to equinoxaudiovisuals.com.</div>
+        </footer>
+    </div>
+</body>
+</html>

@@ -267,6 +267,11 @@
             const email = form.querySelector('#email').value.trim();
             const eventType = form.querySelector('#event_type').value;
 
+            if (!firstname || !email) {
+                alert('Please fill in your name and email address.');
+                return;
+            }
+
             submitBtn.disabled = true;
             submitBtn.textContent = 'Sending...';
 
@@ -293,7 +298,11 @@
                     body: JSON.stringify(payload)
                 });
 
-                if (response.ok) {
+                console.log('HubSpot Response Status:', response.status);
+                const responseBody = await response.json();
+                console.log('HubSpot Response Body:', JSON.stringify(responseBody, null, 2));
+
+                if (response.status === 200 || response.status === 201) {
                     form.style.display = 'none';
                     document.getElementById('form-success').style.display = 'block';
 
@@ -304,13 +313,16 @@
                             value: 1
                         });
                     }
+
+                    window.open('assets/2026-Event-Planners-Technical-Checklist.pdf', '_blank');
                 } else {
-                    throw new Error('Submission failed');
+                    throw new Error('HubSpot API returned status ' + response.status);
                 }
-            } catch (err) {
+            } catch (error) {
+                console.error('Form submission error:', error);
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Download Free Checklist';
-                alert('Something went wrong. Please try again or contact us directly.');
+                alert('There was an issue submitting your form. Please try again or email us directly at info@equinoxaudiovisuals.com');
             }
         });
     </script>
