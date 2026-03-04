@@ -284,17 +284,40 @@ function initNewTestimonialSlider() {
 // MOBILE MENU TOGGLE
 // ========================================
 function initMobileMenu() {
+    console.log('initMobileMenu() called');
     const mobileToggle = document.querySelector('.mobile-nav-toggle');
-    if (!mobileToggle) return;
+    console.log('Mobile toggle element:', mobileToggle);
+    
+    if (!mobileToggle) {
+        console.error('CRITICAL: Mobile nav toggle button not found in DOM');
+        return;
+    }
 
-    mobileToggle.addEventListener('click', () => {
+    console.log('Mobile menu initialized successfully');
+    
+    mobileToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('Hamburger clicked!');
         document.body.classList.toggle('nav-open');
         const isOpen = document.body.classList.contains('nav-open');
         mobileToggle.setAttribute('aria-expanded', isOpen);
+        console.log('Mobile menu toggled. Nav open:', isOpen);
+        console.log('Body classes:', document.body.className);
+    });
+
+    // Close mobile nav when clicking backdrop
+    document.addEventListener('click', (e) => {
+        if (document.body.classList.contains('nav-open') && 
+            !e.target.closest('.header-center') && 
+            !e.target.closest('.mobile-nav-toggle')) {
+            document.body.classList.remove('nav-open');
+            mobileToggle.setAttribute('aria-expanded', 'false');
+        }
     });
 
     // Close mobile nav when a link is clicked
-    const navLinks = document.querySelectorAll('.nav-list a');
+    const navLinks = document.querySelectorAll('.header-center .nav-links a');
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             document.body.classList.remove('nav-open');
@@ -358,6 +381,8 @@ document.addEventListener('DOMContentLoaded', function() {
             initNewTestimonialSlider();
             // Initialize mobile menu
             initMobileMenu();
+            // Initialize mobile action bar
+            initMobileActionBarDelayed();
             // Initialize project navigation
             renderProjectNav();
         })
@@ -1754,3 +1779,88 @@ function initBackToTop() {
 
 // Removed: Theme Toggle, Accessibility Menu, PWA, and Live Chat functions
 // These features were requested to be removed for a cleaner interface
+
+// ========================================
+// MOBILE ACTION BAR (Sticky CTA)
+// ========================================
+function initMobileActionBar() {
+    console.log('initMobileActionBar() called, window width:', window.innerWidth);
+    
+    // Create the action bar HTML
+    const actionBar = document.createElement('div');
+    actionBar.className = 'mobile-action-bar';
+    actionBar.id = 'mobile-action-bar';
+    actionBar.innerHTML = `
+        <button class="btn-dismiss" aria-label="Dismiss action bar">&times;</button>
+        <div class="mobile-action-bar-content">
+            <a href="contact.html" class="btn-action btn-primary">Get a Quote</a>
+            <a href="event-planning-checklist.html" class="btn-action btn-secondary">Free Checklist</a>
+        </div>
+    `;
+    document.body.appendChild(actionBar);
+    console.log('Mobile action bar created and appended to body');
+
+    // Check if user has dismissed it before
+    const isDismissed = localStorage.getItem('mobileActionBarDismissed') === 'true';
+    if (isDismissed) {
+        actionBar.classList.add('dismissed');
+        console.log('Mobile action bar dismissed by user previously');
+        return;
+    }
+
+    // Show after scrolling 300px
+    let hasShown = false;
+    window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        
+        if (scrollY > 300 && !hasShown && window.innerWidth <= 768) {
+            console.log('Showing mobile action bar at scroll position:', scrollY);
+            actionBar.classList.add('visible');
+            hasShown = true;
+        }
+    });
+
+    // Dismiss button
+    const dismissBtn = actionBar.querySelector('.btn-dismiss');
+    dismissBtn.addEventListener('click', () => {
+        actionBar.classList.remove('visible');
+        actionBar.classList.add('dismissed');
+        localStorage.setItem('mobileActionBarDismissed', 'true');
+        console.log('Mobile action bar dismissed by user');
+    });
+}
+
+// Initialize mobile action bar - called after header loads
+function initMobileActionBarDelayed() {
+    if (window.innerWidth <= 768) {
+        console.log('Window width <= 768, initializing mobile action bar');
+        initMobileActionBar();
+    } else {
+        console.log('Window width > 768, skipping mobile action bar');
+    }
+}
+
+// ========================================
+// MOBILE "VIEW ALL PROJECTS" BUTTON
+// ========================================
+function showAllProjects() {
+    const workGrid = document.querySelector('.work-grid');
+    const viewAllBtn = document.getElementById('mobile-view-all');
+    
+    if (workGrid) {
+        workGrid.classList.add('show-all-mobile');
+        console.log('Showing all work projects on mobile');
+    }
+    
+    if (viewAllBtn) {
+        viewAllBtn.classList.add('hidden');
+    }
+    
+    // Smooth scroll to first hidden item
+    const firstHiddenCard = document.querySelector('.work-card:nth-child(7)');
+    if (firstHiddenCard) {
+        setTimeout(() => {
+            firstHiddenCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 100);
+    }
+}
