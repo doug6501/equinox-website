@@ -428,7 +428,13 @@
             const lastName = form.querySelector('#last-name').value.trim();
             const email = form.querySelector('#email').value.trim();
             
-            if (!firstName || !lastName || !email) return;
+            if (!firstName || !lastName || !email) {
+                alert('Please fill in all required fields (First Name, Last Name, and Email).');
+                return;
+            }
+
+            btnSubmit.disabled = true;
+            btnSubmit.textContent = 'Sending...';
 
             const formData = new FormData(form);
             const data = {};
@@ -468,7 +474,12 @@
                 body: JSON.stringify(hubspotData)
             })
             .then(response => {
-                if (response.ok || response.status === 200) {
+                console.log('HubSpot Response Status:', response.status);
+                return response.json().then(json => ({ status: response.status, body: json }));
+            })
+            .then(({ status, body }) => {
+                console.log('HubSpot Response Body:', JSON.stringify(body, null, 2));
+                if (status === 200 || status === 201) {
                     form.style.display = 'none';
                     document.querySelector('.planner-progress').style.display = 'none';
                     document.querySelector('.form-navigation').style.display = 'none';
@@ -476,13 +487,15 @@
                     if (typeof gtag === 'function') {
                         gtag('event', 'form_submission', { event_category: 'contact', event_label: data.event_type });
                     }
+                } else {
+                    throw new Error('HubSpot API returned status ' + status);
                 }
             })
-            .catch(() => {
-                form.style.display = 'none';
-                document.querySelector('.planner-progress').style.display = 'none';
-                document.querySelector('.form-navigation').style.display = 'none';
-                successMsg.style.display = 'flex';
+            .catch((error) => {
+                console.error('Form submission error:', error);
+                btnSubmit.disabled = false;
+                btnSubmit.textContent = 'Send My Project Details';
+                alert('There was an issue submitting your form. Please try again or email us directly at info@equinoxaudiovisuals.com');
             });
         });
     })();
