@@ -23,15 +23,20 @@ const PROJECT_ORDER = [
 // ========================================
 
 async function loadHeader() {
+    const placeholder = document.getElementById('header-placeholder');
+    if (!placeholder) return;
+
+    // If header is already embedded in the HTML, just set active nav
+    if (placeholder.querySelector('.header-stable')) {
+        setActiveNavigation();
+        return;
+    }
+
     try {
         const response = await fetch('_header_STABLE.html?v=100');
         const html = await response.text();
-        const placeholder = document.getElementById('header-placeholder');
-        if (placeholder) {
-            placeholder.innerHTML = html;
-            // Set active navigation state after header loads
-            setActiveNavigation();
-        }
+        placeholder.innerHTML = html;
+        setActiveNavigation();
     } catch (error) {
         console.error('Error loading header:', error);
     }
@@ -39,47 +44,52 @@ async function loadHeader() {
 
 // Set active navigation state based on current page
 function setActiveNavigation() {
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const rawPage = window.location.pathname.split('/').pop() || 'index.html';
+    const currentPage = rawPage.replace(/\.html$/, '') || 'index';
     const navLinks = document.querySelectorAll('.nav-links a');
     
     navLinks.forEach(link => {
-        const linkPage = link.getAttribute('href');
+        const linkPage = (link.getAttribute('href') || '').replace(/\.html$/, '');
         
-        // Remove active class from all links first
         link.classList.remove('active');
         
-        // Add active class to matching link
         if (linkPage === currentPage || 
-            (currentPage === '' && linkPage === 'index.html') ||
-            (currentPage === 'index.html' && linkPage === 'index.html')) {
+            (currentPage === '' && linkPage === 'index') ||
+            (currentPage === 'index' && linkPage === 'index')) {
             link.classList.add('active');
         }
         
-        // Special handling for work pages
-        if (currentPage.startsWith('work-') && linkPage === 'work.html') {
+        if (currentPage.startsWith('work-') && linkPage === 'work') {
             link.classList.add('active');
         }
         
-        // Special handling for article pages
-        if (currentPage.startsWith('article-') && linkPage === 'insights.html') {
+        if (currentPage.startsWith('article-') && linkPage === 'insights') {
             link.classList.add('active');
         }
         
-        // Special handling for service pages
-        if (currentPage.startsWith('services-') && linkPage === 'services.html') {
+        if (currentPage.startsWith('services-') && linkPage === 'services') {
+            link.classList.add('active');
+        }
+        
+        if (currentPage.startsWith('av-services-') && linkPage === 'services') {
             link.classList.add('active');
         }
     });
 }
 
 async function loadFooter() {
+    const placeholder = document.getElementById('footer-placeholder');
+    if (!placeholder) return;
+
+    // If footer is already embedded in the HTML, skip fetch
+    if (placeholder.querySelector('.main-footer')) {
+        return;
+    }
+
     try {
         const response = await fetch('_footer.html');
         const html = await response.text();
-        const placeholder = document.getElementById('footer-placeholder');
-        if (placeholder) {
-            placeholder.innerHTML = html;
-        }
+        placeholder.innerHTML = html;
     } catch (error) {
         console.error('Error loading footer:', error);
     }
