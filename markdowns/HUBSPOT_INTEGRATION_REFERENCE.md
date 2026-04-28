@@ -5,7 +5,7 @@
 ### HubSpot Account Details
 - **Portal ID**: `243705543`
 - **Form GUID**: `6de90993-88c4-4beb-8608-1ca14a841aaa`
-- **Tracking Script**: `//js-na2.hs-scripts.com/243705543.js`
+- **Tracking Script**: `https://js-na2.hs-scripts.com/243705543.js` (use this full URL; protocol-relative `//` fails on `file://` local viewing)
 
 ### API Endpoint
 ```
@@ -74,7 +74,7 @@ The form submission logic:
 
 ### 3. HubSpot Tracking Script
 ```html
-<script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/243705543.js"></script>
+<script type="text/javascript" id="hs-script-loader" async defer src="https://js-na2.hs-scripts.com/243705543.js"></script>
 ```
 
 This script enables:

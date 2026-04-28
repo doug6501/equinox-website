@@ -50,7 +50,8 @@ body,
 .production-card {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
-    
+
+:root {
     /* Modern spacing system */
     --space-xs: 0.5rem;
     --space-sm: 1rem;
@@ -78,6 +79,68 @@ body,
     --transition-bounce: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-magnetic: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     --transition-luxury: 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    /* ============================================================
+       DESIGN SYSTEM V2 TOKENS — Direction A "The Quiet Room"
+       Per EQUINOX_AUDIT_AND_REIMAGINING.md §4.1
+       These coexist with legacy tokens. Pages with class="v2" on
+       <body> activate the v2 component layer (design-system-v2.css).
+       ============================================================ */
+
+    /* Palette */
+    --ink:   #121212;
+    --slate: #2A2A2A;
+    --bone:  #F4EFE6;
+    --linen: #E6DFD1;
+    --ember: #C2582A;
+    --brass: #B8985A;
+    --scope: #9FE870; /* reserved: run-of-show / live indicators */
+
+    /* Type stacks */
+    --font-display: "Fraunces", "GT Sectra", "Editorial New", Georgia, serif;
+    --font-body-v2: "Inter Tight", "Söhne", -apple-system, system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", "GT America Mono", ui-monospace, "SF Mono", monospace;
+
+    /* Type scale */
+    --scale-1: 0.8125rem;  /* 13px — mono metadata */
+    --scale-2: 1rem;       /* 16px — UI */
+    --scale-3: 1.125rem;   /* 18px — body */
+    --scale-4: 1.5rem;     /* 24px — subhead */
+    --scale-5: 2.25rem;    /* 36px — H3 */
+    --scale-6: 3.5rem;     /* 56px — H2 */
+    --scale-7: clamp(3.5rem, 7vw, 6rem); /* H1 display */
+
+    /* Space */
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 40px;
+    --space-5: 64px;
+    --space-6: 96px;
+    --space-7: 160px;
+
+    /* A/V rack typography rhythm (functional aliases → headline air + paragraph grid) */
+    --space-h1-top: 2rem;
+    --space-h1-bottom: 2rem;
+    --space-h2-top: 1.25rem;
+    --space-h3-top: 1.25rem;
+    --space-heading-hairline-gap: 0.25rem;
+    --space-p-bottom: 0.75rem;
+
+    /* Layout */
+    --measure:    62ch;
+    --container-v2: 1240px;
+
+    /* Motion */
+    --ease:  cubic-bezier(0.2, 0.8, 0.2, 1);
+    --dur-1: 160ms;
+    --dur-2: 320ms;
+    --dur-3: 640ms;
+
+    /* Elevation */
+    --radius-1:  4px;
+    --shadow-1:  0 1px 2px rgba(18, 18, 18, 0.04),
+                 0 8px 24px rgba(18, 18, 18, 0.06);
 }
 
 /* ========================================
@@ -243,11 +306,8 @@ h1 {
     font-weight: 400;
     line-height: 1.1;
     letter-spacing: -0.02em;
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    /* animation: fadeInUp 1s ease-out; DISABLED TO FIX FADING */
+    color: var(--color-light);
+    /* gradient-text retired Phase 2 — Direction A design system */
 }
 h2 { 
     font-size: clamp(2.5rem, 5vw, 3.5rem); /* Reduced from 4.5rem */
@@ -279,11 +339,8 @@ section {
     font-size: clamp(2.5rem, 5vw, 4rem);
     text-align: center;
     margin-bottom: 3rem;
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    /* animation: fadeInUp 1s ease-out; DISABLED TO FIX FADING */
+    color: var(--color-light);
+    /* gradient-text and titleGlow animation retired Phase 2 — Direction A design system */
 }
 
 /* Reveal Animation Classes - SIMPLIFIED TO PREVENT CONFLICTS */
@@ -447,18 +504,14 @@ img {
 }
 
 .btn::before {
+    /* shimmer slide effect retired Phase 2 — Direction A design system */
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.5s;
-}
-
-.btn:hover::before {
-    left: 100%;
+    pointer-events: none;
 }
 
 .btn:focus-visible {
@@ -467,54 +520,21 @@ img {
     box-shadow: 0 0 0 4px rgba(232, 180, 74, 0.3);
 }
 .btn-primary {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    background: var(--color-primary);
     color: white;
     font-weight: 700;
     border: none;
-    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.25), 0 2px 6px rgba(255, 210, 63, 0.15);
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.2);
     position: relative;
     overflow: hidden;
-}
-
-.btn-primary::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.btn-primary:hover::before {
-    opacity: 1;
+    transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3), 0 3px 10px rgba(255, 210, 63, 0.2);
-}
-.btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.5s;
-}
-
-.btn:hover::before {
-    left: 100%;
-}
-
-.btn-primary:hover {
-    background-color: var(--color-secondary);
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.4), 0 8px 15px rgba(217, 121, 65, 0.3);
+    background: var(--color-secondary);
+    transform: none;
+    box-shadow: 0 4px 16px rgba(255, 107, 53, 0.25);
+    /* hover-lift (translateY/scale) retired Phase 2 — Direction A design system */
 }
 
 .btn:active {
@@ -638,7 +658,7 @@ img {
         rgba(255, 210, 63, 0.05) 100%
     );
     background-size: 200% 200%;
-    animation: gradientShift 15s ease infinite;
+    /* gradientShift infinite animation retired Phase 2 — Direction A design system */
     z-index: 1;
     pointer-events: none;
 }
@@ -730,15 +750,12 @@ img {
 /* Logo pulse animation removed */
 
 .hero h1, .page-hero h1 { 
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--color-light);
+    /* gradient-text retired Phase 2 — Direction A design system */
     text-shadow: none;
     position: relative;
     z-index: 4;
     font-size: clamp(4rem, 8vw, 6rem) !important;
-    /* animation: fadeInUp 1.2s ease-out; DISABLED TO FIX FADING */
 }
 .hero p, .page-hero p { 
     font-size: 1.2rem; /* Reduced from 1.5rem */
@@ -759,16 +776,8 @@ img {
 .section-title {
     text-align: center;
     margin-bottom: 4rem;
-    background: linear-gradient(135deg, var(--color-light) 0%, var(--color-secondary) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: titleGlow 3s ease-in-out infinite alternate;
-}
-
-@keyframes titleGlow {
-    0% { filter: drop-shadow(0 0 5px rgba(232, 180, 74, 0.3)); }
-    100% { filter: drop-shadow(0 0 15px rgba(232, 180, 74, 0.6)); }
+    color: var(--color-light);
+    /* gradient-text and titleGlow animation retired Phase 2 — Direction A design system */
 }
 
 /* ========================================
@@ -3060,7 +3069,7 @@ img[loading="lazy"].loaded {
 }
 
 .case-study-hero h1 {
-    animation: heroGlow 4s ease-in-out infinite;
+    /* heroGlow infinite animation retired Phase 2 — Direction A design system */
 }
 
 .case-study-hero p {
@@ -5045,11 +5054,34 @@ body.case-study-page main {
     }
 }
 
-/* --- RIGHT: MOBILE TOGGLE --- */
+/* --- RIGHT: CTA + MOBILE TOGGLE --- */
 .header-right {
     flex: 1; /* Balances the left side */
     display: flex;
+    align-items: center;
     justify-content: flex-end;
+    gap: 1.5rem;
+}
+
+/* "Start a project" right-side CTA */
+.nav-cta {
+    color: #f5f5f5;
+    text-decoration: none;
+    font-size: 13px;
+    font-family: 'Inter Tight', 'Inter', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #C2582A;
+    transition: color 0.16s ease, border-color 0.16s ease;
+    white-space: nowrap;
+}
+
+.nav-cta:hover {
+    color: #C2582A;
+    border-color: #C2582A;
+    text-decoration: none;
 }
 
 .mobile-nav-toggle { display: none; } /* Hidden on desktop */
@@ -5082,8 +5114,9 @@ body.case-study-page main {
         overflow: visible; 
     }
     
-    /* Hide desktop nav - CRITICAL */
+    /* Hide desktop nav and CTA on mobile - CRITICAL */
     .header-center { display: none !important; }
+    .nav-cta { display: none !important; }
     
     /* Shrink Logo for Mobile */
     .logo-badge { 
@@ -5214,7 +5247,29 @@ body.case-study-page main {
     body.nav-open .nav-links a:hover::before {
         transform: scaleY(1);
     }
-    
+
+    /* Show "Start a project" CTA at bottom of mobile nav panel when open */
+    body.nav-open .nav-cta {
+        display: flex !important;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 75%;
+        max-width: 400px;
+        z-index: 100002;
+        padding: 1.5rem 2rem;
+        background: rgba(10, 10, 26, 0.98);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        justify-content: center;
+        font-size: 14px;
+        font-family: 'Inter Tight', 'Inter', sans-serif;
+        color: #f5f5f5;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        border-bottom: none;
+        text-decoration: none;
+    }
+
     /* Mobile menu backdrop overlay - covers everything EXCEPT the menu panel */
     body.nav-open::before {
         content: '';
@@ -5250,6 +5305,12 @@ body.case-study-page main {
     margin: 0 auto;
 }
 
+/* Scroll lock — used by script.js lightbox open/close (class + inline overflow cleared on close) */
+html.stop-scroll,
+body.stop-scroll {
+    overflow: hidden !important;
+}
+
 /* ========================================
    IMAGE LIGHTBOX
 ======================================== */
@@ -5261,7 +5322,7 @@ body.case-study-page main {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.95);
-    z-index: 10000;
+    z-index: 9999;
     justify-content: center;
     align-items: center;
     opacity: 0;

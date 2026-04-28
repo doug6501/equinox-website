@@ -32,3 +32,6 @@ yarn-error.log*
 # Workspace Files
 *.code-workspace
 
+# Asset Archive (Old/ and Other Options/ moved here - not deployed)
+.asset-archive/
+

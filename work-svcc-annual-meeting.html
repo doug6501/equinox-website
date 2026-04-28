@@ -5,20 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
-    <title>SWVT Chamber Annual Meeting | Portfolio | Equinox Audio Visuals</title>
-    <meta name="description" content="Case study: Southwestern Vermont Chamber of Commerce Annual Membership Meeting. See how we provided Event Lighting, Audio Reinforcement, Presentation Support for this event.">
+    <title>SWVT Chamber Annual Meeting | Portfolio | EQX AV — Technical Producer</title>
+    <meta name="description" content="Case study: Southwestern Vermont Chamber of Commerce Annual Membership Meeting. See how we provided Event Lighting, Audio Reinforcement, Presentation Support for this event. — EQX AV, technical producer for live events in Vermont and New England.">
     <meta name="keywords" content="audio visual production, event AV services, corporate events, chamber of commerce, Manchester Vermont, professional AV">
     <meta name="author" content="Equinox Audio Visuals">
-    <meta property="og:title" content="SWVT Chamber Annual Meeting - Equinox Audio Visuals">
-    <meta property="og:description" content="Case study: Southwestern Vermont Chamber of Commerce Annual Membership Meeting.">
+    <meta property="og:title" content="SVCC Annual Membership Meeting — Equinox Audio Visuals">
+    <meta property="og:description" content="Formal business meeting meets awards ceremony at the Kimpton Taconic. Full AV production for the Southwestern Vermont Chamber's flagship annual event.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.equinoxaudiovisuals.com/work-svcc-annual-meeting.html">
-    <meta property="og:image" content="https://www.equinoxaudiovisuals.com/assets/logo.png">
+    <meta property="og:url" content="https://www.eqxav.com/work-svcc-annual-meeting.html">
+    <meta property="og:image" content="https://www.eqxav.com/assets/logo.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SWVT Chamber Annual Meeting - Equinox Audio Visuals">
-    <meta name="twitter:description" content="Case study: Southwestern Vermont Chamber of Commerce Annual Membership Meeting.">
-    <meta name="twitter:image" content="https://www.equinoxaudiovisuals.com/assets/logo.png">
-    <link rel="canonical" href="https://www.equinoxaudiovisuals.com/work-svcc-annual-meeting.html">
+    <meta name="twitter:title" content="SVCC Annual Membership Meeting — Equinox Audio Visuals">
+    <meta name="twitter:description" content="Full AV production for the SVCC's annual event at the Kimpton Taconic — meeting, awards, social hour.">
+    <meta name="twitter:image" content="https://www.eqxav.com/assets/logo.png">
+    <link rel="canonical" href="https://www.eqxav.com/work-svcc-annual-meeting.html">
+    <!-- v2: hero is a still image; inline styles replaced -->
+    <link rel="preload" href="assets/svcc-taconic-01.jpg" as="image" fetchpriority="high">
     <link rel="preload" href="assets/logo.png" as="image">
     
     <!-- Google Analytics -->
@@ -32,10 +34,12 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="stable-header.css?v=17">
+    <!-- v2 fonts: Fraunces (editorial serif display) + Inter Tight (body) + JetBrains Mono -->
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter+Tight:wght@400;500;600&family=DM+Serif+Display&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stable-header.css?v=18">
+    <link rel="stylesheet" href="design-system-v2.css?v=8">
 </head>
-<body class="case-study-page">
+<body class="case-study-page v2">
 
     <div id="header-placeholder">
 <header class="header-stable">
@@ -46,15 +50,16 @@
     </div>
     <nav class="header-center">
         <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="work.html">Our Work</a></li>
+            <li><a href="work.html">Work</a></li>
             <li><a href="services.html">Services</a></li>
-            <li><a href="about.html">About Us</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="process.html">Process</a></li>
             <li><a href="insights.html">Insights</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
     <div class="header-right">
+        <a href="contact.html" class="nav-cta">Start a project</a>
         <button class="mobile-nav-toggle" aria-label="Menu">
             <span class="hamburger"></span>
         </button>
@@ -64,86 +69,146 @@
 
     <main>
 
-        <section class="case-study-hero" style="position: relative; min-height: 70vh; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-            <img src="assets/SVCC - Taconic - January 2025 - 01.JPG" alt="SWVT Chamber Annual Meeting at Kimpton Taconic" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 40%; filter: brightness(0.6);">
-            <div class="case-study-hero-content" style="position: relative; z-index: 2; text-align: center; max-width: 900px; padding: 0 2rem;">
-                <h1 class="fade-in" style="color: white; font-size: 3rem; margin-bottom: 1rem; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">Southwestern Vermont Chamber Annual Meeting</h1>
-                <p class="fade-in delay-1" style="color: rgba(255,255,255,0.95); font-size: 1.3rem; text-shadow: 0 2px 8px rgba(0,0,0,0.5);">The biggest business night of the year—celebrating achievements, recognizing leaders, and setting the vision for 2027.</p>
+        <!-- CASE STUDY HERO — Direction A: single still, case number, one sentence -->
+        <section class="case-study-hero" aria-label="Case study hero">
+            <video
+            class="case-study-hero__image"
+            src="assets/svcc-taconic-flythrough.mp4"
+            poster="assets/svcc-taconic-01.jpg"
+            autoplay muted loop playsinline
+            aria-hidden="true"></video>
+            <div class="case-study-hero__overlay" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,18,18,.10) 0%,rgba(18,18,18,.04) 40%,rgba(18,18,18,.60) 100%);z-index:2;pointer-events:none;"></div>
+            <div class="case-study-hero__number mono">Case 038</div>
+        <div class="case-study-hero__content">
+                <div class="case-study-hero__venue mono">Kimpton Taconic &mdash; Manchester, VT &mdash; January 31, 2025</div>
+                <h1 class="case-study-hero__headline display">
+                    One room. A formal business meeting and an awards celebration.
+                    Over 115 business leaders. The transitions were ours to manage.
+                </h1>
             </div>
         </section>
 
-        <section class="case-study-details-section">
-            <div class="container case-study-grid">
-                <div class="case-study-main-content fade-in">
-                    <h2>The Vision</h2>
-                    <p>The Southwestern Vermont Chamber of Commerce needed to host their flagship annual event—a dual-purpose evening combining a formal business <a href="services-corporate.html">meeting</a> with a celebratory social hour and awards <a href="services-weddings.html">ceremony</a>. With over 150 business leaders, elected officials, and community members in attendance, the event required a seamless blend of professional presentation capabilities, elegant atmosphere, and entertainment support. The Chamber's 2027 Vision presentation, budget vote, board recognition, and prestigious annual awards all needed to be delivered with clarity and impact, while a solo acoustic musician provided ambiance throughout the evening.</p>
-                    
-                    <h2>The Solution</h2>
-                    <p>We engineered a comprehensive AV solution that supported every aspect of the evening. Our professional <a href="services-corporate.html">sound system</a> with wireless microphones ensured every speech, presentation, and award announcement was heard clearly throughout the Kimpton Taconic ballroom. For the visual component, we provided video playback systems for PowerPoint presentations, looping slideshows celebrating Chamber achievements, and video tributes. Perimeter <a href="services-galas.html">uplighting</a> transformed the space, creating a warm, celebratory ambiance that elevated the venue's elegant architecture. We also provided dedicated audio support for the solo acoustic musician, ensuring their performance complemented rather than competed with the program. Our team managed seamless transitions between business proceedings, entertainment, and social hour, allowing the Chamber to focus on their guests and their mission.</p>
+        <!-- CASE BODY — narrative at 62ch measure + run-of-show sidebar -->
+        <section class="case-body">
+            <div class="case-body__grid">
+
+                <div class="case-body__narrative">
+                    <p>The SVCC calls it &ldquo;The Biggest Business Night of the Year&rdquo; and the room reflects that. The Annual Meeting is two events running in the same room on the same evening: a formal business meeting with a budget vote and board recognition, and an awards celebration with a social hour. The technical production has to serve both modes without either noticing the shift. When the Chamber president calls the meeting to order, the room should feel like a boardroom. When the awards start, it should feel like a celebration.</p>
+
+                    <p>We ran a professional sound system with wireless microphones for the podium and all speakers across the program. The social hour had background music on the same system. Microphone management across three distinct program segments required clean handoffs and consistent levels &mdash; every speech, announcement, and award recognition was heard at the same quality throughout the Kimpton Taconic ballroom.</p>
+
+                    <p>Perimeter uplighting warmed the ballroom&rsquo;s architecture. Video playback handled the presentation and the achievement reels. Four awards were presented: New Member of the Year (Shaftsbury Country Store), Member of the Year (Comprehensive Computing / Byrom Jomaa), Regional Visionary (GNAT-TV and CAT-TV), and Lifetime Achievement (Jay&rsquo;s Art Shop / Jay and Joan Zwynenburg). Heritage Family Credit Union was the presenting sponsor.</p>
+
+                    <p>Over 115 business leaders, elected officials, and community members attended. The Chamber trusts this event to run like the organization it represents: professionally and without visible effort.</p>
                 </div>
-                <aside class="case-study-sidebar fade-in delay-1">
-                    <div class="sidebar-block">
-                        <h4>Client</h4>
-                        <p>Southwestern Vermont Chamber of Commerce</p>
+
+                <!-- RUN-OF-SHOW SIDEBAR -->
+                <aside class="run-of-show" aria-label="Run of show">
+                    <div class="run-of-show__title">Run of show</div>
+
+                    <div class="run-of-show__row">
+                        <span class="run-of-show__time">10:00</span>
+                        <span class="run-of-show__event">Load in &middot; Kimpton Taconic ballroom</span>
                     </div>
-                    <div class="sidebar-block">
-                        <h4>Venue</h4>
-                        <p>Kimpton Taconic<br>Manchester, VT</p>
+                    <div class="run-of-show__row">
+                        <span class="run-of-show__time">17:00</span>
+                        <span class="run-of-show__event">Doors &middot; Social hour begins</span>
                     </div>
-                    <div class="sidebar-block">
-                        <h4>Date</h4>
-                        <p>January 31, 2025</p>
+                    <div class="run-of-show__row">
+                        <span class="run-of-show__time">17:30</span>
+                        <span class="run-of-show__event">Meeting called to order</span>
                     </div>
-                    <div class="sidebar-block">
-                        <h4>Attendees</h4>
-                        <p>150+ Business Leaders</p>
+                    <div class="run-of-show__row">
+                        <span class="run-of-show__time">17:40</span>
+                        <span class="run-of-show__event">Presentation segment</span>
                     </div>
-                    <div class="sidebar-block">
-                        <h4>Services Provided</h4>
-                        <ul class="services-list">
-                            <li>Professional Sound System</li>
-                            <li>Wireless Microphone Systems</li>
-                            <li>Perimeter Uplighting</li>
-                            <li>Video Playback Systems</li>
-                            <li>PowerPoint Presentation Support</li>
-                            <li>Looping Slideshows & Videos</li>
-                            <li>Musician Audio Support</li>
-                            <li>Event Production Management</li>
-                        </ul>
+                    <div class="run-of-show__row">
+                        <span class="run-of-show__time">18:00</span>
+                        <span class="run-of-show__event">Budget vote &middot; Board recognition</span>
+                    </div>
+                    <div class="run-of-show__row">
+                        <span class="run-of-show__time">18:30</span>
+                        <span class="run-of-show__event">Annual awards &middot; 4 recipients</span>
+                    </div>
+                    <div class="run-of-show__row">
+                        <span class="run-of-show__time">19:00</span>
+                        <span class="run-of-show__event">Social hour resumes</span>
+                    </div>
+
+                    <div class="run-of-show__spec">
+                        <div class="run-of-show__spec-row">
+                            <span class="run-of-show__spec-label">Client</span>
+                            <span class="run-of-show__spec-value">Southwestern Vermont Chamber of Commerce</span>
+                        </div>
+                        <div class="run-of-show__spec-row">
+                            <span class="run-of-show__spec-label">Venue</span>
+                            <span class="run-of-show__spec-value">Kimpton Taconic, Manchester VT</span>
+                        </div>
+                        <div class="run-of-show__spec-row">
+                            <span class="run-of-show__spec-label">Date</span>
+                            <span class="run-of-show__spec-value">January 31, 2025</span>
+                        </div>
+                        <div class="run-of-show__spec-row">
+                            <span class="run-of-show__spec-label">Attendees</span>
+                            <span class="run-of-show__spec-value">115+ business leaders and community members</span>
+                        </div>
+                        <div class="run-of-show__spec-row">
+                            <span class="run-of-show__spec-label">Sponsor</span>
+                            <span class="run-of-show__spec-value">Heritage Family Credit Union (presenting)</span>
+                        </div>
+                        <div class="run-of-show__spec-row">
+                            <span class="run-of-show__spec-label">Services</span>
+                            <span class="run-of-show__spec-value">Sound &middot; Wireless mics &middot; Uplighting &middot; Video playback &middot; Presentation support</span>
+                        </div>
                     </div>
                 </aside>
             </div>
         </section>
-        
-        <section class="case-study-gallery">
-            <div class="container">
-                <h2 class="section-title fade-in">Gallery</h2>
-                <div class="gallery-grid fade-in">
-                    <video autoplay loop muted playsinline preload="metadata">
-                        <source src="assets/SVCC - Taconic - January 2025 - 01 - Flythrough.mp4#t=0.1" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <img src="assets/SVCC - Taconic - January 2025 - 01.JPG" alt="SWVT Chamber Annual Meeting setup at Kimpton Taconic">
-                    <img src="assets/SVCC - Taconic - January 2025 - 02.JPG" alt="Business leaders gathering for the annual meeting">
-                    <img src="assets/SVCC - Taconic - January 2025 - 03.JPG" alt="Awards ceremony and social hour">
-                    <img src="assets/SVCC - Taconic - January 2025 - 04.JPG" alt="Presentation and networking at the Chamber event">
-                    <img src="assets/SVCC - Taconic - January 2025 - 05.JPG" alt="Elegant ballroom setup for the biggest business night">
+
+        <!-- GALLERY — three supporting stills -->
+        <section class="case-gallery" aria-label="Gallery">
+            <div class="case-gallery__inner">
+                <div class="case-gallery__grid">
+                    <div class="case-gallery__item">
+                        <img src="assets/svcc-taconic-01.jpg"
+                             alt="Kimpton Taconic ballroom setup for the SVCC Annual Membership Meeting."
+                             loading="lazy">
+                    </div>
+                    <div class="case-gallery__item">
+                        <img src="assets/svcc-taconic-02.jpg"
+                             alt="Business leaders at the SVCC Annual Meeting gathering for the program."
+                             loading="lazy">
+                    </div>
+                    <div class="case-gallery__item">
+                        <img src="assets/svcc-taconic-03.jpg"
+                             alt="Awards ceremony and social hour at the Kimpton Taconic ballroom."
+                             loading="lazy">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="case-study-testimonial">
-            <div class="container fade-in">
-                <blockquote>
-                    "Equinox made our Annual Meeting seamless and professional. Their team understood the dual nature of our event—formal business and celebration—and delivered flawless technical support for both. The presentation system was crystal clear, and the lighting created exactly the atmosphere we wanted."
+        <!-- TESTIMONIAL — generalized attribution -->
+        <section class="testimonial-editorial" aria-label="Testimonial">
+            <div class="testimonial-editorial__inner">
+                <div class="testimonial-editorial__eyebrow">In Their Words</div>
+                <blockquote class="testimonial-editorial__quote display">
+                    &ldquo;Equinox made our Annual Meeting professional and well-run. Their team understood the dual nature of our event &mdash; formal business and celebration &mdash; and delivered flawless technical support for both. The presentation system was crystal clear, and the lighting created exactly the atmosphere we wanted.&rdquo;
                 </blockquote>
-                <cite>— Southwestern Vermont Chamber of Commerce</cite>
+                <div class="testimonial-editorial__attribution">
+                    <span class="testimonial-editorial__name">Events Coordinator &mdash; Southwestern Vermont Chamber of Commerce</span>
+                    Kimpton Taconic &mdash; Manchester, VT &mdash; January 31, 2025
+                </div>
             </div>
         </section>
-        
-        <section class="case-study-nav">
-            <div class="container fade-in">
-                <a href="work.html" class="btn-link">← Back to All Projects</a>
+
+        <!-- CASE NAV -->
+        <section class="case-nav" aria-label="Case navigation">
+            <div class="case-nav__inner">
+                <span class="case-nav__label mono">Next case</span>
+                <a class="case-nav__link" href="work-arlington.html">
+                    Arlington Common Fly Fishing Festival &rarr;
+                </a>
             </div>
         </section>
 
@@ -152,68 +217,62 @@
     <div id="project-nav-placeholder"></div>
     <div id="footer-placeholder">
 <footer class="main-footer">
-    <div class="container footer-container">
-        <div class="footer-brand" style="text-align: center;">
-            <img src="assets/logo.png" alt="Equinox Audio Visuals Logo" class="footer-logo" style="height: 140px; width: auto; display: block; margin: 0 auto 1.5rem auto;">
-            <p style="text-align: center;"><span style="font-size: 1.15rem; font-weight: 500;">Event Production with Character.</span><br><br>Crafted in Manchester, VT and trusted at events around the world.</p>
+    <div class="footer-bug" aria-hidden="true">EQ</div>
+    <div class="container footer-container" style="position:relative;z-index:2;">
+        <div class="footer-brand">
+            <div class="footer-brand__name">Equinox Audio Visuals</div>
+            <p class="footer-brand__tagline">
+                Event production with character. Crafted in Manchester,
+                Vermont and trusted at events across New England and beyond.
+            </p>
         </div>
         <div class="footer-links">
-            <h4>Navigate</h4>
+            <h3>Navigate</h3>
             <ul>
-                <li><a href="work.html">Our Work</a></li>
+                <li><a href="work.html">Work</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="about.html">About Us</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="process.html">Process</a></li>
                 <li><a href="insights.html">Insights</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
         <div class="footer-links">
-            <h4>Services</h4>
+            <h3>Services</h3>
             <ul>
                 <li><a href="services-corporate.html">Corporate Events</a></li>
                 <li><a href="services-weddings.html">Weddings</a></li>
-                <li><a href="services-galas.html">Galas & Non-Profits</a></li>
+                <li><a href="services-galas.html">Galas and Non-Profits</a></li>
                 <li><a href="services.html">All Services</a></li>
             </ul>
         </div>
         <div class="footer-links">
-            <h4>Resources</h4>
+            <h3>Regions</h3>
             <ul>
-                <li><a href="event-planning-checklist.html">Free AV Checklist</a></li>
-                <li><a href="insights.html">Insights & Articles</a></li>
-                <li><a href="av-services-manchester-vt.html">Service Areas</a></li>
+                <li><a href="av-services-manchester-vt.html">Manchester, VT</a></li>
+                <li><a href="av-services-bennington-vt.html">Bennington, VT</a></li>
+                <li><a href="av-services-dorset-vt.html">Dorset, VT</a></li>
+                <li><a href="av-services-brattleboro-vt.html">Brattleboro, VT</a></li>
+                <li><a href="av-services-burlington-vt.html">Burlington, VT</a></li>
+                <li><a href="av-services-albany-ny.html">Albany, NY</a></li>
+                <li><a href="av-services-saratoga-springs-ny.html">Saratoga Springs, NY</a></li>
+                <li><a href="av-services-keene-nh.html">Keene, NH</a></li>
+                <li><a href="av-services-berkshires-ma.html">The Berkshires, MA</a></li>
+                <li><a href="regions.html">All Regions &rarr;</a></li>
             </ul>
         </div>
-        <div class="footer-connect">
-            <h4>Get in Touch</h4>
-            <p>
-                Manchester, VT<br>
-                <a href="mailto:info@equinoxaudiovisuals.com">info@equinoxaudiovisuals.com</a>
-            </p>
-            <div class="social-links">
-                <a href="https://www.instagram.com/equinoxaudiovisuals" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                    </svg>
-                </a>
-                <a href="https://www.linkedin.com/company/equinoxav" target="_blank" rel="noopener noreferrer" aria-label="Connect with us on LinkedIn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
     </div>
-    <div class="container footer-bottom">
-        <p>&copy; 2026 Equinox Audio Visuals. All Rights Reserved.</p>
+    <div class="container footer-spec" style="position:relative;z-index:2;">
+        <div class="footer-spec__line">
+            &copy; 2026 Equinox Audio Visuals
+        </div>
     </div>
 </footer>
 </div>
 
-    <script src="script.js?v=8"></script>
+    <script src="script.js?v=10"></script>
 
     <!-- HubSpot Tracking Code -->
-    <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/243705543.js"></script>
+    <script type="text/javascript" id="hs-script-loader" async defer src="https://js-na2.hs-scripts.com/243705543.js"></script>
 </body>
 </html>
-

@@ -1,287 +1,296 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Priority 1.0: Core hubs (changefreq: weekly) -->
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/</loc>
-    <lastmod>2026-02-28</lastmod>
+    <loc>https://www.eqxav.com/</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/about.html</loc>
-    <lastmod>2026-02-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.equinoxaudiovisuals.com/services.html</loc>
-    <lastmod>2026-02-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.equinoxaudiovisuals.com/services-weddings.html</loc>
-    <lastmod>2026-02-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.equinoxaudiovisuals.com/services-corporate.html</loc>
-    <lastmod>2026-02-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.equinoxaudiovisuals.com/services-galas.html</loc>
-    <lastmod>2026-02-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.equinoxaudiovisuals.com/work.html</loc>
-    <lastmod>2026-02-28</lastmod>
+    <loc>https://www.eqxav.com/work.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.eqxav.com/services.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.eqxav.com/about.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.eqxav.com/insights.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.eqxav.com/contact.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.eqxav.com/process.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.eqxav.com/regions.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <!-- Priority 0.9: Service verticals -->
+  <url>
+    <loc>https://www.eqxav.com/services-corporate.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/insights.html</loc>
-    <lastmod>2026-02-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.equinoxaudiovisuals.com/contact.html</loc>
-    <lastmod>2026-02-28</lastmod>
+    <loc>https://www.eqxav.com/services-weddings.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
-
-  <!-- Geo Landing Pages -->
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/av-services-manchester-vt.html</loc>
-    <lastmod>2026-02-28</lastmod>
+    <loc>https://www.eqxav.com/services-galas.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
+  <!-- Priority 0.8: Case studies (changefreq: monthly) -->
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/av-services-bennington-vt.html</loc>
-    <lastmod>2026-02-28</lastmod>
+    <loc>https://www.eqxav.com/work-arlington.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/av-services-dorset-vt.html</loc>
-    <lastmod>2026-02-28</lastmod>
+    <loc>https://www.eqxav.com/work-bennington-museum.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/av-services-burlington-vt.html</loc>
-    <lastmod>2026-02-28</lastmod>
+    <loc>https://www.eqxav.com/work-bennington-summer.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/av-services-brattleboro-vt.html</loc>
-    <lastmod>2026-02-28</lastmod>
+    <loc>https://www.eqxav.com/work-crooked-ram.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/av-services-albany-ny.html</loc>
-    <lastmod>2026-02-28</lastmod>
+    <loc>https://www.eqxav.com/work-equinox-wedding.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/av-services-saratoga-springs-ny.html</loc>
-    <lastmod>2026-02-28</lastmod>
+    <loc>https://www.eqxav.com/work-hildene.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/av-services-keene-nh.html</loc>
-    <lastmod>2026-02-28</lastmod>
+    <loc>https://www.eqxav.com/work-hildene-volunteer.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/av-services-berkshires-ma.html</loc>
-    <lastmod>2026-02-28</lastmod>
+    <loc>https://www.eqxav.com/work-hildene-wedding-2.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- Lead Magnet -->
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/event-planning-checklist.html</loc>
-    <lastmod>2026-02-28</lastmod>
+    <loc>https://www.eqxav.com/work-kimpton-taconic.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Articles -->
-  <url>
-    <loc>https://www.equinoxaudiovisuals.com/article-av-trends-2025.html</loc>
-    <lastmod>2025-11-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/article-av-trends-2026.html</loc>
-    <lastmod>2025-11-20</lastmod>
+    <loc>https://www.eqxav.com/work-northshire-gala.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/article-breakout-management.html</loc>
-    <lastmod>2025-11-20</lastmod>
+    <loc>https://www.eqxav.com/work-svcc-annual-meeting.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/article-choose-av-partner.html</loc>
-    <lastmod>2025-11-20</lastmod>
+    <loc>https://www.eqxav.com/work-svcc-women-leadership.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/article-conference-speaking.html</loc>
-    <lastmod>2025-11-20</lastmod>
+    <loc>https://www.eqxav.com/work-two-day-wedding.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/article-engaging-presentation.html</loc>
-    <lastmod>2025-11-20</lastmod>
+    <loc>https://www.eqxav.com/work-vanish-screening.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+  </url>
+  <!-- Priority 0.8: Insights articles (changefreq: monthly) -->
+  <url>
+    <loc>https://www.eqxav.com/article-av-trends-2025.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/article-hire-av-lead.html</loc>
-    <lastmod>2025-11-20</lastmod>
+    <loc>https://www.eqxav.com/article-av-trends-2026.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/article-make-time-rehearsal.html</loc>
-    <lastmod>2025-11-20</lastmod>
+    <loc>https://www.eqxav.com/article-breakout-management.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/article-small-meetings.html</loc>
-    <lastmod>2025-11-20</lastmod>
+    <loc>https://www.eqxav.com/article-choose-av-partner.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/article-switch-av-partners.html</loc>
-    <lastmod>2025-11-20</lastmod>
+    <loc>https://www.eqxav.com/article-conference-speaking.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/article-top-5-av-items.html</loc>
-    <lastmod>2025-11-20</lastmod>
+    <loc>https://www.eqxav.com/article-engaging-presentation.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/article-wedding-av-equipment.html</loc>
-    <lastmod>2025-11-20</lastmod>
+    <loc>https://www.eqxav.com/article-hire-av-lead.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/article-zoom-meeting-tips.html</loc>
-    <lastmod>2025-11-20</lastmod>
+    <loc>https://www.eqxav.com/article-make-time-rehearsal.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Case Studies -->
-  <url>
-    <loc>https://www.equinoxaudiovisuals.com/work-arlington.html</loc>
-    <lastmod>2025-11-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/work-bennington-museum.html</loc>
-    <lastmod>2025-11-20</lastmod>
+    <loc>https://www.eqxav.com/article-small-meetings.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/work-bennington-summer.html</loc>
-    <lastmod>2025-11-20</lastmod>
+    <loc>https://www.eqxav.com/article-switch-av-partners.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/work-crooked-ram.html</loc>
-    <lastmod>2025-11-20</lastmod>
+    <loc>https://www.eqxav.com/article-top-5-av-items.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/work-equinox-wedding.html</loc>
-    <lastmod>2025-11-20</lastmod>
+    <loc>https://www.eqxav.com/article-wedding-av-equipment.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/work-hildene-volunteer.html</loc>
-    <lastmod>2025-11-20</lastmod>
+    <loc>https://www.eqxav.com/article-zoom-meeting-tips.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+  </url>
+  <!-- Priority 0.6: Geo landing pages & tools -->
+  <url>
+    <loc>https://www.eqxav.com/av-services-albany-ny.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/work-hildene-wedding-2.html</loc>
-    <lastmod>2025-11-20</lastmod>
+    <loc>https://www.eqxav.com/av-services-bennington-vt.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/work-hildene.html</loc>
-    <lastmod>2025-11-20</lastmod>
+    <loc>https://www.eqxav.com/av-services-berkshires-ma.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/work-kimpton-taconic.html</loc>
-    <lastmod>2025-11-20</lastmod>
+    <loc>https://www.eqxav.com/av-services-brattleboro-vt.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/work-northshire-gala.html</loc>
-    <lastmod>2025-11-20</lastmod>
+    <loc>https://www.eqxav.com/av-services-burlington-vt.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/work-svcc-annual-meeting.html</loc>
-    <lastmod>2025-11-20</lastmod>
+    <loc>https://www.eqxav.com/av-services-dorset-vt.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/work-svcc-women-leadership.html</loc>
-    <lastmod>2025-11-20</lastmod>
+    <loc>https://www.eqxav.com/av-services-keene-nh.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/work-two-day-wedding.html</loc>
-    <lastmod>2025-11-20</lastmod>
+    <loc>https://www.eqxav.com/av-services-manchester-vt.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.equinoxaudiovisuals.com/work-vanish-screening.html</loc>
-    <lastmod>2025-11-20</lastmod>
+    <loc>https://www.eqxav.com/av-services-saratoga-springs-ny.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.eqxav.com/event-planning-checklist.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>

@@ -1,5 +1,8 @@
 # EQUINOX AV - SAFE REDIRECTS (No Root Rules)
 
+# --- Legacy insight short paths (preflight Apr 2026) ---
+/old-insight    /article-av-trends-2026.html    301
+
 # --- Old Squarespace Pages -> New Locations ---
 /home           /
 /who-we-are     /about.html
@@ -22,3 +25,93 @@
 # --- Tools ---
 /timer-control  /
 /timer-display  /
+
+# --- Renamed assets (Phase 0 hygiene, Apr 2026) ---
+/assets/ parallax-tech.jpg   /assets/parallax-tech.jpg   301
+/assets/ parallax-tech 2.jpg   /assets/parallax-tech-2.jpg   301
+/assets/Arlington Common - Flythrough.mp4   /assets/arlington-common-flythrough.mp4   301
+/assets/Crooked Ram - August 2025 - Wedding - 01 - Flythrough.mp4   /assets/crooked-ram-wedding-flythrough.mp4   301
+/assets/Equinox AV Background and Logo 720p.mov   /assets/equinox-av-background-720p.mov   301
+/assets/Equinox Resort - Wedding Ceremony Flythrough.mp4   /assets/equinox-resort-wedding-flythrough.mp4   301
+/assets/Flythrough_Video_Generation_Request - Bennington Museum.mp4   /assets/bennington-museum-flythrough.mp4   301
+/assets/Hildene - Volunteer Appreciation Dinner - 2025 - Flythrough.mp4   /assets/hildene-volunteer-dinner-flythrough.mp4   301
+/assets/Hildene - Volunteer Appreciation 2025 - 03.MOV   /assets/hildene-volunteer-2025-03.mov   301
+/assets/MandE - Hill Farm - String Lights - Sunset.mp4   /assets/mande-hill-farm-sunset.mp4   301
+/assets/SVCC - Taconic - January 2025 - 01 - Flythrough.mp4   /assets/svcc-taconic-flythrough.mp4   301
+/assets/Venue_Fly_Through_Highlighting_Stage.mp4   /assets/venue-flythrough-stage.mp4   301
+/assets/Venue_Fly_Through_Video_Generation.mp4   /assets/venue-flythrough.mp4   301
+/assets/Venue_TV_Fly_Through_Video.mp4   /assets/venue-tv-flythrough.mp4   301
+/assets/ArlingtonCommon.webp   /assets/arlington-common.webp   301
+/assets/ArlingtonCommonFlyFest24 - 01.JPG   /assets/arlington-flyfest24-01.jpg   301
+/assets/ArlingtonCommonFlyFest24 - 02.JPG   /assets/arlington-flyfest24-02.jpg   301
+/assets/ArlingtonCommonFlyFest24 - 03.JPG   /assets/arlington-flyfest24-03.jpg   301
+/assets/ArlingtonCommonFlyFest24 - 04.JPG   /assets/arlington-flyfest24-04.jpg   301
+/assets/ArlingtonCommonFlyFest24 - 05.JPG   /assets/arlington-flyfest24-05.jpg   301
+/assets/ArlingtonCommonFlyFest25 - 01.JPG   /assets/arlington-flyfest25-01.jpg   301
+/assets/ArlingtonCommonFlyFest25 - 02.JPG   /assets/arlington-flyfest25-02.jpg   301
+/assets/ArlingtonCommonFlyFest25 - 03.JPG   /assets/arlington-flyfest25-03.jpg   301
+/assets/ArlingtonCommonFlyFest25 - 04.JPG   /assets/arlington-flyfest25-04.jpg   301
+/assets/ArlingtonCommonFlyFest25 - 05.JPG   /assets/arlington-flyfest25-05.jpg   301
+/assets/ArlingtonCommonFlyFest25 - 06.JPG   /assets/arlington-flyfest25-06.jpg   301
+/assets/ArlingtonCommonFlyFest25 - 07.JPG   /assets/arlington-flyfest25-07.jpg   301
+/assets/Bennington Museum - Summer Celebration - 01.JPG   /assets/bennington-museum-summer-01.jpg   301
+/assets/Bennington Museum - Summer Celebration - 02.JPG   /assets/bennington-museum-summer-02.jpg   301
+/assets/Bennington Museum - Summer Celebration - 03.JPG   /assets/bennington-museum-summer-03.jpg   301
+/assets/Bennington Museum - Vanish - 01.JPG   /assets/bennington-museum-vanish-01.jpg   301
+/assets/Bennington Museum - Vanish - 02.JPG   /assets/bennington-museum-vanish-02.jpg   301
+/assets/Bennington Museum - Vanish - 03.JPG   /assets/bennington-museum-vanish-03.jpg   301
+/assets/Bennington Museum - Vanish - 04.JPG   /assets/bennington-museum-vanish-04.jpg   301
+/assets/BenningtonMuseumGala2024 - 01.JPG   /assets/bennington-museum-gala-2024-01.jpg   301
+/assets/BenningtonMuseumGala2024 - 02.JPG   /assets/bennington-museum-gala-2024-02.jpg   301
+/assets/BenningtonMuseumGala2024 - 03.JPG   /assets/bennington-museum-gala-2024-03.jpg   301
+/assets/BenningtonMuseumGala2024 - 04.jpg   /assets/bennington-museum-gala-2024-04.jpg   301
+/assets/BenningtonMuseumGala2024 - 05.JPG   /assets/bennington-museum-gala-2024-05.jpg   301
+/assets/BenningtonMuseumGala2024 - 06.JPG   /assets/bennington-museum-gala-2024-06.jpg   301
+/assets/Crooked Ram - August 2025 - Wedding - 01.JPG   /assets/crooked-ram-wedding-01.jpg   301
+/assets/Crooked Ram - August 2025 - Wedding - 02.JPG   /assets/crooked-ram-wedding-02.jpg   301
+/assets/Doug Kunnath - Headshot 2025.jpg   /assets/doug-kunnath-headshot-2025.jpg   301
+/assets/Equinox - Tent Wedding - 01.JPG   /assets/equinox-tent-wedding-01.jpg   301
+/assets/Equinox - Tent Wedding - 02.JPG   /assets/equinox-tent-wedding-02.jpg   301
+/assets/Equinox - Tent Wedding - 03.JPG   /assets/equinox-tent-wedding-03.jpg   301
+/assets/Hildene - SVCC - Women in Leadership Luncheon - May 2025 - Hildene - Lincoln Hall - 01.JPG   /assets/hildene-svcc-women-leadership-01.jpg   301
+/assets/Hildene - SVCC - Women in Leadership Luncheon - May 2025 - Hildene - Lincoln Hall - 02.JPG   /assets/hildene-svcc-women-leadership-02.jpg   301
+/assets/Hildene - SVCC - Women in Leadership Luncheon - May 2025 - Hildene - Lincoln Hall - 03.JPG   /assets/hildene-svcc-women-leadership-03.jpg   301
+/assets/Hildene - Volunteer Appreciation 2025 - 01.JPG   /assets/hildene-volunteer-2025-01.jpg   301
+/assets/Hildene - Volunteer Appreciation 2025 - 02.JPG   /assets/hildene-volunteer-2025-02.jpg   301
+/assets/Hildene - Wedding - 01.JPG   /assets/hildene-wedding-01.jpg   301
+/assets/Hildene - Wedding - 02.JPG   /assets/hildene-wedding-02.jpg   301
+/assets/Hildene - Wedding - 03.JPG   /assets/hildene-wedding-03.jpg   301
+/assets/Hildene - Wedding - 04.JPG   /assets/hildene-wedding-04.jpg   301
+/assets/Hildene - Wedding - 05.JPG   /assets/hildene-wedding-05.jpg   301
+/assets/Hildene - Wedding 2 - 01.JPG   /assets/hildene-wedding2-01.jpg   301
+/assets/Hildene - Wedding 2 - 02.JPG   /assets/hildene-wedding2-02.jpg   301
+/assets/Hildene - Wedding 2 - 03.JPG   /assets/hildene-wedding2-03.jpg   301
+/assets/Hildene - Wedding 2 - 04.JPG   /assets/hildene-wedding2-04.jpg   301
+/assets/Kimpton Taconic - 01.JPG   /assets/kimpton-taconic-01.jpg   301
+/assets/Kimpton Taconic - 02.JPG   /assets/kimpton-taconic-02.jpg   301
+/assets/Kimpton Taconic - 03.JPG   /assets/kimpton-taconic-03.jpg   301
+/assets/MandE - Hildene - Reception Dinner 2.JPG   /assets/mande-hildene-reception-02.jpg   301
+/assets/MandE - Hildene - Reception Dinner.JPG   /assets/mande-hildene-reception-01.jpg   301
+/assets/MandE - Hill Farm - String Lights - Dark.JPG   /assets/mande-hill-farm-dark.jpg   301
+/assets/MandE - Hill Farm - String Lights - Sunset 2.JPG   /assets/mande-hill-farm-sunset-02.jpg   301
+/assets/MandE - Hill Farm - String Lights - Sunset.JPG   /assets/mande-hill-farm-sunset.jpg   301
+/assets/Northshire Day School - September 2025 - 01.JPG   /assets/northshire-day-school-01.jpg   301
+/assets/Northshire Day School - September 2025 - 02.JPG   /assets/northshire-day-school-02.jpg   301
+/assets/Northshire Day School - September 2025 - 03.JPG   /assets/northshire-day-school-03.jpg   301
+/assets/Northshire Day School - September 2025 - 04.JPG   /assets/northshire-day-school-04.jpg   301
+/assets/Northshire Day School - September 2025 - 05.JPG   /assets/northshire-day-school-05.jpg   301
+/assets/SVCC - Taconic - January 2025 - 01.JPG   /assets/svcc-taconic-01.jpg   301
+/assets/SVCC - Taconic - January 2025 - 02.JPG   /assets/svcc-taconic-02.jpg   301
+/assets/SVCC - Taconic - January 2025 - 03.JPG   /assets/svcc-taconic-03.jpg   301
+/assets/SVCC - Taconic - January 2025 - 04.JPG   /assets/svcc-taconic-04.jpg   301
+/assets/SVCC - Taconic - January 2025 - 05.JPG   /assets/svcc-taconic-05.jpg   301
+/assets/bennington museum logo.webp   /assets/bennington-museum-logo.webp   301
+/assets/kimpton taconic.png   /assets/kimpton-taconic.png   301
+/assets/page-hero-background 2.jpg   /assets/page-hero-background-2.jpg   301
+/assets/story-team-home-new 2.jpg   /assets/story-team-home-new-2.jpg   301
+/assets/insights-av-trends 2.jpg   /assets/insights-av-trends-2.jpg   301
+/assets/insights-engaging-presentation 2.jpg   /assets/insights-engaging-presentation-2.jpg   301
+/assets/parallax-wedding 3.jpg   /assets/parallax-wedding-3.jpg   301
+/assets/insights-engaging-presentation old.jpg   /assets/insights-engaging-presentation-old.jpg   301
+/assets/insights-hire-av-lead old.jpg   /assets/insights-hire-av-lead-old.jpg   301
+/assets/insights-small-meetings OLD.jpg   /assets/insights-small-meetings-old.jpg   301
