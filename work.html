@@ -6,16 +6,16 @@
 
     <!-- SEO Meta Tags -->
     <title>Our Work — EQX AV Technical Producer</title>
-    <meta name="description" content="Fourteen case studies from the Equinox portfolio. Weddings, galas, museum events, and conferences across Vermont and New England. Every event is named. Every outcome is specific — EQX AV, technical producer for live events in Vermont and New England.">
+    <meta name="description" content="Fifteen case studies from the Equinox portfolio. Weddings, galas, museum events, and conferences across Vermont and New England. Every event is named. Every outcome is specific — EQX AV, technical producer for live events in Vermont and New England.">
     <meta name="author" content="Equinox Audio Visuals">
     <meta property="og:title" content="Our Work — Equinox Audio Visuals">
-    <meta property="og:description" content="Fourteen case studies from the Equinox portfolio. Weddings, galas, museum events, and conferences across Vermont and New England.">
+    <meta property="og:description" content="Fifteen case studies from the Equinox portfolio. Weddings, galas, museum events, and conferences across Vermont and New England.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.eqxav.com/work.html">
     <meta property="og:image" content="https://www.eqxav.com/assets/logo.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Our Work — Equinox Audio Visuals">
-    <meta name="twitter:description" content="Fourteen case studies from the Equinox portfolio. Weddings, galas, museum events, and conferences across Vermont and New England.">
+    <meta name="twitter:description" content="Fifteen case studies from the Equinox portfolio. Weddings, galas, museum events, and conferences across Vermont and New England.">
     <meta name="twitter:image" content="https://www.eqxav.com/assets/logo.png">
     <link rel="canonical" href="https://www.eqxav.com/work.html">
 
@@ -32,7 +32,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter+Tight:wght@400;500;600&family=DM+Serif+Display&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="stable-header.css?v=18">
-    <link rel="stylesheet" href="design-system-v2.css?v=5">
+    <link rel="stylesheet" href="design-system-v2.css?v=12">
 
     <style>
         /* Work index — editorial typographic list */
@@ -154,9 +154,9 @@
             display: grid;
             grid-template-columns: 3.5rem 1fr 320px auto;
             gap: 0 var(--space-3);
-            align-items: baseline;
+            align-items: center;
             margin: 0;
-            padding: 0 0 var(--space-1) 0;
+            padding: var(--space-3) 0;
             border-bottom: 1px solid var(--linen);
             text-decoration: none;
             color: inherit;
@@ -168,7 +168,8 @@
             margin: 0 calc(-1 * var(--space-3));
             padding-left: var(--space-3);
             padding-right: var(--space-3);
-            padding-bottom: var(--space-1);
+            padding-top: var(--space-3);
+            padding-bottom: var(--space-3);
         }
 
         .case-row:first-child {
@@ -189,9 +190,9 @@
         }
 
         .case-row__name {
-            font-family: var(--font-display);
+            font-family: var(--font-heading);
             font-size: var(--scale-4);
-            font-weight: 400;
+            font-weight: 600;
             line-height: 1.2;
             color: var(--ink);
             margin-bottom: 0.2em;
@@ -282,59 +283,6 @@
             }
         }
 
-        /* ── Work hero ─────────────────────────────── */
-        .work-hero {
-            position: relative;
-            height: 42vh;
-            min-height: 280px;
-            background: var(--ink);
-            overflow: hidden;
-            display: flex;
-            align-items: flex-end;
-        }
-        .work-hero__video {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: var(--lut-filter) brightness(0.7);
-            z-index: 1;
-        }
-        .work-hero__overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(18,18,18,.05) 0%, rgba(18,18,18,.65) 100%);
-            z-index: 2;
-            pointer-events: none;
-        }
-        .work-hero__content {
-            position: relative;
-            z-index: 3;
-            max-width: var(--container-v2);
-            margin: 0 auto;
-            padding: 0 var(--space-4) var(--space-6);
-            width: 100%;
-        }
-        .work-hero .work-hero__title {
-            font-family: var(--font-display);
-            font-size: clamp(2.5rem, 6vw, var(--scale-7));
-            font-weight: 400;
-            color: var(--bone) !important;
-            -webkit-text-fill-color: var(--bone) !important;
-            background: none;
-            line-height: 1.0;
-            letter-spacing: -0.02em;
-            margin: 0 0 var(--space-2);
-        }
-        .work-hero .work-hero__meta {
-            font-family: var(--font-mono);
-            font-size: var(--scale-1);
-            color: rgba(244, 239, 230, 0.65);
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-        }
-
         /* ── Thumbnail column ───────────────────────── */
         .case-row__thumb {
             width: 320px;
@@ -389,18 +337,18 @@
 
 <main>
 
-    <!-- Work hero — video background -->
-    <section class="work-hero">
+    <!-- Work hero — full-bleed video, random flythrough on each reload -->
+    <section class="page-hero-v2">
         <video
-            class="work-hero__video"
-                src="assets/venue-flythrough-stage.mp4"
-                poster="assets/bennington-museum-gala-2024-01.jpg"
+            id="work-hero-video"
+            class="page-hero-v2__image"
+            src="assets/venue-flythrough-stage.mp4"
+            poster="assets/bennington-museum-gala-2024-01.jpg"
             autoplay muted loop playsinline
             aria-hidden="true"></video>
-        <div class="work-hero__overlay"></div>
-        <div class="work-hero__content">
-            <h1 class="work-hero__title">Our Work</h1>
-            <p class="work-hero__meta">Selected work &middot; 2023&ndash;present</p>
+        <div class="page-hero-v2__content">
+            <div class="page-hero-v2__eyebrow">Work</div>
+            <h1 class="page-hero-v2__headline">Our Work</h1>
         </div>
     </section>
 
@@ -430,22 +378,112 @@
                 </div>
             </div>
 
-            <!-- Weddings -->
-            <div class="work-index__category">Weddings</div>
+            <div class="work-index__category">Corporate &amp; Community</div>
 
-            <a href="work-equinox-wedding.html" class="case-row">
+            <a href="work-women-in-leadership-2026.html" class="case-row">
                 <div class="case-row__number">01</div>
                 <div class="case-row__body">
-                    <div class="case-row__name">Equinox Resort Tent Wedding</div>
-                    <div class="case-row__meta">Equinox Resort &middot; Manchester, VT &middot; September 7, 2024</div>
-                    <div class="case-row__description">One hundred and twenty guests, one tent, and rain that started ten minutes before the ceremony. The first dance happened at 8:12.</div>
+                    <div class="case-row__name">Women in Leadership Luncheon</div>
+                    <div class="case-row__meta">Lincoln Hall at Hildene &middot; Manchester, VT &middot; May 13, 2026</div>
+                    <div class="case-row__description">Three 75&quot; 4K displays with matched motion and a holding-slide protocol between segments. Keynotes by Emily Bush and Rhoni Basden &mdash; production that stays quiet while the room stays polished.</div>
                 </div>
-                <img src="assets/equinox-tent-wedding-01.jpg" alt="" class="case-row__thumb" loading="lazy">
+                <img src="assets/thumb-hildene-2026.jpg" alt="Women in Leadership Luncheon 2026 at Hildene Lincoln Hall, triple displays." class="case-row__thumb" loading="eager" fetchpriority="high">
                 <div class="case-row__arrow">&rarr;</div>
             </a>
 
-            <a href="work-two-day-wedding.html" class="case-row">
+            <a href="work-northshire-gala.html" class="case-row">
                 <div class="case-row__number">02</div>
+                <div class="case-row__body">
+                    <div class="case-row__name">Northshire Day School Harvest Moon Gala</div>
+                    <div class="case-row__meta">Northshire Day School &middot; Manchester, VT &middot; September 16, 2025</div>
+                    <div class="case-row__description">Manchester&rsquo;s beloved school fundraiser. Silent auction displays, video storytelling, and a room full of parents who needed to hear every word.</div>
+                </div>
+                <img src="assets/northshire-day-school-01.jpg" alt="" class="case-row__thumb" loading="lazy">
+                <div class="case-row__arrow">&rarr;</div>
+            </a>
+
+            <a href="work-hildene-volunteer.html" class="case-row">
+                <div class="case-row__number">03</div>
+                <div class="case-row__body">
+                    <div class="case-row__name">Hildene Volunteer Appreciation Dinner</div>
+                    <div class="case-row__meta">Lincoln Hall at Hildene &middot; Manchester, VT &middot; August 28, 2025</div>
+                    <div class="case-row__description">A tribute evening for 125 Hildene volunteers. Clear sound in a historic hall where every voice in the room deserved to be heard.</div>
+                </div>
+                <img src="assets/hildene-volunteer-2025-01.jpg" alt="" class="case-row__thumb" loading="lazy">
+                <div class="case-row__arrow">&rarr;</div>
+            </a>
+
+            <a href="work-arlington.html" class="case-row">
+                <div class="case-row__number">04</div>
+                <div class="case-row__body">
+                    <div class="case-row__name">Arlington Common Fly Fishing Festival</div>
+                    <div class="case-row__meta">Arlington Common &middot; Arlington, VT &middot; Annual &middot; 2023&ndash;2025 (ongoing)</div>
+                    <div class="case-row__description">Three summers running at FlyFest. Multi-day festival production on the Arlington Common town green — where the gear and the crew both have to last.</div>
+                </div>
+                <img src="assets/arlington-flyfest25-01.jpg" alt="" class="case-row__thumb" loading="lazy">
+                <div class="case-row__arrow">&rarr;</div>
+            </a>
+
+            <a href="work-svcc-women-leadership.html" class="case-row">
+                <div class="case-row__number">05</div>
+                <div class="case-row__body">
+                    <div class="case-row__name">SVCC Women in Leadership Luncheon</div>
+                    <div class="case-row__meta">Lincoln Hall at Hildene &middot; Manchester, VT &middot; May 14, 2025</div>
+                    <div class="case-row__description">The 4th Annual Women In Leadership Luncheon. Panel discussion audio, visual presentation support, and a room that felt polished from the first seat.</div>
+                </div>
+                <img src="assets/hildene-svcc-women-leadership-01.jpg" alt="" class="case-row__thumb" loading="lazy">
+                <div class="case-row__arrow">&rarr;</div>
+            </a>
+
+            <a href="work-svcc-annual-meeting.html" class="case-row">
+                <div class="case-row__number">06</div>
+                <div class="case-row__body">
+                    <div class="case-row__name">SVCC Annual Membership Meeting</div>
+                    <div class="case-row__meta">Kimpton Taconic &middot; Manchester, VT &middot; January 31, 2025</div>
+                    <div class="case-row__description">Formal business meeting meets awards ceremony. The chamber&rsquo;s biggest annual event, run cleanly at a property that holds the bar high.</div>
+                </div>
+                <img src="assets/svcc-taconic-01.jpg" alt="" class="case-row__thumb" loading="lazy">
+                <div class="case-row__arrow">&rarr;</div>
+            </a>
+
+            <a href="work-bennington-museum.html" class="case-row">
+                <div class="case-row__number">07</div>
+                <div class="case-row__body">
+                    <div class="case-row__name">Bennington Museum Gala</div>
+                    <div class="case-row__meta">Bennington Museum &middot; Bennington, VT &middot; Annual &middot; 2023&ndash;2025</div>
+                    <div class="case-row__description">The museum&rsquo;s flagship fundraiser. Grandma Moses display lighting, flawless sound for the live ask. The kind of event where a missed cue costs real money.</div>
+                </div>
+                <img src="assets/bennington-museum-gala-2024-01.jpg" alt="" class="case-row__thumb" loading="lazy">
+                <div class="case-row__arrow">&rarr;</div>
+            </a>
+
+            <a href="work-vanish-screening.html" class="case-row">
+                <div class="case-row__number">08</div>
+                <div class="case-row__body">
+                    <div class="case-row__name">Vanish Film Screening</div>
+                    <div class="case-row__meta">Bennington Museum &middot; Bennington, VT &middot; June 22, 2024</div>
+                    <div class="case-row__description">Cinematic documentary about Vermont&rsquo;s disappearing barns. Professional projection and audio calibrated for a museum gallery, not a theater.</div>
+                </div>
+                <img src="assets/bennington-museum-vanish-01.jpg" alt="" class="case-row__thumb" loading="lazy">
+                <div class="case-row__arrow">&rarr;</div>
+            </a>
+
+            <a href="work-bennington-summer.html" class="case-row">
+                <div class="case-row__number">09</div>
+                <div class="case-row__body">
+                    <div class="case-row__name">Bennington Museum Summer Celebration</div>
+                    <div class="case-row__meta">Bennington Museum &middot; Bennington, VT &middot; June 1, 2024</div>
+                    <div class="case-row__description">&ldquo;A View of the Future from the Top of the Hill.&rdquo; Live band sound balanced with visual presentation support across two spaces.</div>
+                </div>
+                <img src="assets/bennington-museum-summer-01.jpg" alt="" class="case-row__thumb" loading="lazy">
+                <div class="case-row__arrow">&rarr;</div>
+            </a>
+
+            <!-- Weddings -->
+            <div class="work-index__category">Weddings</div>
+
+            <a href="work-two-day-wedding.html" class="case-row">
+                <div class="case-row__number">10</div>
                 <div class="case-row__body">
                     <div class="case-row__name">Two-Day Wedding Weekend</div>
                     <div class="case-row__meta">Hill Farm and Hildene &middot; Manchester, VT &middot; August 22&ndash;23, 2025</div>
@@ -456,7 +494,7 @@
             </a>
 
             <a href="work-crooked-ram.html" class="case-row">
-                <div class="case-row__number">03</div>
+                <div class="case-row__number">11</div>
                 <div class="case-row__body">
                     <div class="case-row__name">Wedding at The Crooked Ram</div>
                     <div class="case-row__meta">The Crooked Ram &middot; Vermont &middot; August 2025</div>
@@ -466,130 +504,47 @@
                 <div class="case-row__arrow">&rarr;</div>
             </a>
 
-            <a href="work-hildene-wedding-2.html" class="case-row">
-                <div class="case-row__number">04</div>
-                <div class="case-row__body">
-                    <div class="case-row__name">Hildene Lincoln Hall Wedding</div>
-                    <div class="case-row__meta">Hildene, The Lincoln Family Home &middot; Manchester, VT &middot; Fall 2024</div>
-                    <div class="case-row__description">Classic Vermont architecture, atmospheric uplighting, wireless audio for vows and toasts. A modern celebration that honored the room.</div>
-                </div>
-                <img src="assets/hildene-wedding2-01.jpg" alt="" class="case-row__thumb" loading="lazy">
-                <div class="case-row__arrow">&rarr;</div>
-            </a>
-
-            <a href="work-kimpton-taconic.html" class="case-row">
-                <div class="case-row__number">05</div>
-                <div class="case-row__body">
-                    <div class="case-row__name">Kimpton Taconic Wedding</div>
-                    <div class="case-row__meta">Kimpton Taconic &middot; Manchester, VT &middot; Early 2025</div>
-                    <div class="case-row__description">A winter wedding reception in the Taconic ballroom. The start of a multi-year partnership with one of Vermont&rsquo;s flagship properties.</div>
-                </div>
-                <img src="assets/kimpton-taconic-01.jpg" alt="" class="case-row__thumb" loading="lazy">
-                <div class="case-row__arrow">&rarr;</div>
-            </a>
-
             <a href="work-hildene.html" class="case-row">
-                <div class="case-row__number">06</div>
+                <div class="case-row__number">12</div>
                 <div class="case-row__body">
                     <div class="case-row__name">Hildene Lincoln Hall Wedding</div>
-                    <div class="case-row__meta">Hildene, The Lincoln Family Home &middot; Manchester, VT &middot; Summer 2025</div>
+                    <div class="case-row__meta">Lincoln Hall at Hildene &middot; Manchester, VT &middot; Summer 2025</div>
                     <div class="case-row__description">Audio for toasts and vows, lighting that honored the historic architecture. Speakers hidden. Nothing visible that shouldn&rsquo;t be.</div>
                 </div>
                 <img src="assets/hildene-gallery-1.jpg" alt="" class="case-row__thumb" loading="lazy">
                 <div class="case-row__arrow">&rarr;</div>
             </a>
 
-            <!-- Corporate & Non-Profit -->
-            <div class="work-index__category">Corporate and Non-Profit</div>
-
-            <a href="work-vanish-screening.html" class="case-row">
-                <div class="case-row__number">07</div>
-                <div class="case-row__body">
-                    <div class="case-row__name">Vanish Film Screening</div>
-                    <div class="case-row__meta">Bennington Museum &middot; Bennington, VT &middot; June 22, 2024</div>
-                    <div class="case-row__description">Cinematic documentary about Vermont&rsquo;s disappearing barns. Professional projection and audio calibrated for a museum gallery, not a theater.</div>
-                </div>
-                <img src="assets/bennington-museum-vanish-01.jpg" alt="" class="case-row__thumb" loading="lazy">
-                <div class="case-row__arrow">&rarr;</div>
-            </a>
-
-            <a href="work-hildene-volunteer.html" class="case-row">
-                <div class="case-row__number">08</div>
-                <div class="case-row__body">
-                    <div class="case-row__name">Hildene Volunteer Appreciation Dinner</div>
-                    <div class="case-row__meta">Hildene, The Lincoln Family Home &middot; Manchester, VT &middot; August 28, 2025</div>
-                    <div class="case-row__description">A tribute evening for 125 Hildene volunteers. Clear sound in a historic hall where every voice in the room deserved to be heard.</div>
-                </div>
-                <img src="assets/hildene-volunteer-2025-01.jpg" alt="" class="case-row__thumb" loading="lazy">
-                <div class="case-row__arrow">&rarr;</div>
-            </a>
-
-            <a href="work-svcc-women-leadership.html" class="case-row">
-                <div class="case-row__number">09</div>
-                <div class="case-row__body">
-                    <div class="case-row__name">SVCC Women in Leadership Luncheon</div>
-                    <div class="case-row__meta">Hildene, The Lincoln Family Home &middot; Manchester, VT &middot; May 14, 2025</div>
-                    <div class="case-row__description">The 4th Annual Women In Leadership Luncheon. Panel discussion audio, visual presentation support, and a room that felt polished from the first seat.</div>
-                </div>
-                <img src="assets/hildene-svcc-women-leadership-01.jpg" alt="" class="case-row__thumb" loading="lazy">
-                <div class="case-row__arrow">&rarr;</div>
-            </a>
-
-            <a href="work-svcc-annual-meeting.html" class="case-row">
-                <div class="case-row__number">10</div>
-                <div class="case-row__body">
-                    <div class="case-row__name">SVCC Annual Membership Meeting</div>
-                    <div class="case-row__meta">Kimpton Taconic &middot; Manchester, VT &middot; January 31, 2025</div>
-                    <div class="case-row__description">Formal business meeting meets awards ceremony. The chamber&rsquo;s biggest annual event, run cleanly at a property that holds the bar high.</div>
-                </div>
-                <img src="assets/svcc-taconic-01.jpg" alt="" class="case-row__thumb" loading="lazy">
-                <div class="case-row__arrow">&rarr;</div>
-            </a>
-
-            <a href="work-northshire-gala.html" class="case-row">
-                <div class="case-row__number">11</div>
-                <div class="case-row__body">
-                    <div class="case-row__name">Northshire Day School Harvest Moon Gala</div>
-                    <div class="case-row__meta">Northshire Day School &middot; Manchester, VT &middot; September 16, 2025</div>
-                    <div class="case-row__description">Manchester&rsquo;s beloved school fundraiser. Silent auction displays, video storytelling, and a room full of parents who needed to hear every word.</div>
-                </div>
-                <img src="assets/northshire-day-school-01.jpg" alt="" class="case-row__thumb" loading="lazy">
-                <div class="case-row__arrow">&rarr;</div>
-            </a>
-
-            <a href="work-bennington-museum.html" class="case-row">
-                <div class="case-row__number">12</div>
-                <div class="case-row__body">
-                    <div class="case-row__name">Bennington Museum Gala</div>
-                    <div class="case-row__meta">Bennington Museum &middot; Bennington, VT &middot; Annual &middot; 2023&ndash;2025</div>
-                    <div class="case-row__description">The museum&rsquo;s flagship fundraiser. Grandma Moses display lighting, flawless sound for the live ask. The kind of event where a missed cue costs real money.</div>
-                </div>
-                <img src="assets/bennington-museum-gala-2024-01.jpg" alt="" class="case-row__thumb" loading="lazy">
-                <div class="case-row__arrow">&rarr;</div>
-            </a>
-
-            <a href="work-bennington-summer.html" class="case-row">
+            <a href="work-kimpton-taconic.html" class="case-row">
                 <div class="case-row__number">13</div>
                 <div class="case-row__body">
-                    <div class="case-row__name">Bennington Museum Summer Celebration</div>
-                    <div class="case-row__meta">Bennington Museum &middot; Bennington, VT &middot; June 1, 2024</div>
-                    <div class="case-row__description">&ldquo;A View of the Future from the Top of the Hill.&rdquo; Live band sound balanced with visual presentation support across two spaces.</div>
+                    <div class="case-row__name">Kimpton Taconic Wedding</div>
+                    <div class="case-row__meta">Kimpton Taconic &middot; Manchester, VT &middot; Early 2025</div>
+                    <div class="case-row__description">A winter wedding reception in the Taconic ballroom. Atmospheric lighting and clean audio for a celebration in one of Vermont&rsquo;s most elegant boutique venues.</div>
                 </div>
-                <img src="assets/bennington-museum-summer-01.jpg" alt="" class="case-row__thumb" loading="lazy">
+                <img src="assets/kimpton-taconic-01.jpg" alt="" class="case-row__thumb" loading="lazy">
                 <div class="case-row__arrow">&rarr;</div>
             </a>
 
-            <!-- Community -->
-            <div class="work-index__category">Community and Multi-Day</div>
-
-            <a href="work-arlington.html" class="case-row">
+            <a href="work-equinox-wedding.html" class="case-row">
                 <div class="case-row__number">14</div>
                 <div class="case-row__body">
-                    <div class="case-row__name">Arlington Common Fly Fishing Festival</div>
-                    <div class="case-row__meta">Arlington Common &middot; Arlington, VT &middot; Annual &middot; 2023&ndash;2025 (ongoing)</div>
-                    <div class="case-row__description">Three summers running at FlyFest. Multi-day festival production on the Arlington Common town green — where the gear and the crew both have to last.</div>
+                    <div class="case-row__name">Equinox Resort Tent Wedding</div>
+                    <div class="case-row__meta">Equinox Resort &middot; Manchester, VT &middot; September 7, 2024</div>
+                    <div class="case-row__description">One hundred and twenty guests, one tent, and rain that started ten minutes before the ceremony. The first dance happened at 8:12.</div>
                 </div>
-                <img src="assets/arlington-flyfest25-01.jpg" alt="" class="case-row__thumb" loading="lazy">
+                <img src="assets/equinox-tent-wedding-01.jpg" alt="" class="case-row__thumb" loading="lazy">
+                <div class="case-row__arrow">&rarr;</div>
+            </a>
+
+            <a href="work-hildene-wedding-2.html" class="case-row">
+                <div class="case-row__number">15</div>
+                <div class="case-row__body">
+                    <div class="case-row__name">Hildene Lincoln Hall Wedding</div>
+                    <div class="case-row__meta">Lincoln Hall at Hildene &middot; Manchester, VT &middot; Fall 2024</div>
+                    <div class="case-row__description">Classic Vermont architecture, atmospheric uplighting, wireless audio for vows and toasts. A modern celebration that honored the room.</div>
+                </div>
+                <img src="assets/hildene-wedding2-01.jpg" alt="" class="case-row__thumb" loading="lazy">
                 <div class="case-row__arrow">&rarr;</div>
             </a>
 
@@ -600,8 +555,7 @@
     <section class="work-cta">
         <div class="container">
             <p class="work-cta__body">
-                If your event deserves a team
-                that treats it like theirs.
+                Your event deserves a team that treats it like theirs.
             </p>
             <a href="contact.html" class="btn-ghost">Start a project &rarr;</a>
         </div>
@@ -664,7 +618,7 @@
 </footer>
 </div>
 
-    <script src="script.js?v=10"></script>
+    <script src="script.js?v=12"></script>
 
     <!-- Random flythrough — pool B (exclusive to work.html) -->
     <script>
@@ -674,7 +628,7 @@
             'assets/hildene-volunteer-dinner-flythrough.mp4',
             'assets/svcc-taconic-flythrough.mp4'
         ];
-        var vid = document.querySelector('.work-hero__video');
+        var vid = document.getElementById('work-hero-video');
         if (vid) {
             var pick = pool[Math.floor(Math.random() * pool.length)];
             vid.src = pick;

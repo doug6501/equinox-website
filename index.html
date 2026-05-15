@@ -20,8 +20,9 @@
     <meta name="twitter:image" content="https://www.eqxav.com/assets/logo.png">
     <link rel="canonical" href="https://www.eqxav.com/">
     
-    <!-- Hero poster preload (shows while video loads) -->
+    <!-- Hero: poster while video loads + preload looping background -->
     <link rel="preload" href="assets/hildene-volunteer-2025-01.jpg" as="image" fetchpriority="high">
+    <link rel="preload" href="assets/equinox-av-background-720p.mov" as="video" type="video/quicktime">
     <link rel="preload" href="assets/logo.png" as="image">
     
     <!-- JSON-LD Structured Data for Local Business -->
@@ -68,9 +69,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- v2 fonts: Fraunces (editorial serif display) + Inter Tight (body) + JetBrains Mono -->
     <!-- DM Serif Display + Inter kept as fallback for legacy components on non-v2 pages -->
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter+Tight:wght@400;500;600&family=DM+Serif+Display&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,WONK@9..144,400..600,0..1&family=Inter+Tight:wght@400;500;600&family=DM+Serif+Display&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="stable-header.css?v=18">
-    <link rel="stylesheet" href="design-system-v2.css?v=9">
+    <link rel="stylesheet" href="design-system-v2.css?v=12">
 </head>
 <body class="home-page v2">
 
@@ -102,16 +103,19 @@
 
     <main>
 
-        <!-- HERO — full-bleed video, random flythrough on each reload -->
+        <!-- HERO — full-bleed looping brand background (720p) -->
         <section class="hero" aria-label="Hero">
             <video
                 id="home-hero-video"
                 class="hero__image"
-                src="assets/venue-flythrough.mp4"
+                src="assets/equinox-av-background-720p.mov"
                 poster="assets/hildene-volunteer-2025-01.jpg"
                 autoplay muted loop playsinline
                 aria-hidden="true"></video>
             <div class="hero__overlay" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,18,18,.10) 0%,rgba(18,18,18,.04) 40%,rgba(18,18,18,.52) 100%);z-index:2;pointer-events:none;"></div>
+            <div class="hero__center-logo" aria-hidden="true">
+                <img src="assets/logo.png" alt="" class="hero__center-logo-img">
+            </div>
             <div class="hero__content" style="z-index:5;">
                 <div class="hero__intro">
                     <div class="hero__eyebrow mono">Equinox Audio Visuals &mdash; Vermont &mdash; Est. 2023</div>
@@ -125,47 +129,126 @@
             <p class="metrics-strip__line">Est. 2023 &middot; Manchester, Vermont &middot; Weddings &middot; Galas &middot; Conferences &middot; New England and beyond</p>
         </section>
 
-        <!-- THE LEDGER — signature moment: typographic running event list -->
-        <section class="ledger assurance-ledger" aria-label="The Ledger">
-            <div class="ledger__header">
-                <div class="ledger__title mono">The Ledger</div>
-                <div class="ledger__range mono">2023 &mdash; Present</div>
+        <!-- OUR EVENTS — full-bleed photo spotlight carousel -->
+        <section class="event-spotlight eq-reveal" aria-label="Our Events">
+            <div class="event-spotlight__header">
+                <span class="event-spotlight__title mono">Our Events</span>
+                <span class="event-spotlight__range mono">2023 &mdash; Present</span>
             </div>
-            <!--
-              Track is duplicated once; the -50% translate loops seamlessly.
-              Hover pauses. prefers-reduced-motion swaps to horizontal scroll.
-            -->
-            <div class="ledger__track" aria-label="Recent events produced by Equinox Audio Visuals">
-                <!-- Set 1 -->
-                <div class="ledger__entry"><span class="ledger__entry-meta">Apr 2026</span>Bennington Museum <span class="ledger__separator">&middot;</span> Vanish screening</div>
-                <div class="ledger__entry"><span class="ledger__entry-meta">Apr 2026</span>Hildene <span class="ledger__separator">&middot;</span> Volunteer appreciation dinner</div>
-                <div class="ledger__entry"><span class="ledger__entry-meta">Jan 2026</span>SVCC <span class="ledger__separator">&middot;</span> Annual meeting at Taconic</div>
-                <div class="ledger__entry"><span class="ledger__entry-meta">Aug 2025</span>Equinox Resort <span class="ledger__separator">&middot;</span> Tent wedding &middot; 120 guests</div>
-                <div class="ledger__entry"><span class="ledger__entry-meta">Aug 2025</span>The Crooked Ram <span class="ledger__separator">&middot;</span> Wedding</div>
-                <div class="ledger__entry"><span class="ledger__entry-meta">Aug 2025</span>Hill Farm and Hildene <span class="ledger__separator">&middot;</span> Two-day wedding weekend</div>
-                <div class="ledger__entry"><span class="ledger__entry-meta">Jul 2025</span>Arlington Common <span class="ledger__separator">&middot;</span> FlyFest</div>
-                <div class="ledger__entry"><span class="ledger__entry-meta">May 2025</span>Hildene <span class="ledger__separator">&middot;</span> Women in Leadership Luncheon</div>
-                <div class="ledger__entry"><span class="ledger__entry-meta">Sep 2025</span>Northshire Day School <span class="ledger__separator">&middot;</span> Fall gala</div>
-                <div class="ledger__entry"><span class="ledger__entry-meta">2024&ndash;25</span>Kimpton Taconic <span class="ledger__separator">&middot;</span> Multi-year partnership</div>
-                <div class="ledger__entry"><span class="ledger__entry-meta">Fall 2024</span>Hildene <span class="ledger__separator">&middot;</span> Wedding at Lincoln Hall</div>
-                <div class="ledger__entry"><span class="ledger__entry-meta">Jun 2024</span>Bennington Museum <span class="ledger__separator">&middot;</span> Summer Celebration</div>
-                <div class="ledger__entry"><span class="ledger__entry-meta">2024</span>Bennington Museum <span class="ledger__separator">&middot;</span> Winter Gala</div>
-                <div class="ledger__entry"><span class="ledger__entry-meta">2023</span>Hildene <span class="ledger__separator">&middot;</span> Wedding at Lincoln Hall</div>
-                <!-- Set 2 — duplicate for seamless loop -->
-                <div class="ledger__entry"><span class="ledger__entry-meta">Apr 2026</span>Bennington Museum <span class="ledger__separator">&middot;</span> Vanish screening</div>
-                <div class="ledger__entry"><span class="ledger__entry-meta">Apr 2026</span>Hildene <span class="ledger__separator">&middot;</span> Volunteer appreciation dinner</div>
-                <div class="ledger__entry"><span class="ledger__entry-meta">Jan 2026</span>SVCC <span class="ledger__separator">&middot;</span> Annual meeting at Taconic</div>
-                <div class="ledger__entry"><span class="ledger__entry-meta">Aug 2025</span>Equinox Resort <span class="ledger__separator">&middot;</span> Tent wedding &middot; 120 guests</div>
-                <div class="ledger__entry"><span class="ledger__entry-meta">Aug 2025</span>The Crooked Ram <span class="ledger__separator">&middot;</span> Wedding</div>
-                <div class="ledger__entry"><span class="ledger__entry-meta">Aug 2025</span>Hill Farm and Hildene <span class="ledger__separator">&middot;</span> Two-day wedding weekend</div>
-                <div class="ledger__entry"><span class="ledger__entry-meta">Jul 2025</span>Arlington Common <span class="ledger__separator">&middot;</span> FlyFest</div>
-                <div class="ledger__entry"><span class="ledger__entry-meta">May 2025</span>Hildene <span class="ledger__separator">&middot;</span> Women in Leadership Luncheon</div>
-                <div class="ledger__entry"><span class="ledger__entry-meta">Sep 2025</span>Northshire Day School <span class="ledger__separator">&middot;</span> Fall gala</div>
-                <div class="ledger__entry"><span class="ledger__entry-meta">2024&ndash;25</span>Kimpton Taconic <span class="ledger__separator">&middot;</span> Multi-year partnership</div>
-                <div class="ledger__entry"><span class="ledger__entry-meta">Fall 2024</span>Hildene <span class="ledger__separator">&middot;</span> Wedding at Lincoln Hall</div>
-                <div class="ledger__entry"><span class="ledger__entry-meta">Jun 2024</span>Bennington Museum <span class="ledger__separator">&middot;</span> Summer Celebration</div>
-                <div class="ledger__entry"><span class="ledger__entry-meta">2024</span>Bennington Museum <span class="ledger__separator">&middot;</span> Winter Gala</div>
-                <div class="ledger__entry"><span class="ledger__entry-meta">2023</span>Hildene <span class="ledger__separator">&middot;</span> Wedding at Lincoln Hall</div>
+            <div class="event-spotlight__stage" id="event-spotlight-stage">
+
+                <div class="event-spotlight__slide is-active">
+                    <img src="assets/women-in-leadership-luncheon-2026-hildene-01.JPG" alt="" class="event-spotlight__img" loading="eager">
+                    <div class="event-spotlight__scrim"></div>
+                    <div class="event-spotlight__info">
+                        <div class="event-spotlight__date mono">May 2026</div>
+                        <div class="event-spotlight__venue">Lincoln Hall at Hildene</div>
+                        <div class="event-spotlight__event">Women in Leadership Luncheon</div>
+                    </div>
+                </div>
+
+                <div class="event-spotlight__slide">
+                    <img src="assets/bennington-museum-vanish-01.jpg" alt="" class="event-spotlight__img" loading="lazy">
+                    <div class="event-spotlight__scrim"></div>
+                    <div class="event-spotlight__info">
+                        <div class="event-spotlight__date mono">Apr 2026</div>
+                        <div class="event-spotlight__venue">Bennington Museum</div>
+                        <div class="event-spotlight__event">Vanish Screening</div>
+                    </div>
+                </div>
+
+                <div class="event-spotlight__slide">
+                    <img src="assets/equinox-tent-wedding-01.jpg" alt="" class="event-spotlight__img" loading="lazy">
+                    <div class="event-spotlight__scrim"></div>
+                    <div class="event-spotlight__info">
+                        <div class="event-spotlight__date mono">Aug 2025</div>
+                        <div class="event-spotlight__venue">The Equinox Resort</div>
+                        <div class="event-spotlight__event">Tent Wedding &middot; 120 Guests</div>
+                    </div>
+                </div>
+
+                <div class="event-spotlight__slide">
+                    <img src="assets/arlington-flyfest25-01.jpg" alt="" class="event-spotlight__img" loading="lazy">
+                    <div class="event-spotlight__scrim"></div>
+                    <div class="event-spotlight__info">
+                        <div class="event-spotlight__date mono">Jul 2025</div>
+                        <div class="event-spotlight__venue">Arlington Common</div>
+                        <div class="event-spotlight__event">FlyFest 2025</div>
+                    </div>
+                </div>
+
+                <div class="event-spotlight__slide">
+                    <img src="assets/svcc-taconic-01.jpg" alt="" class="event-spotlight__img" loading="lazy">
+                    <div class="event-spotlight__scrim"></div>
+                    <div class="event-spotlight__info">
+                        <div class="event-spotlight__date mono">Jan 2026</div>
+                        <div class="event-spotlight__venue">Kimpton Taconic</div>
+                        <div class="event-spotlight__event">SVCC Annual Meeting</div>
+                    </div>
+                </div>
+
+                <div class="event-spotlight__slide">
+                    <img src="assets/mande-hildene-reception-01.jpg" alt="" class="event-spotlight__img" loading="lazy">
+                    <div class="event-spotlight__scrim"></div>
+                    <div class="event-spotlight__info">
+                        <div class="event-spotlight__date mono">Fall 2024</div>
+                        <div class="event-spotlight__venue">Lincoln Hall at Hildene</div>
+                        <div class="event-spotlight__event">Wedding Reception</div>
+                    </div>
+                </div>
+
+                <div class="event-spotlight__slide">
+                    <img src="assets/northshire-day-school-01.jpg" alt="" class="event-spotlight__img" loading="lazy">
+                    <div class="event-spotlight__scrim"></div>
+                    <div class="event-spotlight__info">
+                        <div class="event-spotlight__date mono">Sep 2025</div>
+                        <div class="event-spotlight__venue">Northshire Day School</div>
+                        <div class="event-spotlight__event">Fall Gala</div>
+                    </div>
+                </div>
+
+                <div class="event-spotlight__slide">
+                    <img src="assets/mande-hill-farm-dark.jpg" alt="" class="event-spotlight__img" loading="lazy">
+                    <div class="event-spotlight__scrim"></div>
+                    <div class="event-spotlight__info">
+                        <div class="event-spotlight__date mono">Aug 2025</div>
+                        <div class="event-spotlight__venue">Hill Farm &amp; Hildene</div>
+                        <div class="event-spotlight__event">Two-Day Wedding Weekend</div>
+                    </div>
+                </div>
+
+                <div class="event-spotlight__slide">
+                    <img src="assets/bennington-museum-gala-2024-01.jpg" alt="" class="event-spotlight__img" loading="lazy">
+                    <div class="event-spotlight__scrim"></div>
+                    <div class="event-spotlight__info">
+                        <div class="event-spotlight__date mono">2024</div>
+                        <div class="event-spotlight__venue">Bennington Museum</div>
+                        <div class="event-spotlight__event">Winter Gala</div>
+                    </div>
+                </div>
+
+                <div class="event-spotlight__slide">
+                    <img src="assets/crooked-ram-wedding-01.jpg" alt="" class="event-spotlight__img" loading="lazy">
+                    <div class="event-spotlight__scrim"></div>
+                    <div class="event-spotlight__info">
+                        <div class="event-spotlight__date mono">Aug 2025</div>
+                        <div class="event-spotlight__venue">The Crooked Ram</div>
+                        <div class="event-spotlight__event">Wedding</div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="event-spotlight__nav" id="event-spotlight-nav" aria-label="Event navigation">
+                <button class="event-spotlight__pip is-active" aria-label="Event 1 of 10"></button>
+                <button class="event-spotlight__pip" aria-label="Event 2 of 10"></button>
+                <button class="event-spotlight__pip" aria-label="Event 3 of 10"></button>
+                <button class="event-spotlight__pip" aria-label="Event 4 of 10"></button>
+                <button class="event-spotlight__pip" aria-label="Event 5 of 10"></button>
+                <button class="event-spotlight__pip" aria-label="Event 6 of 10"></button>
+                <button class="event-spotlight__pip" aria-label="Event 7 of 10"></button>
+                <button class="event-spotlight__pip" aria-label="Event 8 of 10"></button>
+                <button class="event-spotlight__pip" aria-label="Event 9 of 10"></button>
+                <button class="event-spotlight__pip" aria-label="Event 10 of 10"></button>
             </div>
         </section>
 
@@ -381,7 +464,7 @@
                 </div>
 
                 <div class="insights-cta ">
-                    <a href="insights.html" class="btn btn-primary">View All Articles</a>
+                    <a href="insights.html" class="btn-ghost">View All Articles &rarr;</a>
                 </div>
             </div>
         </section>
@@ -499,7 +582,7 @@
         <section class="final-cta eq-reveal" id="start" aria-label="Start a project">
             <div class="container">
                 <h2 class="final-cta__headline">
-                    If your event deserves a team that treats it like theirs.
+                    Your event deserves a team that treats it like theirs.
                 </h2>
                 <a href="contact.html" class="final-cta__link">Start a project &rarr;</a>
             </div>
@@ -560,7 +643,7 @@
                 Manchester, VT<br>
                 <a href="mailto:info@equinoxaudiovisuals.com">info@equinoxaudiovisuals.com</a>
             </p>
-            <a href="contact.html" class="btn" style="display:inline-block;">Start a project &rarr;</a>
+            <a href="contact.html" class="btn-ghost" style="display:inline-block;">Start a project &rarr;</a>
         </div>
     </div>
     <!-- Mono spec line -->
@@ -572,25 +655,7 @@
 </footer>
 </div>
 
-    <script src="script.js?v=10"></script>
-
-
-    <!-- Random hero video — pool A (exclusive to homepage) -->
-    <script>
-    (function () {
-        var pool = [
-            'assets/venue-flythrough.mp4',
-            'assets/arlington-common-flythrough.mp4',
-            'assets/bennington-museum-flythrough.mp4'
-        ];
-        var vid = document.getElementById('home-hero-video');
-        if (vid) {
-            var pick = pool[Math.floor(Math.random() * pool.length)];
-            vid.src = pick;
-            vid.load();
-        }
-    }());
-    </script>
+    <script src="script.js?v=12"></script>
 
     <!-- HubSpot Tracking Code -->
     <script type="text/javascript" id="hs-script-loader" async defer src="https://js-na2.hs-scripts.com/243705543.js"></script>

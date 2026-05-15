@@ -283,7 +283,347 @@ document.addEventListener('DOMContentLoaded', function() {
     // ========================================
 
 
-    // --- Video Playback Speed Control ---
+    // --- Randomize Homepage Work Preview Cards ---
+    function initWorkPreview() {
+        const grid = document.querySelector('.work-preview__grid');
+        if (!grid) return;
+
+        const allCases = [
+            {
+                href: 'work-women-in-leadership-2026.html',
+                src: 'assets/thumb-hildene-2026.jpg',
+                alt: 'Women in Leadership Luncheon 2026 at Hildene Lincoln Hall, triple displays.',
+                number: 'May 2026',
+                title: 'Three screens. Two keynotes. One room that didn\u2019t miss a beat.',
+                venue: 'Lincoln Hall at Hildene \u2014 Manchester, VT'
+            },
+            {
+                href: 'work-northshire-gala.html',
+                src: 'assets/northshire-day-school-01.jpg',
+                alt: 'Northshire Day School Harvest Moon Gala.',
+                number: 'Sep 2025',
+                title: 'A fundraiser where every parent in the room heard every word.',
+                venue: 'Northshire Day School \u2014 Manchester, VT'
+            },
+            {
+                href: 'work-hildene-volunteer.html',
+                src: 'assets/hildene-volunteer-2025-01.jpg',
+                alt: 'Hildene Volunteer Appreciation Dinner in Lincoln Hall.',
+                number: 'Aug 2025',
+                title: 'A tribute evening for 125 volunteers. Clear sound in a historic hall.',
+                venue: 'Lincoln Hall at Hildene \u2014 Manchester, VT'
+            },
+            {
+                href: 'work-arlington.html',
+                src: 'assets/arlington-flyfest25-01.jpg',
+                alt: 'Arlington Common Fly Fishing Festival on the town green.',
+                number: 'Jul 2025',
+                title: 'Three summers on the Arlington Common town green.',
+                venue: 'Arlington Common \u2014 Arlington, VT'
+            },
+            {
+                href: 'work-svcc-women-leadership.html',
+                src: 'assets/hildene-svcc-women-leadership-01.jpg',
+                alt: 'A luncheon speaker at Hildene\u2019s Lincoln Hall in natural daylight.',
+                number: 'May 2025',
+                title: 'A room of two hundred, one voice at a time.',
+                venue: 'Lincoln Hall at Hildene \u2014 Manchester, VT'
+            },
+            {
+                href: 'work-svcc-annual-meeting.html',
+                src: 'assets/svcc-taconic-01.jpg',
+                alt: 'SVCC Annual Membership Meeting at Kimpton Taconic.',
+                number: 'Jan 2025',
+                title: 'The chamber\u2019s biggest annual event, run cleanly.',
+                venue: 'Kimpton Taconic \u2014 Manchester, VT'
+            },
+            {
+                href: 'work-bennington-museum.html',
+                src: 'assets/bennington-museum-gala-2024-01.jpg',
+                alt: 'Bennington Museum Gala with Grandma Moses display lighting.',
+                number: 'Annual 2023\u20132025',
+                title: 'The kind of event where a missed cue costs real money.',
+                venue: 'Bennington Museum \u2014 Bennington, VT'
+            },
+            {
+                href: 'work-vanish-screening.html',
+                src: 'assets/bennington-museum-vanish-01.jpg',
+                alt: 'Screening at the Bennington Museum in low ambient light.',
+                number: 'Jun 2024',
+                title: 'A film screening the museum could feel.',
+                venue: 'Bennington Museum \u2014 Bennington, VT'
+            },
+            {
+                href: 'work-bennington-summer.html',
+                src: 'assets/bennington-museum-summer-01.jpg',
+                alt: 'Bennington Museum Summer Celebration outdoor event.',
+                number: 'Jun 2024',
+                title: '\u201CA View of the Future from the Top of the Hill.\u201D',
+                venue: 'Bennington Museum \u2014 Bennington, VT'
+            },
+            {
+                href: 'work-two-day-wedding.html',
+                src: 'assets/mande-hill-farm-sunset.jpg',
+                alt: 'Two-day wedding weekend at Hill Farm and Hildene.',
+                number: 'Aug 2025',
+                title: 'Two venues, two days, one continuous production.',
+                venue: 'Hill Farm and Hildene \u2014 Manchester, VT'
+            },
+            {
+                href: 'work-crooked-ram.html',
+                src: 'assets/crooked-ram-wedding-01.jpg',
+                alt: 'Wedding at The Crooked Ram with custom projection.',
+                number: 'Aug 2025',
+                title: 'A tribute video that felt personal, not technical.',
+                venue: 'The Crooked Ram \u2014 Vermont'
+            },
+            {
+                href: 'work-hildene.html',
+                src: 'assets/hildene-gallery-1.jpg',
+                alt: 'Hildene Lincoln Hall Summer Wedding with atmospheric uplighting.',
+                number: 'Summer 2025',
+                title: 'Speakers hidden. Nothing visible that shouldn\u2019t be.',
+                venue: 'Lincoln Hall at Hildene \u2014 Manchester, VT'
+            },
+            {
+                href: 'work-kimpton-taconic.html',
+                src: 'assets/kimpton-taconic-01.jpg',
+                alt: 'Winter wedding reception in the Kimpton Taconic ballroom.',
+                number: 'Early 2025',
+                title: 'A winter wedding reception in the Taconic ballroom.',
+                venue: 'Kimpton Taconic \u2014 Manchester, VT'
+            },
+            {
+                href: 'work-equinox-wedding.html',
+                src: 'assets/equinox-tent-wedding-01.jpg',
+                alt: 'Tent wedding at the Equinox Resort, warm tungsten light on guests at dusk.',
+                number: 'Sep 2024',
+                title: 'A tent, rain, and a first dance at 20:12.',
+                venue: 'Equinox Resort \u2014 Manchester, VT'
+            },
+            {
+                href: 'work-hildene-wedding-2.html',
+                src: 'assets/hildene-wedding2-01.jpg',
+                alt: 'Hildene Lincoln Hall Wedding with atmospheric uplighting.',
+                number: 'Fall 2024',
+                title: 'A modern celebration that honored the room.',
+                venue: 'Lincoln Hall at Hildene \u2014 Manchester, VT'
+            }
+        ];
+
+        // Shuffle and pick 3
+        const shuffled = allCases.slice().sort(() => Math.random() - 0.5);
+        const picks = shuffled.slice(0, 3);
+
+        grid.innerHTML = picks.map(c => `
+            <a class="work-card-v2" href="${c.href}">
+                <div class="work-card-v2__image-well">
+                    <img class="work-card-v2__image" src="${c.src}" alt="${c.alt}" loading="lazy">
+                </div>
+                <div class="work-card-v2__number mono">${c.number}</div>
+                <h3 class="work-card-v2__title">${c.title}</h3>
+                <div class="work-card-v2__venue">${c.venue}</div>
+            </a>
+        `).join('');
+    }
+
+    initWorkPreview();
+
+    // --- Testimonial Quote Rotator ---
+    function initTestimonialRotator() {
+        const section  = document.querySelector('.testimonial-editorial');
+        if (!section) return;
+        const quoteEl  = section.querySelector('.testimonial-editorial__quote');
+        const attrEl   = section.querySelector('.testimonial-editorial__attribution');
+        if (!quoteEl || !attrEl) return;
+
+        const quotes = [
+            {
+                text: '\u201cWhether it\u2019s the Lincoln Symposium or a wedding reception, Equinox brings a hospitality mindset that puts everyone at ease.\u201d',
+                name: 'President \u2014 Hildene, The Lincoln Family Home',
+                location: 'Manchester, Vermont'
+            },
+            {
+                text: '\u201cEquinox provided exceptional audio and lighting for our wedding. Their team was professional, unobtrusive, and delivered a beautiful result that perfectly honored the venue.\u201d',
+                name: 'Wedding Client \u2014 Lincoln Hall at Hildene',
+                location: 'Manchester, Vermont'
+            },
+            {
+                text: '\u201cEvery year we bring Equinox back for FlyFest. They know how to set up on a town green, keep things running across three days, and disappear when the music starts. That\u2019s what we need.\u201d',
+                name: 'Festival Organizer \u2014 Arlington Common',
+                location: 'Arlington, Vermont'
+            },
+            {
+                text: '\u201cThe annual membership meeting is the chamber\u2019s biggest event. Equinox ran it cleanly from the first presentation slide to the final award. We didn\u2019t have to think about AV once.\u201d',
+                name: 'Executive Director \u2014 SVCC',
+                location: 'Manchester, Vermont'
+            },
+            {
+                text: '\u201cThe projection and sound for the Vanish screening felt like a real theater experience. Guests kept asking who handled production. We were proud to say it was a local team.\u201d',
+                name: 'Events Director \u2014 Bennington Museum',
+                location: 'Bennington, Vermont'
+            },
+            {
+                text: '\u201cOur gala is the kind of event where a missed cue costs real money. Equinox has never missed one. Three years running.\u201d',
+                name: 'Development Director \u2014 Bennington Museum',
+                location: 'Bennington, Vermont'
+            },
+            {
+                text: '\u201cWe had two venues, two days, and one team to hold it all together. Equinox was the constant. The lighting, the sound, the timing \u2014 it all matched perfectly.\u201d',
+                name: 'Wedding Client \u2014 Hill Farm and Hildene',
+                location: 'Manchester, Vermont'
+            },
+            {
+                text: '\u201cThe tribute video for the volunteers played beautifully. Clear, warm sound filling every corner of Lincoln Hall exactly as we hoped. We\u2019ve already booked them again.\u201d',
+                name: 'Programs Director \u2014 Hildene, The Lincoln Family Home',
+                location: 'Manchester, Vermont'
+            }
+        ];
+
+        let currentIdx = 0;
+
+        function showQuote(idx, animate) {
+            const q = quotes[idx];
+            if (animate) {
+                section.classList.add('testimonial-editorial--fading');
+                setTimeout(function () {
+                    quoteEl.textContent = q.text;
+                    attrEl.innerHTML = '<span class="testimonial-editorial__name">' + q.name + '</span>' + q.location;
+                    section.classList.remove('testimonial-editorial--fading');
+                }, 460);
+            } else {
+                quoteEl.textContent = q.text;
+                attrEl.innerHTML = '<span class="testimonial-editorial__name">' + q.name + '</span>' + q.location;
+            }
+        }
+
+        // Start at a random quote
+        currentIdx = Math.floor(Math.random() * quotes.length);
+        showQuote(currentIdx, false);
+
+        // Rotate every 7 seconds
+        setInterval(function () {
+            currentIdx = (currentIdx + 1) % quotes.length;
+            showQuote(currentIdx, true);
+        }, 7000);
+    }
+
+    initTestimonialRotator();
+
+    // --- Story Beat Rotator ---
+    function initStoryBeatRotator() {
+        const section = document.querySelector('.story-beat');
+        if (!section) return;
+        const bodyEl  = section.querySelector('.story-beat__body');
+        const eyebrow = section.querySelector('.story-beat__eyebrow');
+        const link    = section.querySelector('.story-beat__link');
+        if (!bodyEl) return;
+
+        const stories = [
+            {
+                text: "A hundred and twenty guests under one tent. The bride\u2019s music teacher \u2014 a family friend since she was nine \u2014 played guitar and sang live. Every vow heard at every seat. First dance at 8:12.",
+                eyebrow: "Equinox Resort \u2014 Manchester, VT \u2014 August 2025",
+                href: "work-equinox-wedding.html"
+            },
+            {
+                text: "Three days on a town green. Four bands, two stages, one crew. Sound checks at seven, gates at noon, close at ten. The green looked exactly the same on Sunday as it did on Thursday.",
+                eyebrow: "Arlington Common \u2014 Arlington, VT \u2014 July 2025",
+                href: "work-arlington.html"
+            },
+            {
+                text: "A silent film from 1928. A museum gallery converted for one night. Projection on the main wall, live piano through the PA, guests seated in the dark. Nobody checked their phone once.",
+                eyebrow: "Bennington Museum \u2014 Bennington, VT \u2014 April 2026",
+                href: "work-bennington-museum.html"
+            },
+            {
+                text: "Seven award presentations, a keynote, two panels, and a standing-room crowd. Not one dropped slide, not one dead microphone. The executive director called it the smoothest meeting in ten years.",
+                eyebrow: "SVCC Annual Meeting \u2014 Manchester, VT \u2014 January 2026",
+                href: "work-svcc-annual-meeting.html"
+            },
+            {
+                text: "Two venues, two days, one lighting rig that had to match both. The ceremony in a meadow at dusk. The reception inside Hildene at nine. Every cue landed. They danced until midnight.",
+                eyebrow: "Hill Farm and Hildene \u2014 Manchester, VT \u2014 August 2025",
+                href: "work-two-day-wedding.html"
+            }
+        ];
+
+        let idx = Math.floor(Math.random() * stories.length);
+
+        function showStory(i, animate) {
+            const s = stories[i];
+            if (animate) {
+                section.style.opacity = '0';
+                section.style.transition = 'opacity 0.4s ease';
+                setTimeout(function () {
+                    bodyEl.textContent = s.text;
+                    if (eyebrow) eyebrow.textContent = s.eyebrow;
+                    if (link) link.href = s.href;
+                    section.style.opacity = '1';
+                }, 420);
+            } else {
+                bodyEl.textContent = s.text;
+                if (eyebrow) eyebrow.textContent = s.eyebrow;
+                if (link) link.href = s.href;
+            }
+        }
+
+        showStory(idx, false);
+        setInterval(function () {
+            idx = (idx + 1) % stories.length;
+            showStory(idx, true);
+        }, 9000);
+    }
+
+    initStoryBeatRotator();
+
+    // --- Event Spotlight Carousel ---
+    function initEventSpotlight() {
+        const stage = document.getElementById('event-spotlight-stage');
+        const navEl  = document.getElementById('event-spotlight-nav');
+        if (!stage || !navEl) return;
+
+        const slides = Array.from(stage.querySelectorAll('.event-spotlight__slide'));
+        const pips   = Array.from(navEl.querySelectorAll('.event-spotlight__pip'));
+        if (!slides.length) return;
+
+        let current  = 0;
+        let timer    = null;
+        const DELAY  = 5000;
+
+        function goTo(idx) {
+            slides[current].classList.remove('is-active');
+            pips[current].classList.remove('is-active');
+            current = (idx + slides.length) % slides.length;
+            slides[current].classList.add('is-active');
+            pips[current].classList.add('is-active');
+        }
+
+        function start() {
+            timer = setInterval(function () {
+                goTo(current + 1);
+            }, DELAY);
+        }
+
+        function stop() {
+            clearInterval(timer);
+        }
+
+        pips.forEach(function (pip, i) {
+            pip.addEventListener('click', function () {
+                stop();
+                goTo(i);
+                start();
+            });
+        });
+
+        stage.addEventListener('mouseenter', stop);
+        stage.addEventListener('mouseleave', start);
+
+        start();
+    }
+
+    initEventSpotlight();
+
     function setVideoSpeeds() {
         const allVideos = document.querySelectorAll('video');
         const currentPage = window.location.pathname.split("/").pop();
@@ -304,6 +644,39 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // --- Hero Video Fade-In ---
+    // Removes poster (prevents image-to-video jump) and fades in once playable
+    function initHeroVideoFade() {
+        const heroMedia = document.querySelectorAll('.hero__image, .page-hero-v2__image');
+        heroMedia.forEach(function(el) {
+            if (el.tagName === 'VIDEO') {
+                el.removeAttribute('poster');
+                function markReady() {
+                    el.classList.add('hero-video-loaded');
+                }
+                if (el.readyState >= 2) {
+                    markReady();
+                } else {
+                    el.addEventListener('canplay', markReady, { once: true });
+                    // Safety fallback: if canplay never fires within 4s, show anyway
+                    setTimeout(markReady, 4000);
+                }
+            } else if (el.tagName === 'IMG') {
+                // Static images: fade in on load
+                function markImgReady() {
+                    el.classList.add('hero-video-loaded');
+                }
+                if (el.complete && el.naturalWidth > 0) {
+                    markImgReady();
+                } else {
+                    el.addEventListener('load', markImgReady, { once: true });
+                    setTimeout(markImgReady, 3000);
+                }
+            }
+        });
+    }
+    initHeroVideoFade();
     
     // Set video speeds immediately
     setVideoSpeeds();
@@ -1801,7 +2174,6 @@ function initEqCaseLightbox() {
     }
 
     var arr = Array.prototype.slice.call(galleryImgs);
-
     var lb = document.createElement('div');
     lb.id = 'eq-lightbox';
     lb.className = 'eq-lightbox';
@@ -1881,11 +2253,22 @@ function initEqCaseLightbox() {
 
     arr.forEach(function (img, i) {
         img.style.cursor = 'zoom-in';
-        img.addEventListener('click', function (e) {
+        // Bind to both the img and its parent .case-gallery__item for reliability
+        var trigger = img.closest('.case-gallery__item') || img;
+        trigger.style.cursor = 'zoom-in';
+        trigger.addEventListener('click', function (e) {
             e.preventDefault();
             e.stopPropagation();
             open(arr, i);
         });
+        // Also keep listener on img itself in case trigger is the img
+        if (trigger !== img) {
+            img.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                open(arr, i);
+            });
+        }
     });
 }
 
