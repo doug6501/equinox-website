@@ -462,22 +462,21 @@ html:has(body.v2) {
     color: var(--ink);
 }
 
-/* Mobile menu backdrop — full viewport, distanced blur (fixes legacy 25% “gray slab”) */
+/* Mobile menu backdrop — dims left side only; panel occupies right 75% */
 @media (max-width: 992px) {
     body.v2.nav-open::before {
         content: "";
         position: fixed;
-        inset: 0;
-        left: 0 !important;
-        top: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
+        top: 0;
+        left: 0;
+        width: 25%;
+        height: 100%;
         min-height: 100dvh;
-        background: rgba(0, 0, 0, 0.3) !important;
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
+        background: rgba(0, 0, 0, 0.55);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
         z-index: 9998 !important;
-        pointer-events: auto;
+        pointer-events: none;
     }
 }
 

@@ -2,20 +2,23 @@
 // PROJECT NAVIGATION ORDER
 // ========================================
 const PROJECT_ORDER = [
-    'work-hildene.html', // September 2025
-    'work-crooked-ram.html', // August 2025
-    'work-two-day-wedding.html', // August 2025
-    'work-hildene-volunteer.html', // August 2025
-    'work-svcc-women-leadership.html', // May 2025
-    'work-arlington.html', // 2025
-    'work-northshire-gala.html', // 2023-2025
-    'work-bennington-museum.html', // 2023-2025
-    'work-svcc-annual-meeting.html', // January 2025
-    'work-hildene-wedding-2.html', // Fall 2024
-    'work-kimpton-taconic.html', // December 2024
-    'work-vanish-screening.html', // October 2024
-    'work-equinox-wedding.html', // September 2024
-    'work-bennington-summer.html' // Summer 2024
+    'work-hildene-lincoln-essays-2026.html', // May 17, 2026
+    'work-women-in-leadership-2026.html',    // May 13, 2026
+    'work-hildene.html',                     // September 2025
+    'work-crooked-ram.html',                 // August 2025
+    'work-two-day-wedding.html',             // August 2025
+    'work-hildene-volunteer.html',           // August 2025
+    'work-arlington.html',                   // July 2025
+    'work-hildene-lincoln-essays-2025.html', // May 18, 2025
+    'work-svcc-women-leadership.html',       // May 14, 2025
+    'work-northshire-gala.html',             // Annual 2023–2025
+    'work-bennington-museum.html',           // Annual 2023–2025
+    'work-svcc-annual-meeting.html',         // January 2025
+    'work-hildene-wedding-2.html',           // Fall 2024
+    'work-kimpton-taconic.html',             // December 2024
+    'work-vanish-screening.html',            // October 2024
+    'work-equinox-wedding.html',             // September 2024
+    'work-bennington-summer.html'            // Summer 2024
 ];
 
 // ========================================
@@ -1406,18 +1409,7 @@ function copyToClipboard(text) {
 
 initSocialSharing();
 
-/** Lock / release document scroll for lightbox modals (html + body; clears inline overflow too). */
-function eqLockBodyScroll() {
-    document.documentElement.classList.add('stop-scroll');
-    document.body.classList.add('stop-scroll');
-}
-
-function eqReleaseBodyScroll() {
-    document.documentElement.classList.remove('stop-scroll');
-    document.body.classList.remove('stop-scroll');
-    document.documentElement.style.overflow = '';
-    document.body.style.overflow = '';
-}
+/* Scroll-lock helpers are defined at script level — see below DOMContentLoaded */
 
 // ========================================
 // IMAGE LIGHTBOX FOR GALLERIES
@@ -2154,6 +2146,21 @@ function showAllProjects() {
             firstHiddenCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }, 100);
     }
+}
+
+// ========================================
+// SCROLL LOCK HELPERS (script-level so lightbox can access them)
+// ========================================
+function eqLockBodyScroll() {
+    document.documentElement.classList.add('stop-scroll');
+    document.body.classList.add('stop-scroll');
+}
+
+function eqReleaseBodyScroll() {
+    document.documentElement.classList.remove('stop-scroll');
+    document.body.classList.remove('stop-scroll');
+    document.documentElement.style.overflow = '';
+    document.body.style.overflow = '';
 }
 
 // ========================================
