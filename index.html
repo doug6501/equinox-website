@@ -23,7 +23,8 @@
     <!-- Hero: poster while video loads + preload looping background -->
     <link rel="preload" href="assets/hildene-volunteer-2025-01.jpg" as="image" fetchpriority="high">
     <link rel="preload" href="assets/equinox-av-background-720p.mov" as="video" type="video/quicktime">
-    <link rel="preload" href="assets/logo.png" as="image">
+    <link rel="preload" href="assets/logo-wordmark.png" as="image"/>
+    <link rel="preload" href="assets/logo-stacked.png" as="image"/>
     
     <!-- JSON-LD Structured Data for Local Business -->
     <script type="application/ld+json">
@@ -72,6 +73,46 @@
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,WONK@9..144,400..600,0..1&family=Inter+Tight:wght@400;500;600&family=DM+Serif+Display&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="stable-header.css?v=18">
     <link rel="stylesheet" href="design-system-v2.css?v=13">
+    <style>
+        /* ── Wordmark in header ── */
+        /* Transparent PNG, ~3.6:1 wide. Sized to sit cleanly in the dark nav. */
+        .logo-badge--wordmark {
+            height: 30px !important;
+            width: auto !important;
+            max-width: 160px !important;
+        }
+        @media (max-width: 768px) {
+            .logo-badge--wordmark {
+                height: 22px !important;
+                max-width: 110px !important;
+            }
+        }
+
+        /* ── Stacked hero logo — positioned in the upper third ── */
+        /* Override the default center-align to push it above the midpoint.
+           Padding-top accounts for the 70px fixed header plus breathing room. */
+        /* Rule of thirds: logo center sits near the upper-third line (~33vh),
+           tagline sits near the lower-third (~67vh). Padding-top positions
+           the logo top; at ~35vw wide the stacked logo is nearly square so
+           half its height ≈ 15vw, placing center at roughly 9vh + 15vw ≈ 33vh. */
+        .home-page .hero__center-logo {
+            align-items: flex-start !important;
+            padding-top: clamp(82px, 9vh, 112px);
+        }
+        .home-page .hero__center-logo-img {
+            width: clamp(218px, 35vw, 476px) !important;
+            opacity: 0.97 !important;
+            filter: drop-shadow(0 6px 36px rgba(10,10,10,0.70)) !important;
+        }
+        @media (max-width: 768px) {
+            .home-page .hero__center-logo {
+                padding-top: clamp(72px, 11vh, 96px);
+            }
+            .home-page .hero__center-logo-img {
+                width: clamp(190px, 58vw, 270px) !important;
+            }
+        }
+    </style>
 </head>
 <body class="home-page v2">
 
@@ -79,7 +120,7 @@
 <header class="header-stable">
     <div class="header-left">
         <a href="index.html" class="logo-link">
-            <img src="assets/logo.png" alt="Equinox Audio Visuals" class="logo-badge">
+            <img src="assets/logo-wordmark.png" alt="Equinox Audio Visuals" class="logo-badge logo-badge--wordmark">
         </a>
     </div>
     <nav class="header-center">
@@ -114,7 +155,7 @@
                 aria-hidden="true"></video>
             <div class="hero__overlay" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,18,18,.10) 0%,rgba(18,18,18,.04) 40%,rgba(18,18,18,.52) 100%);z-index:2;pointer-events:none;"></div>
             <div class="hero__center-logo" aria-hidden="true">
-                <img src="assets/logo.png" alt="" class="hero__center-logo-img">
+                <img src="assets/logo-stacked.png" alt="" class="hero__center-logo-img">
             </div>
             <div class="hero__content" style="z-index:5;">
                 <div class="hero__intro">

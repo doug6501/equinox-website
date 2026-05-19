@@ -19,7 +19,7 @@
 <meta name="twitter:image" content="https://www.eqxav.com/assets/hildene-lincoln-essays-2026-01.png"/>
 <link rel="canonical" href="https://www.eqxav.com/work-hildene-lincoln-essays-2026.html"/>
 <link rel="preload" href="assets/hildene-lincoln-essays-2026-01.png" as="image" fetchpriority="high"/>
-<link rel="preload" href="assets/logo.png" as="image"/>
+<link rel="preload" href="assets/logo-wordmark.png" as="image"/>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-M34S5XLX03"></script>
 <script>
@@ -39,7 +39,7 @@
 <header class="header-stable">
     <div class="header-left">
         <a href="index.html" class="logo-link">
-            <img src="assets/logo.png" alt="Equinox Audio Visuals" class="logo-badge">
+            <img src="assets/logo-wordmark.png" alt="Equinox Audio Visuals" class="logo-badge logo-badge--wordmark">
         </a>
     </div>
     <nav class="header-center">
@@ -198,6 +198,70 @@
         </div>
     </section>
 
+    <!-- FLYTHROUGH VIDEO -->
+    <section class="case-flythrough" aria-label="Venue flythrough">
+        <div class="case-flythrough__inner">
+            <div class="case-flythrough__label mono">Lincoln Hall at Hildene &mdash; May 2026</div>
+            <div class="case-flythrough__viewport">
+                <video
+                    id="hildene-essay-flythrough"
+                    class="case-flythrough__video"
+                    src="assets/Hildene%20-%20Lincoln%20Essay%20Competition%202026%20-%20Flythrough%202.mp4"
+                    muted
+                    playsinline
+                    preload="metadata"
+                    aria-label="Flythrough of the Lincoln Essay Competition 2026 setup at Lincoln Hall, Hildene — room pans forward then reverses in a continuous loop.">
+                </video>
+            </div>
+            <p class="case-flythrough__caption">A walkthrough of the room at full production: three large-format screens in position, six-speaker distributed audio, LED stage lighting dressed, and the space set for the 20th annual awards luncheon.</p>
+        </div>
+    </section>
+    <script>
+    (function () {
+        var video = document.getElementById('hildene-essay-flythrough');
+        if (!video) return;
+
+        var FORWARD_SPEED = 0.5;  /* half-speed forward */
+        var REVERSE_SPEED = 0.5;  /* half-speed in reverse */
+        var rafId = null;
+        var lastTimestamp = null;
+
+        function startForward() {
+            video.playbackRate = FORWARD_SPEED;
+            video.play().catch(function () {});
+        }
+
+        function reverseFrame(timestamp) {
+            if (lastTimestamp === null) lastTimestamp = timestamp;
+            var elapsed = (timestamp - lastTimestamp) / 1000;
+            lastTimestamp = timestamp;
+
+            var next = video.currentTime - elapsed * REVERSE_SPEED;
+            if (next <= 0) {
+                video.currentTime = 0;
+                lastTimestamp = null;
+                startForward();
+            } else {
+                video.currentTime = next;
+                rafId = requestAnimationFrame(reverseFrame);
+            }
+        }
+
+        video.addEventListener('ended', function () {
+            if (rafId) cancelAnimationFrame(rafId);
+            lastTimestamp = null;
+            rafId = requestAnimationFrame(reverseFrame);
+        });
+
+        /* Start as soon as duration is known */
+        if (video.readyState >= 1) {
+            startForward();
+        } else {
+            video.addEventListener('loadedmetadata', startForward, { once: true });
+        }
+    })();
+    </script>
+
     <!-- CASE NAV -->
     <section class="case-nav" aria-label="Case navigation">
         <div class="case-nav__inner">
@@ -215,7 +279,7 @@
     <div class="footer-bug" aria-hidden="true">EQ</div>
     <div class="container footer-container" style="position:relative;z-index:2;">
         <div class="footer-brand">
-            <div class="footer-brand__name">Equinox Audio Visuals</div>
+            <img src="assets/logo-stacked.png" alt="Equinox Audio Visuals" class="footer-brand__logo">
             <p class="footer-brand__tagline">
                 Event production with character. Crafted in Manchester,
                 Vermont and trusted at events across New England and beyond.

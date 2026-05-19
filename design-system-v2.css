@@ -1830,6 +1830,15 @@ html:has(body.v2) {
     -webkit-text-fill-color: var(--bone);
 }
 
+.v2 .footer-brand__logo {
+    height: 60px;
+    width: auto;
+    display: block;
+    margin-bottom: var(--space-3);
+    filter: brightness(0) invert(1);
+    opacity: 0.85;
+}
+
 .v2 .footer-brand__tagline {
     color: var(--linen);
     opacity: 0.75;

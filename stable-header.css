@@ -4995,6 +4995,18 @@ body.case-study-page main {
     filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5)) !important; /* Keep shadow consistent */
 }
 
+/* ── Wordmark variant: wide PNG, kept proportional to the nav text ── */
+.logo-badge--wordmark {
+    height: 30px !important;
+    max-width: 160px !important;
+}
+@media (max-width: 768px) {
+    .logo-badge--wordmark {
+        height: 22px !important;
+        max-width: 110px !important;
+    }
+}
+
 /* --- CENTER: NAV LINKS --- */
 .header-center {
     flex: 2; /* Takes up center space */
