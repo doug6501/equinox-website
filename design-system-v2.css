@@ -4964,29 +4964,6 @@ body.v2.services-detail .service-card-v2__title {
 }
 
 /* ==========================================================================
-   SOUTHWESTERN VERMONT CHAMBER OF COMMERCE — MEMBER LOGO
-   ========================================================================== */
-
-.main-footer .chamber-logo-link {
-    display: inline-block;
-    margin-top: var(--space-3, 24px);
-    opacity: 0.4;
-    transition: opacity 0.3s ease;
-    line-height: 0;
-}
-
-.main-footer .chamber-logo-link:hover {
-    opacity: 0.65;
-}
-
-.main-footer .chamber-logo {
-    display: block;
-    width: 72px;
-    height: auto;
-    filter: grayscale(100%) brightness(2.8);
-}
-
-/* ==========================================================================
    GLOBAL CROSS-DOCUMENT VIEW TRANSITIONS
    ========================================================================== */
 
