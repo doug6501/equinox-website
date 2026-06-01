@@ -4972,11 +4972,11 @@ body.v2.services-detail .service-card-v2__title {
 }
 
 ::view-transition-old(root) {
-    animation: 350ms ease-out fade-out;
+    animation: 600ms ease-out fade-out;
 }
 
 ::view-transition-new(root) {
-    animation: 350ms ease-in fade-in;
+    animation: 600ms ease-in fade-in;
 }
 
 @keyframes fade-out {
