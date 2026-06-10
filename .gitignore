@@ -35,3 +35,6 @@ yarn-error.log*
 # Asset Archive (Old/ and Other Options/ moved here - not deployed)
 .asset-archive/
 
+
+# Local Cursor IDE Configurations & UI/UX Skills
+.cursor/
