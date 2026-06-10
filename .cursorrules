@@ -1,0 +1,24 @@
+## DESIGN SYSTEM INTEL (UI/UX PRO MAX)
+- Location: .cursor/skills/ui-ux-pro-max/
+- Whenever modifying or creating HTML files, verify structural hierarchy against the rules in 'ui-reasoning.csv'.
+- Enforce the following strict boundaries for Equinox AV v2.1:
+  * Primary Style: Premium Service Minimalism / Content-First Dark Mode.
+  * Typography: Preserve Newsreader Serif headers paired with clean Sans-serif body prose.
+  * Spatial Rule: Maintain 15rem vertical "Max Breath" margins for core elements.
+  * Animation: Global cross-document view transitions locked at 350ms.
+- ANTI-PATTERNS TO ENFORCE (SILENTLY ABORT IF DETECTED):
+  * No trend-chasing visual clutter (No neumorphism or heavy gradient meshes).
+  * No generic "AI Indigo" or purple-to-pink highlights.
+  * No emojis used as standalone icons; always use crisp semantic SVGs.
+  * No layout shifts; ensure image containers have explicit aspect ratios or width parameters.
+
+---
+
+# Equinox Audio Visuals — Project Rules
+
+This is a static, multi-page marketing site (vanilla HTML/CSS/JS, no build step).
+Design tokens live in `stable-header.css` `:root`; v2 component styles live in
+`design-system-v2.css` and are scoped to `.v2` on `<body>`.
+
+When making design or layout changes, consult the DESIGN SYSTEM INTEL block above
+and the local UX guidelines under `.cursor/skills/ui-ux-pro-max/` before editing.

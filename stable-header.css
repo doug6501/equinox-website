@@ -118,6 +118,7 @@ body,
     --space-5: 64px;
     --space-6: 96px;
     --space-7: 160px;
+    --space-8: 240px; /* 15rem — Max Breath */
 
     /* A/V rack typography rhythm (functional aliases → headline air + paragraph grid) */
     --space-h1-top: 2rem;

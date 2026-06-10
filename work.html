@@ -30,14 +30,25 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter+Tight:wght@400;500;600&family=DM+Serif+Display&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="stable-header.css?v=18">
     <link rel="stylesheet" href="design-system-v2.css?v=13">
 
     <style>
         /* Work index — editorial typographic list */
         .work-index {
-            padding: var(--space-6) 0 var(--space-7) 0;
+            padding: var(--space-8) 0 var(--space-8) 0;
+        }
+
+        /* Hero video — reserve frame before metadata loads */
+        .page-hero-v2 {
+            min-height: 52vh;
+            aspect-ratio: 16 / 9;
+        }
+
+        #work-hero-video {
+            width: 100%;
+            aspect-ratio: 16 / 9;
         }
 
         .work-index__header {
@@ -53,9 +64,9 @@
         }
 
         .work-index__title {
-            font-family: var(--font-display);
+            font-family: var(--font-heading);
             font-size: var(--scale-6);
-            font-weight: 400;
+            font-weight: 500;
             line-height: 1.0;
             letter-spacing: -0.01em;
             color: var(--ink);
@@ -108,18 +119,20 @@
         }
 
         .work-clients__logos a,
-        .work-clients__logos > img {
+        .work-clients__logos > div {
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
             padding: 0.5rem;
+            min-height: 68px;
+            width: 100%;
         }
 
         .work-clients__logos img {
+            width: 160px;
             height: 52px;
-            width: auto;
-            max-width: 160px;
+            aspect-ratio: 160 / 52;
             object-fit: contain;
             /* brightness(0) normalises all logos to black, opacity sets tone */
             filter: brightness(0) opacity(0.55);
@@ -144,8 +157,9 @@
                 grid-template-columns: repeat(2, 1fr);
             }
             .work-clients__logos img {
+                width: 120px;
                 height: 40px;
-                max-width: 120px;
+                aspect-ratio: 3 / 1;
             }
         }
 
@@ -160,16 +174,26 @@
             border-bottom: 1px solid var(--linen);
             text-decoration: none;
             color: inherit;
-            transition: background var(--dur-1) var(--ease);
+            position: relative;
+            isolation: isolate;
+            transition: background-color var(--dur-1) var(--ease),
+                        box-shadow var(--dur-1) var(--ease);
         }
 
-        .case-row:hover {
-            background: var(--linen);
-            margin: 0 calc(-1 * var(--space-3));
-            padding-left: var(--space-3);
-            padding-right: var(--space-3);
-            padding-top: var(--space-3);
-            padding-bottom: var(--space-3);
+        .case-row::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: calc(-1 * var(--space-3));
+            right: calc(-1 * var(--space-3));
+            background-color: transparent;
+            transition: background-color var(--dur-1) var(--ease);
+            z-index: -1;
+        }
+
+        .case-row:hover::before {
+            background-color: var(--linen);
         }
 
         .case-row:first-child {
@@ -245,14 +269,14 @@
 
         /* CTA */
         .work-cta {
-            padding: var(--space-6) 0 var(--space-7) 0;
+            padding: var(--space-8) 0 var(--space-8) 0;
             border-top: 1px solid var(--linen);
         }
 
         .work-cta__body {
-            font-family: var(--font-display);
+            font-family: var(--font-heading);
             font-size: var(--scale-5);
-            font-weight: 400;
+            font-weight: 500;
             line-height: 1.2;
             letter-spacing: -0.01em;
             color: var(--ink);

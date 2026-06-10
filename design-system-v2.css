@@ -79,8 +79,8 @@ html:has(body.v2) {
 
 .v2 h5,
 .v2 h6 {
-    font-family: var(--font-display);
-    font-weight: 400;
+    font-family: var(--font-heading);
+    font-weight: 500;
 }
 
 .v2 h1 {
@@ -200,12 +200,11 @@ html:has(body.v2) {
     font-variant-alternates: normal;
 }
 
-/* Suppress swash/alternates on all Fraunces (--font-display) usage */
+/* h5/h6 — Newsreader (--font-heading), same rack as h1–h4 */
 .v2 h5,
 .v2 h6 {
-    font-family: var(--font-display);
-    font-weight: 400;
-    font-variation-settings: "WONK" 0;
+    font-family: var(--font-heading);
+    font-weight: 500;
     font-feature-settings: "ss01" 0, "swsh" 0;
     font-variant-alternates: normal;
 }
@@ -4972,11 +4971,11 @@ body.v2.services-detail .service-card-v2__title {
 }
 
 ::view-transition-old(root) {
-    animation: 600ms ease-out fade-out;
+    animation: 350ms ease-out fade-out;
 }
 
 ::view-transition-new(root) {
-    animation: 600ms ease-in fade-in;
+    animation: 350ms ease-in fade-in;
 }
 
 @keyframes fade-out {
