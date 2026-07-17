@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
-    <title>EQX AV — Technical producer · Event production with character.</title>
-    <meta name="description" content="EQX AV (Equinox Audio Visuals) produces weddings, galas, and conferences across New England and beyond. Est. 2023, Manchester, Vermont. Technical producer–grade AV: invisible when it matters, flawless when it counts.">
+    <title>Equinox Audio Visuals — Event production with character.</title>
+    <meta name="description" content="Equinox Audio Visuals produces weddings, galas, and conferences across New England and beyond. Est. 2023, Manchester, Vermont. Event production with character — hospitality-minded AV that stays invisible when it matters.">
     <meta name="keywords" content="audio visual production, event AV services, wedding AV, corporate events, conference production, Manchester Vermont, professional AV">
     <meta name="author" content="Equinox Audio Visuals">
     <meta property="og:title" content="Equinox Audio Visuals — Event production with character.">
@@ -20,11 +20,9 @@
     <meta name="twitter:image" content="https://www.eqxav.com/assets/logo.png">
     <link rel="canonical" href="https://www.eqxav.com/">
     
-    <!-- Hero: poster while video loads + preload looping background -->
     <link rel="preload" href="assets/hildene-volunteer-2025-01.jpg" as="image" fetchpriority="high">
     <link rel="preload" href="assets/equinox-av-background-720p.mov" as="video" type="video/quicktime">
     <link rel="preload" href="assets/logo-wordmark.png" as="image"/>
-    <link rel="preload" href="assets/logo-stacked.png" as="image"/>
     
     <!-- JSON-LD Structured Data for Local Business -->
     <script type="application/ld+json">
@@ -68,51 +66,11 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- v2 fonts: Fraunces (editorial serif display) + Inter Tight (body) + JetBrains Mono -->
+    <!-- v2 fonts: Newsreader (display) + Inter Tight (body) + JetBrains Mono -->
     <!-- DM Serif Display + Inter kept as fallback for legacy components on non-v2 pages -->
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,WONK@9..144,400..600,0..1&family=Inter+Tight:wght@400;500;600&family=DM+Serif+Display&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="stable-header.css?v=18">
-    <link rel="stylesheet" href="design-system-v2.css?v=13">
-    <style>
-        /* ── Wordmark in header ── */
-        /* Transparent PNG, ~3.6:1 wide. Sized to sit cleanly in the dark nav. */
-        .logo-badge--wordmark {
-            height: 30px !important;
-            width: auto !important;
-            max-width: 160px !important;
-        }
-        @media (max-width: 768px) {
-            .logo-badge--wordmark {
-                height: 22px !important;
-                max-width: 110px !important;
-            }
-        }
-
-        /* ── Stacked hero logo — positioned in the upper third ── */
-        /* Override the default center-align to push it above the midpoint.
-           Padding-top accounts for the 70px fixed header plus breathing room. */
-        /* Rule of thirds: logo center sits near the upper-third line (~33vh),
-           tagline sits near the lower-third (~67vh). Padding-top positions
-           the logo top; at ~35vw wide the stacked logo is nearly square so
-           half its height ≈ 15vw, placing center at roughly 9vh + 15vw ≈ 33vh. */
-        .home-page .hero__center-logo {
-            align-items: flex-start !important;
-            padding-top: clamp(82px, 9vh, 112px);
-        }
-        .home-page .hero__center-logo-img {
-            width: clamp(218px, 35vw, 476px) !important;
-            opacity: 0.97 !important;
-            filter: drop-shadow(0 6px 36px rgba(10,10,10,0.70)) !important;
-        }
-        @media (max-width: 768px) {
-            .home-page .hero__center-logo {
-                padding-top: clamp(72px, 11vh, 96px);
-            }
-            .home-page .hero__center-logo-img {
-                width: clamp(190px, 58vw, 270px) !important;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stable-header.css?v=19">
+    <link rel="stylesheet" href="design-system-v2.css?v=15">
 
 </head>
 <body class="home-page v2">
@@ -131,7 +89,7 @@
             <li><a href="about.html">About</a></li>
             <li><a href="process.html">Process</a></li>
             <li><a href="insights.html">Insights</a></li>
-                <li><a href="contact.html">Contact</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
     <div class="header-right">
@@ -145,7 +103,7 @@
 
     <main>
 
-        <!-- HERO — full-bleed looping brand background (720p) -->
+        <!-- HERO — brand reel (video kept); Quiet Room: headline only, no logo medallion -->
         <section class="hero" aria-label="Hero">
             <video
                 id="home-hero-video"
@@ -154,16 +112,11 @@
                 poster="assets/hildene-volunteer-2025-01.jpg"
                 autoplay muted loop playsinline
                 aria-hidden="true"></video>
-            <div class="hero__overlay" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,18,18,.10) 0%,rgba(18,18,18,.04) 40%,rgba(18,18,18,.52) 100%);z-index:2;pointer-events:none;"></div>
-            <div class="hero__center-logo" aria-hidden="true">
-                <img src="assets/logo-stacked.png" alt="" class="hero__center-logo-img">
+            <div class="hero__overlay" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,18,18,.18) 0%,rgba(18,18,18,.08) 35%,rgba(18,18,18,.62) 100%);z-index:2;pointer-events:none;"></div>
+            <div class="hero__content">
+                <h1 class="hero__headline display">Event production with character.</h1>
             </div>
-            <div class="hero__content" style="z-index:5;">
-                <div class="hero__intro">
-                    <div class="hero__eyebrow mono">Equinox Audio Visuals &mdash; Vermont &mdash; Est. 2023</div>
-                    <h1 class="hero__headline display">Event production with character.</h1>
-                </div>
-            </div>
+            <div class="hero__eyebrow mono">Vermont &middot; Est. 2023</div>
         </section>
 
         <!-- Metrics strip — Direction A: mono spec line -->
@@ -180,7 +133,7 @@
             <div class="event-spotlight__stage" id="event-spotlight-stage">
 
                 <div class="event-spotlight__slide is-active">
-                    <img src="assets/women-in-leadership-luncheon-2026-hildene-01.JPG" alt="" class="event-spotlight__img" loading="eager">
+                    <img src="assets/banner-wil-2026-keynotes-wide.jpg" alt="Women in Leadership Luncheon 2026 at Lincoln Hall, Hildene." class="event-spotlight__img" loading="eager">
                     <div class="event-spotlight__scrim"></div>
                     <div class="event-spotlight__info">
                         <div class="event-spotlight__date mono">May 2026</div>
@@ -213,7 +166,7 @@
                     <img src="assets/arlington-flyfest25-01.jpg" alt="" class="event-spotlight__img" loading="lazy">
                     <div class="event-spotlight__scrim"></div>
                     <div class="event-spotlight__info">
-                        <div class="event-spotlight__date mono">Jul 2025</div>
+                        <div class="event-spotlight__date mono">Spring 2025</div>
                         <div class="event-spotlight__event">FlyFest 2025</div>
                         <div class="event-spotlight__venue">Arlington Common</div>
                     </div>
@@ -294,42 +247,6 @@
             </div>
         </section>
 
-        <!-- Client Logo Bar - hidden by v2 CSS; replaced by The Ledger above -->
-        <section class="client-logo-bar">
-            <div class="container">
-                <h3 class="section-eyebrow fade-in-up">TRUSTED BY LEADING VENUES & BRANDS</h3>
-            </div>
-            <div class="logo-scroll-container">
-                <!-- ROW 1: Scrolls left to right -->
-                <div class="logo-scroll-track">
-                    <div class="logo-item"><img src="assets/bennington-museum-logo.webp" alt="Bennington Museum"></div>
-                    <div class="logo-item"><img src="assets/logo-hildene.webp" alt="Hildene, The Lincoln Family Home"></div>
-                    <div class="logo-item"><img src="assets/arlington-common.webp" alt="Arlington Common"></div>
-                    <div class="logo-item"><img src="assets/kimpton-taconic.png" alt="Kimpton Taconic"></div>
-                    <div class="logo-item"><img src="assets/logo-equinox-resort.png" alt="The Equinox Resort"></div>
-                    <!-- Duplicate for seamless loop -->
-                    <div class="logo-item"><img src="assets/bennington-museum-logo.webp" alt="Bennington Museum"></div>
-                    <div class="logo-item"><img src="assets/logo-hildene.webp" alt="Hildene, The Lincoln Family Home"></div>
-                    <div class="logo-item"><img src="assets/arlington-common.webp" alt="Arlington Common"></div>
-                    <div class="logo-item"><img src="assets/kimpton-taconic.png" alt="Kimpton Taconic"></div>
-                    <div class="logo-item"><img src="assets/logo-equinox-resort.png" alt="The Equinox Resort"></div>
-                </div>
-                
-                <!-- ROW 2: Scrolls same direction as Row 1 -->
-                <div class="logo-scroll-track">
-                    <div class="logo-item"><img src="assets/SVCC-logo-Round-v1.webp" alt="Southwestern Vermont Chamber of Commerce"></div>
-                    <div class="logo-item"><img src="assets/NDS-Logo.png" alt="Northshire Day School"></div>
-                    <div class="logo-item"><img src="assets/theInnatManchester.webp" alt="Inn at Manchester"></div>
-                    <div class="logo-item"><img src="assets/thecrookedramlogo.webp" alt="The Crooked Ram"></div>
-                    <!-- Duplicate for seamless loop -->
-                    <div class="logo-item"><img src="assets/SVCC-logo-Round-v1.webp" alt="Southwestern Vermont Chamber of Commerce"></div>
-                    <div class="logo-item"><img src="assets/NDS-Logo.png" alt="Northshire Day School"></div>
-                    <div class="logo-item"><img src="assets/theInnatManchester.webp" alt="Inn at Manchester"></div>
-                    <div class="logo-item"><img src="assets/thecrookedramlogo.webp" alt="The Crooked Ram"></div>
-                </div>
-            </div>
-        </section>
-        
         <!-- TRUST STRIP — hard proof points between social proof and story -->
         <section class="trust-strip eq-reveal" aria-label="What you can count on">
             <div class="trust-strip__inner">
@@ -369,7 +286,7 @@
                     </div>
                     <div class="trust-strip__text">
                         <div class="trust-strip__value">Service-first approach</div>
-                        <div class="trust-strip__label">We work with your team, not around it</div>
+                        <div class="trust-strip__label">We work with your team, <span class="trust-strip__nowrap">not around it</span></div>
                     </div>
                 </div>
             </div>
@@ -450,12 +367,12 @@
                     <a href="process.html" class="process-teaser__link">See the full process &rarr;</a>
                 </div>
                 <ol class="process-teaser__steps" aria-label="Process overview">
-                    <li><span class="mono">01</span> You reach out</li>
-                    <li><span class="mono">02</span> Discovery call</li>
-                    <li><span class="mono">03</span> Site walk-through</li>
-                    <li><span class="mono">04</span> Custom proposal</li>
-                    <li><span class="mono">05</span> Pre-production</li>
-                    <li><span class="mono">06</span> Show day</li>
+                    <li><span class="mono">1</span> You reach out</li>
+                    <li><span class="mono">2</span> Discovery call</li>
+                    <li><span class="mono">3</span> Site walk-through</li>
+                    <li><span class="mono">4</span> Custom proposal</li>
+                    <li><span class="mono">5</span> Pre-production</li>
+                    <li><span class="mono">6</span> Show day</li>
                 </ol>
             </div>
         </section>
@@ -507,57 +424,6 @@
 
                 <div class="insights-cta ">
                     <a href="insights.html" class="btn-ghost">View All Articles &rarr;</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="testimonial-slider-section">
-            <h2 class="fade-in-up">What Our Clients Say</h2>
-            <div class="testimonial-slider">
-                <div class="slider-track">
-                    <!-- Slide 1 -->
-                    <div class="slide">
-                        <p class="quote">"Equinox has been a huge help to our Winter Gala. From the delicate installations like the Grandma Moses display to the main event lighting, their respect for our history and attention to detail really shines through."</p>
-                        <p class="author">Executive Director</p>
-                        <p class="title">Bennington Museum</p>
-                    </div>
-                    <!-- Slide 2 -->
-                    <div class="slide">
-                        <p class="quote">"Whether it's the Lincoln Symposium or a wedding reception, Equinox brings a hospitality mindset that puts everyone at ease. They blend right in with our team and understand the nuances of our historic venue perfectly."</p>
-                        <p class="author">Events Team</p>
-                        <p class="title">Hildene, The Lincoln Family Home</p>
-                    </div>
-                    <!-- Slide 3 -->
-                    <div class="slide">
-                        <p class="quote">"The Fly Fishing Festival has so many moving parts, and Equinox handled the production logistics flawlessly. They're responsive, skilled, and honestly just the 'nice guys' you actually want on your team."</p>
-                        <p class="author">Festival Organizer</p>
-                        <p class="title">Arlington Common</p>
-                    </div>
-                    <!-- Slide 4 -->
-                    <div class="slide">
-                        <p class="quote">"Our Harvest Moon Gala is our biggest fundraiser of the year, and Equinox helps us create that magical atmosphere. The uplighting transforms our space, and they're always so easy to work with. They just get it."</p>
-                        <p class="author">Development Director</p>
-                        <p class="title">Northshire Day School</p>
-                    </div>
-                    <!-- Slide 5 -->
-                    <div class="slide">
-                        <p class="quote">"Working with Equinox on our Annual Meeting was a breeze. They made our keynote speaker look and sound amazing, and the whole production ran so smoothly that we could actually enjoy the event ourselves!"</p>
-                        <p class="author">Events Coordinator</p>
-                        <p class="title">Southwestern Vermont Chamber of Commerce</p>
-                    </div>
-                    
-<!--
-<!-- Slide 6 -->
-                    <div class="slide">
-                        <p class="quote">"For our wedding at The Crooked Ram, Equinox brought the perfect vibe with their lighting and sound. They were super chill, totally professional, and helped make our day exactly what we dreamed it would be."</p>
-                        <p class="author">Couple</p>
-                        <p class="title">The Crooked Ram Wedding</p>
-                    </div>
-                -->
-</div>
-                <div class="slider-controls">
-                    <button id="prev-slide" class="slider-arrow" aria-label="Previous testimonial">&lt;</button>
-                    <button id="next-slide" class="slider-arrow" aria-label="Next testimonial">&gt;</button>
                 </div>
             </div>
         </section>
@@ -697,7 +563,7 @@
 </footer>
 </div>
 
-    <script src="script.js?v=13"></script>
+    <script src="script.js?v=14"></script>
 
     <!-- HubSpot Tracking Code -->
     <script type="text/javascript" id="hs-script-loader" async defer src="https://js-na2.hs-scripts.com/243705543.js"></script>

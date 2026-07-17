@@ -1,0 +1,206 @@
+/* ═══════════════════════════════════════════════════════════
+   Quiet Room mockups — scoped experiments only.
+   Does not load on live pages. Safe to delete with mockups/.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Mock banner ── */
+.mock-banner {
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.25rem;
+  padding: 0.65rem 1.25rem;
+  background: var(--ink, #121212);
+  color: var(--bone, #F4EFE6);
+  font-family: var(--font-body-v2, "Inter Tight", system-ui, sans-serif);
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+  border-bottom: 2px solid var(--brass, #B8985A);
+}
+
+.mock-banner__label {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--brass, #B8985A);
+}
+
+.mock-banner__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+}
+
+.mock-banner a {
+  color: var(--bone, #F4EFE6);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.mock-banner a:hover {
+  color: var(--brass, #B8985A);
+}
+
+/* Push fixed header below sticky mock banner */
+body.mock-quiet-room {
+  --mock-banner-h: 48px;
+}
+
+body.mock-quiet-room .header-stable {
+  top: var(--mock-banner-h) !important;
+}
+
+/* Offset page content under fixed header + mock banner */
+body.mock-quiet-room.home-page main,
+body.mock-quiet-room.case-study-page main {
+  padding-top: 0;
+}
+
+body.mock-quiet-room.case-study-page .case-study-hero {
+  margin-top: calc(70px + var(--mock-banner-h));
+}
+
+/* ── Warm / ink mark (provisional until real assets) ── */
+body.mock-quiet-room .logo-badge--wordmark {
+  height: 28px !important;
+  width: auto !important;
+  max-width: 168px !important;
+  transform: translateY(0) !important;
+  /* Neutralize cool blue → near-ink */
+  filter: grayscale(1) contrast(1.25) brightness(0.22) !important;
+}
+
+body.mock-quiet-room .logo-link:hover .logo-badge--wordmark {
+  transform: translateY(0) scale(1.03) !important;
+  filter: grayscale(1) contrast(1.25) brightness(0.18) !important;
+}
+
+@media (max-width: 768px) {
+  body.mock-quiet-room .logo-badge--wordmark {
+    height: 22px !important;
+    max-width: 120px !important;
+  }
+}
+
+/* Footer stacked logo → white (already) but force ink-friendly if light */
+body.mock-quiet-room .footer-brand__logo {
+  filter: brightness(0) invert(1) !important;
+  opacity: 0.85;
+  max-height: 56px;
+  width: auto;
+}
+
+/* ── Nav CTA: never truncate ── */
+body.mock-quiet-room .nav-cta {
+  white-space: nowrap !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  max-width: none !important;
+  flex-shrink: 0;
+  font-size: 0.8125rem !important;
+  letter-spacing: 0.04em !important;
+}
+
+@media (min-width: 901px) and (max-width: 1100px) {
+  body.mock-quiet-room .nav-links a {
+    font-size: 0.75rem !important;
+    letter-spacing: 0.06em !important;
+    padding-inline: 0.35rem !important;
+  }
+}
+
+/* ── Homepage hero: video OK; no logo medallion; left thesis ── */
+body.mock-quiet-room.home-page .hero {
+  min-height: min(88vh, 820px);
+  display: grid;
+  place-items: end stretch;
+}
+
+body.mock-quiet-room.home-page .hero__image,
+body.mock-quiet-room.home-page .hero__still {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+body.mock-quiet-room.home-page .hero__center-logo {
+  display: none !important;
+}
+
+body.mock-quiet-room.home-page .hero__content {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  padding: 0 clamp(1.25rem, 4vw, 3rem) clamp(2.5rem, 6vh, 4rem);
+  text-align: left !important;
+  max-width: var(--container-v2, 1240px);
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+body.mock-quiet-room.home-page .hero__intro {
+  max-width: min(16ch, 92vw);
+  text-align: left !important;
+  margin: 0;
+}
+
+body.mock-quiet-room.home-page .hero__eyebrow {
+  color: rgba(244, 239, 230, 0.78);
+  margin-bottom: 0.75rem;
+}
+
+body.mock-quiet-room.home-page .hero__headline {
+  color: var(--bone, #F4EFE6);
+  font-size: clamp(2.35rem, 5.5vw, 4.25rem);
+  line-height: 1.08;
+  hyphens: none !important;
+  -webkit-hyphens: none !important;
+  word-break: keep-all;
+  overflow-wrap: normal;
+}
+
+@media (max-width: 640px) {
+  body.mock-quiet-room.home-page .hero__intro {
+    max-width: 100%;
+  }
+
+  body.mock-quiet-room.home-page .hero__headline {
+    font-size: clamp(2rem, 8.5vw, 2.6rem);
+    max-width: 11em;
+  }
+}
+
+/* ── Case study: still hero, no floating prev/next ── */
+body.mock-quiet-room.case-study-page .case-study-hero__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+}
+
+body.mock-quiet-room .next-event-button,
+body.mock-quiet-room .previous-event-button,
+body.mock-quiet-room #project-nav-placeholder {
+  display: none !important;
+}
+
+/* Soften case nav as primary navigation between cases */
+body.mock-quiet-room .case-nav {
+  padding-block: var(--space-7, 5rem);
+}
+
+/* Sticky bar CTA override helper class (JS also renames) */
+body.mock-quiet-room .sticky-action-bar .btn-primary,
+body.mock-quiet-room .sticky-action-bar a.btn:first-of-type {
+  /* visual only; text fixed in mock-cta.js */
+}

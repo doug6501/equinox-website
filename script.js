@@ -271,6 +271,8 @@ document.addEventListener('DOMContentLoaded', function() {
             initMobileMenu();
             // Initialize mobile action bar
             initMobileActionBarDelayed();
+            // Enforce CTA lexicon (docs/marketing-guidelines.md)
+            enforceCtaLexicon();
             // Initialize project navigation
             renderProjectNav();
         })
@@ -319,9 +321,9 @@ document.addEventListener('DOMContentLoaded', function() {
             {
                 href: 'work-arlington.html',
                 src: 'assets/arlington-flyfest25-01.jpg',
-                alt: 'Arlington Common Fly Fishing Festival on the town green.',
-                number: 'Jul 2025',
-                title: 'Three summers on the Arlington Common town green.',
+                alt: 'Arlington Common Fly Fishing Festival at the community center.',
+                number: 'Spring 2025',
+                title: 'Three springs of FlyFest at Arlington Common.',
                 venue: 'Arlington Common \u2014 Arlington, VT'
             },
             {
@@ -452,7 +454,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 location: 'Manchester, Vermont'
             },
             {
-                text: '\u201cEvery year we bring Equinox back for FlyFest. They know how to set up on a town green, keep things running across three days, and disappear when the music starts. That\u2019s what we need.\u201d',
+                text: '\u201cEvery year we bring Equinox back for FlyFest. They know how to set up at the Common, keep things running across the festival, and disappear when the programming starts. That\u2019s what we need.\u201d',
                 name: 'Festival Organizer \u2014 Arlington Common',
                 location: 'Arlington, Vermont'
             },
@@ -529,8 +531,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 href: "work-equinox-wedding.html"
             },
             {
-                text: "Three days on a town green. Four bands, two stages, one crew. Sound checks at seven, gates at noon, close at ten. The green looked exactly the same on Sunday as it did on Thursday.",
-                eyebrow: "Arlington Common \u2014 Arlington, VT \u2014 July 2025",
+                text: "Three days at Arlington Common. Fly fishing festival, film screenings, presentations, and evening programming. One crew across the grounds. The community center looked the same on Sunday as it did on Thursday.",
+                eyebrow: "Arlington Common \u2014 Arlington, VT \u2014 Spring 2025",
                 href: "work-arlington.html"
             },
             {
@@ -874,43 +876,10 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('load', selectFeaturedWork);
 
     // --- Next Event Button ---
+    // Quiet Room + Pro-Max hybrid: floating prev/next removed.
+    // Case studies use bottom .case-nav only.
     function createNextEventButton() {
-        // Only add to case study pages (not homepage or work page)
-        const currentPage = window.location.pathname.split("/").pop();
-        if (currentPage === 'index.html' || currentPage === '' || currentPage === 'index' || currentPage === 'work.html') {
-            return;
-        }
-        
-        // Single source of truth: PROJECT_ORDER defined at top of file
-        const caseStudyPages = PROJECT_ORDER;
-        
-        // Find current page index
-        const currentIndex = caseStudyPages.indexOf(currentPage);
-        if (currentIndex === -1) return; // Not a case study page
-        
-        // Get next page (cycle back to first if at end)
-        const nextIndex = (currentIndex + 1) % caseStudyPages.length;
-        const nextPage = caseStudyPages[nextIndex];
-        
-        // Create the next event button
-        const nextButton = document.createElement('a');
-        nextButton.href = nextPage;
-        nextButton.className = 'next-event-button';
-        nextButton.textContent = 'Next Event';
-        nextButton.title = 'View next featured event';
-        
-        // Create the previous event button
-        const prevIndex = currentIndex === 0 ? caseStudyPages.length - 1 : currentIndex - 1;
-        const prevPage = caseStudyPages[prevIndex];
-        const prevButton = document.createElement('a');
-        prevButton.href = prevPage;
-        prevButton.className = 'previous-event-button';
-        prevButton.textContent = 'Previous Event';
-        prevButton.title = 'View previous featured event';
-        
-        // Add to page
-        document.body.appendChild(nextButton);
-        document.body.appendChild(prevButton);
+        return;
     }
     
     // Create next event button
@@ -2074,6 +2043,22 @@ function initBackToTop() {
 }
 
 // ========================================
+// CTA LEXICON GUARD (marketing guidelines)
+// ========================================
+function enforceCtaLexicon() {
+    const banned = /get a quote|get your .+ quote|discover the equinox|elevate your|find your perfect/i;
+    const nodes = document.querySelectorAll(
+        '.nav-cta, .cta-section-v2__link, .mobile-action-bar .btn-action.btn-primary, a.btn.btn-primary[href*="contact"], a.btn-ghost[href*="contact"]'
+    );
+    nodes.forEach((el) => {
+        const text = (el.textContent || '').trim();
+        if (!text || !banned.test(text)) return;
+        const keepArrow = text.includes('→') || /&rarr;/i.test(el.innerHTML);
+        el.textContent = keepArrow ? 'Start a project →' : 'Start a project';
+    });
+}
+
+// ========================================
 // MOBILE ACTION BAR (Sticky CTA)
 // ========================================
 function initMobileActionBar() {
@@ -2084,7 +2069,7 @@ function initMobileActionBar() {
     actionBar.innerHTML = `
         <button class="btn-dismiss" aria-label="Dismiss action bar">&times;</button>
         <div class="mobile-action-bar-content">
-            <a href="contact.html" class="btn-action btn-primary">Get a Quote</a>
+            <a href="contact.html" class="btn-action btn-primary">Start a project</a>
             <a href="event-planning-checklist.html" class="btn-action btn-secondary">Free Checklist</a>
         </div>
     `;
