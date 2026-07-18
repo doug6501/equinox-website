@@ -2161,6 +2161,39 @@ html:has(body.v2) {
     }
 }
 
+/* Beat legacy stable-header `section h1 { 1.4rem !important }` (≤992px) */
+@media (max-width: 992px) {
+    .v2 .page-hero-v2__headline,
+    .v2 .page-hero-v2--editorial .page-hero-v2__headline,
+    .v2 .page-hero-v2--editorial .page-hero-v2__title,
+    .v2.insights-page h1,
+    .v2 .insights-hero h1 {
+        font-size: clamp(1.85rem, 7vw, 2.75rem) !important;
+        line-height: 1.15 !important;
+        margin-bottom: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        max-width: 16ch !important;
+        hyphens: manual !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .v2 .page-hero-v2--editorial .page-hero-v2__content {
+        padding: var(--space-5) var(--space-3) var(--space-4);
+    }
+    .v2 .page-hero-v2--editorial .page-hero-v2__image-wrap,
+    .v2 .page-hero-v2--editorial .page-hero-v2__inner .breakout-full,
+    .v2 .page-hero-v2--editorial .page-hero-v2__image {
+        min-height: min(48vh, 420px);
+    }
+    .v2 .page-hero-v2--editorial .page-hero-v2__headline,
+    .v2 .page-hero-v2--editorial .page-hero-v2__title {
+        font-size: clamp(1.75rem, 8.5vw, 2.35rem) !important;
+        max-width: 14ch !important;
+    }
+}
+
 /* ==========================================================================
    30. EDITORIAL GRID (Insights) — 12 col asymmetric, “Quiet Room” + margin
    Col 1: prev rail · Col 2: read/category · Col 3–9: narrative (7) · Col 10–11: field notes · Col 12: next rail
@@ -2453,12 +2486,15 @@ html:has(body.v2) {
         align-items: center;
         justify-content: space-between;
         margin: 0;
-        padding: var(--space-2) var(--space-4);
+        padding: var(--space-2) max(var(--space-3), env(safe-area-inset-left, 0px));
+        padding-right: max(var(--space-3), env(safe-area-inset-right, 0px));
         padding-bottom: max(var(--space-2), env(safe-area-inset-bottom, 0px));
         background: var(--bone);
         border-top: 1px solid var(--brass);
         z-index: 50;
         box-sizing: border-box;
+        max-width: none;
+        width: 100%;
     }
     .v2 .article-compass-bar__link {
         font-family: var(--font-mono);
@@ -2472,6 +2508,9 @@ html:has(body.v2) {
         padding: 0;
         writing-mode: horizontal-tb;
         text-orientation: mixed;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
     }
     .v2 .article-compass-bar__link:hover,
     .v2 .article-compass-bar__link:focus-visible {
@@ -2486,8 +2525,12 @@ html:has(body.v2) {
         background: var(--brass);
         flex-shrink: 0;
     }
+    /* Room for fixed compass; skip sitewide sticky CTA on articles */
     body.v2:has(.article-compass-bar) main {
-        padding-bottom: max(4.25rem, calc(3.5rem + env(safe-area-inset-bottom, 0px)));
+        padding-bottom: max(5.75rem, calc(4.5rem + env(safe-area-inset-bottom, 0px)));
+    }
+    body.v2:has(.article-compass-bar) .mobile-action-bar {
+        display: none !important;
     }
 }
 @media (min-width: 1200px) {
@@ -3207,6 +3250,30 @@ body.v2.services-detail .service-card-v2__title {
 .v2 .insights-filter__btn:hover {
     background: var(--ember);
     color: var(--bone);
+}
+@media (max-width: 768px) {
+    .v2 .insights-filter {
+        padding: 0 var(--space-3);
+        gap: var(--space-2);
+        margin-bottom: var(--space-4);
+    }
+    .v2 .insights-filter__btn {
+        min-height: 44px;
+        padding: 0.65rem 1rem;
+        font-size: 0.7rem;
+    }
+    .v2 .insights-cards-section {
+        padding: var(--space-5) 0 var(--space-6);
+    }
+    .v2 .page-hero-v2:not(.page-hero-v2--editorial) .page-hero-v2__content {
+        padding: var(--space-5) var(--space-3) var(--space-4);
+        text-align: left;
+    }
+    .v2 .page-hero-v2:not(.page-hero-v2--editorial) .page-hero-v2__headline {
+        margin-left: 0;
+        margin-right: auto;
+        text-align: left;
+    }
 }
 .v2 .insights-cards-section {
     background: var(--linen);
@@ -5406,8 +5473,19 @@ body.v2.services-detail .service-card-v2__title {
 
 @media (max-width: 1199px) {
     .v2 .article-layout[data-compass-rails="editorial"] .article-layout__inner {
-        padding-left: var(--space-4);
-        padding-right: var(--space-4);
+        padding-left: var(--space-3);
+        padding-right: var(--space-3);
+    }
+    .v2 .article-layout[data-compass-rails="editorial"] {
+        padding-top: var(--space-5);
+        padding-bottom: var(--space-6);
+    }
+    .v2 .article-layout[data-compass-rails="editorial"] .article-compass-bar {
+        max-width: none;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 0;
+        width: 100%;
     }
     .v2 .article-layout[data-compass-rails="editorial"] .article-body .figure-bleed,
     .v2 .article-layout[data-compass-rails="editorial"] .article-body .breakout-right,
@@ -5415,16 +5493,27 @@ body.v2.services-detail .service-card-v2__title {
         margin-right: 0;
         width: 100%;
     }
+    .v2 .article-layout[data-compass-rails="editorial"] .article-body > p:first-of-type {
+        font-size: clamp(1.15rem, 4.2vw, 1.35rem);
+        line-height: 1.5;
+    }
 }
 
 @media (max-width: 768px) {
     .v2 .article-layout[data-compass-rails="editorial"] .article-byline {
         margin-bottom: var(--space-4);
         gap: 0.25rem 0.4rem;
+        font-size: 0.7rem;
+        line-height: 1.45;
     }
     .v2 .article-layout[data-compass-rails="editorial"] .article-body .figure-bleed img {
         max-height: none;
         aspect-ratio: 4 / 5;
+    }
+    .v2 .article-layout[data-compass-rails="editorial"] .article-compass-bar__link.button.button--pill.button--blue {
+        padding: 0.7rem 1rem;
+        font-size: 0.72rem;
+        letter-spacing: 0.06em;
     }
 }
 
@@ -5519,6 +5608,14 @@ body.v2.services-detail .service-card-v2__title {
     .v2 .insight-card-v2--wide,
     .v2 .insight-card-v2--featured {
         grid-column: 1 / -1;
+    }
+    .v2 .insight-card-v2--featured .insight-card-v2__title {
+        font-size: clamp(1.5rem, 7vw, 2rem) !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    .v2 .insights-grid-v2 {
+        gap: var(--space-5) 0;
     }
 }
 

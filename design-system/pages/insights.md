@@ -38,6 +38,13 @@ Hierarchical override of [`MASTER.md`](../MASTER.md) for the Insights hub and `a
 - Category filters unchanged
 - Hover: title → ember; no layout-shifting scale
 
+## Mobile (≤768 / ≤1199)
+
+- Editorial heroes: full-bleed; tighter content padding; headline beats legacy `section h1 { 1.4rem !important }`
+- Side rails hidden; fixed bottom compass bar with safe-area insets (44px min hit)
+- Sitewide sticky CTA (`.mobile-action-bar`) hidden on articles that have a compass bar
+- Hub: featured stacks to one column; filter chips wrap with 44px min height
+
 ## Anti-patterns
 
 - Vertical “Professional Tips” meta overlapping body text
