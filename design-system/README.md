@@ -6,6 +6,7 @@ Machine-readable Quiet Room tokens for the marketing site and **Equinox Flow / E
 |------|---------|
 | [MASTER.md](MASTER.md) | Human source of truth for implementers |
 | [tokens.json](tokens.json) | Importable colors, type, space, motion, brand strings |
+| [pages/insights.md](pages/insights.md) | Insights hub + article magazine overrides |
 | [../docs/brand-guidelines.md](../docs/brand-guidelines.md) | Full branding rules |
 | [../docs/marketing-guidelines.md](../docs/marketing-guidelines.md) | Voice, CTA, page jobs |
 

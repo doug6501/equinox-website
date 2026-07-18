@@ -152,6 +152,7 @@ Honor `prefers-reduced-motion`. No infinite decorative loops, shimmer, or gradie
 - **Ghost / text CTA:** underline style; “Start a project →”.
 - **Cards:** only when the container is the interaction (work cards, service cards). No decorative card chrome in heroes.
 - **Hero:** full-bleed media + one headline (+ mono eyebrow). No badges, chips, or floating stickers on hero media.
+- **Insights articles:** horizontal byline only (no vertical meta rail); magazine figures (`.figure-bleed` / `.figure-full`). See `design-system/pages/insights.md`.
 
 ---
 
@@ -174,4 +175,5 @@ Honor `prefers-reduced-motion`. No infinite decorative loops, shimmer, or gradie
 - [Marketing guidelines](marketing-guidelines.md)
 - [Compliance audit](brand-compliance-audit.md)
 - [Design system MASTER](../design-system/MASTER.md)
+- [Insights magazine overrides](../design-system/pages/insights.md)
 - [Tokens JSON](../design-system/tokens.json)

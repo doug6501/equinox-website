@@ -1,0 +1,45 @@
+# Insights — page overrides
+
+Hierarchical override of [`MASTER.md`](../MASTER.md) for the Insights hub and `article-*.html` longform.
+
+## Pattern
+
+**Editorial magazine / continuous read** — Quiet Room tokens. Not a card deck of micro-sections.
+
+## Article chrome
+
+- Horizontal **byline** only: `Category · N min read · By · Date`
+- **No** vertical left rail (read time / category) — that caused overlap with the lead
+- **No** frosted dual metadata plates flanking the body
+- Fixed prev/next pills + bottom compass bar remain
+- Lead: Newsreader + drop cap; no boxed/L-frame lead plate
+
+## Sections
+
+- Max **2–3 chapter `h2.is-chapter`** per article
+- List pieces use **`h3.article-item__title`** (numbered items), not five brass-underlined H2s
+- Prefer continuous paragraphs over header → one line → header
+
+## Photography
+
+| Class | Use |
+|-------|-----|
+| `.figure-bleed` | Asymmetric image breaking past the measure into the right gutter |
+| `.figure-full` | Wide band between chapters (≈16:9) |
+
+- Do **not** use floated `.breakout-right` as the default
+- Placement: hero still → body → one mid figure after first chapter → optional second before CTA
+- Explicit aspect-ratio; warm LUT; no polaroid / glass image frames
+
+## Hub (`insights.html`)
+
+- One **featured** card (`.insight-card-v2--featured`)
+- Mix of **wide** (`.insight-card-v2--wide`) and standard cards on a 12-column grid
+- Category filters unchanged
+- Hover: title → ember; no layout-shifting scale
+
+## Anti-patterns
+
+- Vertical “Professional Tips” meta overlapping body text
+- H2 hairline under every short tip
+- Tiny floated insets “stuck” beside one sentence
