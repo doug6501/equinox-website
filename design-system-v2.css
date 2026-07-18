@@ -2161,20 +2161,29 @@ html:has(body.v2) {
     }
 }
 
-/* Beat legacy stable-header `section h1 { 1.4rem !important }` (≤992px) */
+/* Beat legacy stable-header `section h1 { 1.4rem !important }` (≤992px) — sitewide */
 @media (max-width: 992px) {
+    .v2 h1,
     .v2 .page-hero-v2__headline,
     .v2 .page-hero-v2--editorial .page-hero-v2__headline,
     .v2 .page-hero-v2--editorial .page-hero-v2__title,
+    .v2 .case-study-hero__headline,
+    .v2 .regions-index__title,
+    .v2 .thank-you-headline,
     .v2.insights-page h1,
     .v2 .insights-hero h1 {
         font-size: clamp(1.85rem, 7vw, 2.75rem) !important;
         line-height: 1.15 !important;
-        margin-bottom: 0 !important;
+        margin-bottom: 0.35rem !important;
         padding-left: 0 !important;
         padding-right: 0 !important;
-        max-width: 16ch !important;
+        max-width: 18ch !important;
         hyphens: manual !important;
+    }
+    .v2 .case-study-hero__headline {
+        max-width: 22ch !important;
+        color: var(--bone) !important;
+        -webkit-text-fill-color: var(--bone) !important;
     }
 }
 
@@ -5025,7 +5034,7 @@ body.v2.services-detail .service-card-v2__title {
     }
 }
 
-/* Shared pill + blue surface (matches Work nav hover energy: ember ring, lift, glow) */
+/* Compass pills — Quiet Room ink (class keeps --blue for JS; surface is ink/ember) */
 .v2 .button.button--pill.button--blue {
     display: inline-flex;
     align-items: center;
@@ -5041,10 +5050,10 @@ body.v2.services-detail .service-card-v2__title {
     text-decoration: none;
     white-space: nowrap;
     line-height: 1.2;
-    color: #f5f0e8;
-    background: linear-gradient(180deg, #2563eb 0%, #1d4ed8 100%);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: 0 4px 16px rgba(29, 78, 216, 0.35);
+    color: var(--bone);
+    background: var(--ink);
+    border: 1px solid rgba(244, 239, 230, 0.16);
+    box-shadow: 0 4px 16px rgba(18, 18, 18, 0.22);
     transition: border-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
     writing-mode: horizontal-tb;
     text-orientation: mixed;
@@ -5053,10 +5062,10 @@ body.v2.services-detail .service-card-v2__title {
 .v2 .button.button--pill.button--blue:hover,
 .v2 .button.button--pill.button--blue:focus-visible {
     border-color: var(--ember);
-    color: #fff;
+    color: var(--bone);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.35);
-    background: linear-gradient(180deg, #2f6feb 0%, #204ecf 100%);
+    box-shadow: 0 6px 20px rgba(194, 88, 42, 0.28);
+    background: var(--slate);
     outline: none;
 }
 
@@ -5619,3 +5628,128 @@ body.v2.services-detail .service-card-v2__title {
     }
 }
 
+
+/* ==========================================================================
+   MOBILE QUIET ROOM REMEDIATION (2026-07 audit)
+   Touch · overflow · spacing · sticky CTA · legacy H1 crush survivors
+   ========================================================================== */
+
+/* Heroes never expand past the viewport (aspect-ratio + min-height traps) */
+.v2 .page-hero-v2,
+.v2 .case-study-hero {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+@media (max-width: 899px) {
+    .v2 .page-hero-v2 {
+        aspect-ratio: auto;
+    }
+}
+
+/* Compress Quiet Room section breath on phones */
+@media (max-width: 768px) {
+    body.v2 {
+        --space-7: 4rem;   /* was 10rem / 160px */
+        --space-8: 5.5rem; /* was 15rem */
+    }
+
+    .v2 .page-hero-v2 {
+        min-height: 44vh;
+    }
+
+    .v2 .event-spotlight__pip {
+        min-height: 44px;
+        padding: 18px 0;
+        flex: 1 1 0;
+    }
+
+    .v2 .event-spotlight__nav {
+        gap: 4px;
+        padding-bottom: max(var(--space-2), env(safe-area-inset-bottom, 0px));
+    }
+
+    .v2 .regions-index__title {
+        color: var(--ink) !important;
+        -webkit-text-fill-color: var(--ink) !important;
+        max-width: 12ch !important;
+    }
+}
+
+/* Sticky mobile CTA — Quiet Room bone/ink (replaces navy/orange kit) */
+@media (max-width: 768px) {
+    body.v2 .mobile-action-bar {
+        background: rgba(244, 239, 230, 0.96);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-top: 1px solid var(--brass);
+        box-shadow: 0 -6px 24px rgba(18, 18, 18, 0.08);
+        padding: 0.75rem 1rem;
+        padding-bottom: max(0.75rem, env(safe-area-inset-bottom, 0px));
+    }
+
+    body.v2 .mobile-action-bar .btn-action {
+        border-radius: 2px;
+        font-family: var(--font-body-v2);
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        min-height: 48px;
+        box-shadow: none;
+    }
+
+    body.v2 .mobile-action-bar .btn-primary {
+        background: var(--ink);
+        color: var(--bone);
+        box-shadow: none;
+    }
+
+    body.v2 .mobile-action-bar .btn-primary:hover,
+    body.v2 .mobile-action-bar .btn-primary:focus-visible {
+        background: var(--slate);
+        color: var(--bone);
+        outline: 2px solid var(--ember);
+        outline-offset: 2px;
+    }
+
+    body.v2 .mobile-action-bar .btn-primary:active {
+        transform: scale(0.98);
+    }
+
+    body.v2 .mobile-action-bar .btn-secondary {
+        background: transparent;
+        color: var(--ink);
+        border: 1px solid var(--brass);
+    }
+
+    body.v2 .mobile-action-bar .btn-secondary:hover,
+    body.v2 .mobile-action-bar .btn-secondary:focus-visible,
+    body.v2 .mobile-action-bar .btn-secondary:active {
+        background: var(--linen);
+        color: var(--ink);
+        border-color: var(--ember);
+    }
+
+    body.v2 .mobile-action-bar .btn-dismiss {
+        color: var(--slate);
+        background: var(--bone);
+        border: 1px solid var(--brass);
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        border-radius: 2px;
+        top: -2.75rem;
+        right: 0.75rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.v2 .mobile-action-bar {
+        transition: none;
+    }
+    .v2 .button.button--pill.button--blue {
+        transition: none;
+    }
+}

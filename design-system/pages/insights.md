@@ -42,8 +42,10 @@ Hierarchical override of [`MASTER.md`](../MASTER.md) for the Insights hub and `a
 
 - Editorial heroes: full-bleed; tighter content padding; headline beats legacy `section h1 { 1.4rem !important }`
 - Side rails hidden; fixed bottom compass bar with safe-area insets (44px min hit)
-- Sitewide sticky CTA (`.mobile-action-bar`) hidden on articles that have a compass bar
+- Sitewide sticky CTA (`.mobile-action-bar`) uses Quiet Room bone/ink (not navy/orange); hidden on articles with compass
+- Compass pills: ink fill + ember hover (not royal blue)
 - Hub: featured stacks to one column; filter chips wrap with 44px min height
+- `--space-7` / `--space-8` compress on phones; Event Spotlight pips ≥44px hit area
 
 ## Anti-patterns
 
