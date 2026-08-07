@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /work-template.html
+Disallow: /logo-options.html
+Disallow: /mockups/
+
+# AI / LLM context: https://www.eqxav.com/llms.txt
 
 Sitemap: https://www.eqxav.com/sitemap.xml

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Equinox Audio Visuals">
+  <title>Equinox Quiet Peak social 1x1</title>
+  <rect width="200" height="200" fill="#F4EFE6"/>
+  <g transform="translate(42 40) scale(1.35)">
+  <path fill="#121212" d="M6 86 L34 28 L48 86 Z"/>
+  <path fill="#121212" d="M38 86 L48 24 L66 24 L70 32 L90 86 Z"/>
+  <path fill="#B8985A" d="M57 4 L66 24 L48 24 Z"/>
+  </g>
+</svg>

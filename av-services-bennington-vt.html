@@ -113,30 +113,30 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="stable-header.css?v=19">
-    <link href="design-system-v2.css?v=19" rel="stylesheet">
+    <link rel="stylesheet" href="stable-header.css?v=28">
+    <link href="design-system-v2.css?v=28" rel="stylesheet">
 </head>
 <body class="v2">
 
 <div id="header-placeholder">
 <header class="header-stable">
     <div class="header-left">
-        <a href="index.html" class="logo-link">
+        <a class='logo-link' href='index.html'>
             <img src="assets/logo-wordmark.png" alt="Equinox Audio Visuals" class="logo-badge logo-badge--wordmark">
         </a>
     </div>
     <nav class="header-center">
         <ul class="nav-links">
-            <li><a href="work.html">Work</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="process.html">Process</a></li>
-            <li><a href="insights.html">Insights</a></li>
-                <li><a href="contact.html">Contact</a></li>
+            <li><a href='work.html'>Work</a></li>
+            <li><a href='services.html'>Services</a></li>
+            <li><a href='about.html'>About</a></li>
+            <li><a href='process.html'>Process</a></li>
+            <li><a href='insights.html'>Insights</a></li>
+                <li><a href='contact.html'>Contact</a></li>
         </ul>
     </nav>
     <div class="header-right">
-        <a href="contact.html" class="nav-cta">Start a project</a>
+        <a class='nav-cta' href='contact.html'>Start a project</a>
         <button class="mobile-nav-toggle" aria-label="Menu">
             <span class="hamburger"></span>
         </button>
@@ -146,7 +146,8 @@
 
     <main>
 
-        <section class="page-hero-v2 page-hero-v2--text">
+        <section class="page-hero-v2 page-hero-v2--place">
+            <img src="assets/city-heroes/bennington-vt.jpg" alt="The Bennington Battle Monument rising above Old Bennington, Vermont." class="page-hero-v2__image" loading="eager" width="2400" height="1599">
             <div class="page-hero-v2__content">
                 <div class="page-hero-v2__eyebrow">Vermont</div>
                 <h1 class="page-hero-v2__headline">Audio Visual Services in Bennington, Vermont</h1>
@@ -184,9 +185,9 @@
                 <div class="geo-nearby">
                         <h3>We Also Serve Nearby Areas</h3>
                         <div class="geo-nearby-list">
-                            <a href="av-services-manchester-vt.html" class="geo-nearby-tag">Manchester, VT</a>
-                            <a href="av-services-burlington-vt.html" class="geo-nearby-tag">Burlington, VT</a>
-                            <a href="av-services-brattleboro-vt.html" class="geo-nearby-tag">Brattleboro, VT</a>
+                            <a class='geo-nearby-tag' href='av-services-manchester-vt.html'>Manchester, VT</a>
+                            <a class='geo-nearby-tag' href='av-services-burlington-vt.html'>Burlington, VT</a>
+                            <a class='geo-nearby-tag' href='av-services-brattleboro-vt.html'>Brattleboro, VT</a>
                             <span class="geo-nearby-tag">Williamstown, MA</span>
                             <span class="geo-nearby-tag">North Adams, MA</span>
                             <span class="geo-nearby-tag">Troy, NY</span>
@@ -195,10 +196,43 @@
             </div>
         </section>
 
+        
+        <section class="article-related region-related-work" aria-label="Recent work in this region">
+            <div class="article-related__inner">
+                <div class="article-related__title">Recent Work in Bennington</div>
+                <div class="article-related__grid">
+                    <a class="article-related__card" href="work-bennington-museum.html">
+                        <div class="article-related__card-image">
+                            <img src="assets/bennington-museum-gala-2024-01.jpg" alt="Bennington Museum annual gala in the galleries." loading="lazy" width="640" height="427">
+                        </div>
+                        <div class="article-related__card-label">Bennington Museum</div>
+                        <div class="article-related__card-title">Bennington Museum Gala</div>
+                        <div class="article-related__card-snippet">Event-scale production among the collection — clean audio, live auction support, warm gallery light.</div>
+                    </a>
+                    <a class="article-related__card" href="work-vanish-screening.html">
+                        <div class="article-related__card-image">
+                            <img src="assets/bennington-museum-vanish-01.jpg" alt="Vanish documentary screening at Bennington Museum." loading="lazy" width="640" height="427">
+                        </div>
+                        <div class="article-related__card-label">Bennington Museum</div>
+                        <div class="article-related__card-title">Vanish Film Screening</div>
+                        <div class="article-related__card-snippet">A barn documentary made to feel like a theater night inside the museum.</div>
+                    </a>
+                    <a class="article-related__card" href="work-bennington-summer.html">
+                        <div class="article-related__card-image">
+                            <img src="assets/bennington-museum-summer-02.jpg" alt="Bennington Museum summer celebration under tent." loading="lazy" width="640" height="427">
+                        </div>
+                        <div class="article-related__card-label">Bennington Museum</div>
+                        <div class="article-related__card-title">Bennington Museum Summer Celebration</div>
+                        <div class="article-related__card-snippet">Outdoor tent, live Americana band, and auction cues on the museum hill.</div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <section class="cta-section-v2">
             <div class="cta-section-v2__inner">
                 <h2 class="cta-section-v2__headline">Planning an event in Bennington?</h2>
-                <a href="contact.html" class="cta-section-v2__link">Start a project &rarr;</a>
+                <a class='cta-section-v2__link' href='contact.html'>Start a project &rarr;</a>
             </div>
         </section>
 
@@ -218,36 +252,36 @@
         <div class="footer-links">
             <h3>Navigate</h3>
             <ul>
-                <li><a href="work.html">Work</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="process.html">Process</a></li>
-                <li><a href="insights.html">Insights</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href='work.html'>Work</a></li>
+                <li><a href='services.html'>Services</a></li>
+                <li><a href='about.html'>About</a></li>
+                <li><a href='process.html'>Process</a></li>
+                <li><a href='insights.html'>Insights</a></li>
+                <li><a href='contact.html'>Contact</a></li>
             </ul>
         </div>
         <div class="footer-links">
             <h3>Services</h3>
             <ul>
-                <li><a href="services-corporate.html">Corporate Events</a></li>
-                <li><a href="services-weddings.html">Weddings</a></li>
-                <li><a href="services-galas.html">Galas and Non-Profits</a></li>
-                <li><a href="services.html">All Services</a></li>
+                <li><a href='services-corporate.html'>Corporate Events</a></li>
+                <li><a href='services-weddings.html'>Weddings</a></li>
+                <li><a href='services-galas.html'>Galas and Non-Profits</a></li>
+                <li><a href='services.html'>All Services</a></li>
             </ul>
         </div>
         <div class="footer-links">
             <h3>Regions</h3>
             <ul>
-                <li><a href="av-services-manchester-vt.html">Manchester, VT</a></li>
-                <li><a href="av-services-bennington-vt.html">Bennington, VT</a></li>
-                <li><a href="av-services-dorset-vt.html">Dorset, VT</a></li>
-                <li><a href="av-services-brattleboro-vt.html">Brattleboro, VT</a></li>
-                <li><a href="av-services-burlington-vt.html">Burlington, VT</a></li>
-                <li><a href="av-services-albany-ny.html">Albany, NY</a></li>
-                <li><a href="av-services-saratoga-springs-ny.html">Saratoga Springs, NY</a></li>
-                <li><a href="av-services-keene-nh.html">Keene, NH</a></li>
-                <li><a href="av-services-berkshires-ma.html">The Berkshires, MA</a></li>
-                <li><a href="regions.html">All Regions &rarr;</a></li>
+                <li><a href='av-services-manchester-vt.html'>Manchester, VT</a></li>
+                <li><a href='av-services-bennington-vt.html'>Bennington, VT</a></li>
+                <li><a href='av-services-dorset-vt.html'>Dorset, VT</a></li>
+                <li><a href='av-services-brattleboro-vt.html'>Brattleboro, VT</a></li>
+                <li><a href='av-services-burlington-vt.html'>Burlington, VT</a></li>
+                <li><a href='av-services-albany-ny.html'>Albany, NY</a></li>
+                <li><a href='av-services-saratoga-springs-ny.html'>Saratoga Springs, NY</a></li>
+                <li><a href='av-services-keene-nh.html'>Keene, NH</a></li>
+                <li><a href='av-services-berkshires-ma.html'>The Berkshires, MA</a></li>
+                <li><a href='regions.html'>All Regions &rarr;</a></li>
             </ul>
         </div>
     </div>
@@ -259,7 +293,7 @@
 </footer>
 </div>
 
-    <script src="script.js?v=14"></script>
+    <script src="script.js?v=28"></script>
     <!-- HubSpot Tracking Code -->
     <script type="text/javascript" id="hs-script-loader" async defer src="https://js-na2.hs-scripts.com/243705543.js"></script>
 </body>

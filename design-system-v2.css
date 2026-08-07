@@ -2032,6 +2032,41 @@ html:has(body.v2) {
     -webkit-text-fill-color: var(--bone);
 }
 
+/* Place / geo pages — scenic town heroes, brighter plate + bottom scrim for type */
+.v2 .page-hero-v2--place {
+    min-height: min(58vh, 640px);
+}
+.v2 .page-hero-v2--place::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+        to top,
+        rgba(18, 18, 18, 0.72) 0%,
+        rgba(18, 18, 18, 0.28) 48%,
+        rgba(18, 18, 18, 0.12) 100%
+    );
+}
+.v2 .page-hero-v2--place .page-hero-v2__image.hero-video-loaded {
+    opacity: 0.92;
+}
+.v2 .page-hero-v2--place .page-hero-v2__content {
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+}
+.v2 .page-hero-v2--place .page-hero-v2__headline {
+    margin-left: 0;
+    margin-right: auto;
+    text-align: left;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+}
+.v2 .page-hero-v2--place .page-hero-v2__eyebrow {
+    color: rgba(244, 239, 230, 0.85);
+}
+
 /* Text-only variant — bone background, no image */
 .v2 .page-hero-v2--text {
     background: var(--bone);
@@ -2896,6 +2931,22 @@ html:has(body.v2) {
     color: var(--ink);
     line-height: 1.3;
     padding: 0 var(--space-3) var(--space-3);
+}
+.v2 .article-related__card-title:has(+ .article-related__card-snippet) {
+    padding-bottom: var(--space-1);
+}
+.v2 .article-related__card-snippet {
+    font-family: var(--font-body-v2);
+    font-size: 0.9375rem;
+    line-height: 1.45;
+    color: var(--slate);
+    padding: 0 var(--space-3) var(--space-3);
+}
+
+/* Region pages — taller photo wells for local case study cards */
+.v2 .region-related-work .article-related__card-image {
+    aspect-ratio: 3 / 2;
+    height: auto;
 }
 
 @media (max-width: 899px) {
@@ -4018,12 +4069,10 @@ body.v2.services-detail .service-card-v2__title {
 .v2 .process-step__detail {
     grid-column: 3;
     grid-row: 2;
-    border-left: 2px solid rgba(200,104,28,0.3);
-    padding: 0.75rem 1rem;
-    background: rgba(200,104,28,0.04);
-    border-radius: 0 var(--radius-1) var(--radius-1) 0;
+    padding: 0.75rem 0;
     margin-top: var(--space-2);
     max-width: 52ch;
+    border-top: 1px solid rgba(200,104,28,0.22);
 }
 .v2 .process-step__detail-label {
     font-family: var(--font-mono);
@@ -4862,8 +4911,9 @@ body.v2.services-detail .service-card-v2__title {
     color: #f5f0e8;
 }
 .v2.contact-page .sidebar-testimonial {
-    border-left: 3px solid var(--ember);
-    background: rgba(255, 255, 255, 0.04);
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    padding-top: 1rem;
+    background: transparent;
 }
 .v2.contact-page .testimonial-quote {
     color: rgba(244, 239, 230, 0.9);
@@ -5203,12 +5253,13 @@ body.v2.services-detail .service-card-v2__title {
     z-index: 5;
     width: 100%;
     padding: 0 clamp(1.25rem, 4vw, 3rem);
-    text-align: center !important;
+    text-align: left !important;
     max-width: var(--container-v2, 1240px);
     margin: 0 auto;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
 }
 
 .v2.home-page .hero__eyebrow {
@@ -5228,8 +5279,8 @@ body.v2.services-detail .service-card-v2__title {
     font-size: clamp(2.35rem, 5.5vw, 4.25rem);
     line-height: 1.08;
     max-width: min(18ch, 92vw);
-    margin: 0 auto;
-    text-align: center;
+    margin: 0;
+    text-align: left;
     hyphens: none;
     -webkit-hyphens: none;
     word-break: keep-all;
@@ -5752,4 +5803,37 @@ body.v2.services-detail .service-card-v2__title {
     .v2 .button.button--pill.button--blue {
         transition: none;
     }
+}
+/* Local pick A1 — hero CTA pair (from Quiet Room local) */
+.v2.home-page .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-3) var(--space-4);
+    margin-top: var(--space-4);
+}
+.v2.home-page .hero__cta {
+    font-family: var(--font-mono);
+    font-size: var(--scale-2);
+    letter-spacing: 0.04em;
+    color: var(--bone);
+    text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--bone) 55%, transparent);
+    padding-bottom: 0.12em;
+    transition: border-color var(--dur-1) var(--ease), color var(--dur-1) var(--ease), opacity var(--dur-1) var(--ease);
+}
+.v2.home-page .hero__cta:hover,
+.v2.home-page .hero__cta:focus-visible {
+    color: var(--bone);
+    border-bottom-color: var(--ember);
+    outline: none;
+}
+.v2.home-page .hero__cta--secondary {
+    opacity: 0.72;
+    border-bottom-color: transparent;
+}
+.v2.home-page .hero__cta--secondary:hover,
+.v2.home-page .hero__cta--secondary:focus-visible {
+    opacity: 1;
+    border-bottom-color: var(--ember);
 }

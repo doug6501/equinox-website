@@ -1,0 +1,259 @@
+/* ═══════════════════════════════════════════════════════════
+   Pivot sample — Signal Blue / Porcelain
+   Scoped to body.mock-signal-porcelain only. Not live.
+   Brand gate option 3 exploration — do not ship without decision.
+   ═══════════════════════════════════════════════════════════ */
+
+body.mock-signal-porcelain {
+  /* Pivot tokens */
+  --ink: #0A0A0A;
+  --slate: #1A1A1A;
+  --bone: #F8F7F4;          /* Porcelain */
+  --linen: #EFEEE9;
+  --ember: #0057FF;         /* Signal Blue — interactive + primary accent */
+  --brass: #0057FF;         /* hairlines follow accent in full pivot */
+  --scope: #0057FF;
+
+  --mock-banner-h: 96px; /* banner + compare strip */
+  background: var(--bone);
+  color: var(--ink);
+}
+
+body.mock-signal-porcelain .mock-chrome-stack {
+  position: sticky;
+  top: 0;
+  z-index: 10001;
+}
+
+body.mock-signal-porcelain .mock-banner {
+  position: relative; /* nest under sticky stack */
+  top: auto;
+  z-index: auto;
+}
+
+body.mock-signal-porcelain .header-stable {
+  top: var(--mock-banner-h) !important;
+  background: var(--bone) !important;
+  border-bottom-color: color-mix(in srgb, var(--ink) 12%, transparent) !important;
+}
+
+body.mock-signal-porcelain .header-stable::before {
+  background: var(--ember) !important; /* signal top rule */
+}
+
+/* Banner */
+body.mock-signal-porcelain .mock-banner {
+  background: var(--ink);
+  color: var(--bone);
+  border-bottom: 2px solid var(--ember);
+}
+
+body.mock-signal-porcelain .mock-banner__label {
+  color: var(--ember);
+}
+
+body.mock-signal-porcelain .mock-banner a:hover {
+  color: #7BA3FF;
+}
+
+/* Wordmark: ink on porcelain */
+body.mock-signal-porcelain .logo-badge--wordmark {
+  height: 28px !important;
+  width: auto !important;
+  max-width: 168px !important;
+  filter: grayscale(1) contrast(1.3) brightness(0.15) !important;
+}
+
+body.mock-signal-porcelain .nav-cta {
+  color: var(--ink) !important;
+  border-bottom-color: var(--ember) !important;
+}
+
+body.mock-signal-porcelain .nav-cta:hover,
+body.mock-signal-porcelain .nav-links a:hover {
+  color: var(--ember) !important;
+}
+
+body.mock-signal-porcelain .nav-links a.active {
+  color: var(--ember) !important;
+}
+
+/* Hero: cooler overlay, signal accent on meta */
+body.mock-signal-porcelain .hero__overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(10, 10, 10, 0.22) 0%,
+    rgba(10, 10, 10, 0.1) 40%,
+    rgba(0, 40, 120, 0.45) 100%
+  ) !important;
+}
+
+body.mock-signal-porcelain .hero__eyebrow {
+  color: #B8C9FF !important;
+  letter-spacing: 0.14em;
+}
+
+/* Metrics / links */
+body.mock-signal-porcelain .metrics-strip {
+  background: var(--bone) !important;
+  border-color: color-mix(in srgb, var(--ink) 10%, transparent) !important;
+}
+
+body.mock-signal-porcelain .metrics-strip__link,
+body.mock-signal-porcelain .story-beat__link,
+body.mock-signal-porcelain .process-teaser__link,
+body.mock-signal-porcelain .final-cta__link,
+body.mock-signal-porcelain .btn-ghost {
+  color: var(--ember) !important;
+}
+
+body.mock-signal-porcelain .metrics-strip__link:hover,
+body.mock-signal-porcelain .story-beat__link:hover,
+body.mock-signal-porcelain .process-teaser__link:hover,
+body.mock-signal-porcelain .final-cta__link:hover {
+  color: #003FBF !important;
+}
+
+/* Story / proof / process bands */
+body.mock-signal-porcelain .proof-line,
+body.mock-signal-porcelain .story-beat,
+body.mock-signal-porcelain .work-preview,
+body.mock-signal-porcelain .process-section,
+body.mock-signal-porcelain .testimonial-editorial,
+body.mock-signal-porcelain .final-cta {
+  background: var(--bone) !important;
+}
+
+body.mock-signal-porcelain .story-beat,
+body.mock-signal-porcelain .process-section {
+  background: var(--linen) !important;
+}
+
+body.mock-signal-porcelain .story-beat__eyebrow,
+body.mock-signal-porcelain .process-teaser__eyebrow,
+body.mock-signal-porcelain .testimonial-editorial__eyebrow,
+body.mock-signal-porcelain .event-spotlight__title,
+body.mock-signal-porcelain .work-preview__meta {
+  color: var(--ember) !important;
+}
+
+body.mock-signal-porcelain .process-teaser__steps li span.mono {
+  color: var(--ember) !important;
+}
+
+/* Primary CTA — true pivot: Signal Blue fill */
+body.mock-signal-porcelain .pivot-cta-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  padding: 0.9rem 1.5rem;
+  background: var(--ember);
+  color: #fff !important;
+  font-family: var(--font-body-v2, "Inter Tight", system-ui, sans-serif);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-decoration: none !important;
+  border: none;
+  border-radius: 2px;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+body.mock-signal-porcelain .pivot-cta-primary:hover {
+  background: #003FBF;
+  color: #fff !important;
+}
+
+body.mock-signal-porcelain .pivot-cta-primary:focus-visible {
+  outline: 3px solid var(--ember);
+  outline-offset: 3px;
+}
+
+/* Ghost button on porcelain */
+body.mock-signal-porcelain .btn-ghost {
+  border-color: var(--ember) !important;
+}
+
+/* Final CTA band — signal slab */
+body.mock-signal-porcelain .final-cta {
+  background: var(--ember) !important;
+  color: #fff !important;
+}
+
+body.mock-signal-porcelain .final-cta__headline {
+  color: #fff !important;
+}
+
+body.mock-signal-porcelain .final-cta__link {
+  color: #fff !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+body.mock-signal-porcelain .final-cta__link:hover {
+  color: #E8EEFF !important;
+}
+
+/* Footer */
+body.mock-signal-porcelain .site-footer,
+body.mock-signal-porcelain footer,
+body.mock-signal-porcelain .footer-v2 {
+  background: var(--ink) !important;
+  color: var(--bone) !important;
+}
+
+body.mock-signal-porcelain .footer-v2 a,
+body.mock-signal-porcelain .site-footer a {
+  color: #B8C9FF !important;
+}
+
+body.mock-signal-porcelain .footer-v2 a:hover {
+  color: #fff !important;
+}
+
+/* Comparison strip under banner */
+.pivot-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.pivot-compare__cell {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1.25rem;
+}
+
+.pivot-compare__cell--quiet {
+  background: #F4EFE6;
+  color: #121212;
+}
+
+.pivot-compare__cell--pivot {
+  background: #F8F7F4;
+  color: #0A0A0A;
+}
+
+.pivot-compare__swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.pivot-compare__swatch--bone { background: #F4EFE6; }
+.pivot-compare__swatch--ember { background: #C2582A; }
+.pivot-compare__swatch--porcelain { background: #F8F7F4; }
+.pivot-compare__swatch--signal { background: #0057FF; }
+
+@media (max-width: 640px) {
+  .pivot-compare {
+    grid-template-columns: 1fr;
+  }
+}

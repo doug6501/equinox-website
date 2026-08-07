@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" role="img" aria-label="Equinox Audio Visuals">
+  <title>Equinox Quiet Peak ink-on-bone</title>
+  <rect width="520" height="120" fill="#F4EFE6"/>
+  <g transform="translate(8 14)">
+    <path fill="#121212" d="M0 84 L28 26 L42 84 Z"/>
+    <path fill="#121212" d="M32 84 L42 22 L60 22 L64 30 L84 84 Z"/>
+    <path fill="#B8985A" d="M51 4 L60 22 L42 22 Z"/>
+  </g>
+  <text x="118" y="58" font-family="Inter Tight, Inter, Helvetica Neue, Helvetica, Arial, sans-serif" font-weight="600" font-size="42" letter-spacing="0.06em" fill="#121212">EQUINOX</text>
+  <text x="120" y="86" font-family="Inter Tight, Inter, Helvetica Neue, Helvetica, Arial, sans-serif" font-weight="500" font-size="13" letter-spacing="0.28em" fill="#121212">AUDIO VISUALS</text>
+</svg>
