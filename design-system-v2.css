@@ -6291,10 +6291,20 @@ body.v2 iframe {
         transition: transform 350ms var(--ease, cubic-bezier(0.2, 0.8, 0.2, 1)),
                     visibility 350ms var(--ease, cubic-bezier(0.2, 0.8, 0.2, 1));
     }
+    /* Header is z-index 1000, so a body::before scrim at 100000 paints
+       on top of the drawer and eats taps. Lift the whole header stack
+       above the scrim while the menu is open. */
+    body.v2.nav-open .header-stable {
+        z-index: 100002 !important;
+    }
+    body.v2.nav-open main {
+        pointer-events: none;
+    }
     body.v2.nav-open .header-center {
         transform: translateX(0);
         visibility: visible;
         pointer-events: auto;
+        z-index: 100003 !important;
     }
 
     body.v2 .nav-links,
