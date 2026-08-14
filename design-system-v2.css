@@ -40,9 +40,9 @@ body.v2 {
     overflow-x: visible;
 }
 
-/* Contain horizontal overflow at the root so body can stay overflow-x: visible for viewport-fixed UI (e.g. lightbox). */
+/* Contain horizontal overflow at the root. clip (not hidden) so position:fixed lightbox/menu still paint. */
 html:has(body.v2) {
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 /* ==========================================================================
@@ -398,35 +398,8 @@ html:has(body.v2) {
     }
 }
 
-@media (max-width: 992px) {
-    .v2 .nav-cta { display: none !important; }
-
-    /* Show CTA at bottom of mobile nav panel when open */
-    .v2 body.nav-open .nav-cta,
-    body.nav-open .v2 .nav-cta {
-        display: flex !important;
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        width: 75%;
-        max-width: 400px;
-        z-index: 100002;
-        padding: 1.5rem 2rem;
-        background: var(--ink);
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        justify-content: center;
-        color: var(--bone);
-        font-family: var(--font-mono);
-        font-size: var(--scale-1);
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        border-bottom: none;
-        text-decoration: none;
-        animation: none;
-    }
-}
-
-/* Mobile nav menu */
+/* Mobile nav chrome lives in § MOBILE CHROME (2026-08) at the end of this file
+   so it can beat legacy stable-header.css !important navy/white hamburger rules. */
 .v2 .mobile-nav,
 .v2 .nav-overlay {
     background: var(--bone);
@@ -434,49 +407,8 @@ html:has(body.v2) {
     -webkit-backdrop-filter: none;
 }
 
-/* Mobile nav open state: force white text on dark slide-in panel */
-@media (max-width: 992px) {
-    body.v2.nav-open .header-center a,
-    body.v2.nav-open .nav-links a {
-        color: #FFFFFF !important;
-        -webkit-text-fill-color: #FFFFFF !important;
-        background: transparent !important;
-    }
-
-    body.v2.nav-open .header-center a:hover,
-    body.v2.nav-open .nav-links a:hover {
-        color: var(--ember) !important;
-        -webkit-text-fill-color: var(--ember) !important;
-        background: rgba(255, 107, 53, 0.15) !important;
-    }
-
-    /* Suppress ink underline pseudo-element on dark panel */
-    body.v2.nav-open .header-center a::after,
-    body.v2.nav-open .nav-links a::after {
-        display: none;
-    }
-}
-
 .v2 .mobile-nav a {
     color: var(--ink);
-}
-
-/* Mobile menu backdrop — dims left side only; panel occupies right 75% */
-@media (max-width: 992px) {
-    body.v2.nav-open::before {
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 25%;
-        height: 100%;
-        min-height: 100dvh;
-        background: rgba(0, 0, 0, 0.55);
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
-        z-index: 9998 !important;
-        pointer-events: none;
-    }
 }
 
 /* ==========================================================================
@@ -1055,7 +987,7 @@ html:has(body.v2) {
 
 .v2 .work-preview__grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: var(--space-4);
     padding: 0 var(--space-4);
 }
@@ -1691,7 +1623,7 @@ html:has(body.v2) {
 
 .v2 .case-gallery__grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: var(--space-3);
 }
 
@@ -2886,7 +2818,7 @@ html:has(body.v2) {
 }
 .v2 .article-related__grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: var(--space-4);
 }
 .v2 .article-related__card {
@@ -3129,7 +3061,7 @@ body.v2.services-detail .service-card-v2__title {
 }
 .v2 .service-grid-v2 {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: var(--space-3);
     margin-top: var(--space-5);
 }
@@ -5004,10 +4936,185 @@ body.v2.services-detail .service-card-v2__title {
     }
 }
 
-/* About process cards: text-forward, left-aligned without icons */
-.v2.about-page .about-process-grid .service-card-v2__title,
-.v2.about-page .about-process-grid .service-card-v2__body {
+/* Hallmark · section: about-process · tone: crafted · genre: editorial
+ * theme: Quiet Room (bone / linen / ink / ember / brass)
+ * structure: circular dual-tone icons + numbered titles · calm bone cards · linen band
+ * pre-emit critique: P5 H5 E5 S5 R5 V4
+ */
+.v2.about-page .about-process {
+    border-block: 1px solid color-mix(in srgb, var(--brass) 40%, transparent);
+}
+.v2.about-page .about-process__eyebrow {
+    margin: 0 0 var(--space-2);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ember);
+    text-align: center;
+}
+.v2.about-page .about-process .content-section-v2__inner > h2 {
+    margin-top: 0;
+    margin-bottom: var(--space-3);
+}
+.v2.about-page .about-process__lede {
+    max-width: var(--measure);
+    margin-inline: auto;
+    margin-bottom: var(--space-5);
+    text-align: center;
+}
+.v2.about-page .about-process__grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-3);
+}
+.v2.about-page .about-process__step {
+    position: relative;
+    z-index: 0;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: var(--space-3);
+    row-gap: var(--space-3);
+    align-items: center;
+    min-width: 0;
+    padding: var(--space-4);
+    background: var(--bone);
+    border: 1px solid color-mix(in srgb, var(--brass) 48%, transparent);
+    border-radius: var(--radius-1);
+    box-shadow:
+        inset 0 1px 0 color-mix(in srgb, #fff 55%, transparent),
+        0 8px 22px color-mix(in srgb, var(--ink) 6%, transparent);
+    overflow-wrap: anywhere;
+    transition:
+        border-color var(--dur-2) var(--ease),
+        box-shadow var(--dur-2) var(--ease),
+        transform var(--dur-2) var(--ease);
+}
+.v2.about-page .about-process__step:hover {
+    border-color: color-mix(in srgb, var(--ember) 42%, var(--brass));
+    box-shadow:
+        inset 0 1px 0 color-mix(in srgb, #fff 55%, transparent),
+        0 12px 28px color-mix(in srgb, var(--ink) 9%, transparent);
+    transform: translateY(-2px);
+}
+.v2.about-page .about-process__icon {
+    grid-column: 1;
+    grid-row: 1;
+    position: relative;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 3.25rem;
+    height: 3.25rem;
+    aspect-ratio: 1;
+    color: var(--ink);
+    background: color-mix(in srgb, var(--linen) 70%, var(--bone));
+    border: 1px solid color-mix(in srgb, var(--ember) 28%, var(--brass));
+    border-radius: 999px;
+    box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 45%, transparent);
+}
+.v2.about-page .about-process__icon svg {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.v2.about-page .about-process__step:hover .about-process__icon {
+    background: color-mix(in srgb, var(--ember) 12%, var(--bone));
+    border-color: color-mix(in srgb, var(--ember) 50%, var(--brass));
+}
+.v2.about-page .about-process__title {
+    grid-column: 2;
+    grid-row: 1;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.45rem 0.65rem;
+    margin: 0;
+    padding-bottom: 0;
+    font-family: var(--font-heading);
+    font-size: clamp(1.35rem, 2.2vw, 1.65rem);
+    font-weight: 500;
+    font-style: normal;
+    color: var(--ink);
+    line-height: 1.2;
+    letter-spacing: -0.015em;
     text-align: left;
+    border-bottom: none;
+}
+.v2.about-page .about-process__num {
+    font-family: var(--font-heading);
+    font-size: 1.05em;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    color: var(--ember);
+    letter-spacing: -0.02em;
+}
+.v2.about-page .about-process__num::after {
+    content: "—";
+    margin-left: 0.55rem;
+    color: color-mix(in srgb, var(--brass) 70%, var(--ember));
+    font-weight: 500;
+}
+.v2.about-page .about-process__body {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    padding-top: var(--space-3);
+    font-family: var(--font-body-v2);
+    font-size: var(--scale-2);
+    color: var(--slate);
+    line-height: 1.65;
+    text-align: left;
+    max-width: 40ch;
+    border-top: 1px solid color-mix(in srgb, var(--brass) 45%, transparent);
+}
+.v2.about-page .about-process__more {
+    margin-top: var(--space-5);
+    margin-bottom: 0;
+    text-align: center;
+    font-family: var(--font-body-v2);
+    font-size: var(--scale-3);
+}
+.v2.about-page .about-process__link {
+    color: var(--ember);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid color-mix(in srgb, var(--ember) 35%, transparent);
+    transition:
+        color var(--dur-2) var(--ease),
+        border-color var(--dur-2) var(--ease);
+}
+.v2.about-page .about-process__link:hover {
+    color: var(--ink);
+    border-bottom-color: var(--ink);
+}
+.v2.about-page .about-process__link:focus-visible {
+    outline: 2px solid var(--ember);
+    outline-offset: 3px;
+}
+@media (max-width: 768px) {
+    .v2.about-page .about-process__grid {
+        grid-template-columns: 1fr;
+    }
+    .v2.about-page .about-process__title {
+        font-size: 1.35rem;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .v2.about-page .about-process__step {
+        transition: border-color var(--dur-2) var(--ease), box-shadow var(--dur-2) var(--ease);
+    }
+    .v2.about-page .about-process__step:hover {
+        transform: none;
+    }
 }
 
 /* ==========================================================================
@@ -5837,3 +5944,664 @@ body.v2.services-detail .service-card-v2__title {
     opacity: 1;
     border-bottom-color: var(--ember);
 }
+
+/* ==========================================================================
+   Checklist / lead magnet — Quiet Room (beats leftover navy + white type)
+   ========================================================================== */
+.v2 .lead-magnet-section {
+    padding: var(--space-7) 0;
+    background: var(--bone);
+}
+.v2 .lead-magnet-layout {
+    gap: var(--space-6);
+    max-width: var(--container-v2);
+}
+.v2 .lead-magnet-content,
+.v2 .lead-magnet-form-card {
+    text-align: left;
+}
+.v2 .lead-magnet-content h2,
+.v2 .lead-magnet-form-card h3 {
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+    color: var(--ink);
+}
+.v2 .lead-magnet-content h2 {
+    font-size: var(--scale-5);
+    margin-top: var(--space-5);
+    margin-bottom: var(--space-3);
+}
+.v2 .lead-magnet-content h2:first-child {
+    margin-top: 0;
+}
+.v2 .lead-magnet-content p,
+.v2 .lead-magnet-form-card p,
+.v2 .checklist-preview p {
+    color: var(--slate);
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+    max-width: none;
+}
+.v2 .checklist-preview {
+    margin: var(--space-4) 0;
+}
+.v2 .checklist-preview li {
+    color: var(--slate);
+    gap: var(--space-3);
+    padding: var(--space-3) 0;
+    border-bottom-color: color-mix(in srgb, var(--brass) 45%, transparent);
+}
+.v2 .checklist-preview strong {
+    display: block;
+    color: var(--ink);
+    font-family: var(--font-heading);
+    font-weight: 500;
+    font-size: var(--scale-3);
+    margin-bottom: 0.35rem;
+}
+.v2 .checklist-preview p {
+    margin-bottom: 0;
+    font-size: var(--scale-2);
+    line-height: 1.65;
+}
+.v2 .lead-magnet-form-card {
+    align-self: start;
+    position: sticky;
+    top: 120px;
+    background: var(--linen);
+    border: 1px solid color-mix(in srgb, var(--brass) 48%, transparent);
+    border-radius: var(--radius-1);
+    padding: var(--space-4);
+    box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 45%, transparent);
+}
+.v2 .lead-magnet-form-card h3 {
+    font-size: var(--scale-4);
+    margin-top: 0;
+    margin-bottom: var(--space-2);
+}
+.v2 .lead-magnet-form-card > p {
+    font-size: var(--scale-2);
+    margin-bottom: var(--space-4);
+}
+.v2 .lead-magnet-form-card .form-group label {
+    color: var(--ink);
+    font-family: var(--font-body-v2);
+    font-size: var(--scale-2);
+    font-weight: 500;
+}
+.v2 .lead-magnet-form-card .form-group input,
+.v2 .lead-magnet-form-card .form-group select {
+    background: var(--bone);
+    color: var(--ink);
+    border: 1px solid color-mix(in srgb, var(--ink) 18%, transparent);
+    border-radius: var(--radius-1);
+    font-family: var(--font-body-v2);
+    backdrop-filter: none;
+}
+.v2 .lead-magnet-form-card .form-group input::placeholder {
+    color: color-mix(in srgb, var(--slate) 72%, var(--linen));
+}
+.v2 .lead-magnet-form-card .form-group input:focus,
+.v2 .lead-magnet-form-card .form-group select:focus {
+    outline: 2px solid var(--ember);
+    outline-offset: 2px;
+    border-color: var(--ember);
+    background: var(--bone);
+    box-shadow: none;
+}
+.v2 .lead-magnet-form-card .form-group select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23121212' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+}
+.v2 .lead-magnet-form-card .form-group select option {
+    background: var(--bone);
+    color: var(--ink);
+}
+.v2 .lead-magnet-form-card .btn-download {
+    width: 100%;
+    background: var(--ink);
+    color: var(--bone);
+    font-family: var(--font-mono);
+    font-size: var(--scale-2);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    border: none;
+    border-radius: var(--radius-1);
+    box-shadow: none;
+    transform: none;
+}
+.v2 .lead-magnet-form-card .btn-download:hover,
+.v2 .lead-magnet-form-card .btn-download:focus-visible {
+    background: var(--ember);
+    color: var(--bone);
+    transform: none;
+    box-shadow: none;
+}
+.v2 .lead-magnet-form-card .btn-download:focus-visible {
+    outline: 2px solid var(--ember);
+    outline-offset: 3px;
+}
+.v2 .lead-magnet-privacy {
+    color: var(--slate);
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+}
+.v2 #form-success h3 {
+    color: var(--ink);
+    text-align: left;
+}
+.v2 #form-success p,
+.v2 #form-success a {
+    text-align: left;
+}
+.v2 #form-success a {
+    color: var(--ember);
+}
+@media (max-width: 900px) {
+    .v2 .lead-magnet-form-card {
+        position: static;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .v2 .lead-magnet-form-card .btn-download {
+        transition: none;
+    }
+}
+
+/* ==========================================================================
+   MOBILE CHROME (2026-08) — Quiet Room drawer, overlays, overflow
+   Beats legacy stable-header.css navy/white !important hamburger + sheet.
+   Phone bar: 375 / 390. Breakpoint matches existing nav collapse at 992px.
+   ========================================================================== */
+
+html:has(body.v2) {
+    overflow-x: clip;
+}
+
+body.v2,
+.v2 svg,
+.v2 table {
+    max-width: 100%;
+}
+
+body.v2 img,
+body.v2 video,
+body.v2 iframe {
+    max-width: 100%;
+}
+
+.v2 h1,
+.v2 h2,
+.v2 h3,
+.v2 h4,
+.v2 h5,
+.v2 h6,
+.v2 .section-title {
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+    -webkit-hyphens: none;
+}
+
+.v2 p,
+.v2 li,
+.v2 figcaption,
+.v2 td,
+.v2 th {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    min-width: 0;
+}
+
+.v2 ul,
+.v2 ol {
+    max-width: 100%;
+    min-width: 0;
+    overflow: visible;
+}
+
+.v2 .work-preview__grid > *,
+.v2 .case-gallery__grid > *,
+.v2 .service-grid-v2 > *,
+.v2 .article-related__grid > *,
+.v2 .insights-grid-v2 > *,
+.v2 .case-body__grid > * {
+    min-width: 0;
+}
+
+.v2 .mobile-nav-toggle,
+.v2 .nav-cta,
+.v2 .nav-links a,
+.v2 .eq-lightbox__close,
+.v2 .eq-lightbox__prev,
+.v2 .eq-lightbox__next,
+.v2 .lightbox-close,
+.v2 .lightbox-nav,
+.v2 .mobile-action-bar .btn-action,
+.v2 .mobile-action-bar .btn-dismiss {
+    touch-action: manipulation;
+    cursor: pointer;
+}
+
+.eq-lightbox {
+    z-index: 100010 !important;
+}
+.eq-lightbox__close,
+.eq-lightbox__prev,
+.eq-lightbox__next {
+    z-index: 100011 !important;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.eq-lightbox__close:focus-visible,
+.eq-lightbox__prev:focus-visible,
+.eq-lightbox__next:focus-visible {
+    outline: 2px solid var(--ember);
+    outline-offset: 3px;
+    color: var(--bone);
+}
+
+@media (max-width: 992px) {
+    body.v2 {
+        padding-top: calc(55px + env(safe-area-inset-top, 0px));
+    }
+
+    body.v2 .header-stable {
+        height: calc(55px + env(safe-area-inset-top, 0px));
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-left: max(15px, env(safe-area-inset-left, 0px));
+        padding-right: max(15px, env(safe-area-inset-right, 0px));
+        background: var(--bone) !important;
+        overflow: visible;
+    }
+
+    body.v2 .logo-text-mobile {
+        display: none !important;
+    }
+
+    /* Ink hamburger on bone — beats #FFFFFF !important */
+    body.v2 .mobile-nav-toggle {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 44px !important;
+        height: 44px !important;
+        min-width: 44px;
+        min-height: 44px;
+        z-index: 100002 !important;
+        background: none !important;
+        border: none !important;
+        color: var(--ink);
+    }
+    body.v2 .hamburger,
+    body.v2 .hamburger::before,
+    body.v2 .hamburger::after {
+        background-color: var(--ink) !important;
+        background: var(--ink) !important;
+    }
+    body.v2.nav-open .hamburger,
+    body.v2 .mobile-nav-toggle[aria-expanded="true"] .hamburger {
+        background-color: transparent !important;
+        background: transparent !important;
+    }
+    body.v2.nav-open .hamburger::before,
+    body.v2.nav-open .hamburger::after,
+    body.v2 .mobile-nav-toggle[aria-expanded="true"] .hamburger::before,
+    body.v2 .mobile-nav-toggle[aria-expanded="true"] .hamburger::after {
+        background-color: var(--ink) !important;
+        background: var(--ink) !important;
+    }
+    body.v2 .mobile-nav-toggle:focus-visible {
+        outline: 2px solid var(--ember);
+        outline-offset: 3px;
+    }
+
+    /* Sheet is always in the tree so it can slide, not snap */
+    body.v2 .header-center {
+        display: flex !important;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: auto;
+        width: min(75vw, 400px);
+        height: 100dvh;
+        max-height: 100dvh;
+        margin: 0;
+        padding: calc(4.75rem + env(safe-area-inset-top, 0px)) 1.5rem calc(6.75rem + env(safe-area-inset-bottom, 0px));
+        background: var(--bone) !important;
+        border-left: 1px solid var(--brass);
+        box-shadow: -16px 0 40px rgba(18, 18, 18, 0.12);
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        align-items: stretch;
+        justify-content: flex-start;
+        overflow-x: hidden;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        z-index: 100001 !important;
+        transform: translateX(100%);
+        visibility: hidden;
+        pointer-events: none;
+        transition: transform 350ms var(--ease, cubic-bezier(0.2, 0.8, 0.2, 1)),
+                    visibility 350ms var(--ease, cubic-bezier(0.2, 0.8, 0.2, 1));
+    }
+    body.v2.nav-open .header-center {
+        transform: translateX(0);
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    body.v2 .nav-links,
+    body.v2.nav-open .nav-links {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    body.v2 .header-center a,
+    body.v2 .nav-links a,
+    body.v2.nav-open .header-center a,
+    body.v2.nav-open .nav-links a {
+        display: flex !important;
+        align-items: center;
+        width: 100%;
+        min-height: 48px;
+        padding: 0.85rem 0 !important;
+        color: var(--ink) !important;
+        -webkit-text-fill-color: var(--ink) !important;
+        background: transparent !important;
+        border-radius: 0 !important;
+        border-bottom: 1px solid color-mix(in srgb, var(--brass) 42%, transparent);
+        text-align: left;
+        font-family: var(--font-body-v2);
+        font-size: var(--scale-2);
+        letter-spacing: 0.04em;
+        text-decoration: none;
+        white-space: nowrap;
+    }
+    body.v2.nav-open .header-center a::after,
+    body.v2.nav-open .nav-links a::after,
+    body.v2.nav-open .nav-links a::before {
+        display: none !important;
+        content: none !important;
+        background: none !important;
+        transform: none !important;
+    }
+    body.v2.nav-open .header-center a:hover,
+    body.v2.nav-open .nav-links a:hover,
+    body.v2.nav-open .header-center a:focus-visible,
+    body.v2.nav-open .nav-links a:focus-visible {
+        color: var(--ember) !important;
+        -webkit-text-fill-color: var(--ember) !important;
+        background: transparent !important;
+        outline: none;
+    }
+    body.v2.nav-open .nav-links a:focus-visible {
+        box-shadow: inset 0 -2px 0 var(--ember);
+    }
+    body.v2.nav-open .nav-links a.active {
+        color: var(--ink) !important;
+        font-weight: 600;
+    }
+
+    /* Hide header CTA until the sheet is open */
+    body.v2 .nav-cta {
+        display: none !important;
+        animation: none;
+    }
+    body.v2.nav-open .nav-cta {
+        display: flex !important;
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        left: auto;
+        width: min(75vw, 400px);
+        z-index: 100003 !important;
+        padding: 1.15rem 1.5rem max(1.15rem, env(safe-area-inset-bottom, 0px));
+        background: var(--ink);
+        color: var(--bone) !important;
+        -webkit-text-fill-color: var(--bone) !important;
+        border: none;
+        border-top: 1px solid var(--brass);
+        border-bottom: none;
+        border-radius: 0;
+        justify-content: center;
+        align-items: center;
+        min-height: 48px;
+        font-family: var(--font-mono);
+        font-size: var(--scale-1);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        text-decoration: none;
+        white-space: nowrap;
+        animation: none;
+    }
+    body.v2.nav-open .nav-cta:hover,
+    body.v2.nav-open .nav-cta:focus-visible {
+        color: var(--bone) !important;
+        -webkit-text-fill-color: var(--bone) !important;
+        background: var(--slate);
+        outline: 2px solid var(--ember);
+        outline-offset: -2px;
+    }
+
+    /* Full-viewport scrim; sheet sits above */
+    body.v2.nav-open::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        min-height: 100dvh;
+        background: rgba(18, 18, 18, 0.46);
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        z-index: 100000 !important;
+        pointer-events: auto;
+        animation: none;
+    }
+
+    body.v2.nav-open .mobile-action-bar {
+        display: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    body.v2 .container {
+        padding-left: max(1rem, env(safe-area-inset-left, 0px));
+        padding-right: max(1rem, env(safe-area-inset-right, 0px));
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    body.v2 .section-title,
+    body.v2 h2.section-title {
+        font-size: clamp(1.85rem, 7.2vw, 2.35rem);
+        max-width: 12em;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
+        overflow-wrap: normal;
+        word-break: normal;
+        hyphens: none;
+        text-wrap: pretty;
+    }
+
+    body.v2 .work-preview__meta,
+    body.v2 .trust-strip__nowrap,
+    body.v2.home-page .hero__eyebrow,
+    body.v2 .article-pagination__all {
+        white-space: normal;
+        overflow-wrap: break-word;
+    }
+
+    body.v2 .main-footer,
+    body.v2 footer {
+        padding-bottom: calc(var(--space-5, 4rem) + 5.75rem + env(safe-area-inset-bottom, 0px));
+    }
+
+    body.v2 .mobile-action-bar {
+        z-index: 998;
+        padding-bottom: max(0.75rem, env(safe-area-inset-bottom, 0px));
+    }
+    body.v2 .mobile-action-bar .btn-dismiss {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        min-height: 44px;
+        top: -3.15rem;
+        right: 0.5rem;
+    }
+
+    body.v2 .eq-lightbox__close {
+        top: max(0.75rem, env(safe-area-inset-top, 0px));
+        right: max(0.75rem, env(safe-area-inset-right, 0px));
+    }
+    body.v2 .eq-lightbox__prev {
+        left: max(0.35rem, env(safe-area-inset-left, 0px));
+    }
+    body.v2 .eq-lightbox__next {
+        right: max(0.35rem, env(safe-area-inset-right, 0px));
+    }
+    body.v2 .eq-lightbox__img-wrap {
+        max-width: min(92vw, 1120px);
+        max-height: 68vh;
+        padding: 0 2.75rem;
+    }
+    body.v2 .eq-lightbox__img {
+        max-height: 68vh;
+    }
+    body.v2 .eq-lightbox__caption {
+        max-width: 90vw;
+        padding: 0 1rem;
+    }
+
+    body.v2 .lightbox-close,
+    body.v2 .lightbox-nav {
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    body.v2 .run-of-show__row {
+        flex-wrap: wrap;
+        gap: 0.35rem 0.75rem;
+    }
+    body.v2 .run-of-show__event {
+        text-align: left;
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
+
+    body.v2 table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    body.v2 .geo-nearby {
+        max-width: 100%;
+    }
+    body.v2 .geo-nearby-tag {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        white-space: normal;
+    }
+
+    body.v2.contact-page .project-planner-section {
+        padding: 3.5rem 0 4.5rem;
+        overflow-x: clip;
+    }
+    body.v2.contact-page .planner-form-container {
+        padding: 1rem;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    body.v2.contact-page .planner-promise-strip {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: stretch;
+        gap: 1rem;
+        padding: 1.15rem 1rem;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    body.v2.contact-page .planner-promise-stat {
+        flex: 1 1 auto;
+        width: 100%;
+        min-width: 0;
+        padding: 0;
+    }
+    body.v2.contact-page .planner-promise-divider {
+        display: none;
+    }
+    body.v2.contact-page .progress-steps {
+        flex-wrap: wrap;
+        gap: 0.4rem 0.85rem;
+        font-size: 0.7rem;
+    }
+    body.v2.contact-page .option-grid,
+    body.v2.contact-page .checkbox-grid,
+    body.v2.contact-page .form-row {
+        grid-template-columns: minmax(0, 1fr);
+        max-width: 100%;
+    }
+    body.v2.contact-page .option-card,
+    body.v2.contact-page .checkbox-card,
+    body.v2.contact-page .option-content,
+    body.v2.contact-page .checkbox-content {
+        min-width: 0;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    body.v2.contact-page .option-content span,
+    body.v2.contact-page .checkbox-content span {
+        overflow-wrap: anywhere;
+        white-space: normal;
+    }
+}
+
+@media (max-width: 540px) {
+    .v2 .article-related__grid,
+    .v2 .service-grid-v2,
+    .v2 .insights-grid-v2 {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .v2 .case-gallery__grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 992px) and (min-width: 541px) {
+    .v2 .article-related__grid,
+    .v2 .insights-grid-v2,
+    .v2 .service-grid-v2,
+    .v2 .case-gallery__grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.v2 .header-center {
+        transition: none;
+    }
+    body.v2.nav-open .header-center {
+        transition: none;
+    }
+    body.v2 .hamburger,
+    body.v2 .hamburger::before,
+    body.v2 .hamburger::after {
+        transition: none;
+    }
+}
+

@@ -33,8 +33,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="stable-header.css?v=28">
-    <link href="design-system-v2.css?v=28" rel="stylesheet">
+    <link rel="stylesheet" href="stable-header.css?v=36">
+    <link href="design-system-v2.css?v=36" rel="stylesheet">
     
     <!-- Breadcrumb Schema -->
     <script type="application/ld+json">
@@ -124,38 +124,81 @@
             </div>
         </section>
 
-        <section class="content-section-v2">
+        <section class="content-section-v2 content-section-v2--linen about-process" aria-labelledby="about-process-heading">
             <div class="content-section-v2__inner">
-                <h2>The Equinox Process</h2>
-                <p class="content-section-v2__prose" style="max-width:var(--measure);margin-bottom:var(--space-5);">Six steps from the first email to load-out. No mystery about what happens next, what we need from you, or how long each part takes.</p>
-                <div class="service-grid-v2 about-process-grid" style="grid-template-columns:repeat(2,1fr);">
-                    <div class="service-card-v2">
-                        <div class="service-card-v2__title">1 — You reach out</div>
-                        <div class="service-card-v2__body">Tell us the type of event, when, where, and roughly how many guests. If you don't know everything yet, say so — that's useful too.</div>
-                    </div>
-                    <div class="service-card-v2">
-                        <div class="service-card-v2__title">2 — Discovery call</div>
-                        <div class="service-card-v2__body">A short call about the event you're producing and the audience you're serving. No sales pressure — sometimes we recommend you do it in-house.</div>
-                    </div>
-                    <div class="service-card-v2">
-                        <div class="service-card-v2__title">3 — Site walk-through</div>
-                        <div class="service-card-v2__body">For venues we haven't worked, we visit: power, sight-lines, cable paths. This is the step most vendors skip. We don't.</div>
-                    </div>
-                    <div class="service-card-v2">
-                        <div class="service-card-v2__title">4 — Custom proposal</div>
-                        <div class="service-card-v2__body">A written proposal sized to your event — every line of gear, crew, hours, and cost. Ways to spend less or more, named clearly.</div>
-                    </div>
-                    <div class="service-card-v2">
-                        <div class="service-card-v2__title">5 — Pre-production</div>
-                        <div class="service-card-v2__body">Run-of-show, vendor coordination, shop testing, and backup gear for anything critical. Quiet on your end — we're working.</div>
-                    </div>
-                    <div class="service-card-v2">
-                        <div class="service-card-v2__title">6 — Show day</div>
-                        <div class="service-card-v2__body">Early arrival, quiet setup, every cue rehearsed before guests. When something shifts, we solve it before you notice.</div>
-                    </div>
-                </div>
-                <p style="margin-top:var(--space-4);font-family:var(--font-body-v2);font-size:var(--scale-3);">
-                    <a href='process.html' style='color:var(--ember);text-decoration:none;font-weight:500;'>How each step works — timings, what we need from you &rarr;</a>
+                <p class="about-process__eyebrow mono">How we work</p>
+                <h2 id="about-process-heading">The Equinox Process</h2>
+                <p class="content-section-v2__prose about-process__lede">Six steps from the first email to load-out. No mystery about what happens next, what we need from you, or how long each part takes.</p>
+                <ol class="about-process__grid">
+                    <li class="about-process__step">
+                        <div class="about-process__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <rect x="3.5" y="6" width="17" height="12" rx="2" stroke="currentColor" stroke-width="1.75"/>
+                                <path d="M4.25 7.5 12 13.25 19.75 7.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="about-process__title"><span class="about-process__num">1</span> You reach out</h3>
+                        <p class="about-process__body">Tell us the type of event, when, where, and roughly how many guests. If you don't know everything yet, say so — that's useful too.</p>
+                    </li>
+                    <li class="about-process__step">
+                        <div class="about-process__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M7 12.5V11a5 5 0 0 1 10 0v1.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+                                <rect x="4.75" y="11.5" width="3.5" height="6" rx="1.75" fill="currentColor"/>
+                                <rect x="15.75" y="11.5" width="3.5" height="6" rx="1.75" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3 class="about-process__title"><span class="about-process__num">2</span> Discovery call</h3>
+                        <p class="about-process__body">A short call about the event you're producing and the audience you're serving. No sales pressure — sometimes we recommend you do it in-house.</p>
+                    </li>
+                    <li class="about-process__step">
+                        <div class="about-process__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M12 21s6.5-5.2 6.5-10.2A6.5 6.5 0 0 0 5.5 10.8C5.5 15.8 12 21 12 21Z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+                                <circle cx="12" cy="10.5" r="2.25" fill="var(--ember)"/>
+                            </svg>
+                        </div>
+                        <h3 class="about-process__title"><span class="about-process__num">3</span> Site walk-through</h3>
+                        <p class="about-process__body">For venues we haven't worked, we visit: power, sight-lines, cable paths. This is the step most vendors skip. We don't.</p>
+                    </li>
+                    <li class="about-process__step">
+                        <div class="about-process__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M7 3.5h7.5L19 8v12.5a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+                                <path d="M14.5 3.5V8H19" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+                                <path d="M9 12.5h6M9 16h4" stroke="var(--ember)" stroke-width="1.75" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="about-process__title"><span class="about-process__num">4</span> Custom proposal</h3>
+                        <p class="about-process__body">A written proposal sized to your event — every line of gear, crew, hours, and cost. Ways to spend less or more, named clearly.</p>
+                    </li>
+                    <li class="about-process__step">
+                        <div class="about-process__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M7 5v14M12 5v14M17 5v14" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+                                <rect x="5.25" y="10" width="3.5" height="2.75" rx="0.75" fill="var(--ember)"/>
+                                <rect x="10.25" y="7.5" width="3.5" height="2.75" rx="0.75" fill="var(--ember)"/>
+                                <rect x="15.25" y="12.5" width="3.5" height="2.75" rx="0.75" fill="var(--ember)"/>
+                            </svg>
+                        </div>
+                        <h3 class="about-process__title"><span class="about-process__num">5</span> Pre-production</h3>
+                        <p class="about-process__body">Run-of-show, vendor coordination, shop testing, and backup gear for anything critical. Quiet on your end — we're working.</p>
+                    </li>
+                    <li class="about-process__step">
+                        <div class="about-process__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M4 19h16" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+                                <path d="M8.5 19 11 8h2l2.5 11" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+                                <path d="M11 8h2l.9-2.2a1 1 0 0 0-.9-1.3h-1a1 1 0 0 0-.9 1.3L11 8Z" fill="var(--ember)"/>
+                                <circle cx="12" cy="14.5" r="1.35" fill="var(--ember)"/>
+                            </svg>
+                        </div>
+                        <h3 class="about-process__title"><span class="about-process__num">6</span> Show day</h3>
+                        <p class="about-process__body">Early arrival, quiet setup, every cue rehearsed before guests. When something shifts, we solve it before you notice.</p>
+                    </li>
+                </ol>
+                <p class="about-process__more">
+                    <a class="about-process__link" href="process.html">How each step works — timings, what we need from you <span aria-hidden="true">&rarr;</span></a>
                 </p>
             </div>
         </section>

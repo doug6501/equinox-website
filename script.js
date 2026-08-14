@@ -180,38 +180,128 @@ function initNewTestimonialSlider() {
 // ========================================
 function initMobileMenu() {
     const mobileToggle = document.querySelector('.mobile-nav-toggle');
-    
+    const nav = document.querySelector('.header-center');
+    const navCta = document.querySelector('.nav-cta');
+
     if (!mobileToggle) {
         console.error('CRITICAL: Mobile nav toggle button not found in DOM');
         return;
     }
+    if (mobileToggle.dataset.eqNavBound === '1') return;
+    mobileToggle.dataset.eqNavBound = '1';
 
-    
+    if (nav && !nav.id) nav.id = 'site-nav';
+    mobileToggle.setAttribute('aria-expanded', 'false');
+    mobileToggle.setAttribute('aria-controls', nav ? nav.id : 'site-nav');
+
+    function isMobileNav() {
+        return window.matchMedia('(max-width: 992px)').matches;
+    }
+
+    function syncInert() {
+        if (!nav) return;
+        if (isMobileNav() && !isOpen()) nav.setAttribute('inert', '');
+        else nav.removeAttribute('inert');
+    }
+
+    function isOpen() {
+        return document.body.classList.contains('nav-open');
+    }
+
+    syncInert();
+    window.addEventListener('resize', () => {
+        if (!isMobileNav() && isOpen()) closeMenu();
+        else syncInert();
+    });
+
+    function focusables() {
+        const nodes = [];
+        if (nav) {
+            nav.querySelectorAll('.nav-links a[href]').forEach((el) => nodes.push(el));
+        }
+        if (navCta && navCta.offsetParent !== null) nodes.push(navCta);
+        nodes.push(mobileToggle);
+        return nodes.filter((el) => !el.hasAttribute('disabled'));
+    }
+
+    function openMenu() {
+        document.body.classList.add('nav-open');
+        mobileToggle.setAttribute('aria-expanded', 'true');
+        if (nav) {
+            nav.removeAttribute('inert');
+            nav.setAttribute('aria-modal', 'true');
+        }
+        eqLockBodyScroll();
+        const first = nav && nav.querySelector('.nav-links a[href]');
+        window.requestAnimationFrame(() => {
+            try {
+                (first || mobileToggle).focus({ preventScroll: true });
+            } catch (err) {
+                (first || mobileToggle).focus();
+            }
+        });
+    }
+
+    function closeMenu() {
+        if (!isOpen()) return;
+        document.body.classList.remove('nav-open');
+        mobileToggle.setAttribute('aria-expanded', 'false');
+        if (nav) nav.removeAttribute('aria-modal');
+        syncInert();
+        eqReleaseBodyScroll();
+        if (!isMobileNav()) return;
+        try {
+            mobileToggle.focus({ preventScroll: true });
+        } catch (err) {
+            mobileToggle.focus();
+        }
+    }
+
     mobileToggle.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
-        document.body.classList.toggle('nav-open');
-        const isOpen = document.body.classList.contains('nav-open');
-        mobileToggle.setAttribute('aria-expanded', isOpen);
+        if (isOpen()) closeMenu();
+        else openMenu();
     });
 
-    // Close mobile nav when clicking backdrop
     document.addEventListener('click', (e) => {
-        if (document.body.classList.contains('nav-open') && 
-            !e.target.closest('.header-center') && 
-            !e.target.closest('.mobile-nav-toggle')) {
-            document.body.classList.remove('nav-open');
-            mobileToggle.setAttribute('aria-expanded', 'false');
+        if (!isOpen()) return;
+        if (e.target.closest('.header-center') || e.target.closest('.mobile-nav-toggle') || e.target.closest('.nav-cta')) {
+            return;
         }
+        closeMenu();
     });
 
-    // Close mobile nav when a link is clicked
-    const navLinks = document.querySelectorAll('.header-center .nav-links a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            document.body.classList.remove('nav-open');
-            mobileToggle.setAttribute('aria-expanded', 'false');
+    if (nav) {
+        nav.querySelectorAll('.nav-links a').forEach((link) => {
+            link.addEventListener('click', () => closeMenu());
         });
+    }
+    if (navCta) {
+        navCta.addEventListener('click', () => {
+            if (window.matchMedia('(max-width: 992px)').matches) closeMenu();
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (!isOpen()) return;
+        if (e.key === 'Escape') {
+            e.preventDefault();
+            closeMenu();
+            return;
+        }
+        if (e.key !== 'Tab') return;
+        const nodes = focusables();
+        if (!nodes.length) return;
+        const first = nodes[0];
+        const last = nodes[nodes.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+        }
     });
 }
 
@@ -280,6 +370,9 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error("Error loading site components:", error);
             // Even if it fails, show the page so it's not blank
             document.body.classList.add('is-loaded');
+            initMobileMenu();
+            initMobileActionBarDelayed();
+            enforceCtaLexicon();
         });
 
     // ========================================
@@ -444,42 +537,42 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const quotes = [
             {
-                text: '\u201cWhether it\u2019s the Lincoln Symposium or a wedding reception, Equinox brings a hospitality mindset that puts everyone at ease.\u201d',
+                text: '\u201cWhether it\u2019s a symposium or a wedding reception, they come in prepared and work well with our team. That puts everyone at ease.\u201d',
                 name: 'President \u2014 Hildene, The Lincoln Family Home',
                 location: 'Manchester, Vermont'
             },
             {
-                text: '\u201cEquinox provided exceptional audio and lighting for our wedding. Their team was professional, unobtrusive, and delivered a beautiful result that perfectly honored the venue.\u201d',
+                text: '\u201cThe lighting looked beautiful in Lincoln Hall, and the team was easy to work with. We were really happy with how the day felt.\u201d',
                 name: 'Wedding Client \u2014 Lincoln Hall at Hildene',
                 location: 'Manchester, Vermont'
             },
             {
-                text: '\u201cEvery year we bring Equinox back for FlyFest. They know how to set up at the Common, keep things running across the festival, and disappear when the programming starts. That\u2019s what we need.\u201d',
+                text: '\u201cThey\u2019ve done the festival with us a few times now. They know the Common, and the stages run smoothly. We trust them with it.\u201d',
                 name: 'Festival Organizer \u2014 Arlington Common',
                 location: 'Arlington, Vermont'
             },
             {
-                text: '\u201cThe annual membership meeting is the chamber\u2019s biggest event. Equinox ran it cleanly from the first presentation slide to the final award. We didn\u2019t have to think about AV once.\u201d',
+                text: '\u201cPresentations were easy to see and hear, and the evening felt well run. We were glad they were there.\u201d',
                 name: 'Executive Director \u2014 SVCC',
                 location: 'Manchester, Vermont'
             },
             {
-                text: '\u201cThe projection and sound for the Vanish screening felt like a real theater experience. Guests kept asking who handled production. We were proud to say it was a local team.\u201d',
+                text: '\u201cIt felt like a proper screening. Picture and sound were strong, and they were careful with the gallery.\u201d',
                 name: 'Events Director \u2014 Bennington Museum',
                 location: 'Bennington, Vermont'
             },
             {
-                text: '\u201cOur gala is the kind of event where a missed cue costs real money. Equinox has never missed one. Three years running.\u201d',
+                text: '\u201cOur gala has a tight program. They\u2019ve done it enough times that we can settle in and run the evening.\u201d',
                 name: 'Development Director \u2014 Bennington Museum',
                 location: 'Bennington, Vermont'
             },
             {
-                text: '\u201cWe had two venues, two days, and one team to hold it all together. Equinox was the constant. The lighting, the sound, the timing \u2014 it all matched perfectly.\u201d',
+                text: '\u201cTwo venues, two days, and it still felt like one weekend. The lighting and the toast mics were consistent, and they were a steady presence the whole time.\u201d',
                 name: 'Wedding Client \u2014 Hill Farm and Hildene',
                 location: 'Manchester, Vermont'
             },
             {
-                text: '\u201cThe tribute video for the volunteers played beautifully. Clear, warm sound filling every corner of Lincoln Hall exactly as we hoped. We\u2019ve already booked them again.\u201d',
+                text: '\u201cThe tribute video sounded warm and clear in Lincoln Hall. That moment landed the way we hoped.\u201d',
                 name: 'Programs Director \u2014 Hildene, The Lincoln Family Home',
                 location: 'Manchester, Vermont'
             }
@@ -1395,7 +1488,7 @@ function initLightbox() {
         <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
         <button class="lightbox-nav lightbox-prev" aria-label="Previous image">‹</button>
         <div class="lightbox-content">
-            <img class="lightbox-image" src="" alt="">
+            
         </div>
         <button class="lightbox-nav lightbox-next" aria-label="Next image">›</button>
         <div class="lightbox-counter"></div>
@@ -1403,7 +1496,10 @@ function initLightbox() {
     document.body.appendChild(lightbox);
 
     // Get elements
-    const lightboxImg = lightbox.querySelector('.lightbox-image');
+    const lightboxImg = document.createElement('img');
+    lightboxImg.className = 'lightbox-image';
+    lightboxImg.alt = '';
+    lightbox.querySelector('.lightbox-content').appendChild(lightboxImg);
     const closeBtn = lightbox.querySelector('.lightbox-close');
     const prevBtn = lightbox.querySelector('.lightbox-prev');
     const nextBtn = lightbox.querySelector('.lightbox-next');
@@ -2176,13 +2272,16 @@ function initEqCaseLightbox() {
     lb.innerHTML =
         '<button class="eq-lightbox__close" aria-label="Close">\u2715</button>' +
         '<button class="eq-lightbox__prev" aria-label="Previous">\u2190</button>' +
-        '<div class="eq-lightbox__img-wrap"><img class="eq-lightbox__img" src="" alt=""></div>' +
+        '<div class="eq-lightbox__img-wrap"></div>' +
         '<div class="eq-lightbox__caption"></div>' +
         '<div class="eq-lightbox__counter"></div>' +
         '<button class="eq-lightbox__next" aria-label="Next">\u2192</button>';
     document.body.appendChild(lb);
 
-    var lbImg     = lb.querySelector('.eq-lightbox__img');
+    var lbImg = document.createElement('img');
+    lbImg.className = 'eq-lightbox__img';
+    lbImg.alt = '';
+    lb.querySelector('.eq-lightbox__img-wrap').appendChild(lbImg);
     var lbCaption = lb.querySelector('.eq-lightbox__caption');
     var lbCounter = lb.querySelector('.eq-lightbox__counter');
     var lbClose   = lb.querySelector('.eq-lightbox__close');
@@ -2190,6 +2289,7 @@ function initEqCaseLightbox() {
     var lbNext    = lb.querySelector('.eq-lightbox__next');
     var images    = [];
     var idx       = 0;
+    var lastFocus = null;
 
     function show(i) {
         idx = (i + images.length) % images.length;
@@ -2205,6 +2305,14 @@ function initEqCaseLightbox() {
         lb.classList.remove('is-open');
         lb.setAttribute('aria-hidden', 'true');
         eqReleaseBodyScroll();
+        if (lastFocus && typeof lastFocus.focus === 'function') {
+            try {
+                lastFocus.focus({ preventScroll: true });
+            } catch (e) {
+                lastFocus.focus();
+            }
+        }
+        lastFocus = null;
     }
 
     function open(imgs, startIdx) {
@@ -2212,6 +2320,7 @@ function initEqCaseLightbox() {
             document.body.appendChild(lb);
         }
         images = imgs;
+        lastFocus = document.activeElement;
         eqLockBodyScroll();
         lb.classList.add('is-open');
         lb.removeAttribute('aria-hidden');
@@ -2238,9 +2347,28 @@ function initEqCaseLightbox() {
 
     document.addEventListener('keydown', function (e) {
         if (!lb.classList.contains('is-open')) return;
-        if (e.key === 'Escape')      close();
+        if (e.key === 'Escape') {
+            e.preventDefault();
+            close();
+            return;
+        }
         if (e.key === 'ArrowLeft')   show(idx - 1);
         if (e.key === 'ArrowRight')  show(idx + 1);
+        if (e.key === 'Tab') {
+            var trap = [lbClose, lbPrev, lbNext].filter(function (btn) {
+                return btn && btn.style.display !== 'none';
+            });
+            if (!trap.length) return;
+            var first = trap[0];
+            var last = trap[trap.length - 1];
+            if (e.shiftKey && document.activeElement === first) {
+                e.preventDefault();
+                last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                e.preventDefault();
+                first.focus();
+            }
+        }
     });
 
     arr.forEach(function (img, i) {
