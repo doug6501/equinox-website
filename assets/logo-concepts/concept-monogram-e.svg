@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" role="img" aria-label="Concept: E monogram with signal">
+  <rect width="320" height="120" fill="#0A0A1A"/>
+  <defs>
+    <linearGradient id="eGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B35"/>
+      <stop offset="100%" style="stop-color:#4169E1"/>
+    </linearGradient>
+  </defs>
+  <!-- E formed by bars + rounded container -->
+  <rect x="40" y="24" width="72" height="72" rx="12" fill="none" stroke="url(#eGrad)" stroke-width="3"/>
+  <rect x="52" y="38" width="48" height="6" rx="2" fill="#FFD23F"/>
+  <rect x="52" y="57" width="36" height="6" rx="2" fill="#FF6B35"/>
+  <rect x="52" y="76" width="48" height="6" rx="2" fill="#f5f5f5" opacity="0.9"/>
+  <!-- Signal rings -->
+  <path d="M 140 60 Q 170 45 200 60" fill="none" stroke="#4169E1" stroke-width="2" opacity="0.7"/>
+  <path d="M 148 60 Q 175 38 210 60" fill="none" stroke="#4169E1" stroke-width="1.5" opacity="0.4"/>
+  <text x="230" y="58" fill="#f5f5f5" font-family="system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="0.06em">EQUINOX</text>
+  <text x="230" y="78" fill="#FF6B35" font-family="system-ui, sans-serif" font-size="8" font-weight="600" letter-spacing="0.18em">AUDIO VISUALS</text>
+</svg>
